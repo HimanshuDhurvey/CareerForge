@@ -1,122 +1,97 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import LandingPage from './features/landing/LandingPage';
+import Login from './features/auth/pages/Login';
+import Register from './features/auth/pages/Register';
+import Dashboard from './features/dashboard/pages/Dashboard';
+import Profile from './features/profile/pages/Profile';
+import Sidebar from './features/dashboard/components/Sidebar';
+import TopNavbar from './features/dashboard/components/TopNavbar';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+// Minimal placeholder page to simulate navigation routes from CTAs
+function PlaceholderPage({ title }) {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+    <div className="min-h-screen bg-white dark:bg-black flex flex-col justify-center items-center p-6 text-center transition-colors">
+      <div className="max-w-md w-full border border-black dark:border-white p-8 space-y-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] bg-white dark:bg-black transition-all">
+        <h1 className="text-3xl font-bold tracking-tight text-black dark:text-white">{title}</h1>
+        <p className="text-gray-500 dark:text-gray-400 text-sm">
+          This is a simulated page for the AI Interview Preparation Platform. The frontend landing page has been completed successfully.
+        </p>
+        <Link
+          to="/"
+          className="inline-block bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-100 px-6 py-2.5 text-sm font-medium transition-colors"
         >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          Back to Home
+        </Link>
+      </div>
+    </div>
+  );
 }
 
-export default App
+// Premium dashboard placeholder page wrapping Sidebar and TopNavbar layouts
+function DashboardPlaceholderPage({ title }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0b0f19] flex transition-colors theme-transition">
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <div className="flex-grow flex flex-col min-w-0">
+        <TopNavbar onMenuToggle={() => setSidebarOpen(true)} />
+        <main className="flex-grow p-4 sm:p-6 space-y-6 overflow-y-auto max-w-7xl mx-auto w-full flex items-center justify-center">
+          <div className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-8 max-w-md w-full shadow-sm text-center">
+            <h2 className="text-sm font-extrabold text-[#111111] dark:text-white mb-2 uppercase tracking-wide">{title}</h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+              This module is simulated in the frontend. Full AI features and analytics integrations will be implemented in the upcoming sessions.
+            </p>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Toaster 
+        position="top-right" 
+        toastOptions={{
+          className: 'dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700',
+          duration: 3000,
+        }} 
+      />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
+        
+        {/* Dynamic Sidebar navigation active paths */}
+        <Route path="/ai-interviews" element={<DashboardPlaceholderPage title="AI Mock Interviews" />} />
+        <Route path="/coding-practice" element={<DashboardPlaceholderPage title="Coding Practice Room" />} />
+        <Route path="/resume-analyzer" element={<DashboardPlaceholderPage title="AI Resume Analyzer" />} />
+        <Route path="/career-roadmap" element={<DashboardPlaceholderPage title="AI Career Roadmap" />} />
+        <Route path="/ai-mentor" element={<DashboardPlaceholderPage title="AI Career Mentor Coach" />} />
+        <Route path="/progress" element={<DashboardPlaceholderPage title="Detailed Insights & Progress" />} />
+        <Route path="/saved-resources" element={<DashboardPlaceholderPage title="Saved Resources & Notes" />} />
+        <Route path="/achievements" element={<DashboardPlaceholderPage title="Achievements & Badges" />} />
+        <Route path="/settings" element={<DashboardPlaceholderPage title="Platform Settings" />} />
+        <Route path="/help-support" element={<DashboardPlaceholderPage title="Help & Support Desk" />} />
+        <Route path="/notifications" element={<DashboardPlaceholderPage title="Notifications Center" />} />
+
+        {/* General landing footer routes */}
+        <Route path="/about" element={<PlaceholderPage title="About CareerForge" />} />
+        <Route path="/contact" element={<PlaceholderPage title="Contact Us" />} />
+        <Route path="/privacy" element={<PlaceholderPage title="Privacy Policy" />} />
+        <Route path="/terms" element={<PlaceholderPage title="Terms of Service" />} />
+        
+        {/* Fallback route */}
+        <Route path="*" element={<PlaceholderPage title="404 - Page Not Found" />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+
