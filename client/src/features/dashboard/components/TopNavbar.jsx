@@ -26,7 +26,7 @@ export default function TopNavbar({ onMenuToggle }) {
   };
 
   return (
-    <header className="h-16 border-b border-[#E5E7EB] dark:border-gray-800 bg-white dark:bg-[#0b0f19] px-4 sm:px-6 flex items-center justify-between sticky top-0 z-20 transition-colors theme-transition">
+    <header className="h-16 flex-shrink-0 border-b border-[#E5E7EB] dark:border-gray-800 bg-white dark:bg-[#0b0f19] px-4 sm:px-6 flex items-center justify-between sticky top-0 z-20 w-full transition-colors theme-transition">
       {/* Left Area: Hamburger and Brand */}
       <div className="flex items-center gap-3">
         <button

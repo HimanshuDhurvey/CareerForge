@@ -33,9 +33,9 @@ function PlaceholderPage({ title }) {
 function DashboardPlaceholderPage({ title }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#0b0f19] flex transition-colors theme-transition">
+    <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-[#0b0f19] transition-colors theme-transition">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <div className="flex-grow flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col overflow-hidden">
         <TopNavbar onMenuToggle={() => setSidebarOpen(true)} />
         <main className="flex-grow p-4 sm:p-6 space-y-6 overflow-y-auto max-w-7xl mx-auto w-full flex items-center justify-center">
           <div className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-8 max-w-md w-full shadow-sm text-center">

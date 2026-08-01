@@ -46,7 +46,7 @@ export default function Sidebar({ isOpen, onClose }) {
 
       {/* Sidebar Container */}
       <aside className={`
-        fixed inset-y-0 left-0 z-40 w-64 border-r border-[#E5E7EB] dark:border-gray-800 bg-white dark:bg-[#0b0f19] flex flex-col justify-between p-4 transition-transform lg:translate-x-0 lg:static lg:h-screen lg:z-0
+        fixed inset-y-0 left-0 z-40 w-64 lg:flex-shrink-0 border-r border-[#E5E7EB] dark:border-gray-800 bg-white dark:bg-[#0b0f19] flex flex-col justify-between p-4 transition-transform lg:translate-x-0 lg:static lg:h-screen lg:z-0
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
         {/* Brand Header Section */}

@@ -42,7 +42,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#0b0f19] flex transition-colors theme-transition">
+    <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-[#0b0f19] transition-colors theme-transition">
       {/* Sidebar Navigation */}
       <Sidebar 
         isOpen={sidebarOpen} 
@@ -50,11 +50,11 @@ export default function Profile() {
       />
 
       {/* Main Panel */}
-      <div className="flex-grow flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col overflow-hidden">
         <TopNavbar onMenuToggle={toggleSidebar} />
 
         {/* Scrollable Content Container */}
-        <main className="flex-grow p-4 sm:p-6 space-y-6 overflow-y-auto max-w-7xl mx-auto w-full">
+        <main className="flex-1 p-4 sm:p-6 space-y-6 overflow-y-auto max-w-7xl mx-auto w-full">
           {/* Header Banner */}
           <ProfileHeader 
             personal={profile.personal} 
