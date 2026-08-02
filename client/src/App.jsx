@@ -9,6 +9,9 @@ import Profile from './features/profile/pages/Profile';
 import Sidebar from './features/dashboard/components/Sidebar';
 import TopNavbar from './features/dashboard/components/TopNavbar';
 import InterviewHome from './features/interview/pages/InterviewHome';
+import InterviewSetup from './features/interview/pages/InterviewSetup';
+import InterviewInstructions from './features/interview/pages/InterviewInstructions';
+import InterviewSession from './features/interview/pages/InterviewSession';
 
 // Minimal placeholder page to simulate navigation routes from CTAs
 function PlaceholderPage({ title }) {
@@ -70,6 +73,9 @@ function App() {
         
         {/* Dynamic Sidebar navigation active paths */}
         <Route path="/ai-interviews" element={<InterviewHome />} />
+        <Route path="/ai-interviews/setup" element={<InterviewSetup />} />
+        <Route path="/ai-interviews/instructions" element={<InterviewInstructions />} />
+        <Route path="/ai-interviews/session" element={<InterviewSession />} />
         <Route path="/coding-practice" element={<DashboardPlaceholderPage title="Coding Practice Room" />} />
         <Route path="/resume-analyzer" element={<DashboardPlaceholderPage title="AI Resume Analyzer" />} />
         <Route path="/career-roadmap" element={<DashboardPlaceholderPage title="AI Career Roadmap" />} />

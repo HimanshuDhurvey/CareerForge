@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { Video, Sparkles, Trophy, CheckCircle } from 'lucide-react';
 import Sidebar from '../../dashboard/components/Sidebar';
@@ -9,6 +10,7 @@ import RecentInterviewCard from '../components/RecentInterviewCard';
 import QuickTipsCard from '../components/QuickTipsCard';
 
 export default function InterviewHome() {
+  const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -89,7 +91,7 @@ export default function InterviewHome() {
 
   // Handlers
   const handleStartNewInterview = () => {
-    toast.success("Starting a new AI mock interview session!");
+    navigate('/ai-interviews/setup');
   };
 
   const handleContinueInterview = () => {

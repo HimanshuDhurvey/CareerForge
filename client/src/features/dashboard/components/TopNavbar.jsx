@@ -78,13 +78,6 @@ export default function TopNavbar({ onMenuToggle }) {
 
       {/* Right: Actions */}
       <div className="flex items-center gap-4">
-        {/* Primary Action Button */}
-        <button
-          onClick={() => navigate('/ai-interviews')}
-          className="hidden sm:inline-flex items-center justify-center h-11 px-5 bg-[#60A5FA] hover:bg-blue-500 text-white font-bold text-sm rounded-[12px] transition-colors cursor-pointer shadow-sm hover:shadow-md"
-        >
-          + Start Interview
-        </button>
 
         {/* Notification Icon */}
         <button 
