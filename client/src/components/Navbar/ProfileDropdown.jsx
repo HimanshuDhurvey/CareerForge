@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   User, Settings, Bell, Trophy, Bookmark, 
-  HelpCircle, LogOut 
+  HelpCircle, LogOut, Sun, Moon
 } from 'lucide-react';
 import ProfileMenuItem from './ProfileMenuItem';
 import useOutsideClick from '../../hooks/useOutsideClick';
@@ -13,6 +13,24 @@ export default function ProfileDropdown({ isOpen, onClose }) {
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
   const [focusedIndex, setFocusedIndex] = useState(-1);
+
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   // Close dropdown on outside click
   useOutsideClick(dropdownRef, () => {
@@ -28,7 +46,7 @@ export default function ProfileDropdown({ isOpen, onClose }) {
     { title: 'Help & Support', icon: HelpCircle, to: '/help-support' },
   ];
 
-  const totalFocusableItems = 1 + menuItems.length + 1; // Header btn + menu items + logout btn
+  const totalFocusableItems = 1 + menuItems.length + 1 + 1; // Header btn + menu items + theme toggle + logout btn
 
   // Key event listeners for accessibility
   useEffect(() => {
@@ -60,6 +78,8 @@ export default function ProfileDropdown({ isOpen, onClose }) {
       elementId = 'profile-dropdown-view-profile-btn';
     } else if (focusedIndex > 0 && focusedIndex <= menuItems.length) {
       elementId = `profile-menu-item-${focusedIndex - 1}`;
+    } else if (focusedIndex === menuItems.length + 1) {
+      elementId = 'profile-dropdown-theme-btn';
     } else if (focusedIndex === totalFocusableItems - 1) {
       elementId = 'profile-dropdown-logout-btn';
     }
@@ -134,6 +154,28 @@ export default function ProfileDropdown({ isOpen, onClose }) {
             onClick={() => handleItemClick(item.to)}
           />
         ))}
+
+        {/* Theme Toggle Button */}
+        <button
+          role="menuitem"
+          id="profile-dropdown-theme-btn"
+          onClick={toggleTheme}
+          className="w-full h-12 px-4 flex items-center justify-between text-left bg-transparent hover:bg-blue-50 dark:hover:bg-blue-950/20 text-[#374151] dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 rounded-xl transition-all duration-150 cursor-pointer focus:bg-blue-50 dark:focus:bg-blue-950/20 focus:text-blue-500 dark:focus:text-blue-400 focus:outline-none group select-none"
+        >
+          <div className="flex items-center gap-3">
+            {theme === 'light' ? (
+              <Moon className="h-4.5 w-4.5 text-gray-400 group-hover:text-blue-500 group-focus:text-blue-500 transition-colors duration-150 shrink-0" />
+            ) : (
+              <Sun className="h-4.5 w-4.5 text-gray-400 group-hover:text-blue-500 group-focus:text-blue-500 transition-colors duration-150 shrink-0" />
+            )}
+            <span className="text-xs font-bold tracking-tight">
+              Theme: {theme === 'light' ? 'Light' : 'Dark'}
+            </span>
+          </div>
+          <span className="text-[10px] uppercase font-bold text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800/60 px-2.5 py-1 rounded-lg">
+            Toggle
+          </span>
+        </button>
       </div>
 
       {/* Divider */}

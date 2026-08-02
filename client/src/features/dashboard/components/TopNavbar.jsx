@@ -1,108 +1,114 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Menu, Search, Bell, Moon, Sun, ChevronDown } from 'lucide-react';
-import logo from '../../../assets/logo.jpg';
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Menu, Search, Bell } from 'lucide-react';
 import ProfileDropdown from '../../../components/Navbar/ProfileDropdown';
 
 export default function TopNavbar({ onMenuToggle }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'light';
-  });
 
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
+  // Map route paths to dynamic Page Titles
+  const getPageTitle = (pathname) => {
+    switch (pathname) {
+      case '/dashboard':
+        return 'Dashboard';
+      case '/profile':
+        return 'Profile';
+      case '/ai-interviews':
+        return 'AI Interviews';
+      case '/coding-practice':
+        return 'Coding Practice';
+      case '/resume-analyzer':
+        return 'Resume Analyzer';
+      case '/career-roadmap':
+        return 'Career Roadmap';
+      case '/ai-mentor':
+        return 'AI Mentor';
+      case '/progress':
+        return 'Progress';
+      case '/saved-resources':
+        return 'Saved Resources';
+      case '/achievements':
+        return 'Achievements';
+      case '/settings':
+        return 'Settings';
+      case '/help-support':
+        return 'Help & Support';
+      case '/notifications':
+        return 'Notifications';
+      default:
+        const cleanStr = pathname.replace('/', '').replace('-', ' ');
+        return cleanStr ? cleanStr.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 'Dashboard';
     }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
+  const pageTitle = getPageTitle(location.pathname);
+
   return (
-    <header className="h-16 flex-shrink-0 border-b border-[#E5E7EB] dark:border-gray-800 bg-white dark:bg-[#0b0f19] px-4 sm:px-6 flex items-center justify-between sticky top-0 z-20 w-full transition-colors theme-transition">
-      {/* Left Area: Hamburger and Brand */}
+    <header className="h-[72px] flex-shrink-0 border-b border-[#E5E7EB] dark:border-gray-800 bg-white dark:bg-[#0b0f19] px-6 sm:px-8 flex items-center justify-between sticky top-0 z-20 w-full transition-colors duration-200">
+      {/* Left: Page Title & Mobile Hamburger */}
       <div className="flex items-center gap-3">
         <button
           onClick={onMenuToggle}
-          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 lg:hidden cursor-pointer"
+          className="p-2 -ml-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 lg:hidden cursor-pointer transition-colors"
           aria-label="Open navigation menu"
         >
           <Menu className="h-5 w-5" />
         </button>
-
-        <div className="flex items-center gap-2 font-extrabold text-lg tracking-tight text-[#111111] dark:text-white lg:hidden">
-          <img src={logo} alt="CareerForge Logo" className="h-8 w-8 rounded-md object-cover" />
-          <span className="hidden sm:inline">
-            Career<span className="text-blue-500">Forge</span>
-          </span>
-        </div>
+        <h1 className="text-lg sm:text-xl font-bold tracking-tight text-[#111111] dark:text-white">
+          {pageTitle}
+        </h1>
       </div>
 
-      {/* Center Area: Search Bar */}
-      <div className="flex-1 max-w-lg mx-6 hidden md:block">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+      {/* Center: Compact Search Bar */}
+      <div className="hidden md:flex flex-1 justify-center max-w-[450px] mx-4">
+        <div className="relative w-full max-w-[450px]">
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
           <input
             type="text"
-            placeholder="Search anything... (e.g. React, DBMS, Amazon)"
-            className="w-full pl-9 pr-12 py-1.5 bg-gray-50 dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-xl text-xs text-[#111111] dark:text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors"
+            placeholder="Search interviews, companies, skills..."
+            className="w-full h-11 pl-11 pr-12 bg-[#F8F9FA] dark:bg-[#111827]/60 border border-[#E5E7EB] dark:border-gray-800 rounded-[12px] text-sm text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all shadow-xs"
           />
-          <kbd className="absolute right-3 top-1/2 -translate-y-1/2 bg-white dark:bg-[#1f2937] border border-[#E5E7EB] dark:border-gray-700 px-1.5 py-0.5 rounded text-[9px] font-sans font-medium text-gray-400 shadow-sm select-none">
+          <kbd className="absolute right-3.5 top-1/2 -translate-y-1/2 bg-white dark:bg-[#1f2937] border border-[#E5E7EB] dark:border-gray-700 px-1.5 py-0.5 rounded text-[9px] font-sans font-medium text-gray-400 shadow-sm select-none">
             ⌘K
           </kbd>
         </div>
       </div>
 
-      {/* Right Area: Actions */}
-      <div className="flex items-center gap-2 sm:gap-3.5">
-        {/* Theme Toggle */}
+      {/* Right: Actions */}
+      <div className="flex items-center gap-4">
+        {/* Primary Action Button */}
         <button
-          onClick={toggleTheme}
-          className="p-2 border border-[#E5E7EB] dark:border-gray-800 text-[#6B7280] dark:text-gray-400 hover:text-[#111111] dark:hover:text-white rounded-full hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors cursor-pointer"
-          aria-label="Toggle theme mode"
+          onClick={() => navigate('/ai-interviews')}
+          className="hidden sm:inline-flex items-center justify-center h-11 px-5 bg-[#60A5FA] hover:bg-blue-500 text-white font-bold text-sm rounded-[12px] transition-colors cursor-pointer shadow-sm hover:shadow-md"
         >
-          {theme === 'light' ? <Moon className="h-4.5 w-4.5" /> : <Sun className="h-4.5 w-4.5" />}
+          + Start Interview
         </button>
 
-        {/* Notification Bell */}
+        {/* Notification Icon */}
         <button 
           onClick={() => navigate('/notifications')}
-          className="p-2 border border-[#E5E7EB] dark:border-gray-800 text-[#6B7280] dark:text-gray-400 hover:text-[#111111] dark:hover:text-white rounded-full hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors relative cursor-pointer"
+          className="p-2.5 border border-[#E5E7EB] dark:border-gray-800 text-[#6B7280] dark:text-gray-400 hover:text-[#111111] dark:hover:text-white rounded-[12px] hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors relative cursor-pointer"
           aria-label="View notifications"
         >
-          <Bell className="h-4.5 w-4.5" />
-          <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-blue-500 rounded-full border border-white dark:border-[#0b0f19] flex items-center justify-center text-[7px] text-white font-bold">
-            3
-          </span>
+          <Bell className="h-5 w-5" />
+          <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-blue-500 rounded-full border border-white dark:border-[#0b0f19]" />
         </button>
 
         {/* Divider */}
-        <div className="h-5 w-px bg-gray-200 dark:bg-gray-800" />
+        <div className="h-6 w-px bg-gray-200 dark:bg-gray-800 hidden sm:block" />
 
-        {/* Profile Dropdown */}
+        {/* User Avatar */}
         <div className="relative">
           <button 
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="flex items-center gap-2 cursor-pointer group focus:outline-none"
+            className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 text-white font-extrabold flex items-center justify-center text-sm cursor-pointer shadow-sm ring-2 ring-gray-100 dark:ring-gray-800 hover:ring-blue-100 dark:hover:ring-blue-950/40 transition-all duration-200 focus:outline-none"
             aria-haspopup="true"
             aria-expanded={dropdownOpen}
             aria-label="User Profile Options Menu"
           >
-            <div className="w-8.5 h-8.5 rounded-full bg-blue-500 text-white font-bold flex items-center justify-center text-sm ring-2 ring-gray-100 dark:ring-gray-800">
-              H
-            </div>
-            <div className="text-left hidden sm:block">
-              <p className="text-xs font-bold text-[#111111] dark:text-white leading-tight">Himanshu</p>
-              <p className="text-[10px] text-gray-500 dark:text-gray-400 font-semibold">Student</p>
-            </div>
-            <ChevronDown className="h-3.5 w-3.5 text-gray-400 group-hover:text-[#111111] dark:group-hover:text-white transition-colors" />
+            H
           </button>
           
           <ProfileDropdown isOpen={dropdownOpen} onClose={() => setDropdownOpen(false)} />
