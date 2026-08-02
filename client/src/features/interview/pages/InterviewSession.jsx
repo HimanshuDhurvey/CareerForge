@@ -179,8 +179,8 @@ export default function InterviewSession() {
       toast.success('Interview submitted! Generating your AI feedback…');
     }
 
-    // Navigate to AI Interviews home (wire to results page later)
-    setTimeout(() => navigate('/ai-interviews'), 1500);
+    // Navigate to the Feedback page
+    setTimeout(() => navigate('/ai-interviews/feedback'), 1500);
   };
 
   return (

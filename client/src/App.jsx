@@ -12,6 +12,7 @@ import InterviewHome from './features/interview/pages/InterviewHome';
 import InterviewSetup from './features/interview/pages/InterviewSetup';
 import InterviewInstructions from './features/interview/pages/InterviewInstructions';
 import InterviewSession from './features/interview/pages/InterviewSession';
+import InterviewFeedback from './features/interview/pages/InterviewFeedback';
 
 // Minimal placeholder page to simulate navigation routes from CTAs
 function PlaceholderPage({ title }) {
@@ -76,6 +77,7 @@ function App() {
         <Route path="/ai-interviews/setup" element={<InterviewSetup />} />
         <Route path="/ai-interviews/instructions" element={<InterviewInstructions />} />
         <Route path="/ai-interviews/session" element={<InterviewSession />} />
+        <Route path="/ai-interviews/feedback" element={<InterviewFeedback />} />
         <Route path="/coding-practice" element={<DashboardPlaceholderPage title="Coding Practice Room" />} />
         <Route path="/resume-analyzer" element={<DashboardPlaceholderPage title="AI Resume Analyzer" />} />
         <Route path="/career-roadmap" element={<DashboardPlaceholderPage title="AI Career Roadmap" />} />
