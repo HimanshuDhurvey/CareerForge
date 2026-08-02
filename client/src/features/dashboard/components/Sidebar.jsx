@@ -2,37 +2,25 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, Video, Code2, FileText, Map, 
-  Bot, BarChart3, Bookmark, Trophy, Settings, 
-  HelpCircle, Sparkles, LogOut, X, User
+  Bot, Sparkles, X, User
 } from 'lucide-react';
-import { authService } from '../../auth/services/authService';
 import logo from '../../../assets/logo.jpg';
-import toast from 'react-hot-toast';
 import SidebarItem from './SidebarItem';
 
 export default function Sidebar({ isOpen, onClose }) {
   const navigate = useNavigate();
 
   const menuItems = [
-    { name: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
-    { name: 'Profile', icon: User, path: '/profile' },
-    { name: 'AI Interviews', icon: Video, path: '/ai-interviews' },
-    { name: 'Coding Practice', icon: Code2, path: '/coding-practice' },
-    { name: 'Resume Analyzer', icon: FileText, path: '/resume-analyzer' },
-    { name: 'Career Roadmap', icon: Map, path: '/career-roadmap' },
-    { name: 'AI Mentor', icon: Bot, path: '/ai-mentor' },
-    { name: 'Progress', icon: BarChart3, path: '/progress' },
-    { name: 'Saved Resources', icon: Bookmark, path: '/saved-resources' },
-    { name: 'Achievements', icon: Trophy, path: '/achievements' },
-    { name: 'Settings', icon: Settings, path: '/settings' },
-    { name: 'Help & Support', icon: HelpCircle, path: '/help-support' },
+    { name: 'Dashboard',      icon: LayoutDashboard, path: '/dashboard' },
+    { name: 'Career Profile', icon: User,            path: '/profile' },
+    { name: 'AI Interviews',  icon: Video,           path: '/ai-interviews' },
+    { name: 'Coding Practice',icon: Code2,           path: '/coding-practice' },
+    { name: 'Resume Analyzer',icon: FileText,        path: '/resume-analyzer' },
+    { name: 'Career Roadmap', icon: Map,             path: '/career-roadmap' },
+    { name: 'AI Mentor',      icon: Bot,             path: '/ai-mentor' },
   ];
 
-  const handleLogout = () => {
-    authService.logout();
-    toast.success("Successfully logged out.");
-    navigate('/login');
-  };
+
 
   return (
     <>
@@ -97,18 +85,6 @@ export default function Sidebar({ isOpen, onClose }) {
           </div>
         </nav>
 
-        {/* Bottom Profile and Logout Section */}
-        <div className="pt-4 border-t border-[#E5E7EB] dark:border-gray-800 space-y-2.5">
-
-          {/* Logout Button */}
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-xl text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 transition-colors cursor-pointer text-left"
-          >
-            <LogOut className="h-4.5 w-4.5" />
-            <span>Logout</span>
-          </button>
-        </div>
       </aside>
     </>
   );
