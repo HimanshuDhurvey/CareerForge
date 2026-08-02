@@ -63,6 +63,7 @@ export default function InterviewHome() {
       id: 1,
       company: "Meta",
       role: "Product Engineer",
+      type: "Technical",
       score: 85,
       date: "July 28, 2026"
     },
@@ -70,6 +71,7 @@ export default function InterviewHome() {
       id: 2,
       company: "Amazon",
       role: "Software Development Engineer",
+      type: "Behavioral",
       score: 72,
       date: "July 24, 2026"
     },
@@ -77,6 +79,7 @@ export default function InterviewHome() {
       id: 3,
       company: "Netflix",
       role: "Senior UI Engineer",
+      type: "Mixed",
       score: 91,
       date: "July 15, 2026"
     }
@@ -102,8 +105,8 @@ export default function InterviewHome() {
     toast.success(`Selected ${typeId.toUpperCase()} mock interview category.`);
   };
 
-  const handleRecentClick = (company) => {
-    toast.success(`Loading interview performance breakdown for ${company}.`);
+  const handleRecentClick = () => {
+    navigate('/ai-interviews/history');
   };
 
   return (
@@ -176,10 +179,10 @@ export default function InterviewHome() {
                     Recent Interviews
                   </h2>
                   <button 
-                    onClick={() => toast.success("Loading all historical mock interviews.")}
+                    onClick={() => navigate('/ai-interviews/history')}
                     className="text-xs font-bold text-blue-500 hover:text-blue-600 transition-colors cursor-pointer"
                   >
-                    View All
+                    View Full History
                   </button>
                 </div>
                 <div className="space-y-3">

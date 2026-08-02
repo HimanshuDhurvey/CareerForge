@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import googleLogo from '../../../assets/google.jpg';
 
 export default function RecentInterviews({ recentInterviews }) {
+  const navigate = useNavigate();
   // Simple rendering of custom icons/logos
   const renderCompanyIcon = (company) => {
     switch (company.toLowerCase()) {
@@ -31,7 +33,10 @@ export default function RecentInterviews({ recentInterviews }) {
         <h3 className="text-sm font-extrabold text-[#111111] dark:text-white">
           Recent Interviews
         </h3>
-        <button className="text-blue-500 hover:text-blue-600 text-xs font-bold cursor-pointer">
+        <button
+          onClick={() => navigate('/ai-interviews/history')}
+          className="text-blue-500 hover:text-blue-600 text-xs font-bold cursor-pointer"
+        >
           View All
         </button>
       </div>
