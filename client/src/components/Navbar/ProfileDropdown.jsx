@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  User, Settings, Bell, Trophy, Bookmark, 
+  User, Settings, Bell,
   HelpCircle, LogOut, Sun, Moon
 } from 'lucide-react';
 import ProfileMenuItem from './ProfileMenuItem';
@@ -38,15 +38,13 @@ export default function ProfileDropdown({ isOpen, onClose }) {
   });
 
   const menuItems = [
-    { title: 'Profile', icon: User, to: '/profile' },
-    { title: 'Settings', icon: Settings, to: '/settings' },
-    { title: 'Notifications', icon: Bell, to: '/notifications' },
-    { title: 'Achievements', icon: Trophy, to: '/achievements' },
-    { title: 'Saved Resources', icon: Bookmark, to: '/saved-resources' },
-    { title: 'Help & Support', icon: HelpCircle, to: '/help-support' },
+    { title: 'Account Settings', icon: Settings,   to: '/settings'       },
+    { title: 'Notifications',    icon: Bell,        to: '/notifications'  },
+    { title: 'Help & Support',   icon: HelpCircle,  to: '/help-support'   },
   ];
 
-  const totalFocusableItems = 1 + menuItems.length + 1 + 1; // Header btn + menu items + theme toggle + logout btn
+  // Header btn (1) + menu items (3) + Appearance toggle (1) + Logout (1)
+  const totalFocusableItems = 1 + menuItems.length + 1 + 1;
 
   // Key event listeners for accessibility
   useEffect(() => {
@@ -138,7 +136,7 @@ export default function ProfileDropdown({ isOpen, onClose }) {
           onClick={() => handleItemClick('/profile')}
           className="w-full py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer text-center focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-[#111827]"
         >
-          View Profile
+          View Career Profile
         </button>
       </div>
 
@@ -155,7 +153,7 @@ export default function ProfileDropdown({ isOpen, onClose }) {
           />
         ))}
 
-        {/* Theme Toggle Button */}
+        {/* Appearance / Theme Toggle — treated as a menu row */}
         <button
           role="menuitem"
           id="profile-dropdown-theme-btn"
@@ -169,11 +167,11 @@ export default function ProfileDropdown({ isOpen, onClose }) {
               <Sun className="h-4.5 w-4.5 text-gray-400 group-hover:text-blue-500 group-focus:text-blue-500 transition-colors duration-150 shrink-0" />
             )}
             <span className="text-xs font-bold tracking-tight">
-              Theme: {theme === 'light' ? 'Light' : 'Dark'}
+              Appearance
             </span>
           </div>
           <span className="text-[10px] uppercase font-bold text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800/60 px-2.5 py-1 rounded-lg">
-            Toggle
+            {theme === 'light' ? 'Light' : 'Dark'}
           </span>
         </button>
       </div>
