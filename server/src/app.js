@@ -27,6 +27,7 @@ const morgan       = require('morgan');
 const cookieParser = require('cookie-parser');
 
 const healthRoutes       = require('./routes/healthRoutes');
+const authRoutes         = require('./routes/authRoutes');
 const notFoundMiddleware = require('./middlewares/notFoundMiddleware');
 const errorMiddleware    = require('./middlewares/errorMiddleware');
 
@@ -94,10 +95,8 @@ app.use(cookieParser());
 /** Health check — GET /api/health */
 app.use('/api/health', healthRoutes);
 
-// Future feature routes will be mounted here, e.g.:
-//   app.use('/api/v1/auth',      authRoutes);
-//   app.use('/api/v1/users',     userRoutes);
-//   app.use('/api/v1/interviews',interviewRoutes);
+/** Authentication — POST /api/auth/register, /login, /logout | GET /api/auth/me */
+app.use('/api/auth', authRoutes);
 
 // ─── 404 catch-all ───────────────────────────────────────────────────────────
 

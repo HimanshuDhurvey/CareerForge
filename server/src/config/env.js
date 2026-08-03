@@ -19,7 +19,7 @@ const logger = require('../utils/logger');
 
 // ─── Required variables ───────────────────────────────────────────────────────
 
-const REQUIRED = ['MONGO_URI'];
+const REQUIRED = ['MONGO_URI', 'JWT_ACCESS_SECRET', 'JWT_REFRESH_SECRET'];
 
 // ─── Validate ─────────────────────────────────────────────────────────────────
 
@@ -47,6 +47,18 @@ const env = {
 
   /** Allowed CORS origin (frontend URL) */
   CLIENT_ORIGIN: process.env.CLIENT_ORIGIN || 'http://localhost:5173',
+
+  /** JWT access token secret */
+  JWT_ACCESS_SECRET:   process.env.JWT_ACCESS_SECRET,
+
+  /** JWT refresh token secret */
+  JWT_REFRESH_SECRET:  process.env.JWT_REFRESH_SECRET,
+
+  /** JWT access token expiry (e.g. '15m') */
+  JWT_ACCESS_EXPIRES_IN:  process.env.JWT_ACCESS_EXPIRES_IN  || '15m',
+
+  /** JWT refresh token expiry (e.g. '7d') */
+  JWT_REFRESH_EXPIRES_IN: process.env.JWT_REFRESH_EXPIRES_IN || '7d',
 
   /** Convenience helpers */
   isDevelopment: (process.env.NODE_ENV || 'development') === 'development',
