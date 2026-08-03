@@ -1,0 +1,3 @@
+# This directory is intentionally left empty.
+# Place express-validator rule-sets here (one file per route group).
+# Example: authValidators.js, profileValidators.js

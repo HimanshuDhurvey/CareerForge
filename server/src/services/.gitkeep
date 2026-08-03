@@ -1,0 +1,3 @@
+# This directory is intentionally left empty.
+# Place business logic service functions here (one file per domain).
+# Example: authService.js, interviewService.js
