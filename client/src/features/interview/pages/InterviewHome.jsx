@@ -8,6 +8,9 @@ import ContinueInterviewCard from '../components/ContinueInterviewCard';
 import InterviewTypeCard from '../components/InterviewTypeCard';
 import RecentInterviewCard from '../components/RecentInterviewCard';
 import QuickTipsCard from '../components/QuickTipsCard';
+import { CURRENT_INTERVIEW } from '../data/currentInterview';
+import { INTERVIEW_TYPES, QUICK_TIPS } from '../data/interviewTypes';
+import { RECENT_INTERVIEWS } from '../data/interviewHistory';
 
 export default function InterviewHome() {
   const navigate = useNavigate();
@@ -16,81 +19,6 @@ export default function InterviewHome() {
   const toggleSidebar = () => {
     setSidebarOpen(prev => !prev);
   };
-
-  // Mock Data
-  const mockContinueInterview = {
-    company: "Google",
-    role: "Frontend Engineer",
-    progress: 60, // 3 of 5 questions answered
-    lastUpdated: "2 hours ago"
-  };
-
-  const mockInterviewTypes = [
-    {
-      id: "technical",
-      title: "Technical Interview",
-      description: "Data Structures, Algorithms, Coding challenges, and problem solving questions.",
-      iconName: "Code2"
-    },
-    {
-      id: "behavioral",
-      title: "Behavioral Interview",
-      description: "STAR method questions, situational analysis, culture fit, and teamwork scenarios.",
-      iconName: "Users"
-    },
-    {
-      id: "hr",
-      title: "HR Interview",
-      description: "Background verification, career aspirations, salary expectations, and soft skills.",
-      iconName: "Briefcase"
-    },
-    {
-      id: "system-design",
-      title: "System Design",
-      description: "Scalability, architecture, database choices, load balancers, and system flow.",
-      iconName: "Cpu"
-    },
-    {
-      id: "mixed",
-      title: "Mixed Mode",
-      description: "A customized combination of Technical, Behavioral, and HR questions in one session.",
-      iconName: "Sparkles"
-    }
-  ];
-
-  const mockRecentInterviews = [
-    {
-      id: 1,
-      company: "Meta",
-      role: "Product Engineer",
-      type: "Technical",
-      score: 85,
-      date: "July 28, 2026"
-    },
-    {
-      id: 2,
-      company: "Amazon",
-      role: "Software Development Engineer",
-      type: "Behavioral",
-      score: 72,
-      date: "July 24, 2026"
-    },
-    {
-      id: 3,
-      company: "Netflix",
-      role: "Senior UI Engineer",
-      type: "Mixed",
-      score: 91,
-      date: "July 15, 2026"
-    }
-  ];
-
-  const mockQuickTips = [
-    "Practice regularly to reduce anxiety and build natural muscle memory.",
-    "Answer confidently and construct your replies using the STAR method.",
-    "Think before speaking: take a 5-second pause to structure your thoughts.",
-    "Keep your explanations concise and focus on the impact of your actions."
-  ];
 
   // Handlers
   const handleStartNewInterview = () => {
@@ -152,7 +80,7 @@ export default function InterviewHome() {
             <div className="lg:col-span-8 flex flex-col gap-6">
               {/* Continue Previous Interview Card */}
               <ContinueInterviewCard 
-                interview={mockContinueInterview} 
+                interview={CURRENT_INTERVIEW} 
                 onContinue={handleContinueInterview} 
               />
 
@@ -162,7 +90,7 @@ export default function InterviewHome() {
                   Interview Types
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {mockInterviewTypes.map((type) => (
+                  {INTERVIEW_TYPES.map((type) => (
                     <InterviewTypeCard 
                       key={type.id} 
                       type={type} 
@@ -186,7 +114,7 @@ export default function InterviewHome() {
                   </button>
                 </div>
                 <div className="space-y-3">
-                  {mockRecentInterviews.map((interview) => (
+                  {RECENT_INTERVIEWS.map((interview) => (
                     <RecentInterviewCard 
                       key={interview.id} 
                       interview={interview} 
@@ -200,7 +128,7 @@ export default function InterviewHome() {
             {/* Right Side Sidebar Content (4 cols) */}
             <div className="lg:col-span-4 flex flex-col gap-6">
               {/* Quick Tips Card */}
-              <QuickTipsCard tips={mockQuickTips} />
+              <QuickTipsCard tips={QUICK_TIPS} />
 
               {/* Mock Analytics summary promo card */}
               <div className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-5 shadow-xs transition-colors space-y-4">

@@ -8,27 +8,16 @@ import {
   Gauge,
   HelpCircle,
   Clock,
-  VolumeX,
-  RefreshCw,
-  ShieldCheck,
-  Timer,
   TriangleAlert,
   CheckCircle2,
   Video,
 } from 'lucide-react';
 import Sidebar from '../../dashboard/components/Sidebar';
 import TopNavbar from '../../dashboard/components/TopNavbar';
+import { DEFAULT_SESSION } from '../data/questions';
+import { INSTRUCTIONS } from '../data/interviewTypes';
 
-// ─── Mock interview session data ───────────────────────────────────────────────
-// In production this would be injected via route state or a store.
-const MOCK_SESSION = {
-  company: 'Google',
-  role: 'Frontend Engineer',
-  difficulty: 'Medium',
-  numQuestions: 10,
-  interviewType: 'Technical',
-  estimatedTime: '30 mins',
-};
+
 
 // ─── Helper: difficulty badge colour ──────────────────────────────────────────
 function getDifficultyStyle(level) {
@@ -77,15 +66,8 @@ export default function InterviewInstructions() {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Allow real data to flow in via router state; fall back to mock.
-  const session = location.state?.session ?? MOCK_SESSION;
-
-  const instructions = [
-    { icon: VolumeX,    text: 'Find a quiet place free from distractions before starting.' },
-    { icon: RefreshCw,  text: 'Avoid refreshing or closing the page — your progress may be lost.' },
-    { icon: ShieldCheck, text: 'Answer honestly; this helps AI generate accurate feedback for you.' },
-    { icon: Timer,      text: 'The timer starts automatically once you click "Begin Interview".' },
-  ];
+  // Allow real data to flow in via router state; fall back to DEFAULT_SESSION.
+  const session = location.state?.session ?? DEFAULT_SESSION;
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-[#0b0f19] transition-colors">
@@ -168,7 +150,7 @@ export default function InterviewInstructions() {
 
               {/* Instruction rows */}
               <ul className="px-6 py-5 space-y-4">
-                {instructions.map((item, idx) => (
+                {INSTRUCTIONS.map((item, idx) => (
                   <InstructionRow key={idx} icon={item.icon} text={item.text} />
                 ))}
               </ul>

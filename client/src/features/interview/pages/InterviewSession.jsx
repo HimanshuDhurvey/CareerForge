@@ -13,7 +13,7 @@ import SessionProgressBar from '../components/SessionProgressBar';
 import SessionTimer       from '../components/SessionTimer';
 import QuestionCard       from '../components/QuestionCard';
 import SessionSidebar     from '../components/SessionSidebar';
-import { MOCK_QUESTIONS, MOCK_SESSION } from '../data/interviewData';
+import { MOCK_QUESTIONS, DEFAULT_SESSION } from '../data/questions';
 
 // ─── Distraction-free top bar ────────────────────────────────────────────────
 function SessionTopBar({ session, currentIndex, total }) {
@@ -137,8 +137,8 @@ export default function InterviewSession() {
   const navigate  = useNavigate();
   const location  = useLocation();
 
-  // Accept real session data forwarded from Instructions page; fall back to mock.
-  const session   = location.state?.session ?? MOCK_SESSION;
+  // Accept real session data forwarded from Instructions page; fall back to DEFAULT_SESSION.
+  const session   = location.state?.session ?? DEFAULT_SESSION;
   const questions = location.state?.questions ?? MOCK_QUESTIONS;
 
   const [currentIndex, setCurrentIndex] = useState(0);

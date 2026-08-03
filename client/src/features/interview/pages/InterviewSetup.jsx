@@ -9,6 +9,15 @@ import {
 } from 'lucide-react';
 import Sidebar from '../../dashboard/components/Sidebar';
 import TopNavbar from '../../dashboard/components/TopNavbar';
+import { POPULAR_COMPANIES } from '../data/companies';
+import { POPULAR_ROLES } from '../data/roles';
+import {
+  EXPERIENCE_LEVELS,
+  DIFFICULTY_LEVELS,
+  SETUP_INTERVIEW_TYPES,
+  QUESTION_COUNT_OPTIONS,
+  ANSWER_MODES,
+} from '../data/interviewTypes';
 
 export default function InterviewSetup() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -107,22 +116,6 @@ export default function InterviewSetup() {
     });
   };
 
-  // Popular companies quick select list
-  const popularCompanies = [
-    { name: 'Google', icon: Building2 },
-    { name: 'Meta', icon: Building2 },
-    { name: 'Amazon', icon: Building2 },
-    { name: 'Netflix', icon: Building2 }
-  ];
-
-  // Popular roles quick select list
-  const popularRoles = [
-    'Frontend Engineer',
-    'Backend Engineer',
-    'Fullstack Engineer',
-    'Product Manager',
-    'Data Scientist'
-  ];
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-[#0b0f19] transition-colors theme-transition">
@@ -213,7 +206,7 @@ export default function InterviewSetup() {
 
                       {/* Quick Select Company Cards */}
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
-                        {popularCompanies.map((c) => (
+                        {POPULAR_COMPANIES.map((c) => (
                           <button
                             key={c.name}
                             type="button"
@@ -248,7 +241,7 @@ export default function InterviewSetup() {
 
                       {/* Quick Select Role Cards */}
                       <div className="flex flex-wrap gap-2 pt-2">
-                        {popularRoles.map((r) => (
+                        {POPULAR_ROLES.map((r) => (
                           <button
                             key={r}
                             type="button"
@@ -286,12 +279,7 @@ export default function InterviewSetup() {
                         Experience Level
                       </label>
                       <div className="grid grid-cols-2 gap-3">
-                        {[
-                          { id: 'entry', title: 'Entry Level', desc: '0-2 years, internship or graduate' },
-                          { id: 'mid', title: 'Mid Level', desc: '2-5 years, independent scope' },
-                          { id: 'senior', title: 'Senior Tier', desc: '5-8 years, architect & leader' },
-                          { id: 'lead', title: 'Lead / Staff', desc: '8+ years, strategy & design' }
-                        ].map((exp) => (
+                        {EXPERIENCE_LEVELS.map((exp) => (
                           <button
                             key={exp.id}
                             type="button"
@@ -316,11 +304,7 @@ export default function InterviewSetup() {
                         Challenge Difficulty
                       </label>
                       <div className="grid grid-cols-3 gap-3">
-                        {[
-                          { id: 'easy', title: 'Easy', desc: 'Warmup queries' },
-                          { id: 'medium', title: 'Medium', desc: 'Standard loops' },
-                          { id: 'hard', title: 'Hard', desc: 'Complex problems' }
-                        ].map((diff) => (
+                        {DIFFICULTY_LEVELS.map((diff) => (
                           <button
                             key={diff.id}
                             type="button"
@@ -359,13 +343,7 @@ export default function InterviewSetup() {
                         Interview Focus
                       </label>
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                        {[
-                          { id: 'technical', title: 'Technical', icon: Code2 },
-                          { id: 'behavioral', title: 'Behavioral', icon: Users },
-                          { id: 'hr', title: 'HR General', icon: Building2 },
-                          { id: 'system-design', title: 'System Design', icon: Cpu },
-                          { id: 'mixed', title: 'Mixed Mode', icon: Sparkles }
-                        ].map((type) => {
+                        {SETUP_INTERVIEW_TYPES.map((type) => {
                           const Icon = type.icon;
                           return (
                             <button
@@ -393,7 +371,7 @@ export default function InterviewSetup() {
                         Length (Questions)
                       </label>
                       <div className="grid grid-cols-3 gap-3">
-                        {[5, 10, 15].map((num) => (
+                        {QUESTION_COUNT_OPTIONS.map((num) => (
                           <button
                             key={num}
                             type="button"
@@ -417,10 +395,7 @@ export default function InterviewSetup() {
                         Speech & Answer Method
                       </label>
                       <div className="grid grid-cols-2 gap-3">
-                        {[
-                          { id: 'text', title: 'Text Mode', desc: 'Type your responses', icon: FileText },
-                          { id: 'voice', title: 'Voice Mode', desc: 'Speak into microphone', icon: Mic }
-                        ].map((mode) => {
+                        {ANSWER_MODES.map((mode) => {
                           const Icon = mode.icon;
                           return (
                             <button

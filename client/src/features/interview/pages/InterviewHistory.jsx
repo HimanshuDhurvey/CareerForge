@@ -11,33 +11,13 @@ import {
 import Sidebar   from '../../dashboard/components/Sidebar';
 import TopNavbar from '../../dashboard/components/TopNavbar';
 import HistoryCard from '../components/HistoryCard';
+import { INTERVIEW_HISTORY, COMPANY_FILTER_OPTIONS } from '../data/interviewHistory';
+import {
+  TYPE_FILTER_OPTIONS,
+  DIFFICULTY_FILTER_OPTIONS,
+  SORT_OPTIONS,
+} from '../data/interviewTypes';
 
-// ─── Mock Interview History Data ──────────────────────────────────────────────
-const MOCK_HISTORY = [
-  { id: 1,  company: 'Google',    role: 'Frontend Engineer',         type: 'Technical',     score: 82, difficulty: 'Medium', date: 'Aug 3, 2026',   duration: '28 mins' },
-  { id: 2,  company: 'Amazon',    role: 'SDE II',                    type: 'Behavioral',    score: 74, difficulty: 'Hard',   date: 'Aug 1, 2026',   duration: '22 mins' },
-  { id: 3,  company: 'Microsoft', role: 'Software Engineer',         type: 'Mixed',         score: 91, difficulty: 'Hard',   date: 'Jul 29, 2026',  duration: '35 mins' },
-  { id: 4,  company: 'Meta',      role: 'React Developer',           type: 'Technical',     score: 68, difficulty: 'Medium', date: 'Jul 25, 2026',  duration: '30 mins' },
-  { id: 5,  company: 'Netflix',   role: 'UI Engineer',               type: 'System Design', score: 79, difficulty: 'Hard',   date: 'Jul 22, 2026',  duration: '40 mins' },
-  { id: 6,  company: 'Apple',     role: 'iOS Developer',             type: 'Technical',     score: 88, difficulty: 'Medium', date: 'Jul 19, 2026',  duration: '32 mins' },
-  { id: 7,  company: 'Flipkart',  role: 'Full Stack Developer',      type: 'HR',            score: 95, difficulty: 'Easy',   date: 'Jul 15, 2026',  duration: '18 mins' },
-  { id: 8,  company: 'Airbnb',    role: 'Frontend Developer',        type: 'Behavioral',    score: 61, difficulty: 'Medium', date: 'Jul 12, 2026',  duration: '24 mins' },
-  { id: 9,  company: 'Stripe',    role: 'Software Engineer',         type: 'Technical',     score: 85, difficulty: 'Hard',   date: 'Jul 9, 2026',   duration: '29 mins' },
-  { id: 10, company: 'Uber',      role: 'Backend Engineer',          type: 'System Design', score: 72, difficulty: 'Hard',   date: 'Jul 5, 2026',   duration: '38 mins' },
-  { id: 11, company: 'Atlassian', role: 'Product Engineer',          type: 'Mixed',         score: 77, difficulty: 'Medium', date: 'Jul 1, 2026',   duration: '33 mins' },
-  { id: 12, company: 'Zomato',    role: 'React Native Developer',    type: 'Technical',     score: 55, difficulty: 'Easy',   date: 'Jun 27, 2026',  duration: '20 mins' },
-];
-
-// ─── Derived filter options ───────────────────────────────────────────────────
-const COMPANIES  = ['All', ...Array.from(new Set(MOCK_HISTORY.map(i => i.company)))];
-const TYPES      = ['All', 'Technical', 'Behavioral', 'HR', 'System Design', 'Mixed'];
-const DIFFICULTY = ['All', 'Easy', 'Medium', 'Hard'];
-const SORT_OPTS  = [
-  { label: 'Latest First',    key: 'latest'   },
-  { label: 'Oldest First',    key: 'oldest'   },
-  { label: 'Highest Score',   key: 'scoreDesc'},
-  { label: 'Lowest Score',    key: 'scoreAsc' },
-];
 
 // ─── Small select component ───────────────────────────────────────────────────
 function FilterSelect({ label, value, onChange, options }) {
@@ -112,7 +92,7 @@ export default function InterviewHistory() {
 
   // Derived: filtered + sorted data
   const filtered = useMemo(() => {
-    let data = [...MOCK_HISTORY];
+    let data = [...INTERVIEW_HISTORY];
 
     if (search.trim()) {
       const q = search.trim().toLowerCase();
@@ -149,9 +129,9 @@ export default function InterviewHistory() {
   };
 
   // Aggregate stats
-  const totalCount  = MOCK_HISTORY.length;
-  const avgScore    = Math.round(MOCK_HISTORY.reduce((sum, i) => sum + i.score, 0) / totalCount);
-  const bestScore   = Math.max(...MOCK_HISTORY.map(i => i.score));
+  const totalCount  = INTERVIEW_HISTORY.length;
+  const avgScore    = Math.round(INTERVIEW_HISTORY.reduce((sum, i) => sum + i.score, 0) / totalCount);
+  const bestScore   = Math.max(...INTERVIEW_HISTORY.map(i => i.score));
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-[#0b0f19] transition-colors">
@@ -233,7 +213,7 @@ export default function InterviewHistory() {
                     label="Sort By"
                     value={sort}
                     onChange={setSort}
-                    options={SORT_OPTS}
+                    options={SORT_OPTIONS}
                   />
                 </div>
               </div>
@@ -241,9 +221,9 @@ export default function InterviewHistory() {
               {/* Filter selects row */}
               <div className="flex flex-wrap gap-3 items-end">
                 <SlidersHorizontal className="h-4 w-4 text-gray-400 self-end mb-2.5" />
-                <FilterSelect label="Company"    value={company}    onChange={setCompany}    options={COMPANIES} />
-                <FilterSelect label="Type"       value={type}       onChange={setType}       options={TYPES} />
-                <FilterSelect label="Difficulty" value={difficulty} onChange={setDifficulty} options={DIFFICULTY} />
+                <FilterSelect label="Company"    value={company}    onChange={setCompany}    options={COMPANY_FILTER_OPTIONS} />
+                <FilterSelect label="Type"       value={type}       onChange={setType}       options={TYPE_FILTER_OPTIONS} />
+                <FilterSelect label="Difficulty" value={difficulty} onChange={setDifficulty} options={DIFFICULTY_FILTER_OPTIONS} />
 
                 {activePills.length > 0 && (
                   <button
