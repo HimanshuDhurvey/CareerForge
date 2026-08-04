@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FileText, Eye, Upload, Trash2, X, CheckCircle2, AlertCircle, Loader2, Sparkles } from 'lucide-react';
+import { FileText, Eye, Upload, Trash2, X, CheckCircle2, AlertCircle, Loader2, Sparkles, Download, CloudUpload, ExternalLink } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { resumeService } from '../../../services/resumeService';
 
 /**
  * ResumeCard
  * ─────────────────────────────────────────────────────────────────────────────
- * Displays the user's current resume, supports upload/delete/preview/analysis.
+ * Displays the user's current resume, supports upload/delete/preview/analysis/download.
  * Connected to the live backend — no mock data.
  */
 export default function ResumeCard() {
@@ -15,6 +15,7 @@ export default function ResumeCard() {
   const [isUploading, setIsUploading] = useState(false);
   const [isDeleting, setIsDeleting]   = useState(false);
   const [isAnalysing, setIsAnalysing] = useState(false);
+  const [isDragging, setIsDragging]   = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [previewOpen, setPreviewOpen] = useState(false);
   const fileInputRef = useRef(null);
@@ -33,17 +34,16 @@ export default function ResumeCard() {
     })();
   }, []);
 
-  // ── Upload handler ──────────────────────────────────────────────────────────
-  const handleFileChange = async (e) => {
-    const file = e.target.files?.[0];
+  // ── File validation and process ─────────────────────────────────────────────
+  const processFile = async (file) => {
     if (!file) return;
 
-    if (file.type !== 'application/pdf') {
-      toast.error('Only PDF files are allowed.');
+    if (file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
+      toast.error('Invalid file format. Only PDF files are allowed.');
       return;
     }
     if (file.size > 5 * 1024 * 1024) {
-      toast.error('File size must be under 5 MB.');
+      toast.error('File size exceeds 5 MB. Please select a smaller file.');
       return;
     }
 
@@ -62,14 +62,24 @@ export default function ResumeCard() {
     }
   };
 
+  const handleFileChange = (e) => {
+    processFile(e.target.files?.[0]);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+    processFile(e.dataTransfer.files?.[0]);
+  };
+
   // ── Delete handler ──────────────────────────────────────────────────────────
   const handleDelete = async () => {
-    if (!window.confirm('Are you sure you want to delete your resume?')) return;
+    if (!window.confirm('Are you sure you want to delete your resume? This cannot be undone.')) return;
     setIsDeleting(true);
     try {
       await resumeService.deleteResume();
       setResume(null);
-      toast.success('Resume deleted.');
+      toast.success('Resume deleted successfully.');
     } catch (err) {
       toast.error(err.message || 'Failed to delete resume.');
     } finally {
@@ -106,13 +116,24 @@ export default function ResumeCard() {
           Resume Profile
         </h3>
 
-        <div className="flex flex-col items-center justify-center gap-3 p-6 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl text-center">
+        <div
+          onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={handleDrop}
+          className={`flex flex-col items-center justify-center gap-3 p-6 border-2 border-dashed rounded-xl text-center transition-all ${
+            isDragging
+              ? 'border-blue-400 bg-blue-50/50 dark:bg-blue-950/10'
+              : 'border-gray-200 dark:border-gray-700'
+          }`}
+        >
           <div className="p-3 bg-blue-50 dark:bg-blue-950/20 rounded-xl">
-            <FileText className="h-6 w-6 text-blue-400" />
+            <CloudUpload className="h-6 w-6 text-blue-500" />
           </div>
           <div>
-            <p className="text-xs font-bold text-gray-600 dark:text-gray-400">No resume uploaded yet</p>
-            <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">PDF only · Max 5 MB</p>
+            <p className="text-xs font-bold text-gray-700 dark:text-gray-300">
+              {isDragging ? 'Drop your PDF here' : 'No resume uploaded yet'}
+            </p>
+            <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">Drag & drop or click to browse · PDF only · Max 5 MB</p>
           </div>
 
           <input
@@ -125,7 +146,9 @@ export default function ResumeCard() {
           />
           <label
             htmlFor="resume-upload-empty"
-            className={`flex items-center gap-1.5 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer shadow-sm ${isUploading ? 'opacity-70 pointer-events-none' : ''}`}
+            className={`flex items-center gap-1.5 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer shadow-sm ${
+              isUploading ? 'opacity-70 pointer-events-none' : ''
+            }`}
           >
             {isUploading ? (
               <>
@@ -140,7 +163,7 @@ export default function ResumeCard() {
             )}
           </label>
           {isUploading && (
-            <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-1.5">
+            <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-1.5 mt-2">
               <div
                 className="bg-blue-500 h-1.5 rounded-full transition-all"
                 style={{ width: `${uploadProgress}%` }}
@@ -160,9 +183,14 @@ export default function ResumeCard() {
   return (
     <>
       <div className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-5 shadow-sm text-left transition-colors theme-transition space-y-4">
-        <h3 className="text-sm font-extrabold text-[#111111] dark:text-white block uppercase tracking-wide">
-          Resume Profile
-        </h3>
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-extrabold text-[#111111] dark:text-white block uppercase tracking-wide">
+            Resume Profile
+          </h3>
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/30 uppercase tracking-wider">
+            <CheckCircle2 className="h-3 w-3" /> Uploaded
+          </span>
+        </div>
 
         {/* File detail row */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-gray-50/50 dark:bg-[#111827]/55 border border-gray-100 dark:border-gray-800/80 rounded-xl">
@@ -172,10 +200,10 @@ export default function ResumeCard() {
             </div>
             <div className="text-left space-y-1 min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="text-xs font-extrabold text-gray-800 dark:text-gray-200 truncate max-w-[160px]">
+                <span className="text-xs font-extrabold text-gray-800 dark:text-gray-200 truncate max-w-[180px]">
                   {resume.originalName}
                 </span>
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 fill-emerald-50 dark:fill-none shrink-0" />
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
               </div>
               <p className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-wide">
                 {resumeService.formatFileSize(resume.fileSize)} · Uploaded {new Date(resume.uploadedAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
@@ -220,8 +248,19 @@ export default function ResumeCard() {
             className="flex items-center gap-1.5 px-4 py-2 border border-[#E5E7EB] dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-xl text-xs font-bold text-gray-700 dark:text-gray-300 transition-colors cursor-pointer"
           >
             <Eye className="h-3.5 w-3.5 text-gray-400" />
-            <span>View Resume</span>
+            <span>View</span>
           </button>
+
+          <a
+            href={fileUrl}
+            download={resume.originalName}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-4 py-2 border border-[#E5E7EB] dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-xl text-xs font-bold text-gray-700 dark:text-gray-300 transition-colors cursor-pointer"
+          >
+            <Download className="h-3.5 w-3.5 text-gray-400" />
+            <span>Download</span>
+          </a>
 
           <input
             ref={fileInputRef}
@@ -233,7 +272,9 @@ export default function ResumeCard() {
           />
           <label
             htmlFor="resume-upload-replace"
-            className={`flex items-center gap-1.5 px-4 py-2 border border-transparent bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/30 dark:hover:bg-blue-900/40 text-blue-500 rounded-xl text-xs font-bold transition-colors cursor-pointer ${isUploading ? 'opacity-70 pointer-events-none' : ''}`}
+            className={`flex items-center gap-1.5 px-4 py-2 border border-transparent bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/30 dark:hover:bg-blue-900/40 text-blue-500 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
+              isUploading ? 'opacity-70 pointer-events-none' : ''
+            }`}
           >
             {isUploading ? (
               <>
@@ -243,7 +284,7 @@ export default function ResumeCard() {
             ) : (
               <>
                 <Upload className="h-3.5 w-3.5" />
-                <span>Upload New</span>
+                <span>Replace</span>
               </>
             )}
           </label>
@@ -296,13 +337,24 @@ export default function ResumeCard() {
               <span className="text-sm font-extrabold text-[#111111] dark:text-white uppercase tracking-wide truncate">
                 {resume.originalName}
               </span>
-              <button
-                onClick={() => setPreviewOpen(false)}
-                className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 cursor-pointer"
-                aria-label="Close Preview"
-              >
-                <X className="h-4 w-4" />
-              </button>
+              <div className="flex items-center gap-2">
+                <a
+                  href={fileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-xs font-bold text-gray-700 dark:text-gray-300 rounded-lg flex items-center gap-1.5 transition-colors"
+                >
+                  <ExternalLink className="h-3.5 w-3.5" />
+                  <span>Open in New Tab</span>
+                </a>
+                <button
+                  onClick={() => setPreviewOpen(false)}
+                  className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 cursor-pointer"
+                  aria-label="Close Preview"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
             </div>
             <iframe
               src={fileUrl}

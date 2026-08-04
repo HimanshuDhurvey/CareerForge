@@ -96,6 +96,8 @@ const serveResumeFile = (req, res, next) => {
       return next(new ApiError(404, 'Resume file not found'));
     }
 
+    res.removeHeader('X-Frame-Options');
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `inline; filename="${safeName}"`);
     fs.createReadStream(filePath).pipe(res);

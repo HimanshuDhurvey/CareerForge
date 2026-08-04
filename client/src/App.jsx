@@ -85,6 +85,7 @@ function App() {
           <Route path="/ai-interviews/feedback" element={<ProtectedRoute><InterviewFeedback /></ProtectedRoute>} />
           <Route path="/ai-interviews/history" element={<ProtectedRoute><InterviewHistory /></ProtectedRoute>} />
           <Route path="/coding-practice" element={<ProtectedRoute><DashboardPlaceholderPage title="Coding Practice Room" /></ProtectedRoute>} />
+          <Route path="/resume-analyzer" element={<ProtectedRoute><ResumePage /></ProtectedRoute>} />
           <Route path="/resume" element={<ProtectedRoute><ResumePage /></ProtectedRoute>} />
           <Route path="/career-roadmap" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Roadmap" /></ProtectedRoute>} />
           <Route path="/roadmap" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Roadmap" /></ProtectedRoute>} />

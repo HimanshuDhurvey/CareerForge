@@ -43,7 +43,13 @@ const app = express();
  * Helmet sets recommended HTTP security headers:
  *   Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, etc.
  */
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+    frameguard: false,
+    contentSecurityPolicy: false,
+  })
+);
 
 /**
  * CORS — Allow requests from the configured frontend origin.
