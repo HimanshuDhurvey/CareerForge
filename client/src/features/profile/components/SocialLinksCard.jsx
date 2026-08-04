@@ -61,7 +61,9 @@ export default function SocialLinksCard({ socials }) {
       </h3>
 
       <div className="space-y-2.5">
-        {Object.entries(socials).map(([key, url], idx) => (
+        {Object.entries(socials)
+          .filter(([, url]) => !!url)
+          .map(([key, url], idx) => (
           <a
             key={idx}
             href={url}
@@ -80,6 +82,11 @@ export default function SocialLinksCard({ socials }) {
             <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-blue-500 transition-colors" />
           </a>
         ))}
+        {Object.values(socials).every((url) => !url) && (
+          <p className="text-xs text-gray-400 dark:text-gray-500 font-semibold py-2">
+            No social links added yet.
+          </p>
+        )}
       </div>
     </div>
   );
