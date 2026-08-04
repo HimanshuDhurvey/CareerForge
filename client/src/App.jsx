@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { AuthProvider, ProtectedRoute, PublicRoute } from './context/AuthContext';
+import { AuthProvider, PublicRoute } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 import LandingPage from './features/landing/LandingPage';
 import Login from './features/auth/pages/Login';
 import Register from './features/auth/pages/Register';
@@ -84,7 +85,9 @@ function App() {
           <Route path="/ai-interviews/history" element={<ProtectedRoute><InterviewHistory /></ProtectedRoute>} />
           <Route path="/coding-practice" element={<ProtectedRoute><DashboardPlaceholderPage title="Coding Practice Room" /></ProtectedRoute>} />
           <Route path="/resume-analyzer" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Resume Analyzer" /></ProtectedRoute>} />
+          <Route path="/resume" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Resume Analyzer" /></ProtectedRoute>} />
           <Route path="/career-roadmap" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Roadmap" /></ProtectedRoute>} />
+          <Route path="/roadmap" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Roadmap" /></ProtectedRoute>} />
           <Route path="/ai-mentor" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Mentor Coach" /></ProtectedRoute>} />
           <Route path="/progress" element={<ProtectedRoute><DashboardPlaceholderPage title="Detailed Insights & Progress" /></ProtectedRoute>} />
           <Route path="/saved-resources" element={<ProtectedRoute><DashboardPlaceholderPage title="Saved Resources & Notes" /></ProtectedRoute>} />

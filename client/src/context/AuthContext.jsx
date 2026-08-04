@@ -69,25 +69,6 @@ export function useAuth() {
   return context;
 }
 
-// ProtectedRoute: Redirects to /login if the user is not authenticated
-export function ProtectedRoute({ children }) {
-  const { user, loading } = useAuth();
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-[#0b0f19]">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return children;
-}
-
 // PublicRoute: Redirects to /dashboard if the user is already authenticated
 export function PublicRoute({ children }) {
   const { user, loading } = useAuth();
