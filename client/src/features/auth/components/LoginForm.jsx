@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import PasswordInput from './PasswordInput';
-import { authService } from '../services/authService';
+import { useAuth } from '../../../context/AuthContext';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import googleLogo from '../../../assets/google.jpg';
@@ -10,12 +10,12 @@ export default function LoginForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const onSubmit = async (data) => {
-    setIsLoading(false);
     setIsLoading(true);
     try {
-      await authService.login({
+      await login({
         email: data.email,
         password: data.password,
       });

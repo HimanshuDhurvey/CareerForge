@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, Search, Bell } from 'lucide-react';
 import ProfileDropdown from '../../../components/Navbar/ProfileDropdown';
+import { useAuth } from '../../../context/AuthContext';
 
 export default function TopNavbar({ onMenuToggle }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { user } = useAuth();
+  const displayInitials = user ? (user.fullName || user.name || '').split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) : 'H';
 
   // Map route paths to dynamic Page Titles
   const getPageTitle = (pathname) => {
@@ -101,7 +104,7 @@ export default function TopNavbar({ onMenuToggle }) {
             aria-expanded={dropdownOpen}
             aria-label="User Profile Options Menu"
           >
-            H
+            {displayInitials}
           </button>
           
           <ProfileDropdown isOpen={dropdownOpen} onClose={() => setDropdownOpen(false)} />

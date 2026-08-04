@@ -6,11 +6,12 @@ import {
 } from 'lucide-react';
 import ProfileMenuItem from './ProfileMenuItem';
 import useOutsideClick from '../../hooks/useOutsideClick';
-import { authService } from '../../features/auth/services/authService';
+import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 
 export default function ProfileDropdown({ isOpen, onClose }) {
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const dropdownRef = useRef(null);
   const [focusedIndex, setFocusedIndex] = useState(-1);
 
@@ -88,11 +89,11 @@ export default function ProfileDropdown({ isOpen, onClose }) {
     }
   }, [focusedIndex, menuItems.length, totalFocusableItems]);
 
-  const handleLogout = () => {
-    authService.logout();
+  const handleLogout = async () => {
+    navigate('/');
+    await logout();
     toast.success("Successfully logged out.");
     onClose();
-    navigate('/login');
   };
 
   const handleItemClick = (to) => {
@@ -112,19 +113,19 @@ export default function ProfileDropdown({ isOpen, onClose }) {
       {/* Header section */}
       <div className="flex items-center gap-3 pb-4 border-b border-gray-100 dark:border-gray-800">
         <div className="w-12 h-12 rounded-full bg-blue-500 text-white font-extrabold flex items-center justify-center text-lg shadow-sm">
-          H
+          {user ? (user.fullName || user.name || '').split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) : 'H'}
         </div>
         <div className="text-left space-y-0.5">
           <div className="flex items-center gap-1.5">
             <h4 className="text-sm font-extrabold text-[#111111] dark:text-white leading-tight">
-              Himanshu Dhurvey
+              {user ? (user.fullName || user.name) : 'Himanshu Dhurvey'}
             </h4>
             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold bg-blue-50 dark:bg-blue-950/40 text-blue-500 uppercase tracking-wide">
-              Student
+              {user ? (user.role || 'Student') : 'Student'}
             </span>
           </div>
           <p className="text-[10px] text-gray-500 dark:text-gray-400 font-semibold leading-none">
-            himanshu@gmail.com
+            {user ? user.email : 'himanshu@gmail.com'}
           </p>
         </div>
       </div>

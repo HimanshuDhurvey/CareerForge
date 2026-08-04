@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Bell, Moon, Sun, Globe, Trash2, LogOut, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { authService } from '../../auth/services/authService';
+import { useAuth } from '../../../context/AuthContext';
 import toast from 'react-hot-toast';
 
 export default function AccountSettingsCard() {
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const [notifications, setNotifications] = useState(true);
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
@@ -35,10 +36,10 @@ export default function AccountSettingsCard() {
     toast.error("Account deletion requested. Please contact support.");
   };
 
-  const handleLogout = () => {
-    authService.logout();
+  const handleLogout = async () => {
+    navigate('/');
+    await logout();
     toast.success("Successfully logged out.");
-    navigate('/login');
   };
 
   return (

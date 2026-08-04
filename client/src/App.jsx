@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { AuthProvider, ProtectedRoute, PublicRoute } from './context/AuthContext';
 import LandingPage from './features/landing/LandingPage';
 import Login from './features/auth/pages/Login';
 import Register from './features/auth/pages/Register';
@@ -59,47 +60,49 @@ function DashboardPlaceholderPage({ title }) {
 function App() {
   return (
     <Router>
-      <Toaster 
-        position="top-right" 
-        toastOptions={{
-          className: 'dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700',
-          duration: 3000,
-        }} 
-      />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
-        
-        {/* Dynamic Sidebar navigation active paths */}
-        <Route path="/ai-interviews" element={<InterviewHome />} />
-        <Route path="/ai-interviews/setup" element={<InterviewSetup />} />
-        <Route path="/ai-interviews/instructions" element={<InterviewInstructions />} />
-        <Route path="/ai-interviews/session" element={<InterviewSession />} />
-        <Route path="/ai-interviews/feedback" element={<InterviewFeedback />} />
-        <Route path="/ai-interviews/history" element={<InterviewHistory />} />
-        <Route path="/coding-practice" element={<DashboardPlaceholderPage title="Coding Practice Room" />} />
-        <Route path="/resume-analyzer" element={<DashboardPlaceholderPage title="AI Resume Analyzer" />} />
-        <Route path="/career-roadmap" element={<DashboardPlaceholderPage title="AI Career Roadmap" />} />
-        <Route path="/ai-mentor" element={<DashboardPlaceholderPage title="AI Career Mentor Coach" />} />
-        <Route path="/progress" element={<DashboardPlaceholderPage title="Detailed Insights & Progress" />} />
-        <Route path="/saved-resources" element={<DashboardPlaceholderPage title="Saved Resources & Notes" />} />
-        <Route path="/achievements" element={<DashboardPlaceholderPage title="Achievements & Badges" />} />
-        <Route path="/settings" element={<DashboardPlaceholderPage title="Platform Settings" />} />
-        <Route path="/help-support" element={<DashboardPlaceholderPage title="Help & Support Desk" />} />
-        <Route path="/notifications" element={<DashboardPlaceholderPage title="Notifications Center" />} />
+      <AuthProvider>
+        <Toaster 
+          position="top-right" 
+          toastOptions={{
+            className: 'dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700',
+            duration: 3000,
+          }} 
+        />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+          <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          
+          {/* Dynamic Sidebar navigation active paths */}
+          <Route path="/ai-interviews" element={<ProtectedRoute><InterviewHome /></ProtectedRoute>} />
+          <Route path="/ai-interviews/setup" element={<ProtectedRoute><InterviewSetup /></ProtectedRoute>} />
+          <Route path="/ai-interviews/instructions" element={<ProtectedRoute><InterviewInstructions /></ProtectedRoute>} />
+          <Route path="/ai-interviews/session" element={<ProtectedRoute><InterviewSession /></ProtectedRoute>} />
+          <Route path="/ai-interviews/feedback" element={<ProtectedRoute><InterviewFeedback /></ProtectedRoute>} />
+          <Route path="/ai-interviews/history" element={<ProtectedRoute><InterviewHistory /></ProtectedRoute>} />
+          <Route path="/coding-practice" element={<ProtectedRoute><DashboardPlaceholderPage title="Coding Practice Room" /></ProtectedRoute>} />
+          <Route path="/resume-analyzer" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Resume Analyzer" /></ProtectedRoute>} />
+          <Route path="/career-roadmap" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Roadmap" /></ProtectedRoute>} />
+          <Route path="/ai-mentor" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Mentor Coach" /></ProtectedRoute>} />
+          <Route path="/progress" element={<ProtectedRoute><DashboardPlaceholderPage title="Detailed Insights & Progress" /></ProtectedRoute>} />
+          <Route path="/saved-resources" element={<ProtectedRoute><DashboardPlaceholderPage title="Saved Resources & Notes" /></ProtectedRoute>} />
+          <Route path="/achievements" element={<ProtectedRoute><DashboardPlaceholderPage title="Achievements & Badges" /></ProtectedRoute>} />
+          <Route path="/settings" element={<ProtectedRoute><DashboardPlaceholderPage title="Platform Settings" /></ProtectedRoute>} />
+          <Route path="/help-support" element={<ProtectedRoute><DashboardPlaceholderPage title="Help & Support Desk" /></ProtectedRoute>} />
+          <Route path="/notifications" element={<ProtectedRoute><DashboardPlaceholderPage title="Notifications Center" /></ProtectedRoute>} />
 
-        {/* General landing footer routes */}
-        <Route path="/about" element={<PlaceholderPage title="About CareerForge" />} />
-        <Route path="/contact" element={<PlaceholderPage title="Contact Us" />} />
-        <Route path="/privacy" element={<PlaceholderPage title="Privacy Policy" />} />
-        <Route path="/terms" element={<PlaceholderPage title="Terms of Service" />} />
-        
-        {/* Fallback route */}
-        <Route path="*" element={<PlaceholderPage title="404 - Page Not Found" />} />
-      </Routes>
+          {/* General landing footer routes */}
+          <Route path="/about" element={<PlaceholderPage title="About CareerForge" />} />
+          <Route path="/contact" element={<PlaceholderPage title="Contact Us" />} />
+          <Route path="/privacy" element={<PlaceholderPage title="Privacy Policy" />} />
+          <Route path="/terms" element={<PlaceholderPage title="Terms of Service" />} />
+          
+          {/* Fallback route */}
+          <Route path="*" element={<PlaceholderPage title="404 - Page Not Found" />} />
+        </Routes>
+      </AuthProvider>
     </Router>
   );
 }

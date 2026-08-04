@@ -2,30 +2,42 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import PasswordInput from './PasswordInput';
 import ConfirmPasswordInput from './ConfirmPasswordInput';
-import { authService } from '../services/authService';
+import { useAuth } from '../../../context/AuthContext';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import googleLogo from '../../../assets/google.jpg';
 
 export default function RegisterForm() {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, watch, setError, formState: { errors } } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { register: registerUser } = useAuth();
   
   const passwordValue = watch('password');
 
   const onSubmit = async (data) => {
     setIsLoading(true);
     try {
-      await authService.register({
+      await registerUser({
         name: data.name,
         email: data.email,
         password: data.password,
       });
-      toast.success("Account created successfully.");
+      toast.success("Account created successfully. Please log in.");
       navigate('/login');
     } catch (error) {
-      toast.error(error.message || "Registration failed. Please try again.");
+      if (error.errors && Array.isArray(error.errors)) {
+        error.errors.forEach((err) => {
+          const fieldName = err.field === 'fullName' ? 'name' : err.field;
+          setError(fieldName, {
+            type: 'server',
+            message: err.message,
+          });
+        });
+        toast.error("Please correct the validation errors.");
+      } else {
+        toast.error(error.message || "Registration failed. Please try again.");
+      }
     } finally {
       setIsLoading(false);
     }

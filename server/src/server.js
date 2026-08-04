@@ -20,7 +20,7 @@ require('dotenv').config();
 
 // ─── 2. Validate env vars ─────────────────────────────────────────────────────
 
-const env    = require('./config/env');   // exits process if required vars missing
+const env = require('./config/env');   // exits process if required vars missing
 const logger = require('./utils/logger');
 
 // ─── 3. Connect to MongoDB ────────────────────────────────────────────────────
@@ -78,7 +78,7 @@ const gracefulShutdown = (signal) => {
 };
 
 process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
-process.on('SIGINT',  () => gracefulShutdown('SIGINT'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 
 // ─── 7. Safety nets ──────────────────────────────────────────────────────────
 

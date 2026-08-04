@@ -11,9 +11,11 @@ import AIRecommendations from '../components/AIRecommendations';
 import RoadmapProgress from '../components/RoadmapProgress';
 import AIMentorCard from '../components/AIMentorCard';
 import { dashboardData } from '../data/dashboardData';
+import { useAuth } from '../../../context/AuthContext';
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { user } = useAuth();
 
   const toggleSidebar = () => {
     setSidebarOpen(prev => !prev);
@@ -34,7 +36,7 @@ export default function Dashboard() {
         {/* Scrollable Content Container */}
         <main className="flex-1 p-4 sm:p-6 space-y-6 overflow-y-auto max-w-7xl mx-auto w-full">
           {/* Welcome Card & Stats Grid */}
-          <WelcomeCard userName={dashboardData.user.name} />
+          <WelcomeCard userName={user ? user.fullName || user.name : dashboardData.user.name} />
           
           <StatsCards stats={dashboardData.stats} />
 
