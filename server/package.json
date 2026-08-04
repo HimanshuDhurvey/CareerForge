@@ -7,11 +7,18 @@
     "dev": "nodemon --exec \"node --dns-result-order=ipv4first\" src/server.js",
     "start": "node --dns-result-order=ipv4first src/server.js"
   },
-  "keywords": ["careerforge", "interview", "ai", "express", "mongodb"],
+  "keywords": [
+    "careerforge",
+    "interview",
+    "ai",
+    "express",
+    "mongodb"
+  ],
   "author": "CareerForge Team",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
@@ -21,15 +28,21 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.8.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "multer": "^2.2.0",
+    "pdf-parse": "^2.4.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
   },
   "nodemonConfig": {
-    "watch": ["src"],
+    "watch": [
+      "src"
+    ],
     "ext": "js,json",
-    "ignore": ["src/**/*.test.js"],
+    "ignore": [
+      "src/**/*.test.js"
+    ],
     "delay": 500
   }
 }

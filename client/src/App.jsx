@@ -16,6 +16,7 @@ import InterviewInstructions from './features/interview/pages/InterviewInstructi
 import InterviewSession from './features/interview/pages/InterviewSession';
 import InterviewFeedback from './features/interview/pages/InterviewFeedback';
 import InterviewHistory from './features/interview/pages/InterviewHistory';
+import ResumePage from './features/resume/pages/ResumePage';
 
 // Minimal placeholder page to simulate navigation routes from CTAs
 function PlaceholderPage({ title }) {
@@ -84,8 +85,7 @@ function App() {
           <Route path="/ai-interviews/feedback" element={<ProtectedRoute><InterviewFeedback /></ProtectedRoute>} />
           <Route path="/ai-interviews/history" element={<ProtectedRoute><InterviewHistory /></ProtectedRoute>} />
           <Route path="/coding-practice" element={<ProtectedRoute><DashboardPlaceholderPage title="Coding Practice Room" /></ProtectedRoute>} />
-          <Route path="/resume-analyzer" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Resume Analyzer" /></ProtectedRoute>} />
-          <Route path="/resume" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Resume Analyzer" /></ProtectedRoute>} />
+          <Route path="/resume" element={<ProtectedRoute><ResumePage /></ProtectedRoute>} />
           <Route path="/career-roadmap" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Roadmap" /></ProtectedRoute>} />
           <Route path="/roadmap" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Roadmap" /></ProtectedRoute>} />
           <Route path="/ai-mentor" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Mentor Coach" /></ProtectedRoute>} />

@@ -29,6 +29,7 @@ const cookieParser = require('cookie-parser');
 const healthRoutes       = require('./routes/healthRoutes');
 const authRoutes         = require('./routes/authRoutes');
 const profileRoutes      = require('./routes/profileRoutes');
+const resumeRoutes       = require('./routes/resumeRoutes');
 const notFoundMiddleware = require('./middlewares/notFoundMiddleware');
 const errorMiddleware    = require('./middlewares/errorMiddleware');
 
@@ -101,6 +102,9 @@ app.use('/api/auth', authRoutes);
 
 /** Profile — GET /api/profile, PUT /api/profile */
 app.use('/api/profile', profileRoutes);
+
+/** Resume — GET /api/resume, POST /api/resume/upload, DELETE /api/resume, POST /api/resume/analyze */
+app.use('/api/resume', resumeRoutes);
 
 // ─── 404 catch-all ───────────────────────────────────────────────────────────
 

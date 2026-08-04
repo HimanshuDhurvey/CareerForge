@@ -157,7 +157,7 @@ export default function Profile() {
               <PersonalInfoCard personal={personal} />
               <CareerGoalsCard careerGoals={careerGoals} />
               <SkillsCard skills={skills} />
-              <ResumeCard resume={mockData.resume} />
+              <ResumeCard />
             </div>
 
             {/* Side info: Timeline progress indicators, socials & account config toggles (4 cols) */}
