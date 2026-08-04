@@ -24,6 +24,11 @@ const profileSchema = new mongoose.Schema(
       default: '',
     },
 
+    dateOfBirth: {
+      type: Date,
+      default: null,
+    },
+
     college: {
       type: String,
       trim: true,

@@ -101,6 +101,9 @@ export default function Profile() {
     name:            profile.fullName  || '',
     email:           profile.email     || '',
     phone:           profile.phoneNumber || '',
+    dob:             profile.dateOfBirth
+                       ? new Date(profile.dateOfBirth).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
+                       : mockData.personal.dob,
     college:         profile.college   || '',
     degree:          profile.degree    || '',
     branch:          profile.branch    || '',
@@ -109,7 +112,6 @@ export default function Profile() {
     bio:             profile.bio       || '',
     avatarUrl:       profile.avatarUrl || '',
     // Static mock fields not yet in API
-    dob:             mockData.personal.dob,
     currentSemester: mockData.personal.currentSemester,
     badge:           mockData.personal.badge,
   };

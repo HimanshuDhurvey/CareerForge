@@ -23,6 +23,7 @@ const formatProfile = (profile) => {
     fullName:       user.fullName || '',
     email:          user.email || '',
     phoneNumber:    profile.phoneNumber || '',
+    dateOfBirth:    profile.dateOfBirth ? profile.dateOfBirth.toISOString().split('T')[0] : null,
     college:        profile.college || '',
     degree:         profile.degree || '',
     branch:         profile.branch || '',

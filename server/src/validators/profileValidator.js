@@ -52,6 +52,18 @@ const updateProfileRules = [
     .matches(/^\+?[1-9]\d{1,14}$|^[0-9\-+\(\) ]{7,20}$/)
     .withMessage('Please provide a valid phone number'),
 
+  body('dateOfBirth')
+    .optional({ nullable: true, checkFalsy: true })
+    .isISO8601()
+    .withMessage('Date of birth must be a valid date (YYYY-MM-DD)')
+    .custom((value) => {
+      const dob = new Date(value);
+      if (dob >= new Date()) {
+        throw new Error('Date of birth cannot be in the future');
+      }
+      return true;
+    }),
+
   body('graduationYear')
     .optional({ nullable: true, checkFalsy: true })
     .isInt({ min: 1900, max: 2100 })

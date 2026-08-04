@@ -29,6 +29,7 @@ export default function EditProfileModal({ profile, onClose, onSave }) {
     defaultValues: {
       fullName:       profile.fullName      || '',
       phoneNumber:    profile.phoneNumber   || '',
+      dateOfBirth:    profile.dateOfBirth   || '',
       college:        profile.college       || '',
       degree:         profile.degree        || '',
       branch:         profile.branch        || '',
@@ -57,6 +58,7 @@ export default function EditProfileModal({ profile, onClose, onSave }) {
     const payload = {
       fullName:       data.fullName,
       phoneNumber:    data.phoneNumber,
+      dateOfBirth:    data.dateOfBirth || null,
       college:        data.college,
       degree:         data.degree,
       branch:         data.branch,
@@ -162,7 +164,7 @@ export default function EditProfileModal({ profile, onClose, onSave }) {
             />
           </div>
 
-          {/* ── Phone ──────────────────────────────────────────────────────── */}
+          {/* ── Phone ────────────────────────────────────────────── */}
           <div className="flex flex-col gap-1">
             <label htmlFor="modal-phone" className="text-xs font-bold text-gray-500 dark:text-gray-400 block uppercase tracking-wide">
               Phone Number
@@ -180,6 +182,29 @@ export default function EditProfileModal({ profile, onClose, onSave }) {
               })}
             />
             <ErrorMsg name="phoneNumber" />
+          </div>
+
+          {/* ── Date of Birth ─────────────────────────────────────── */}
+          <div className="flex flex-col gap-1">
+            <label htmlFor="modal-dob" className="text-xs font-bold text-gray-500 dark:text-gray-400 block uppercase tracking-wide">
+              Date of Birth
+            </label>
+            <input
+              id="modal-dob"
+              type="date"
+              max={new Date().toISOString().split('T')[0]}
+              className={inputClass(!!errors.dateOfBirth)}
+              {...register('dateOfBirth', {
+                validate: (value) => {
+                  if (!value) return true;
+                  const dob = new Date(value);
+                  if (isNaN(dob.getTime())) return 'Please enter a valid date';
+                  if (dob >= new Date()) return 'Date of birth cannot be in the future';
+                  return true;
+                },
+              })}
+            />
+            <ErrorMsg name="dateOfBirth" />
           </div>
 
           {/* ── Location ──────────────────────────────────────────────────── */}

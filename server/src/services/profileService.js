@@ -56,7 +56,7 @@ const updateProfile = async (userId, updateData) => {
 
   // 2. Separate User and Profile updates
   const profileFields = [
-    'phoneNumber', 'college', 'degree', 'branch',
+    'phoneNumber', 'dateOfBirth', 'college', 'degree', 'branch',
     'graduationYear', 'targetRole', 'targetCompany',
     'skills', 'bio', 'githubUrl', 'linkedinUrl',
     'portfolioUrl', 'location', 'avatarUrl'
