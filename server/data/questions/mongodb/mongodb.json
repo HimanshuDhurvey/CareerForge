@@ -1,0 +1,1207 @@
+[
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is MongoDB and how does a document-oriented NoSQL database differ from a traditional Relational Database (RDBMS)?",
+    "expectedTopics": [
+      "NoSQL Database",
+      "Document Storage",
+      "Flexible Schema"
+    ],
+    "keyPoints": [
+      "MongoDB is an open-source, document-oriented NoSQL database designed for high performance, availability, and automatic scaling.",
+      "Stores data as flexible, JSON-like BSON documents instead of rigid tabular rows and columns.",
+      "Schema-less design allows documents in the same collection to have different field structures.",
+      "Designed for horizontal scaling via sharding and high availability via replica sets."
+    ],
+    "tags": [
+      "MongoDB",
+      "Basics"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are MongoDB collections and documents, and how do they map to SQL tables and rows?",
+    "expectedTopics": [
+      "Collections",
+      "Documents",
+      "SQL Mapping"
+    ],
+    "keyPoints": [
+      "A Collection in MongoDB is a grouping of related documents, analogous to a table in SQL.",
+      "A Document is a set of key-value field pairs, analogous to a row/tuple in a SQL table.",
+      "Fields within a document map to columns in SQL tables, but can hold complex nested arrays and objects.",
+      "Collections do not enforce a fixed schema by default."
+    ],
+    "tags": [
+      "Collections",
+      "Documents"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is BSON in MongoDB and why is it used instead of plain JSON for data storage?",
+    "expectedTopics": [
+      "BSON",
+      "Binary Format",
+      "Data Types"
+    ],
+    "keyPoints": [
+      "BSON (Binary JSON) is a binary-encoded serialization format used by MongoDB to store documents.",
+      "Supports additional data types not present in standard JSON (e.g., Date, ObjectId, BinData, Decimal128, Int/Long).",
+      "Designed for fast in-memory parsing and efficient traversal by storing field length prefixes.",
+      "Consumes slightly more space than JSON but provides superior performance and rich typing."
+    ],
+    "tags": [
+      "BSON",
+      "Storage"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the ObjectId data type in MongoDB and what information is encoded inside a 12-byte ObjectId?",
+    "expectedTopics": [
+      "ObjectId",
+      "Primary Key",
+      "12-Byte Structure"
+    ],
+    "keyPoints": [
+      "ObjectId is the default 12-byte binary unique primary key automatically assigned to the _id field.",
+      "Bytes 0-3: A 4-byte Unix epoch timestamp in seconds, encoding creation time.",
+      "Bytes 4-8: A 5-byte random value generated per-process (machine + process identifier).",
+      "Bytes 9-11: A 3-byte incrementing counter starting with a random value.",
+      "Ensures global uniqueness across distributed database clusters."
+    ],
+    "tags": [
+      "ObjectId",
+      "Primary Key"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain basic CRUD operations in MongoDB (insertOne, find, updateOne, deleteOne).",
+    "expectedTopics": [
+      "CRUD Operations",
+      "Query Operators",
+      "Database Methods"
+    ],
+    "keyPoints": [
+      "Create: insertOne(doc) or insertMany([docs]) adds documents to a collection.",
+      "Read: find(query) or findOne(query) retrieves matching documents.",
+      "Update: updateOne(filter, { $set: updateData }) modifies matching documents.",
+      "Delete: deleteOne(filter) or deleteMany(filter) removes matching documents.",
+      "All operations accept query filter objects."
+    ],
+    "tags": [
+      "CRUD",
+      "Queries"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is query projection in MongoDB and how does it optimize network payload sizes?",
+    "expectedTopics": [
+      "Projection",
+      "Field Selection",
+      "Performance"
+    ],
+    "keyPoints": [
+      "Projection specifies which fields to include or exclude in returned query documents.",
+      "Inclusion syntax ({ name: 1, email: 1 }) returns only specified fields plus _id.",
+      "Exclusion syntax ({ password: 0 }) omits sensitive or large fields.",
+      "Reduces network bandwidth and CPU deserialization overhead by transferring only necessary data."
+    ],
+    "tags": [
+      "Projection",
+      "Optimization"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are query comparison operators in MongoDB ($eq, $gt, $lt, $in, $ne)?",
+    "expectedTopics": [
+      "Comparison Operators",
+      "Query Selectors",
+      "Filter Matching"
+    ],
+    "keyPoints": [
+      "$eq: Matches values equal to a specified value.",
+      "$gt / $gte: Matches values greater than (or equal to) a specified value.",
+      "$lt / $lte: Matches values less than (or equal to) a specified value.",
+      "$in: Matches any value specified in a target array ({ status: { $in: ['active', 'pending'] } }).",
+      "$ne: Matches all values that are not equal to a specified value."
+    ],
+    "tags": [
+      "Operators",
+      "Queries"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do logical query operators ($and, $or, $nor, $not) work in MongoDB?",
+    "expectedTopics": [
+      "Logical Operators",
+      "$or vs $and",
+      "Complex Queries"
+    ],
+    "keyPoints": [
+      "$or: Joins query clauses with a logical OR, returning documents matching at least one clause.",
+      "$and: Joins query clauses with a logical AND (implicit in comma-separated fields).",
+      "$nor: Returns documents that fail to match all clauses in the array.",
+      "$not: Inverts the effect of a query expression predicate."
+    ],
+    "tags": [
+      "Operators",
+      "Logic"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Compare embedding subdocuments (denormalization) vs referencing documents (normalization) in MongoDB schema design.",
+    "expectedTopics": [
+      "Embedding vs Referencing",
+      "Schema Design",
+      "Data Relationships"
+    ],
+    "keyPoints": [
+      "Embedding nests related data directly inside parent documents (1-to-1 or 1-to-few relationships).",
+      "Embedding provides faster read performance with a single query, avoiding join overhead.",
+      "Referencing stores ObjectIds pointing to documents in another collection (1-to-many or many-to-many).",
+      "Use referencing when nested data grows unbounded (avoiding the 16MB document size limit) or is shared across entities."
+    ],
+    "tags": [
+      "Schema Design",
+      "Embedding"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Mongoose ODM in Node.js and what benefits does it offer over the raw MongoDB driver?",
+    "expectedTopics": [
+      "Mongoose ODM",
+      "Object Data Modeling",
+      "Schema Validation"
+    ],
+    "keyPoints": [
+      "Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js.",
+      "Provides schema-based solution to model application data with built-in type casting.",
+      "Supports declarative validation, query building, middleware hooks (pre/post), and population.",
+      "Enforces structure and consistency over schema-less MongoDB collections."
+    ],
+    "tags": [
+      "Mongoose",
+      "ODM"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do Mongoose Schemas and Models define document shapes and collection bindings?",
+    "expectedTopics": [
+      "mongoose.Schema",
+      "mongoose.model",
+      "Collection Names"
+    ],
+    "keyPoints": [
+      "mongoose.Schema defines document field names, data types, default values, and validators.",
+      "mongoose.model('User', userSchema) compiles schema into a constructor model for database queries.",
+      "Mongoose automatically pluralizes and lowercases model names for collection creation ('User' -> 'users').",
+      "Models instantiate documents and execute CRUD database operations."
+    ],
+    "tags": [
+      "Mongoose",
+      "Schemas"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are Mongoose schema validation rules (required, enum, min, max, match)?",
+    "expectedTopics": [
+      "Mongoose Validation",
+      "Built-in Validators",
+      "Custom Errors"
+    ],
+    "keyPoints": [
+      "required: Enforces field presence during document creation or save.",
+      "enum: Restricts string values to an allowed array list.",
+      "min / max: Validates numeric ranges.",
+      "match: Validates strings against a RegExp pattern (e.g. email regex).",
+      "Validation runs automatically on document .save() and can return custom error messages."
+    ],
+    "tags": [
+      "Validation",
+      "Mongoose"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the $set update operator in MongoDB and why should you use it instead of direct replacement objects?",
+    "expectedTopics": [
+      "$set Operator",
+      "Partial Updates",
+      "Atomic Updates"
+    ],
+    "keyPoints": [
+      "$set replaces specified field values with new values without overwriting the entire document.",
+      "If a specified field does not exist, $set creates the new field in the document.",
+      "Passing a plain object to updateOne without $set in raw MongoDB replaces the entire document.",
+      "Guarantees atomic partial updates on specific target fields."
+    ],
+    "tags": [
+      "Operators",
+      "Updates"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain the difference between $push and $addToSet array update operators in MongoDB.",
+    "expectedTopics": [
+      "$push Operator",
+      "$addToSet Operator",
+      "Array Updates"
+    ],
+    "keyPoints": [
+      "$push appends a specified value to an array, allowing duplicate entries.",
+      "$addToSet adds a value to an array ONLY if the value does not already exist (treats array as a set).",
+      "Both operators eliminate needing to read the document into application code before updating arrays.",
+      "$push can be combined with $slice and $sort modifiers."
+    ],
+    "tags": [
+      "Array Operators",
+      "Updates"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are indexes in MongoDB and why are they critical for query performance?",
+    "expectedTopics": [
+      "Indexes",
+      "B-Tree",
+      "Query Performance"
+    ],
+    "keyPoints": [
+      "Indexes are special data structures (B-Trees) that store a small portion of the collection dataset in an easy-to-traverse form.",
+      "Without indexes, MongoDB must perform a Collection Scan (COLLSCAN), scanning every document in RAM/disk.",
+      "Indexes reduce query scan count (IXSCAN), enabling logarithmic O(log N) lookup times.",
+      "Index speed comes at the cost of additional storage and slight write overhead during inserts/updates."
+    ],
+    "tags": [
+      "Indexes",
+      "Performance"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do you create an index in MongoDB using createIndex() and list existing indexes using getIndexes()?",
+    "expectedTopics": [
+      "createIndex",
+      "getIndexes",
+      "Index Management"
+    ],
+    "keyPoints": [
+      "db.collection.createIndex({ fieldName: 1 }) creates an ascending index on fieldName (-1 for descending).",
+      "db.collection.getIndexes() returns an array describing all active indexes on the collection.",
+      "Options like { unique: true } enforce field uniqueness constraints across documents.",
+      "In Mongoose, index options can be defined directly in schema definitions (e.g. index: true or schema.index())."
+    ],
+    "tags": [
+      "Indexes",
+      "Commands"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Mongoose .populate() and how does it execute document joins under the hood?",
+    "expectedTopics": [
+      "Mongoose populate",
+      "Document Joins",
+      "Referencing"
+    ],
+    "keyPoints": [
+      "populate() replaces specified ObjectId ref fields in a document with actual documents from referenced collections.",
+      "Executed under the hood by issuing secondary sub-queries to target collections.",
+      "Allows selecting specific populated fields: .populate('user', 'fullName email').",
+      "Care should be taken with deep nested populates as multiple sequential queries can slow performance."
+    ],
+    "tags": [
+      "Mongoose",
+      "Populate"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How are limit() and skip() methods used for pagination in MongoDB queries?",
+    "expectedTopics": [
+      "Pagination",
+      "skip and limit",
+      "Query Options"
+    ],
+    "keyPoints": [
+      "limit(n) restricts query result set size to at most n documents.",
+      "skip(m) bypasses the first m documents in the query result set.",
+      "Used for pagination: skip((page - 1) * pageSize).limit(pageSize).",
+      "For large collections, high skip values slow down performance as MongoDB must still scan skipped index entries."
+    ],
+    "tags": [
+      "Pagination",
+      "Queries"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are Mongoose pre-save and post-save middleware hooks and what are common use cases for them?",
+    "expectedTopics": [
+      "Mongoose Hooks",
+      "pre('save')",
+      "post('save')"
+    ],
+    "keyPoints": [
+      "pre('save') runs asynchronously before a document is written to database; useful for password hashing or slug generation.",
+      "post('save') runs after a document is successfully saved; useful for logging or sending transactional notification emails.",
+      "Must call next() in callback hooks or return a Promise in async hooks.",
+      "Does NOT trigger automatically on direct Model.updateOne() or updateMany() calls."
+    ],
+    "tags": [
+      "Mongoose",
+      "Middleware"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the $inc update operator in MongoDB and when is it used for atomic counter increments?",
+    "expectedTopics": [
+      "$inc Operator",
+      "Atomic Counters",
+      "Field Increments"
+    ],
+    "keyPoints": [
+      "$inc increments a numeric field value by a specified amount ({ $inc: { views: 1 } }).",
+      "Can decrement values by passing negative numbers ({ $inc: { stock: -1 } }).",
+      "Executes atomically on the database server, eliminating race conditions from concurrent client updates.",
+      "Creates the field with initial value if it does not exist."
+    ],
+    "tags": [
+      "Operators",
+      "Atomic Operations"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the upsert option in MongoDB update operations?",
+    "expectedTopics": [
+      "upsert",
+      "Update or Insert",
+      "Query Options"
+    ],
+    "keyPoints": [
+      "upsert: true modifies matching documents if found, OR creates a new document if no match exists.",
+      "Combines query matching and document creation into a single atomic database operation.",
+      "When creating a new document, combines filter query fields with update operator data.",
+      "Prevents needing separate find-then-insert checks."
+    ],
+    "tags": [
+      "Upsert",
+      "Updates"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do Mongoose Virtuals work and why are they not persisted in MongoDB storage?",
+    "expectedTopics": [
+      "Mongoose Virtuals",
+      "Computed Properties",
+      "Schema Getters"
+    ],
+    "keyPoints": [
+      "Virtuals are document properties that can be gotten and set but are NOT saved to MongoDB database.",
+      "Computed dynamically on the fly (e.g. combining firstName and lastName into fullName).",
+      "Configured using schema.virtual('fullName').get(function() { return ... }).",
+      "Can be included in JSON output using { virtuals: true } in toJSON transform options."
+    ],
+    "tags": [
+      "Mongoose",
+      "Virtuals"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the $unset operator in MongoDB and how do you remove specific fields from existing documents?",
+    "expectedTopics": [
+      "$unset Operator",
+      "Field Deletion",
+      "Document Updates"
+    ],
+    "keyPoints": [
+      "$unset deletes a specified field from matching documents ({ $unset: { temporaryToken: '' } }).",
+      "The specified field value in the $unset expression does not affect the operation.",
+      "If the field does not exist in the document, $unset does nothing.",
+      "Allows clean schema migration cleanup when fields are deprecated."
+    ],
+    "tags": [
+      "Operators",
+      "Updates"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do text indexes ($text) and $search work for keyword search in MongoDB?",
+    "expectedTopics": [
+      "Text Index",
+      "$text Operator",
+      "$search"
+    ],
+    "keyPoints": [
+      "Text index supports text search queries on string content within collections.",
+      "Created via db.collection.createIndex({ description: 'text' }).",
+      "Queried using $text operator: { $text: { $search: 'nodejs express' } }.",
+      "Automatically stems words, ignores stop words (and, the), and calculates search relevance scores."
+    ],
+    "tags": [
+      "Text Search",
+      "Indexes"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do you delete documents safely using deleteMany() vs dropping an entire collection using drop()?",
+    "expectedTopics": [
+      "deleteMany",
+      "drop()",
+      "Collection Deletion"
+    ],
+    "keyPoints": [
+      "deleteMany(filter) removes matching documents one by one, keeping collection metadata and indexes intact.",
+      "drop() removes all documents AND deletes the collection and all associated indexes from storage.",
+      "drop() is significantly faster for resetting entire collections.",
+      "deleteMany({}) is slower as it removes documents while maintaining index structures."
+    ],
+    "tags": [
+      "Delete",
+      "Collections"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the MongoDB Aggregation Pipeline framework and common pipeline stages ($match, $group, $project, $sort).",
+    "expectedTopics": [
+      "Aggregation Pipeline",
+      "$match",
+      "$group"
+    ],
+    "keyPoints": [
+      "Aggregation Pipeline processes data records sequentially through an array of multi-stage transformers.",
+      "$match filters documents passing only matching items to next stage (uses indexes when placed first).",
+      "$group groups input documents by specified identifier key and performs accumulator calculations ($sum, $avg).",
+      "$project reshapes output documents by adding, removing, or computing fields.",
+      "$sort re-orders document streams."
+    ],
+    "tags": [
+      "Aggregation",
+      "Pipeline"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does the $lookup aggregation stage perform left outer joins between MongoDB collections?",
+    "expectedTopics": [
+      "$lookup Stage",
+      "Left Outer Join",
+      "Foreign Keys"
+    ],
+    "keyPoints": [
+      "$lookup performs a left outer join to an unshared collection in the same database.",
+      "Syntax: { $lookup: { from: 'targetCollection', localField: 'authorId', foreignField: '_id', as: 'authorDetails' } }.",
+      "Appends matched foreign documents as an array attribute ('authorDetails') on output documents.",
+      "Foreign field in target collection should be indexed to avoid high aggregation latency."
+    ],
+    "tags": [
+      "Aggregation",
+      "$lookup"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is a Compound Index in MongoDB and how does the ESR (Equality, Sort, Range) rule dictate field order?",
+    "expectedTopics": [
+      "Compound Index",
+      "ESR Rule",
+      "Index Ordering"
+    ],
+    "keyPoints": [
+      "Compound indexes index multiple fields within a single index structure ({ status: 1, createdAt: -1 }).",
+      "ESR Rule: Order index fields by Equality fields FIRST, Sort fields SECOND, and Range fields LAST.",
+      "Equality fields narrow candidate set; Sort fields avoid in-memory sorts; Range fields filter bounds.",
+      "Index prefixes can satisfy queries matching leading subset fields in the index."
+    ],
+    "tags": [
+      "Compound Index",
+      "ESR Rule"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain MongoDB Replica Sets (Primary, Secondary, Arbiter) and automatic failover mechanisms.",
+    "expectedTopics": [
+      "Replica Sets",
+      "High Availability",
+      "Primary-Secondary Failover"
+    ],
+    "keyPoints": [
+      "A Replica Set is a group of mongod instances maintaining identical dataset copies for high availability.",
+      "Primary node receives all write operations and records updates in the replication log (oplog).",
+      "Secondary nodes replicate primary's oplog and apply operations asynchronously to their datasets.",
+      "If Primary node fails, an automated election is held among secondaries to select a new Primary."
+    ],
+    "tags": [
+      "Replication",
+      "High Availability"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are Read Preferences and Write Concerns in MongoDB?",
+    "expectedTopics": [
+      "Read Preference",
+      "Write Concern",
+      "Consistency vs Speed"
+    ],
+    "keyPoints": [
+      "Read Preferences specify how client queries are routed across Replica Set nodes (primary, secondary, nearest).",
+      "Write Concerns specify the level of acknowledgment requested from MongoDB for write operations.",
+      "w: 1 acknowledges write once primary writes; w: 'majority' waits for majority of replica nodes to acknowledge.",
+      "wmajority ensures durability against data loss in primary failover scenarios."
+    ],
+    "tags": [
+      "Replication",
+      "Write Concern"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Sharding in MongoDB and how do Shard Keys, Chunks, and mongos routers enable horizontal scaling?",
+    "expectedTopics": [
+      "Sharding",
+      "Shard Key",
+      "mongos Router"
+    ],
+    "keyPoints": [
+      "Sharding distributes dataset collections across multiple hardware clusters (shards) for horizontal scaling.",
+      "Shard Key dictates how documents are partitioned into data Chunks across shards.",
+      "mongos acts as a query router, directing client operations to specific responsible shards.",
+      "Config Servers maintain cluster metadata and location mappings."
+    ],
+    "tags": [
+      "Sharding",
+      "Horizontal Scaling"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do Multi-Document ACID Transactions work in MongoDB 4.0+ using Client Sessions?",
+    "expectedTopics": [
+      "ACID Transactions",
+      "Client Sessions",
+      "Multi-Document Transactions"
+    ],
+    "keyPoints": [
+      "MongoDB 4.0+ supports multi-document ACID transactions across replica sets (and sharded clusters in 4.2+).",
+      "Initiated via session = client.startSession() and session.startTransaction().",
+      "All CRUD operations inside session commit atomically (session.commitTransaction()) or abort (session.abortTransaction()).",
+      "Used when multi-document updates must strictly guarantee all-or-nothing consistency."
+    ],
+    "tags": [
+      "Transactions",
+      "ACID"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does the $unwind aggregation stage work when transforming arrays into individual document streams?",
+    "expectedTopics": [
+      "$unwind Stage",
+      "Array Deconstruction",
+      "Aggregation"
+    ],
+    "keyPoints": [
+      "$unwind deconstructs an array field from input documents to output a document for EACH element in the array.",
+      "Each output document replaces the array field with a single element value.",
+      "preserveNullAndEmptyArrays option ensures documents with missing/empty arrays are not dropped.",
+      "Essential step before grouping or filtering by specific array sub-item fields."
+    ],
+    "tags": [
+      "Aggregation",
+      "$unwind"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is a Covered Query in MongoDB and how does it allow execution entirely in RAM without reading document files?",
+    "expectedTopics": [
+      "Covered Query",
+      "Index Only Scan",
+      "PROJ_COVER"
+    ],
+    "keyPoints": [
+      "A Covered Query is a query where ALL requested fields are indexed and included in the index structure.",
+      "MongoDB satisfies the query using IXSCAN directly without fetching full documents from disk/RAM (FETCH stage bypassed).",
+      "Requires explicit query projection excluding unindexed fields and _id (unless _id is part of index).",
+      "Delivers ultra-fast query execution speeds."
+    ],
+    "tags": [
+      "Covered Query",
+      "Optimization"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare Mongoose .lean() with standard Mongoose document instances regarding RAM usage and query speed.",
+    "expectedTopics": [
+      "Mongoose .lean()",
+      "POJO",
+      "Performance"
+    ],
+    "keyPoints": [
+      "Standard Mongoose queries return hydrated Mongoose Document instances with getters, setters, virtuals, and change tracking.",
+      ".lean() instructs Mongoose to skip hydration and return plain JavaScript objects (POJOs).",
+      ".lean() queries execute 4-5x faster and consume significantly less RAM.",
+      "Ideal for read-only GET endpoints where document .save() or virtuals are not needed."
+    ],
+    "tags": [
+      "Mongoose",
+      "lean"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are TTL (Time-To-Live) indexes in MongoDB and how are they used for auto-expiring documents?",
+    "expectedTopics": [
+      "TTL Index",
+      "Auto-Expiring Data",
+      "expireAfterSeconds"
+    ],
+    "keyPoints": [
+      "TTL indexes automatically remove documents from a collection after a specified duration.",
+      "Created on Date fields using expireAfterSeconds option ({ createdAt: 1 }, { expireAfterSeconds: 3600 }).",
+      "MongoDB background thread evaluates expired documents once every 60 seconds.",
+      "Ideal for auto-clearing session tokens, temporary OTPs, or log history."
+    ],
+    "tags": [
+      "TTL Index",
+      "Expiration"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do Partial Indexes and Sparse Indexes differ in MongoDB for optimizing storage and index selectivity?",
+    "expectedTopics": [
+      "Partial Index",
+      "Sparse Index",
+      "Selective Indexing"
+    ],
+    "keyPoints": [
+      "Sparse indexes only index documents that actually contain the indexed field.",
+      "Partial indexes index documents matching a specified filter expression (partialFilterExpression).",
+      "Partial indexes represent a superset of sparse index functionality, supporting complex logical filters.",
+      "Reduces index storage requirements and write overhead by indexing only targeted document subsets."
+    ],
+    "tags": [
+      "Partial Index",
+      "Indexes"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is a Capped Collection in MongoDB and what are its primary use cases?",
+    "expectedTopics": [
+      "Capped Collection",
+      "Circular Buffer",
+      "Fixed Size"
+    ],
+    "keyPoints": [
+      "Capped Collections are fixed-size circular buffers that maintain insertion order.",
+      "When allocated storage cap is reached, old documents are automatically overwritten by new inserts.",
+      "High-speed write performance as documents are written sequentially on disk without document moves.",
+      "Ideal for high-throughput logging, auditing trails, or real-time event streaming."
+    ],
+    "tags": [
+      "Capped Collection",
+      "Storage"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do array positional operators ($ and $[]) work when updating specific array elements in MongoDB?",
+    "expectedTopics": [
+      "Positional Operator $",
+      "All Positional Operator $[]",
+      "Array Updates"
+    ],
+    "keyPoints": [
+      "Positional $ operator identifies the FIRST matching array element in query filter ({ 'comments.$.liked': true }).",
+      "All positional $[] operator updates ALL elements in specified array field simultaneously.",
+      "Filtered positional $[<identifier>] operator updates array elements matching arrayFilters condition.",
+      "Enables precise array element updates without rewriting entire array."
+    ],
+    "tags": [
+      "Array Operators",
+      "Updates"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you implement schema validation rules directly at the MongoDB database level using $jsonSchema?",
+    "expectedTopics": [
+      "$jsonSchema",
+      "Database Validation",
+      "Collection Validation"
+    ],
+    "keyPoints": [
+      "MongoDB supports server-side document validation using JSON Schema standard rules.",
+      "Configured during collection creation via createCollection('users', { validator: { $jsonSchema: { ... } } }).",
+      "Enforces data integrity directly at database level regardless of which client driver issues writes.",
+      "Supports validationAction 'error' (reject write) or 'warn' (log violation)."
+    ],
+    "tags": [
+      "Schema Validation",
+      "$jsonSchema"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A high-traffic MongoDB cluster experiences 100% CPU usage and slow queries. Diagnose using explain('executionStats') and currentOp(), and detail refactoring steps.",
+    "expectedTopics": [
+      "explain('executionStats')",
+      "currentOp()",
+      "Query Optimization"
+    ],
+    "keyPoints": [
+      "Run db.currentOp() to inspect long-running active operations and lock states.",
+      "Execute query.explain('executionStats') to inspect stage plan (COLLSCAN vs IXSCAN), totalDocsExamined, and executionTimeMillis.",
+      "If totalDocsExamined >> nReturned, query is unindexed or index selectivity is poor.",
+      "Refactor by creating compound index adhering to ESR rule and ensuring covered query execution."
+    ],
+    "tags": [
+      "Debugging",
+      "Performance"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Architectural Design: How would you design a scalable MongoDB schema and indexing strategy for an e-commerce platform managing catalog products, carts, and order status updates?",
+    "expectedTopics": [
+      "E-Commerce Schema",
+      "Order Workflow",
+      "Compound Index Strategy"
+    ],
+    "keyPoints": [
+      "Products: Embed dynamic attribute key-value pairs; create compound index on { category: 1, price: 1 } and text index on title.",
+      "Carts: Store active user cart in single document with TTL index for abandoned cart cleanup.",
+      "Orders: Embed snapshot copy of purchased product data and delivery address (immutable snapshot pattern).",
+      "Use MongoDB ACID Multi-Document Session Transactions for checkout inventory decrements and order creation."
+    ],
+    "tags": [
+      "Architecture",
+      "Schema Design"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: A developer implements $lookup across two large collections (5 million documents each), causing aggregation pipeline RAM cap failures (100MB limit). How do you resolve this?",
+    "expectedTopics": [
+      "allowDiskUse",
+      "Lookup Optimization",
+      "Aggregation RAM Limit"
+    ],
+    "keyPoints": [
+      "MongoDB pipeline stages fail if RAM usage exceeds 100MB during in-memory sorting/grouping.",
+      "Fix 1: Add allowDiskUse: true option to allow stage writing temporary spill files to disk.",
+      "Fix 2: Place $match and $project stages BEFORE $lookup to shrink document count and payload size.",
+      "Fix 3: Ensure target foreign field in foreign collection has an active index to speed up lookup matching."
+    ],
+    "tags": [
+      "Aggregation",
+      "Memory Limit"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into WiredTiger Storage Engine: Explain how WiredTiger uses B-Trees, Write-Ahead Logging (Journaling), Checkpoints, and Ticket Concurrency Control.",
+    "expectedTopics": [
+      "WiredTiger",
+      "Journaling",
+      "Checkpoints"
+    ],
+    "keyPoints": [
+      "WiredTiger is MongoDB's default storage engine supporting document-level concurrency control.",
+      "Uses Write-Ahead Logging (Journal) to record write operations to disk before applying to data files, guaranteeing crash recovery.",
+      "Checkpoints flush in-memory dirty pages to disk every 60 seconds or 2GB of journal data.",
+      "Uses ticket-based concurrency control to manage concurrent read/write threads without global collection locks."
+    ],
+    "tags": [
+      "WiredTiger",
+      "Storage Engine"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Implement a robust pagination pattern in MongoDB comparing Skip-Based Pagination against Cursor-Based (Keyset) Pagination for massive collections.",
+    "expectedTopics": [
+      "Keyset Pagination",
+      "Skip Degradation",
+      "Cursor Pagination"
+    ],
+    "keyPoints": [
+      "Skip-based pagination (skip(10000).limit(20)) suffers O(N) degradation as MongoDB must scan 10,000 index items.",
+      "Cursor-based (Keyset) pagination queries relative to last seen document's indexed ID/timestamp ({ _id: { $lt: lastSeenId } }).",
+      "Cursor pagination achieves constant O(1) time complexity regardless of page depth.",
+      "Requires unique monotonic indexed fields for reliable pagination."
+    ],
+    "tags": [
+      "Pagination",
+      "Performance"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: A sharded MongoDB cluster suffers from Jumbo Chunks and Hotspotting due to a monotonically increasing ObjectId Shard Key. Detail a migration strategy.",
+    "expectedTopics": [
+      "Jumbo Chunks",
+      "Shard Key Hotspotting",
+      "Hashed Shard Key"
+    ],
+    "keyPoints": [
+      "Monotonically increasing shard keys (ObjectId, timestamp) route all new write operations to a single shard, causing write hotspotting.",
+      "Jumbo chunks occur when chunk size exceeds limits and cannot be split due to low key cardinality.",
+      "Migration: Use refined compound shard key combining high-cardinality field with existing key, OR use a Hashed Shard Key ({ _id: 'hashed' }).",
+      "Hashed shard keys distribute writes evenly across all cluster shards."
+    ],
+    "tags": [
+      "Sharding",
+      "Shard Key"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How do Write Conflicts, Document-Level Locking, and Optimistic Concurrency Control (version key __v) work during concurrent document updates?",
+    "expectedTopics": [
+      "Document-Level Locking",
+      "Optimistic Concurrency Control",
+      "Version Key __v"
+    ],
+    "keyPoints": [
+      "WiredTiger uses optimistic document-level concurrency control; writes conflict only if updating the exact same document simultaneously.",
+      "When write conflict occurs, WiredTiger automatically retries the operation transparently.",
+      "Mongoose uses version key __v to implement Optimistic Concurrency Control on arrays.",
+      "If document version in database changes between find and save, Mongoose throws VersionError preventing lost updates."
+    ],
+    "tags": [
+      "Concurrency",
+      "WiredTiger"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: A Mongoose application experiences connection pool exhaustion during traffic surges. How do you configure connection pooling options for production resilience?",
+    "expectedTopics": [
+      "Connection Pool",
+      "maxPoolSize",
+      "socketTimeoutMS"
+    ],
+    "keyPoints": [
+      "Mongoose maintains a socket connection pool per database URI (default maxPoolSize: 100).",
+      "Traffic spikes exhaust pool connections if queries run slowly or sockets stay open.",
+      "Configure maxPoolSize based on server RAM and database process capacity.",
+      "Set socketTimeoutMS (e.g. 45000ms) and serverSelectionTimeoutMS to fail fast when DB is unreachable.",
+      "Implement application-level query timeouts using maxTimeMS()."
+    ],
+    "tags": [
+      "Mongoose",
+      "Connection Pool"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Contrast Change Streams (watch()) against traditional Polling or Oplog Tailers for building real-time event-driven Node.js services.",
+    "expectedTopics": [
+      "Change Streams",
+      "watch() API",
+      "Oplog Tailer"
+    ],
+    "keyPoints": [
+      "Change Streams (collection.watch()) allow applications to access real-time data changes across replica sets using ES iterators.",
+      "Leverages MongoDB oplog internally without database polling overhead.",
+      "Returns event notification objects containing operationType (insert, update, replace, delete) and full document delta.",
+      "Supports resume tokens (resumeAfter) allowing clients to resume stream processing after network disconnections."
+    ],
+    "tags": [
+      "Change Streams",
+      "Real-Time"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "MongoDB",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A Mongoose pre-save hook for password hashing triggers twice on document updates or hangs indefinitely. Trace the bug and detail the fix.",
+    "expectedTopics": [
+      "pre('save') Bug",
+      "isModified Check",
+      "Async Hook Return"
+    ],
+    "keyPoints": [
+      "Cause 1: Password hashing pre-save hook lacks if (!this.isModified('password')) return next() check, re-hashing already hashed password on subsequent edits.",
+      "Cause 2: Async hook omits calling next() AND fails to return a Promise, causing Mongoose save flow to hang indefinitely.",
+      "Fix: Always check isModified('password') and write async hooks as async function () { this.password = await bcrypt.hash(...); } without manual next() calls."
+    ],
+    "tags": [
+      "Mongoose",
+      "Debugging"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

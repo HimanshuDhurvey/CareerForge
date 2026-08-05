@@ -1,0 +1,1211 @@
+[
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is SQL and what are the main command sub-languages (DDL, DML, DCL, TCL)?",
+    "expectedTopics": [
+      "SQL Overview",
+      "DDL DML DCL TCL",
+      "Sub-languages"
+    ],
+    "keyPoints": [
+      "SQL (Structured Query Language) is the standard language for managing and querying relational databases.",
+      "DDL (Data Definition Language): Defines database schema structure (CREATE, ALTER, DROP, TRUNCATE).",
+      "DML (Data Manipulation Language): Manages data records inside tables (SELECT, INSERT, UPDATE, DELETE).",
+      "DCL (Data Control Language): Controls permissions and access rights (GRANT, REVOKE).",
+      "TCL (Transaction Control Language): Manages transactions (COMMIT, ROLLBACK, SAVEPOINT)."
+    ],
+    "tags": [
+      "SQL",
+      "Basics"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain Data Definition Language (DDL) commands: CREATE, ALTER, DROP, and TRUNCATE.",
+    "expectedTopics": [
+      "DDL Commands",
+      "Schema Changes",
+      "CREATE ALTER DROP"
+    ],
+    "keyPoints": [
+      "CREATE: Creates new database objects like tables, views, or indexes.",
+      "ALTER: Modifies the structure of existing database objects (adding/dropping columns or constraints).",
+      "DROP: Permanently removes database objects and their data completely from the database.",
+      "TRUNCATE: Deletes all rows from a table rapidly while retaining table structure and schema."
+    ],
+    "tags": [
+      "DDL",
+      "Commands"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain Data Manipulation Language (DML) commands: SELECT, INSERT, UPDATE, and DELETE.",
+    "expectedTopics": [
+      "DML Commands",
+      "Data Modification",
+      "CRUD in SQL"
+    ],
+    "keyPoints": [
+      "SELECT: Retrieves data rows from one or more database tables.",
+      "INSERT: Adds new records/rows into a target database table.",
+      "UPDATE: Modifies existing column values in table rows based on filter conditions.",
+      "DELETE: Removes specified rows from a database table based on a WHERE clause."
+    ],
+    "tags": [
+      "DML",
+      "Commands"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between DELETE, TRUNCATE, and DROP commands in SQL?",
+    "expectedTopics": [
+      "DELETE vs TRUNCATE vs DROP",
+      "DML vs DDL",
+      "Rollback Behavior"
+    ],
+    "keyPoints": [
+      "DELETE is DML: Removes specific rows one by one based on WHERE clause; can be rolled back inside transactions.",
+      "TRUNCATE is DDL: Removes ALL rows from a table by deallocating data pages; faster than DELETE, resets auto-increment IDs.",
+      "DROP is DDL: Removes both all data AND the table schema definition permanently from database.",
+      "DELETE triggers table DELETE triggers; TRUNCATE does not fire individual row triggers."
+    ],
+    "tags": [
+      "DELETE",
+      "TRUNCATE",
+      "DROP"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are SQL Integrity Constraints (PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK, DEFAULT)?",
+    "expectedTopics": [
+      "Constraints",
+      "Data Integrity",
+      "Table Rules"
+    ],
+    "keyPoints": [
+      "PRIMARY KEY: Uniquely identifies each row in a table (NOT NULL + UNIQUE).",
+      "FOREIGN KEY: Enforces referential integrity pointing to primary key in another table.",
+      "UNIQUE: Guarantees all values in a column are distinct.",
+      "NOT NULL: Prevents null values from being stored in a column.",
+      "CHECK: Enforces custom boolean logic validation on column values.",
+      "DEFAULT: Assigns a default fallback value when no value is provided during insertion."
+    ],
+    "tags": [
+      "Constraints",
+      "Data Integrity"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Primary Key and how does it differ from a Unique Key constraint?",
+    "expectedTopics": [
+      "Primary Key vs Unique Key",
+      "Null Values",
+      "Table Limit"
+    ],
+    "keyPoints": [
+      "A table can have only ONE Primary Key, but multiple Unique Keys.",
+      "Primary Key columns cannot accept NULL values under any circumstance.",
+      "Unique Key columns allow NULL values (one NULL in standard SQL or multiple depending on RDBMS).",
+      "Primary Key automatically creates a Clustered Index by default in databases like SQL Server and MySQL InnoDB."
+    ],
+    "tags": [
+      "Primary Key",
+      "Unique Key"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Foreign Key and how does it enforce Referential Integrity between tables?",
+    "expectedTopics": [
+      "Foreign Key",
+      "Referential Integrity",
+      "CASCADE Actions"
+    ],
+    "keyPoints": [
+      "A Foreign Key in a child table references a Primary Key in a parent table.",
+      "Enforces Referential Integrity by preventing orphaned records in child tables.",
+      "Prevents deleting parent table records if matching child records exist.",
+      "Supports cascade options: ON DELETE CASCADE, ON UPDATE CASCADE, or ON DELETE SET NULL."
+    ],
+    "tags": [
+      "Foreign Key",
+      "Relationships"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain basic SQL query clauses: WHERE, GROUP BY, HAVING, ORDER BY, and LIMIT.",
+    "expectedTopics": [
+      "SQL Query Clauses",
+      "Execution Order",
+      "Grouping & Ordering"
+    ],
+    "keyPoints": [
+      "WHERE: Filters individual raw rows BEFORE aggregation.",
+      "GROUP BY: Groups rows sharing common values into summary rows.",
+      "HAVING: Filters aggregated groups AFTER GROUP BY execution.",
+      "ORDER BY: Sorts the final result set in ASC or DESC order.",
+      "LIMIT / TOP: Constrains the maximum number of returned rows."
+    ],
+    "tags": [
+      "Clauses",
+      "Queries"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between WHERE clause and HAVING clause in SQL queries?",
+    "expectedTopics": [
+      "WHERE vs HAVING",
+      "Aggregate Filters",
+      "Execution Order"
+    ],
+    "keyPoints": [
+      "WHERE clause filters individual rows before any grouping or aggregation takes place.",
+      "HAVING clause filters summary group rows created by GROUP BY.",
+      "WHERE clause cannot contain aggregate functions (e.g. WHERE SUM(sales) > 100 is invalid).",
+      "HAVING clause is used specifically with aggregate functions (e.g. HAVING COUNT(*) > 5)."
+    ],
+    "tags": [
+      "WHERE",
+      "HAVING"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are SQL Joins and how do INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN differ?",
+    "expectedTopics": [
+      "SQL Joins",
+      "INNER JOIN",
+      "OUTER JOIN"
+    ],
+    "keyPoints": [
+      "INNER JOIN: Returns only rows matching condition in BOTH tables.",
+      "LEFT (OUTER) JOIN: Returns all rows from left table and matching rows from right table (NULLs for non-matches).",
+      "RIGHT (OUTER) JOIN: Returns all rows from right table and matching rows from left table.",
+      "FULL (OUTER) JOIN: Returns all rows when there is a match in either left or right table."
+    ],
+    "tags": [
+      "Joins",
+      "Relational Queries"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a CROSS JOIN (Cartesian Product) and when would it occur?",
+    "expectedTopics": [
+      "CROSS JOIN",
+      "Cartesian Product",
+      "Combinations"
+    ],
+    "keyPoints": [
+      "CROSS JOIN produces a Cartesian product combining every row from left table with every row from right table.",
+      "If left table has N rows and right table has M rows, output contains N x M total rows.",
+      "Occurs when CROSS JOIN is explicitly written or when an INNER JOIN condition is omitted.",
+      "Useful for generating all possible combinations (e.g. sizes x colors product catalog matrix)."
+    ],
+    "tags": [
+      "CROSS JOIN",
+      "Cartesian"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Self Join in SQL and what is a common practical use case for it?",
+    "expectedTopics": [
+      "Self Join",
+      "Table Aliases",
+      "Hierarchical Data"
+    ],
+    "keyPoints": [
+      "A Self Join is a regular join where a table is joined with itself using table aliases (e.g. FROM Employee e JOIN Employee m).",
+      "Used to query hierarchical data stored within a single table.",
+      "Common use case: Querying employee-manager relationships where manager_id points to employee_id in the same table.",
+      "Common use case: Comparing rows within the same table."
+    ],
+    "tags": [
+      "Self Join",
+      "Aliases"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is NULL in SQL and why must you use IS NULL / IS NOT NULL instead of = or !=?",
+    "expectedTopics": [
+      "NULL Values",
+      "Three-Valued Logic",
+      "IS NULL"
+    ],
+    "keyPoints": [
+      "NULL represents an unknown or missing value, not zero or an empty string.",
+      "SQL uses Three-Valued Logic (TRUE, FALSE, UNKNOWN).",
+      "Comparing anything to NULL with '=' (e.g. col = NULL) evaluates to UNKNOWN, which evaluates to false in WHERE clauses.",
+      "Must use explicit 'IS NULL' or 'IS NOT NULL' operators to evaluate NULL conditions."
+    ],
+    "tags": [
+      "NULL",
+      "Operators"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are aggregate functions in SQL (COUNT, SUM, AVG, MIN, MAX) and how do they handle NULL values?",
+    "expectedTopics": [
+      "Aggregate Functions",
+      "COUNT AVG SUM",
+      "NULL Handling"
+    ],
+    "keyPoints": [
+      "Aggregate functions compute a single summary value across a set of column values.",
+      "COUNT(*): Counts all rows including NULLs and duplicates.",
+      "COUNT(column): Counts non-NULL values in specified column.",
+      "SUM, AVG, MIN, MAX ignore NULL values automatically during calculations.",
+      "COALESCE(col, 0) can replace NULLs before aggregation."
+    ],
+    "tags": [
+      "Aggregates",
+      "Functions"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain common string functions in SQL: CONCAT, SUBSTRING, LENGTH, UPPER, LOWER, and TRIM.",
+    "expectedTopics": [
+      "String Functions",
+      "Text Formatting",
+      "Built-in Functions"
+    ],
+    "keyPoints": [
+      "CONCAT(str1, str2): Joins multiple string values together.",
+      "SUBSTRING(str, pos, len): Extracts a sub-string portion from target string starting at position.",
+      "LENGTH(str) / LEN(str): Returns character count length of string.",
+      "UPPER(str) / LOWER(str): Converts string characters to uppercase or lowercase.",
+      "TRIM(str): Removes leading and trailing whitespace characters."
+    ],
+    "tags": [
+      "Strings",
+      "Functions"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the LIKE operator in SQL and how do % and _ wildcard characters work?",
+    "expectedTopics": [
+      "LIKE Operator",
+      "Wildcard % and _",
+      "Pattern Matching"
+    ],
+    "keyPoints": [
+      "LIKE operator performs pattern matching on string columns.",
+      "Percent sign (%) matches zero, one, or multiple characters (e.g. 'A%' matches 'Alice', 'Apple').",
+      "Underscore (_) matches exactly one single character (e.g. 'A_b' matches 'Amb', 'Arb').",
+      "Leading wildcards (LIKE '%text') prevent databases from using standard B-Tree indexes, causing table scans."
+    ],
+    "tags": [
+      "LIKE",
+      "Wildcards"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between UNION and UNION ALL set operators in SQL?",
+    "expectedTopics": [
+      "UNION vs UNION ALL",
+      "Set Operators",
+      "Duplicate Removal"
+    ],
+    "keyPoints": [
+      "UNION combines result sets from two queries and removes duplicate rows.",
+      "UNION ALL combines result sets from two queries AND preserves all duplicate rows.",
+      "UNION performs an expensive distinct sort operation to eliminate duplicates.",
+      "UNION ALL is faster because it bypasses duplicate checking."
+    ],
+    "tags": [
+      "UNION",
+      "Set Operators"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Subquery (Nested Query) in SQL and how does a scalar subquery differ from a multi-row subquery?",
+    "expectedTopics": [
+      "Subquery",
+      "Scalar Subquery",
+      "Multi-row Subquery"
+    ],
+    "keyPoints": [
+      "A Subquery is a SELECT query nested inside another outer SQL query statement.",
+      "Scalar Subquery: Returns exactly one single row and one single column value (used with =, <, >).",
+      "Multi-row Subquery: Returns multiple rows of values (used with IN, ANY, ALL).",
+      "Subqueries can be placed in SELECT, FROM, WHERE, or HAVING clauses."
+    ],
+    "tags": [
+      "Subqueries",
+      "Nested Queries"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a SQL View (CREATE VIEW) and what are its primary security and abstraction benefits?",
+    "expectedTopics": [
+      "SQL View",
+      "Virtual Table",
+      "Security & Abstraction"
+    ],
+    "keyPoints": [
+      "A View is a virtual table defined by a stored SELECT query statement.",
+      "Does not store data physically (unless materialized); evaluates query dynamically when referenced.",
+      "Simplifies complex multi-table join queries into simple table-like SELECTs.",
+      "Enhances security by restricting user access to specific columns/rows without exposing underlying tables."
+    ],
+    "tags": [
+      "Views",
+      "Virtual Tables"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is an Index in SQL and how does a Clustered Index differ from a Non-Clustered Index?",
+    "expectedTopics": [
+      "Clustered Index",
+      "Non-Clustered Index",
+      "B-Tree Storage"
+    ],
+    "keyPoints": [
+      "Clustered Index: Sorts and physically stores actual data rows of the table in index order (only ONE allowed per table).",
+      "Non-Clustered Index: Stores separate B-Tree index structure containing key values and row pointers to actual data pages.",
+      "A table can have multiple Non-Clustered Indexes.",
+      "Clustered index provides faster range scans; non-clustered indexes require secondary lookups."
+    ],
+    "tags": [
+      "Indexes",
+      "Clustered Index"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Data Control Language (DCL) and how do GRANT and REVOKE manage database permissions?",
+    "expectedTopics": [
+      "DCL",
+      "GRANT",
+      "REVOKE"
+    ],
+    "keyPoints": [
+      "DCL commands manage user privileges and security access rights on database objects.",
+      "GRANT: Bestows specific permissions (SELECT, INSERT, EXECUTE) to database users or roles.",
+      "REVOKE: Removes previously granted permissions from database users or roles.",
+      "Enforces Principle of Least Privilege in enterprise database security."
+    ],
+    "tags": [
+      "DCL",
+      "Security"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Transaction Control Language (TCL) and how do COMMIT, ROLLBACK, and SAVEPOINT work?",
+    "expectedTopics": [
+      "TCL Commands",
+      "COMMIT ROLLBACK",
+      "SAVEPOINT"
+    ],
+    "keyPoints": [
+      "TCL commands manage transactional state changes across DML execution blocks.",
+      "COMMIT: Permanently saves all transaction data modifications to database disk.",
+      "ROLLBACK: Undoes all transaction data modifications, restoring database to previous clean state.",
+      "SAVEPOINT: Creates a checkpoint within a transaction to allow partial rollbacks."
+    ],
+    "tags": [
+      "TCL",
+      "Transactions"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are SQL CASE expressions and how do they implement conditional logic inside queries?",
+    "expectedTopics": [
+      "CASE Expression",
+      "Conditional Logic",
+      "WHEN THEN ELSE"
+    ],
+    "keyPoints": [
+      "CASE expression evaluates conditions and returns a value when first condition is met (if-then-else logic).",
+      "Syntax: CASE WHEN condition THEN result ELSE fallback END.",
+      "Can be used inside SELECT, WHERE, ORDER BY, and GROUP BY clauses.",
+      "Allows transforming code values or categorizing range buckets dynamically."
+    ],
+    "tags": [
+      "CASE",
+      "Control Flow"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Database Normalization and what is the goal of First Normal Form (1NF)?",
+    "expectedTopics": [
+      "Normalization",
+      "1NF",
+      "Atomic Values"
+    ],
+    "keyPoints": [
+      "Database Normalization organizes tables to reduce data redundancy and eliminate insert/update/delete anomalies.",
+      "First Normal Form (1NF) requires every column cell to contain atomic (indivisible) single values.",
+      "Eliminates repeating groups or comma-separated lists stored within single column cells.",
+      "Requires each table row to be uniquely identifiable via a Primary Key."
+    ],
+    "tags": [
+      "Normalization",
+      "1NF"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do BETWEEN and IN operators simplify filtering in SQL WHERE clauses?",
+    "expectedTopics": [
+      "BETWEEN Operator",
+      "IN Operator",
+      "Filtering"
+    ],
+    "keyPoints": [
+      "BETWEEN filters inclusive value ranges (val BETWEEN min AND max, equivalent to val >= min AND val <= max).",
+      "IN filters matching values against a discrete list or subquery result (val IN (1, 2, 3)).",
+      "Enhances query readability compared to multiple OR conditions.",
+      "Can be combined with NOT operator (NOT BETWEEN, NOT IN)."
+    ],
+    "tags": [
+      "Operators",
+      "Filtering"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain SQL Window Functions (ROW_NUMBER, RANK, DENSE_RANK, NTILE) and how OVER(PARTITION BY ... ORDER BY ...) operates.",
+    "expectedTopics": [
+      "Window Functions",
+      "ROW_NUMBER RANK DENSE_RANK",
+      "OVER Clause"
+    ],
+    "keyPoints": [
+      "Window functions perform calculations across set of rows related to current row without collapsing rows into groups.",
+      "OVER(PARTITION BY dept ORDER BY salary DESC) divides rows into processing partitions and sorts items within partitions.",
+      "ROW_NUMBER(): Assigns sequential unique integer (1, 2, 3, 4).",
+      "RANK(): Assigns rank with gaps for ties (1, 2, 2, 4).",
+      "DENSE_RANK(): Assigns rank without gaps for ties (1, 2, 2, 3)."
+    ],
+    "tags": [
+      "Window Functions",
+      "Ranking"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare Correlated Subqueries vs Non-Correlated Subqueries in performance and execution strategy.",
+    "expectedTopics": [
+      "Correlated Subquery",
+      "Non-Correlated Subquery",
+      "Performance"
+    ],
+    "keyPoints": [
+      "Non-Correlated Subquery executes once independently; outer query consumes returned result set.",
+      "Correlated Subquery references columns from outer query table (outer.id = inner.fk).",
+      "Correlated subqueries re-evaluate once for EACH outer query row, causing poor O(N^2) execution speeds.",
+      "Correlated subqueries should be refactored into JOINs or CTEs for better optimization."
+    ],
+    "tags": [
+      "Subqueries",
+      "Optimization"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Common Table Expression (CTE) using the WITH clause and how does it compare to Subqueries and Temp Tables?",
+    "expectedTopics": [
+      "Common Table Expression",
+      "WITH Clause",
+      "CTE vs Subquery"
+    ],
+    "keyPoints": [
+      "A CTE defines a temporary named result set using WITH clause accessible within single SELECT/INSERT/UPDATE statement scope.",
+      "Improves SQL readability and modular structure compared to deeply nested subqueries.",
+      "Supports Recursive CTEs for traversing hierarchical tree structures.",
+      "Unlike Temporary Tables, CTEs exist only during single statement execution and are not written to tempdb disk."
+    ],
+    "tags": [
+      "CTE",
+      "WITH"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are Database Transactions and how do ACID properties (Atomicity, Consistency, Isolation, Durability) ensure data integrity?",
+    "expectedTopics": [
+      "ACID Properties",
+      "Transactions",
+      "Data Integrity"
+    ],
+    "keyPoints": [
+      "Atomicity: All operations in transaction succeed together, or entire transaction rolls back (All-or-Nothing).",
+      "Consistency: Transaction transforms database from one valid consistent state to another, preserving constraints.",
+      "Isolation: Concurrent executing transactions operate independently without interfering with each other.",
+      "Durability: Committed transactions persist permanently in non-volatile storage even after system crashes."
+    ],
+    "tags": [
+      "ACID",
+      "Transactions"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain Transaction Isolation Levels (READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE) and concurrency anomalies.",
+    "expectedTopics": [
+      "Isolation Levels",
+      "Dirty Read",
+      "Phantom Read"
+    ],
+    "keyPoints": [
+      "READ UNCOMMITTED: Allows Dirty Reads (reading uncommitted data).",
+      "READ COMMITTED: Prevents Dirty Reads; permits Non-Repeatable Reads (data changes mid-transaction).",
+      "REPEATABLE READ: Prevents Non-Repeatable Reads; permits Phantom Reads (new rows inserted mid-transaction).",
+      "SERIALIZABLE: Highest level; prevents Phantom Reads via range locks, but lowers concurrency."
+    ],
+    "tags": [
+      "Isolation Levels",
+      "ACID"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Database Normalization? Detail 1NF, 2NF (partial dependencies), 3NF (transitive dependencies), and BCNF.",
+    "expectedTopics": [
+      "Normalization Rules",
+      "2NF 3NF BCNF",
+      "Functional Dependencies"
+    ],
+    "keyPoints": [
+      "1NF: Atomic column values, no repeating groups.",
+      "2NF: Must be in 1NF and eliminate Partial Dependencies (non-key attributes dependent on part of composite PK).",
+      "3NF: Must be in 2NF and eliminate Transitive Dependencies (non-key attributes dependent on other non-key attributes).",
+      "BCNF (Boyce-Codd): Strict 3NF variant where for every functional dependency X -> Y, X must be a super key."
+    ],
+    "tags": [
+      "Normalization",
+      "Database Design"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is a Stored Procedure (CREATE PROCEDURE) and how does it differ from a User-Defined Function (UDF)?",
+    "expectedTopics": [
+      "Stored Procedure",
+      "UDF Function",
+      "Procedure vs Function"
+    ],
+    "keyPoints": [
+      "Stored Procedures execute business logic procedural steps, accept IN/OUT parameters, and do NOT require return values.",
+      "UDFs must return a single scalar value or table result set.",
+      "Stored Procedures can execute DML (INSERT/UPDATE/DELETE) and control transactions (COMMIT/ROLLBACK).",
+      "UDFs cannot execute data modification DML operations or manage transactions; UDFs can be called inside SELECT queries."
+    ],
+    "tags": [
+      "Stored Procedures",
+      "Functions"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are Database Triggers (BEFORE, AFTER, INSTEAD OF) and what are common security or auditing use cases?",
+    "expectedTopics": [
+      "Triggers",
+      "BEFORE AFTER INSTEAD OF",
+      "Audit Logging"
+    ],
+    "keyPoints": [
+      "Triggers are stored program procedures executed automatically in response to DML table events (INSERT, UPDATE, DELETE).",
+      "BEFORE Triggers validate or modify row values before write execution.",
+      "AFTER Triggers log audit entries or update summary tables after write execution.",
+      "INSTEAD OF Triggers override default DML actions (commonly used on complex Views).",
+      "Excessive triggers complicate debugging due to implicit hidden side effects."
+    ],
+    "tags": [
+      "Triggers",
+      "Automation"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does EXPLAIN or EXPLAIN ANALYZE assist in query performance tuning by inspecting execution plans?",
+    "expectedTopics": [
+      "EXPLAIN ANALYZE",
+      "Execution Plan",
+      "Index Scan vs Seek"
+    ],
+    "keyPoints": [
+      "EXPLAIN shows predicted execution plan generated by query optimizer.",
+      "EXPLAIN ANALYZE executes query and reports actual runtime execution metrics (cost, time, loop counts).",
+      "Table Scan / Index Scan indicates reading entire table/index sequentially (slow for large datasets).",
+      "Index Seek indicates direct logarithmic lookup via B-Tree index (fast).",
+      "Identifies missing indexes, inefficient joins, and temporary disk spills."
+    ],
+    "tags": [
+      "EXPLAIN",
+      "Performance Tuning"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is a Composite Index (Multi-column Index) in SQL and how does the Leftmost Prefix Rule impact query optimization?",
+    "expectedTopics": [
+      "Composite Index",
+      "Leftmost Prefix Rule",
+      "Index Selection"
+    ],
+    "keyPoints": [
+      "A Composite Index indexes multiple columns together ({ colA, colB, colC }).",
+      "Leftmost Prefix Rule: Database can use index for queries matching leading left columns (colA, or colA + colB).",
+      "Queries filtering ONLY by colB or colC cannot utilize the composite index.",
+      "Column order in composite index must prioritize high-selectivity and frequent WHERE equality columns."
+    ],
+    "tags": [
+      "Composite Index",
+      "Optimization"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare Temporary Tables (#TempTable) vs Table Variables (@TableVariable) in SQL Server regarding scope, logging, and performance.",
+    "expectedTopics": [
+      "Temp Table vs Table Variable",
+      "#TempTable",
+      "@TableVariable"
+    ],
+    "keyPoints": [
+      "#TempTable is stored in tempdb, supports statistics, indexes, and large datasets, scoped to current session.",
+      "@TableVariable is stored in memory/tempdb, lacks column statistics, optimal for small datasets (<100 rows).",
+      "#TempTable allows DDL modifications (creating indexes post-creation).",
+      "Optimizer creates accurate cardinality estimates for #TempTables; assumes 1-row cardinality for @TableVariables."
+    ],
+    "tags": [
+      "Temp Table",
+      "Table Variable"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do EXISTS and NOT EXISTS operators differ from IN and NOT IN when handling NULL values in subqueries?",
+    "expectedTopics": [
+      "EXISTS vs IN",
+      "NOT EXISTS vs NOT IN",
+      "NULL Handling"
+    ],
+    "keyPoints": [
+      "EXISTS checks boolean presence of matching rows, short-circuiting on first match.",
+      "IN compares outer values against subquery list array.",
+      "If subquery result set contains even a SINGLE NULL value, NOT IN returns zero rows (evaluates to UNKNOWN).",
+      "NOT EXISTS safely handles NULL values inside subqueries without query failures."
+    ],
+    "tags": [
+      "EXISTS",
+      "IN"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Database Index Fragmentation and how do REINDEX / ALTER INDEX REBUILD operations restore query speed?",
+    "expectedTopics": [
+      "Index Fragmentation",
+      "Page Splits",
+      "ALTER INDEX REBUILD"
+    ],
+    "keyPoints": [
+      "Index Fragmentation occurs over time as page splits create out-of-order data pages during frequent INSERT/UPDATE/DELETEs.",
+      "Causes logical page order to mismatch physical disk allocation, slowing down sequential scans.",
+      "ALTER INDEX REORGANIZE defragments leaf nodes (minor fragmentation < 30%).",
+      "ALTER INDEX REBUILD drops and recreates index cleanly (major fragmentation > 30%)."
+    ],
+    "tags": [
+      "Fragmentation",
+      "Maintenance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is a Materialized View and how does it differ from a standard SQL View regarding physical storage and refresh strategies?",
+    "expectedTopics": [
+      "Materialized View",
+      "Physical Storage",
+      "REFRESH MATERIALIZED VIEW"
+    ],
+    "keyPoints": [
+      "Standard View is virtual; executes stored query statement on every invocation.",
+      "Materialized View physically stores query result set on disk like a table.",
+      "Delivers lightning-fast query response for expensive complex aggregation reports.",
+      "Requires refresh strategies (REFRESH MATERIALIZED VIEW on schedule or trigger) to update stale data."
+    ],
+    "tags": [
+      "Materialized View",
+      "Views"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do SQL Window Frame clauses (ROWS BETWEEN vs RANGE BETWEEN) calculate moving averages or running totals?",
+    "expectedTopics": [
+      "Window Frame Clauses",
+      "ROWS BETWEEN",
+      "Running Totals"
+    ],
+    "keyPoints": [
+      "ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW calculates cumulative running total from start to current row.",
+      "ROWS BETWEEN 2 PRECEDING AND CURRENT ROW calculates 3-row moving average.",
+      "ROWS operates on physical row offsets.",
+      "RANGE operates on logical value ranges based on ORDER BY column values."
+    ],
+    "tags": [
+      "Window Frames",
+      "Analytics"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario & Debugging: A query joining multiple tables takes 45 seconds. Diagnose implicit data type conversions causing Index Scans and detail the fix.",
+    "expectedTopics": [
+      "Implicit Type Conversion",
+      "Index Scan Fix",
+      "Query Profiling"
+    ],
+    "keyPoints": [
+      "Implicit conversion occurs when join/filter predicate compares mismatched column data types (e.g. VARCHAR column compared with INT parameter).",
+      "Database engine applies internal CONVERT() function on every row of indexed column, invalidating B-Tree index lookup and forcing Full Table/Index Scan.",
+      "Diagnose: Look for CONVERT_IMPLICIT warning inside Execution Plan nodes.",
+      "Fix: Explicitly cast application query input parameters to match database column data types."
+    ],
+    "tags": [
+      "Debugging",
+      "Performance"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Complex Query Scenario: Write an advanced SQL query to find the top 3 highest-earning employees in each department using Window Functions (DENSE_RANK()), handling ties cleanly.",
+    "expectedTopics": [
+      "DENSE_RANK()",
+      "Top N per Group",
+      "CTE Query"
+    ],
+    "keyPoints": [
+      "Construct CTE calculating ranks: WITH RankedEmployees AS (SELECT *, DENSE_RANK() OVER(PARTITION BY dept_id ORDER BY salary DESC) as rnk FROM Employees).",
+      "Outer query filters top rankings: SELECT * FROM RankedEmployees WHERE rnk <= 3.",
+      "Using DENSE_RANK ensures employees with equal salaries receive identical ranks without skipping numbers.",
+      "PARTITION BY splits calculation scope per department."
+    ],
+    "tags": [
+      "Complex Queries",
+      "Window Functions"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Architecture & Optimization: How would you design an OLTP database schema for a high-frequency banking transfer application ensuring zero deadlocks and ACID guarantees?",
+    "expectedTopics": [
+      "Banking Schema",
+      "Deadlock Prevention",
+      "Strict Lock Ordering"
+    ],
+    "keyPoints": [
+      "Enforce deterministic Account ID locking order (e.g. always lock min(from_acc, to_acc) first, max second) to prevent AB-BA deadlock cycles.",
+      "Use pessimistic SELECT FOR UPDATE row locks or optimistic version checks (@Version) during transfers.",
+      "Record immutable append-only transaction ledger records (TransactionJournal table).",
+      "Execute account updates inside READ COMMITTED or REPEATABLE READ isolation level."
+    ],
+    "tags": [
+      "Architecture",
+      "Deadlocks"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: Traversal of a recursive organizational hierarchy (Employee -> Manager -> CEO) is required. Write a Recursive CTE (WITH RECURSIVE).",
+    "expectedTopics": [
+      "Recursive CTE",
+      "WITH RECURSIVE",
+      "Hierarchy Traversal"
+    ],
+    "keyPoints": [
+      "Anchor Member: Select top-level manager (e.g. WHERE manager_id IS NULL).",
+      "UNION ALL statement joining CTE with target table (JOIN OrgChart ON OrgChart.manager_id = CTE.emp_id).",
+      "Recursive Member executes iteratively until no matching child records remain.",
+      "Track hierarchy level depth parameter (level + 1)."
+    ],
+    "tags": [
+      "Recursive CTE",
+      "Hierarchies"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into SQL Join Internals: Compare Nested Loop Join, Hash Join, and Sort-Merge Join algorithms used by query optimizers.",
+    "expectedTopics": [
+      "Nested Loop Join",
+      "Hash Join",
+      "Sort-Merge Join"
+    ],
+    "keyPoints": [
+      "Nested Loop Join: Iterates inner table for every outer table row; fast for small datasets with indexed inner keys.",
+      "Hash Join: Builds in-memory hash table on smaller input and probes with larger input; optimal for large unsorted unindexed datasets.",
+      "Sort-Merge Join: Sorts both inputs on join key and merges sequentially; fast when inputs are pre-sorted by clustered indexes."
+    ],
+    "tags": [
+      "Join Algorithms",
+      "Optimizer Internals"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: Write a SQL query to solve the Gaps and Islands problem (identifying contiguous ranges of dates or consecutive active user session sequences).",
+    "expectedTopics": [
+      "Gaps and Islands",
+      "ROW_NUMBER Difference",
+      "Consecutive Ranges"
+    ],
+    "keyPoints": [
+      "Gaps and Islands identifies consecutive sequence blocks (islands) separated by missing gaps.",
+      "Calculate island identifier using ROW_NUMBER difference technique: DATEADD(day, -ROW_NUMBER() OVER(ORDER BY event_date), event_date).",
+      "Group by generated island identifier to calculate MIN(event_date) and MAX(event_date) per contiguous range.",
+      "Solves attendance tracking, streak analysis, and consecutive logins."
+    ],
+    "tags": [
+      "Gaps and Islands",
+      "Advanced SQL"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Security Scenario: An attacker attempts SQL Injection through web inputs. Detail how SQL Injection works and how Parameterized Queries / Prepared Statements prevent it.",
+    "expectedTopics": [
+      "SQL Injection",
+      "Prepared Statements",
+      "Parameterized Queries"
+    ],
+    "keyPoints": [
+      "SQL Injection occurs when untrusted input string concatenation alters intended SQL command syntax.",
+      "Parameterized Queries / Prepared Statements separate SQL code compilation from data parameter binding.",
+      "Database engine compiles SQL query template first, then binds parameters strictly as literal values.",
+      "Input data can never be interpreted as executable SQL code syntax regardless of special characters."
+    ],
+    "tags": [
+      "Security",
+      "SQL Injection"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive: How does Write-Ahead Logging (WAL) / Redo Log work in RDBMS engines to guarantee Durability (ACID) during sudden power failures?",
+    "expectedTopics": [
+      "Write-Ahead Logging",
+      "Redo Log",
+      "WAL Architecture"
+    ],
+    "keyPoints": [
+      "WAL protocol requires writing transaction log changes to non-volatile disk BEFORE actual dirty data pages are flushed to disk.",
+      "In the event of sudden power loss, RDBMS recovers committed state by replaying Redo Log (REDO phase).",
+      "Undoes uncommitted active transactions using Undo Log (UNDO phase).",
+      "Ensures Durability (ACID) with minimal random disk write overhead."
+    ],
+    "tags": [
+      "WAL",
+      "Durability"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: A deadlock occurs when two concurrent transactions update rows in two tables in opposite order. Analyze Deadlock Graphs and detail refactoring.",
+    "expectedTopics": [
+      "Deadlock Graph",
+      "Cycle Resolution",
+      "Lock Order Refactoring"
+    ],
+    "keyPoints": [
+      "Deadlock occurs when Transaction 1 holds Lock A waiting for Lock B, while Transaction 2 holds Lock B waiting for Lock A.",
+      "Database Deadlock Monitor detects wait-for cycle and terminates one transaction as deadlock victim.",
+      "Analyze XML Deadlock Graph to identify target resources, lock modes, and statements.",
+      "Fix: Refactor application code to enforce identical resource locking sequence across all transactions."
+    ],
+    "tags": [
+      "Deadlock",
+      "Concurrency"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Database Developer",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Database Tuning Scenario: Compare Database Sharding (Horizontal Partitioning) vs Table Partitioning (Range/Hash Partitioning by Date) for scaling multi-terabyte tables.",
+    "expectedTopics": [
+      "Sharding vs Table Partitioning",
+      "Range Partitioning",
+      "Horizontal Partitioning"
+    ],
+    "keyPoints": [
+      "Table Partitioning divides a single table into smaller physical segments on a single database server (e.g. range partitioning by year).",
+      "Enables Partition Pruning (query engine scans only relevant date partitions), improving maintenance (TRUNCATE PARTITION).",
+      "Database Sharding distributes table partitions horizontally across multiple independent physical database server nodes.",
+      "Table partitioning scales single-node storage; Sharding scales write throughput and CPU bounds across clusters."
+    ],
+    "tags": [
+      "Partitioning",
+      "Sharding"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

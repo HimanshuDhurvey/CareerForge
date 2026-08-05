@@ -1,0 +1,1208 @@
+[
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Node.js and why is it described as an asynchronous, event-driven JavaScript runtime?",
+    "expectedTopics": [
+      "V8 Engine",
+      "Event-Driven Architecture",
+      "Asynchronous I/O"
+    ],
+    "keyPoints": [
+      "Node.js is an open-source, cross-platform JavaScript runtime environment built on Chrome's V8 engine.",
+      "Event-driven architecture uses events and callbacks to handle asynchronous non-blocking operations efficiently.",
+      "Allows developers to write server-side network applications using JavaScript outside the browser.",
+      "Ideal for building scalable, real-time, data-intensive web applications."
+    ],
+    "tags": [
+      "Node.js",
+      "Basics"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain Node.js single-threaded architecture and how it handles multiple concurrent client requests.",
+    "expectedTopics": [
+      "Single-Threaded Model",
+      "Event Loop",
+      "Non-blocking I/O"
+    ],
+    "keyPoints": [
+      "Node.js runs user JavaScript code on a single main thread using an Event Loop.",
+      "Delegates heavy I/O tasks (file system, network requests) asynchronously to the underlying OS or Libuv thread pool.",
+      "Main thread never blocks while waiting for I/O results, picking up completed callbacks from event queues.",
+      "Allows handling thousands of concurrent connections with low memory overhead."
+    ],
+    "tags": [
+      "Single Thread",
+      "Architecture"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is non-blocking I/O in Node.js and how does it differ from blocking synchronous operations?",
+    "expectedTopics": [
+      "Non-blocking I/O",
+      "Blocking Operations",
+      "Event-Driven"
+    ],
+    "keyPoints": [
+      "Blocking operations halt the execution of additional JavaScript until the current operation completes (e.g. fs.readFileSync).",
+      "Non-blocking I/O initiates operations asynchronously and executes callbacks upon completion without pausing the main thread.",
+      "Non-blocking code prevents application freezing during database calls or file reads.",
+      "Asynchronous non-blocking design maximizes throughput for I/O heavy workloads."
+    ],
+    "tags": [
+      "Non-blocking",
+      "I/O"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is package.json and what is the difference between dependencies and devDependencies?",
+    "expectedTopics": [
+      "package.json",
+      "dependencies",
+      "devDependencies"
+    ],
+    "keyPoints": [
+      "package.json is the manifest file for Node.js projects detailing metadata, scripts, and package dependencies.",
+      "dependencies contain packages required for application execution in production environments (e.g. express, mongoose).",
+      "devDependencies contain packages needed only during development and testing (e.g. nodemon, jest, eslint).",
+      "npm install --production omits devDependencies to optimize production deployment bundle size."
+    ],
+    "tags": [
+      "NPM",
+      "package.json"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain the role of package-lock.json and why it should be committed to version control.",
+    "expectedTopics": [
+      "package-lock.json",
+      "Dependency Locking",
+      "Reproducible Builds"
+    ],
+    "keyPoints": [
+      "package-lock.json automatically records exact dependency tree versions installed in node_modules.",
+      "Ensures deterministic and reproducible builds across different development machines and production environments.",
+      "Prevents unexpected breaking changes when sub-dependencies release minor or patch updates.",
+      "Must be committed to git repositories alongside package.json."
+    ],
+    "tags": [
+      "NPM",
+      "Dependencies"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between CommonJS require() and ES Modules import in Node.js?",
+    "expectedTopics": [
+      "CommonJS",
+      "ES Modules",
+      "Module Loading"
+    ],
+    "keyPoints": [
+      "CommonJS uses require() and module.exports, loading modules synchronously at runtime.",
+      "ES Modules use import and export syntax, statically parsed before code execution.",
+      "ES Modules support top-level await and tree-shaking dead code elimination.",
+      "CommonJS is the legacy Node.js module default, whereas ES Modules are the modern ECMAScript standard."
+    ],
+    "tags": [
+      "Modules",
+      "CommonJS"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is process.env and how do environment variables configure Node.js applications securely?",
+    "expectedTopics": [
+      "process.env",
+      "Environment Variables",
+      "Configuration"
+    ],
+    "keyPoints": [
+      "process.env is a global object in Node.js containing system and user environment variable key-value pairs.",
+      "Decouples application configuration (DB URLs, API keys, PORT) from source code.",
+      "Prevents sensitive credentials from being committed to version control repositories.",
+      "Loaded into process.env at application boot using toolings like dotenv."
+    ],
+    "tags": [
+      "Environment Variables",
+      "Security"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain the fs module in Node.js and contrast synchronous methods with asynchronous methods.",
+    "expectedTopics": [
+      "fs Module",
+      "Synchronous vs Asynchronous",
+      "File Operations"
+    ],
+    "keyPoints": [
+      "The fs (File System) built-in module provides APIs for interacting with the file system.",
+      "Synchronous methods (e.g. readFileSync) block the event loop until file I/O completes.",
+      "Asynchronous methods (e.g. readFile or fs.promises) execute I/O in the background and trigger callbacks or resolve promises.",
+      "Asynchronous fs methods must always be preferred in server environments to prevent blocking HTTP requests."
+    ],
+    "tags": [
+      "File System",
+      "fs"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the path module in Node.js and why should you use path.join() or path.resolve()?",
+    "expectedTopics": [
+      "path Module",
+      "path.join vs path.resolve",
+      "Cross-Platform Paths"
+    ],
+    "keyPoints": [
+      "The path module provides utilities for working with file and directory paths across operating systems.",
+      "path.join() concatenates path segments using platform-specific delimiters (\\ for Windows, / for POSIX).",
+      "path.resolve() resolves a sequence of paths into an absolute path working from right to left.",
+      "Prevents path syntax bugs when deploying Node.js apps across Linux and Windows environments."
+    ],
+    "tags": [
+      "path",
+      "Utilities"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the global object in Node.js and how does it differ from the browser window object?",
+    "expectedTopics": [
+      "global Object",
+      "Global Scope",
+      "Browser vs Node"
+    ],
+    "keyPoints": [
+      "global is the top-level namespace object in Node.js, analogous to window in web browsers.",
+      "Variables declared in Node.js module files are scoped locally to the module, NOT attached to global.",
+      "Contains built-in functions like setTimeout, console, Buffer, and process.",
+      "globalThis provides a standardized universal global reference across both Node.js and browser runtimes."
+    ],
+    "tags": [
+      "Globals",
+      "Runtime"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the process object in Node.js and what useful information and events does it provide?",
+    "expectedTopics": [
+      "process Object",
+      "Process Events",
+      "System Info"
+    ],
+    "keyPoints": [
+      "process is a global object providing information and control over the running Node.js process.",
+      "Exposes environment variables (process.env), command line args (process.argv), and current working dir (process.cwd()).",
+      "Provides lifecycle events like 'exit', 'uncaughtException', 'unhandledRejection', and signal handlers ('SIGINT', 'SIGTERM').",
+      "Exposes process.exit(code) method to terminate the application."
+    ],
+    "tags": [
+      "process",
+      "System"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the EventEmitter class in Node.js and how do on() and emit() methods work?",
+    "expectedTopics": [
+      "EventEmitter",
+      "Publish-Subscribe Pattern",
+      "events Module"
+    ],
+    "keyPoints": [
+      "EventEmitter is a core Node.js class in the 'events' module implementing the publish-subscribe pattern.",
+      "on(eventName, listener) registers a callback listener function for a named event.",
+      "emit(eventName, ...args) synchronously calls each listener registered for the specified event with arguments.",
+      "Forms the foundation of many built-in Node.js modules like Streams and HTTP servers."
+    ],
+    "tags": [
+      "EventEmitter",
+      "Events"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are Node.js Buffers and why are they necessary when handling binary data?",
+    "expectedTopics": [
+      "Buffer Class",
+      "Binary Data",
+      "Raw Memory"
+    ],
+    "keyPoints": [
+      "Buffer objects represent fixed-length sequences of raw binary memory allocated outside V8 heap memory.",
+      "Necessary for handling binary data streams (TCP sockets, image files, encrypted buffers) directly in JS.",
+      "Created using Buffer.from(), Buffer.alloc(), or Buffer.concat().",
+      "Exposes methods to convert binary octets to and from strings using encodings like utf-8, hex, or base64."
+    ],
+    "tags": [
+      "Buffer",
+      "Binary"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are Streams in Node.js and what are the four fundamental stream types?",
+    "expectedTopics": [
+      "Streams",
+      "Data Streaming",
+      "Stream Types"
+    ],
+    "keyPoints": [
+      "Streams are objects allowing reading data from or writing data to a source continuously in chunks.",
+      "Readable streams: Source from which data can be read (e.g. fs.createReadStream, req).",
+      "Writable streams: Destination to which data can be written (e.g. fs.createWriteStream, res).",
+      "Duplex streams (both Readable and Writable, e.g. TCP socket) and Transform streams (Duplex stream that modifies data while reading/writing, e.g. zlib)."
+    ],
+    "tags": [
+      "Streams",
+      "Data Processing"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the purpose of stream.pipe() and how does it simplify connecting readable and writable streams?",
+    "expectedTopics": [
+      "stream.pipe()",
+      "Stream Chaining",
+      "Backpressure Handling"
+    ],
+    "keyPoints": [
+      "pipe() attaches a Readable stream output directly to a Writable stream input (readable.pipe(writable)).",
+      "Automatically handles backpressure, pausing reading when the destination writable stream buffer is full.",
+      "Allows chaining multiple streams together (e.g. readable.pipe(gzip).pipe(writable)).",
+      "Prevents high memory usage by avoiding buffering entire files in RAM."
+    ],
+    "tags": [
+      "Streams",
+      "Piping"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How does the native Node.js http module create a basic HTTP web server?",
+    "expectedTopics": [
+      "http Module",
+      "createServer",
+      "Request/Response"
+    ],
+    "keyPoints": [
+      "The built-in http module provides http.createServer((req, res) => {}) to initialize web servers.",
+      "req (IncomingMessage) is a Readable stream representing incoming HTTP request metadata and body.",
+      "res (ServerResponse) is a Writable stream used to send HTTP response status codes, headers, and body payload.",
+      "server.listen(port) starts listening for incoming network connections."
+    ],
+    "tags": [
+      "HTTP",
+      "Web Server"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between process.nextTick() and setImmediate() in Node.js execution priority?",
+    "expectedTopics": [
+      "process.nextTick",
+      "setImmediate",
+      "Execution Order"
+    ],
+    "keyPoints": [
+      "process.nextTick() schedules callback execution immediately after the current operation finishes, BEFORE the event loop continues.",
+      "setImmediate() schedules callback execution in the Check phase of the upcoming Event Loop tick.",
+      "process.nextTick() microtasks execute with higher priority than setImmediate() macrotasks.",
+      "Recursive process.nextTick() calls can starve the Event Loop and block I/O."
+    ],
+    "tags": [
+      "Event Loop",
+      "Execution Priority"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is NPM and what is the difference between local package installation and global package installation?",
+    "expectedTopics": [
+      "NPM",
+      "Local Installation",
+      "Global Installation"
+    ],
+    "keyPoints": [
+      "NPM (Node Package Manager) is the default package manager for Node.js ecosystem dependencies.",
+      "Local installation (npm i package) installs packages in current project's node_modules directory.",
+      "Global installation (npm i -g package) installs packages system-wide as CLI commands.",
+      "Local dependencies promote application isolation, whereas global tools are used for CLI utilities."
+    ],
+    "tags": [
+      "NPM",
+      "Package Management"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do you handle environment variable loading using the dotenv package in Node.js?",
+    "expectedTopics": [
+      "dotenv",
+      ".env File",
+      "Configuration Loading"
+    ],
+    "keyPoints": [
+      "dotenv parses a .env file located at root into process.env object.",
+      "Invoked at app entry point using require('dotenv').config() or dotenv.config({ path: '...' }).",
+      "Allows developers to keep secret environment keys out of committed code repositories.",
+      ".env files should be added to .gitignore."
+    ],
+    "tags": [
+      "dotenv",
+      "Security"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is util.promisify() in Node.js and when would you use it?",
+    "expectedTopics": [
+      "util.promisify",
+      "Callback to Promise",
+      "Async Conversion"
+    ],
+    "keyPoints": [
+      "util.promisify() transforms standard Node.js error-first callback functions into Promise-returning functions.",
+      "Converts functions matching (arg1, arg2, (err, result) => {}) callback signatures.",
+      "Allows using modern async/await syntax with legacy callback-based Node.js libraries.",
+      "Node 14+ provides native promise variants in modules like fs.promises."
+    ],
+    "tags": [
+      "util",
+      "Promises"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What happens if an unhandled promise rejection or uncaught exception occurs in a Node.js process?",
+    "expectedTopics": [
+      "Uncaught Exceptions",
+      "Unhandled Rejections",
+      "Process Crash"
+    ],
+    "keyPoints": [
+      "Uncaught exceptions cause Node.js process to log error and exit immediately by default.",
+      "Unhandled promise rejections trigger 'unhandledRejection' warnings and terminate process in modern Node versions.",
+      "Leaving process in corrupted state after uncaught error is unsafe.",
+      "Process managers (PM2, systemd, Kubernetes) should restart crashed instances cleanly."
+    ],
+    "tags": [
+      "Error Handling",
+      "Process"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do console.log, console.error, and console.warn map to standard streams in Node.js?",
+    "expectedTopics": [
+      "console Methods",
+      "process.stdout",
+      "process.stderr"
+    ],
+    "keyPoints": [
+      "console.log and console.info write output synchronously/asynchronously to process.stdout stream.",
+      "console.error and console.warn write output to process.stderr stream.",
+      "Standard output (stdout) and standard error (stderr) can be redirected separately in OS shells.",
+      "Logging heavy objects via console.log can block event loop in high-throughput production servers."
+    ],
+    "tags": [
+      "Logging",
+      "Streams"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Semantic Versioning (SemVer) in NPM package versions (e.g. ^1.2.3 vs ~1.2.3)?",
+    "expectedTopics": [
+      "SemVer",
+      "MAJOR.MINOR.PATCH",
+      "NPM Prefixes"
+    ],
+    "keyPoints": [
+      "SemVer format is MAJOR.MINOR.PATCH (e.g. 1.2.3).",
+      "MAJOR increases for breaking changes; MINOR for backwards-compatible features; PATCH for backwards-compatible bug fixes.",
+      "Caret (^) allows minor and patch updates (e.g. ^1.2.3 installs up to < 2.0.0).",
+      "Tilde (~) allows patch updates only (e.g. ~1.2.3 installs up to < 1.3.0)."
+    ],
+    "tags": [
+      "SemVer",
+      "NPM"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do you parse URL parameters and query strings using Node.js built-in URL class?",
+    "expectedTopics": [
+      "URL Class",
+      "URLSearchParams",
+      "Query Parsing"
+    ],
+    "keyPoints": [
+      "The WHATWG URL API provides new URL(inputUrl) constructor for parsing URL strings.",
+      "Exposes searchParams property returning a URLSearchParams instance.",
+      "searchParams.get('key') retrieves single query parameter values.",
+      "Replaces legacy URL parsing utilities with a secure, standard-compliant API."
+    ],
+    "tags": [
+      "URL",
+      "Parsing"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Why should synchronous file system or cryptographic methods never be executed inside HTTP request handlers?",
+    "expectedTopics": [
+      "Event Loop Blocking",
+      "Synchronous APIs",
+      "Request Handling"
+    ],
+    "keyPoints": [
+      "Synchronous methods run directly on the main single thread, blocking the event loop entirely.",
+      "All pending concurrent HTTP requests and new connections are blocked until synchronous execution finishes.",
+      "Causes severe API latency spikes, connection timeouts, and poor server throughput.",
+      "Asynchronous non-blocking counterparts must always be used inside request handlers."
+    ],
+    "tags": [
+      "Event Loop",
+      "Best Practices"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Deep dive into Node.js Event Loop phases: Explain Timers, Pending Callbacks, Poll, Check, and Close Callbacks phases.",
+    "expectedTopics": [
+      "Event Loop Phases",
+      "Timers & Check",
+      "Poll Phase"
+    ],
+    "keyPoints": [
+      "Timers Phase: Executes callbacks scheduled by setTimeout() and setInterval().",
+      "Pending Callbacks: Executes deferred I/O callbacks from previous loop iterations.",
+      "Poll Phase: Retrieves new I/O events and executes I/O related callbacks.",
+      "Check Phase: Executes setImmediate() callbacks immediately after poll phase.",
+      "Close Callbacks: Executes socket/handle close callbacks (e.g. socket.on('close'))."
+    ],
+    "tags": [
+      "Event Loop",
+      "Phases"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Libuv thread pool work in Node.js and which operations use worker threads vs OS kernel async primitives?",
+    "expectedTopics": [
+      "Libuv Thread Pool",
+      "Kernel Async I/O",
+      "Thread Workers"
+    ],
+    "keyPoints": [
+      "Libuv maintains a default pool of 4 worker threads for operations that cannot be handled asynchronously by OS kernel.",
+      "Network I/O (TCP/UDP, HTTP) uses OS non-blocking kernel primitives (epoll, kqueue, IOCP) directly without thread pool.",
+      "File I/O (fs), DNS lookups (dns.lookup), and CPU-bound crypto/zlib tasks use the Libuv thread pool.",
+      "Thread pool size can be adjusted using UV_THREADPOOL_SIZE environment variable."
+    ],
+    "tags": [
+      "Libuv",
+      "Thread Pool"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Stream Backpressure in Node.js and how do readable and writable streams manage data flow buffers?",
+    "expectedTopics": [
+      "Stream Backpressure",
+      "highWaterMark",
+      "Buffer Management"
+    ],
+    "keyPoints": [
+      "Backpressure occurs when data is produced faster by readable stream than writable stream can consume.",
+      "writable.write(chunk) returns false when internal buffer size exceeds highWaterMark threshold.",
+      "Readable stream pauses reading data until writable stream drains buffer and emits 'drain' event.",
+      "stream.pipe() automatically negotiates backpressure to prevent RAM exhaustion."
+    ],
+    "tags": [
+      "Backpressure",
+      "Streams"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do child_process methods (exec, execFile, spawn, fork) differ in terms of memory buffering and execution?",
+    "expectedTopics": [
+      "child_process",
+      "spawn vs exec",
+      "fork Method"
+    ],
+    "keyPoints": [
+      "exec() runs command in shell and buffers complete stdout/stderr output in memory (maxBuffer default 1MB).",
+      "execFile() executes executable binary directly without spawning shell, buffering output.",
+      "spawn() launches new process streaming stdout/stderr back as Streams without memory buffering.",
+      "fork() is a special spawn variant creating new Node.js process with built-in IPC communication channel."
+    ],
+    "tags": [
+      "Child Process",
+      "Processes"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Node.js cluster module and how does it enable multi-core scaling via master-worker process architecture?",
+    "expectedTopics": [
+      "cluster Module",
+      "Master-Worker Pattern",
+      "Port Sharing"
+    ],
+    "keyPoints": [
+      "cluster module spawns child worker processes (using child_process.fork) sharing the server port.",
+      "Master process manages worker lifecycle and distributes incoming connections using Round-Robin load balancing.",
+      "Allows single-threaded Node.js applications to utilize all CPU cores on host machine.",
+      "If worker crashes, master process receives 'exit' event and spawns replacement worker."
+    ],
+    "tags": [
+      "Cluster",
+      "Multi-core"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are Worker Threads (worker_threads module) in Node.js and how do they differ from child_process.fork()?",
+    "expectedTopics": [
+      "worker_threads",
+      "Shared Memory",
+      "CPU Intensive Tasks"
+    ],
+    "keyPoints": [
+      "worker_threads allow running multiple JS threads within a SINGLE Node.js process instance.",
+      "Workers share memory space using ArrayBuffer or SharedArrayBuffer instances without IPC serialize cost.",
+      "child_process.fork() creates separate processes with isolated V8 instances and independent memory.",
+      "Worker threads are designed for CPU-heavy tasks (image processing, video encoding, heavy math)."
+    ],
+    "tags": [
+      "Worker Threads",
+      "Concurrency"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What common coding patterns cause Memory Leaks in Node.js backend applications?",
+    "expectedTopics": [
+      "Memory Leaks",
+      "Event Listeners",
+      "Global Caches"
+    ],
+    "keyPoints": [
+      "Global variables holding object references indefinitely preventing garbage collection.",
+      "Uncleared EventEmitters listeners or setInterval timers holding closure references.",
+      "Unbounded in-memory caching arrays or objects growing infinitely without eviction limits.",
+      "Closures capturing large outer variables unintentionally."
+    ],
+    "tags": [
+      "Memory Leaks",
+      "Debugging"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you handle uncaughtException and unhandledRejection events gracefully in production Node.js applications?",
+    "expectedTopics": [
+      "Graceful Exception Handling",
+      "Process Management",
+      "Cleanup Logs"
+    ],
+    "keyPoints": [
+      "Listen on process.on('uncaughtException', err => {}) and process.on('unhandledRejection', reason => {}).",
+      "Log error details to logging service (Winston/Pino) with stack traces.",
+      "Close server HTTP connections and database pools within a fallback timeout.",
+      "Call process.exit(1) to let process manager (PM2/K8s) restart a fresh process instance."
+    ],
+    "tags": [
+      "Error Handling",
+      "Production"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does HTTP request payload parsing work using native streams in Node.js without body-parser?",
+    "expectedTopics": [
+      "Stream Body Parsing",
+      "req Data Events",
+      "Buffer Assembly"
+    ],
+    "keyPoints": [
+      "Listen to req.on('data', chunk => chunks.push(chunk)) stream event to collect incoming payload chunks.",
+      "Listen to req.on('end', () => {}) event when payload transmission completes.",
+      "Assemble chunks using Buffer.concat(chunks).toString() and parse JSON via JSON.parse().",
+      "Enforce maximum payload size limits during 'data' events to reject oversized request attacks."
+    ],
+    "tags": [
+      "HTTP",
+      "Parsing"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the difference between fs.createReadStream() and fs.readFile() regarding RAM usage for large files?",
+    "expectedTopics": [
+      "fs.createReadStream",
+      "fs.readFile",
+      "Memory Efficiency"
+    ],
+    "keyPoints": [
+      "fs.readFile() loads entire file content into V8 heap buffer memory before executing callback.",
+      "fs.createReadStream() reads file in small chunk buffers (64KB default) sequentially.",
+      "Reading 2GB file with fs.readFile() consumes 2GB RAM; fs.createReadStream() uses constant ~64KB RAM.",
+      "Streams prevent Node.js process out-of-memory heap crashes."
+    ],
+    "tags": [
+      "File System",
+      "Performance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do Node.js Transform streams work and how can you build a custom Transform stream to modify data on the fly?",
+    "expectedTopics": [
+      "Transform Stream",
+      "stream.Transform",
+      "_transform Method"
+    ],
+    "keyPoints": [
+      "Transform stream is a Duplex stream where output is computed from input data.",
+      "Extend stream.Transform and override internal _transform(chunk, encoding, callback) method.",
+      "Call this.push(modifiedChunk) to output processed data downstream.",
+      "Invoke callback() when chunk transformation completes.",
+      "Used for data compression (zlib), encryption (crypto), or line-by-line parsing."
+    ],
+    "tags": [
+      "Streams",
+      "Transform"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What security risks like Command Injection, Path Traversal, and ReDoS affect Node.js applications and how are they mitigated?",
+    "expectedTopics": [
+      "Node.js Security",
+      "Command Injection",
+      "Path Traversal"
+    ],
+    "keyPoints": [
+      "Command Injection: Occurs passing unvalidated input to child_process.exec(); mitigate using execFile() with array arguments.",
+      "Path Traversal: Occurs using user inputs in fs paths; mitigate using path.resolve() checking against allowed root directory.",
+      "ReDoS (Regex DoS): Occurs executing complex regex against malicious input; mitigate using safe regex or validation libraries.",
+      "Keep dependencies updated using npm audit."
+    ],
+    "tags": [
+      "Security",
+      "Vulnerabilities"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does the UV_THREADPOOL_SIZE environment variable affect Node.js performance for crypto, zlib, and fs operations?",
+    "expectedTopics": [
+      "UV_THREADPOOL_SIZE",
+      "Libuv Concurrency",
+      "Thread Allocation"
+    ],
+    "keyPoints": [
+      "UV_THREADPOOL_SIZE defaults to 4 threads in Libuv thread pool.",
+      "Crypto operations (pbkdf2, bcrypt) and compression (zlib) run on Libuv threads.",
+      "If 4 concurrent crypto tasks run, a 5th task (or file fs operation) must wait for worker thread availability.",
+      "Increasing UV_THREADPOOL_SIZE (up to 128) allows parallelizing heavy crypto/fs tasks on multi-core servers."
+    ],
+    "tags": [
+      "Libuv",
+      "Performance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the difference between SharedArrayBuffer and MessageChannel for inter-thread communication in worker_threads?",
+    "expectedTopics": [
+      "SharedArrayBuffer",
+      "MessageChannel",
+      "Inter-Thread Communication"
+    ],
+    "keyPoints": [
+      "MessageChannel passes messages between threads using postMessage() with structured clone serialization overhead.",
+      "SharedArrayBuffer shares memory region directly between main thread and worker threads without serialization.",
+      "Atomics API (Atomics.add, Atomics.wait) provides thread-safe operations on SharedArrayBuffer to prevent race conditions.",
+      "SharedArrayBuffer is fast for high-frequency numeric data sharing."
+    ],
+    "tags": [
+      "Worker Threads",
+      "Shared Memory"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you monitor CPU and Heap memory usage programmatically in a Node.js service using process.memoryUsage() and v8.getHeapStatistics()?",
+    "expectedTopics": [
+      "process.memoryUsage",
+      "v8 Statistics",
+      "Metrics Monitoring"
+    ],
+    "keyPoints": [
+      "process.memoryUsage() returns rss (resident set size), heapTotal, heapUsed, and external memory metrics.",
+      "v8.getHeapStatistics() provides total_heap_size, heap_size_limit, and malloced_memory.",
+      "Comparing heapUsed against heap_size_limit detects impending Out-Of-Memory crashes.",
+      "Expose metrics endpoints (e.g. Prometheus) to monitor node application health."
+    ],
+    "tags": [
+      "Monitoring",
+      "Metrics"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A high-throughput Node.js API experiences periodic event loop delays. How do you measure event loop latency using perf_hooks and profile CPU bottlenecks using Flame Graphs?",
+    "expectedTopics": [
+      "perf_hooks",
+      "Event Loop Delay",
+      "Flame Graphs"
+    ],
+    "keyPoints": [
+      "Use perf_hooks.monitorEventLoopDelay() to record histogram of event loop latency tick delays.",
+      "High event loop delay (>100ms) indicates CPU-blocking synchronous JavaScript code executing on main thread.",
+      "Generate CPU profiles using node --prof or clinic flame (Clinic.js) under load testing.",
+      "Inspect Flame Graph visualization to locate hot function frames consuming dominant CPU time."
+    ],
+    "tags": [
+      "Debugging",
+      "Performance"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Architectural Design: How would you design a scalable background job processing worker engine in Node.js using Streams, Worker Threads, and Redis queues?",
+    "expectedTopics": [
+      "Background Jobs",
+      "Worker Threads",
+      "Redis Queues"
+    ],
+    "keyPoints": [
+      "API server pushes background job payload tasks to Redis Queue (e.g. BullMQ using BRPOPLPUSH).",
+      "Worker process pulls jobs from queue and offloads CPU-intensive tasks (image resizing/PDF generation) to worker_threads.",
+      "Stream processed outputs directly to cloud storage (S3) via stream.pipeline to keep worker memory usage minimal.",
+      "Implement dead-letter queues (DLQ), job retry counters, and graceful shutdown signal listeners."
+    ],
+    "tags": [
+      "Architecture",
+      "Worker Engine"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: A Node.js microservice crashes intermittently with 'FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory'. Diagnose root causes and detail remediation steps.",
+    "expectedTopics": [
+      "V8 Heap Out of Memory",
+      "Max Old Space Size",
+      "Memory Profiling"
+    ],
+    "keyPoints": [
+      "Default V8 heap limit is ~1.4GB - 4GB depending on Node version and OS architecture.",
+      "Root causes: Loading large dataset queries directly into RAM, unevicted global memory caches, or detached listener references.",
+      "Increase container V8 memory allocation limit using --max-old-space-size=8192 flag.",
+      "Take heap snapshots using node --heap-snapshot-signal=SIGUSR2 or Chrome DevTools to locate memory leaks.",
+      "Refactor file/database reads to use Streams and pagination cursor iterators."
+    ],
+    "tags": [
+      "Debugging",
+      "Memory Management"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into Node.js C++ Addons and Node-API (N-API): How does Node.js interface with native C/C++ libraries?",
+    "expectedTopics": [
+      "C++ Addons",
+      "Node-API / N-API",
+      "V8 Bindings"
+    ],
+    "keyPoints": [
+      "Node.js C++ Addons allow executing native C/C++ libraries directly from JavaScript for performance-critical tasks.",
+      "Node-API (N-API) provides ABI-stable C API for building native addons that are independent of underlying V8 engine versions.",
+      "Prevents needing to recompile C++ addons when upgrading Node.js major runtime versions.",
+      "Uses node-gyp build tool to compile C++ source code into binary .node addon files."
+    ],
+    "tags": [
+      "N-API",
+      "C++ Addons"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Implement a custom, backpressure-aware line-by-line Stream Transformer from scratch that parses raw incoming data chunks without buffer overflow.",
+    "expectedTopics": [
+      "Line Transformer",
+      "Stream Implementation",
+      "Buffer Splitting"
+    ],
+    "keyPoints": [
+      "Inherit from stream.Transform and initialize leftover string buffer inside constructor.",
+      "In _transform(chunk, encoding, cb), concatenate incoming chunk to leftover buffer string.",
+      "Split string by newline delimiter (\\n); iterate through complete lines pushing each line via this.push(line).",
+      "Save last incomplete string fragment back into leftover buffer for next incoming chunk.",
+      "In _flush(cb), push remaining leftover string if non-empty and call cb()."
+    ],
+    "tags": [
+      "Streams",
+      "Implementation"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: An EventEmitter in a single-instance service triggers 'MaxListenersExceededWarning'. Analyze why listener leaks occur in long-lived singletons and demonstrate remediation.",
+    "expectedTopics": [
+      "MaxListenersExceededWarning",
+      "Event Listener Leak",
+      "EventEmitter Cleanup"
+    ],
+    "keyPoints": [
+      "Node.js issues warning when more than 10 listeners (default limit) attach to a single EventEmitter instance.",
+      "Occurs when request-scoped handlers register on.('event') on singleton EventEmitters without removing them.",
+      "Fix option 1: Use once() for single-use event listeners.",
+      "Fix option 2: Explicitly call removeListener() or off() in request response cleanup handlers.",
+      "Increase listener threshold intentionally using emitter.setMaxListeners(n) only if legitimate."
+    ],
+    "tags": [
+      "EventEmitter",
+      "Memory Leaks"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How do you implement Graceful Shutdown in production Node.js servers upon receiving SIGINT or SIGTERM signals?",
+    "expectedTopics": [
+      "Graceful Shutdown",
+      "SIGTERM Signal",
+      "Resource Cleanup"
+    ],
+    "keyPoints": [
+      "Register process.on('SIGTERM') and process.on('SIGINT') OS signal listeners.",
+      "Stop accepting new incoming HTTP connections via server.close().",
+      "Allow active in-flight HTTP requests to complete within a fallback timeout window (e.g. 30s).",
+      "Close database connection pools and message broker consumers cleanly.",
+      "Call process.exit(0) to signal clean termination to container orchestrator (Kubernetes/Docker)."
+    ],
+    "tags": [
+      "Production",
+      "Graceful Shutdown"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Security Scenario: An attacker sends a payload containing __proto__ keys causing Prototype Pollution. Explain how Prototype Pollution works in Node.js and how to defend against it.",
+    "expectedTopics": [
+      "Prototype Pollution",
+      "Object Mutation",
+      "Security Defense"
+    ],
+    "keyPoints": [
+      "Prototype Pollution occurs when recursive object merge/clone functions assign untrusted input to __proto__ or constructor.prototype.",
+      "Mutates Object.prototype globally, injecting properties accessible by all objects in the application.",
+      "Can lead to Denial of Service (DoS) or Remote Code Execution (RCE).",
+      "Defense: Use Object.create(null) for dictionary objects, validate keys rejecting __proto__, or freeze prototypes via Object.freeze(Object.prototype)."
+    ],
+    "tags": [
+      "Security",
+      "Prototype Pollution"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Contrast IPC (Inter-Process Communication) channels in child_process.fork() with SharedArrayBuffer Atomic operations in worker_threads.",
+    "expectedTopics": [
+      "IPC vs SharedArrayBuffer",
+      "Process vs Thread Communication",
+      "Atomics API"
+    ],
+    "keyPoints": [
+      "child_process.fork() uses OS IPC channels (JSON serialization over pipes), incurring serialization performance overhead.",
+      "worker_threads can share memory directly using SharedArrayBuffer without serialization.",
+      "SharedArrayBuffer requires Atomics synchronization (Atomics.wait, Atomics.notify) to prevent race conditions.",
+      "IPC is safer due to process memory isolation; SharedArrayBuffer offers higher performance for high-frequency numeric updates."
+    ],
+    "tags": [
+      "IPC",
+      "Worker Threads"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Node.js",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A high-concurrency Node.js server hangs under load due to Libuv thread pool starvation by bcrypt hashing operations. Diagnose and refactor.",
+    "expectedTopics": [
+      "Thread Pool Starvation",
+      "bcrypt Offloading",
+      "Worker Threads Fix"
+    ],
+    "keyPoints": [
+      "CPU-bound bcrypt password hashing uses Libuv thread pool workers.",
+      "High concurrent login requests consume all thread pool workers (default 4), starving file system and DNS tasks.",
+      "Diagnose: Latency increases across all async I/O operations simultaneously.",
+      "Refactor: Increase UV_THREADPOOL_SIZE or offload bcrypt hashing to a dedicated worker_thread pool or external auth microservice."
+    ],
+    "tags": [
+      "Libuv",
+      "Debugging"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

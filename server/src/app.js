@@ -30,6 +30,7 @@ const healthRoutes       = require('./routes/healthRoutes');
 const authRoutes         = require('./routes/authRoutes');
 const profileRoutes      = require('./routes/profileRoutes');
 const resumeRoutes       = require('./routes/resumeRoutes');
+const interviewRoutes    = require('./routes/interviewRoutes');
 const notFoundMiddleware = require('./middlewares/notFoundMiddleware');
 const errorMiddleware    = require('./middlewares/errorMiddleware');
 
@@ -111,6 +112,9 @@ app.use('/api/profile', profileRoutes);
 
 /** Resume — GET /api/resume, POST /api/resume/upload, DELETE /api/resume, POST /api/resume/analyze */
 app.use('/api/resume', resumeRoutes);
+
+/** Interviews — POST /api/interviews | GET /api/interviews, /:id | PATCH /api/interviews/:id | DELETE /api/interviews/:id */
+app.use('/api/interviews', interviewRoutes);
 
 // ─── 404 catch-all ───────────────────────────────────────────────────────────
 

@@ -1,0 +1,1214 @@
+[
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is an Operating System (OS) and what are its primary functions?",
+    "expectedTopics": [
+      "OS Overview",
+      "Resource Management",
+      "Kernel Functions"
+    ],
+    "keyPoints": [
+      "An OS acts as an intermediary interface between computer hardware and user application software.",
+      "Primary Functions: Process Management, Memory Management, File System Management, Device/IO Management, and Security/Access Control.",
+      "Abstracts hardware complexity behind uniform system call APIs.",
+      "Optimizes hardware resource utilization across concurrent user tasks."
+    ],
+    "tags": [
+      "OS Basics",
+      "Kernel"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Process and what are its key components (Text, Data, Heap, Stack)?",
+    "expectedTopics": [
+      "Process Concept",
+      "Memory Layout",
+      "Process Components"
+    ],
+    "keyPoints": [
+      "A Process is a program in execution with its own dedicated address space.",
+      "Text Section: Executable compiled machine code instructions.",
+      "Data Section: Global and static variables initialized/uninitialized.",
+      "Heap Section: Dynamically allocated memory allocated at runtime via malloc/new.",
+      "Stack Section: Temporary local variables, function parameter frames, and return memory addresses."
+    ],
+    "tags": [
+      "Process",
+      "Memory Layout"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Thread and how does it differ from a Process?",
+    "expectedTopics": [
+      "Thread vs Process",
+      "Lightweight Process",
+      "Resource Sharing"
+    ],
+    "keyPoints": [
+      "A Thread is the smallest unit of CPU execution within a process (Lightweight Process).",
+      "Processes have isolated address spaces; Threads within the same process share code, data, and heap memory.",
+      "Each thread maintains its own independent Program Counter (PC), Register set, and Stack.",
+      "Thread creation and context switching are significantly faster with lower memory overhead than process switching."
+    ],
+    "tags": [
+      "Thread",
+      "Process"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between User-level Threads and Kernel-level Threads?",
+    "expectedTopics": [
+      "User-level Threads",
+      "Kernel-level Threads",
+      "Thread Mapping"
+    ],
+    "keyPoints": [
+      "User-level Threads (ULT): Managed entirely by user-space libraries without kernel awareness. Fast creation/switching, but blocking I/O halts the entire process.",
+      "Kernel-level Threads (KLT): Managed directly by the OS kernel. Supports parallel execution on multi-core CPUs; blocking I/O in one thread does not block others.",
+      "Modern OS schedulers utilize Kernel-level threads (or hybrid M:N mapping models)."
+    ],
+    "tags": [
+      "Threads",
+      "Kernel"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Process Control Block (PCB) and what information does it store?",
+    "expectedTopics": [
+      "PCB",
+      "Process State",
+      "Context Switch Data"
+    ],
+    "keyPoints": [
+      "A PCB is a data structure in kernel memory representing a specific process instance.",
+      "Stores Process ID (PID), Process State (Ready, Running, Waiting), Program Counter (PC), CPU Registers, CPU Scheduling Info, Memory Allocation pointers, and I/O status list.",
+      "Enables the OS kernel to save and restore process execution state during context switches."
+    ],
+    "tags": [
+      "PCB",
+      "Process Management"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are the 5 core states in a Process Lifecycle (New, Ready, Running, Waiting, Terminated)?",
+    "expectedTopics": [
+      "Process States",
+      "State Transition",
+      "Lifecycle"
+    ],
+    "keyPoints": [
+      "New: Process is being created.",
+      "Ready: Process is loaded into memory waiting for CPU allocation by the scheduler.",
+      "Running: Instructions are currently being executed by the CPU.",
+      "Waiting / Blocked: Process is waiting for an I/O event or signal completion.",
+      "Terminated: Process has finished execution and OS reclaims its resources."
+    ],
+    "tags": [
+      "Process States",
+      "Lifecycle"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Context Switching and what CPU overhead does it introduce?",
+    "expectedTopics": [
+      "Context Switch",
+      "CPU Overhead",
+      "Register State"
+    ],
+    "keyPoints": [
+      "Context Switching is the state-saving and restoration process when the CPU switches execution from one process/thread to another.",
+      "Steps: Save CPU registers, stack pointers, and PC into current PCB; update process states; load new process PCB state into CPU registers.",
+      "Overhead: CPU performs no useful work during context switching.",
+      "Causes CPU L1/L2 cache invalidations and TLB flushes."
+    ],
+    "tags": [
+      "Context Switch",
+      "CPU Overhead"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is CPU Scheduling and why is it necessary in multi-programming operating systems?",
+    "expectedTopics": [
+      "CPU Scheduling",
+      "Multiprogramming",
+      "Resource Utilization"
+    ],
+    "keyPoints": [
+      "CPU Scheduling decides which process in the Ready queue receives CPU time when the active process releases CPU or gets preempted.",
+      "Goal: Maximize CPU utilization, throughput, and minimize Response Time, Waiting Time, and Turnaround Time.",
+      "Allows the OS to overlap I/O wait times with productive CPU computation across multiple tasks."
+    ],
+    "tags": [
+      "CPU Scheduling",
+      "Multiprogramming"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is First-Come, First-Served (FCFS) CPU Scheduling and what is the Convoy Effect?",
+    "expectedTopics": [
+      "FCFS",
+      "Convoy Effect",
+      "Non-Preemptive Scheduling"
+    ],
+    "keyPoints": [
+      "FCFS is a simple non-preemptive algorithm executing processes in exact arrival order via a FIFO queue.",
+      "Convoy Effect: Occurs when short CPU-bound or I/O-bound processes get stuck waiting behind one long CPU-bound process.",
+      "Leads to poor average waiting time and low overall CPU/device utilization."
+    ],
+    "tags": [
+      "FCFS",
+      "Convoy Effect"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Shortest Job First (SJF) CPU Scheduling and how does Preemptive SJF (SRTF) work?",
+    "expectedTopics": [
+      "SJF",
+      "SRTF",
+      "Optimal Waiting Time"
+    ],
+    "keyPoints": [
+      "SJF selects the process with the shortest next CPU burst time.",
+      "Provides provably optimal minimum average waiting time for a given set of processes.",
+      "Preemptive SJF (Shortest Remaining Time First - SRTF): Preempts currently running process if a new process arrives with a shorter remaining CPU burst.",
+      "Drawback: Requires knowing/predicting future CPU burst lengths; risks process starvation for long tasks."
+    ],
+    "tags": [
+      "SJF",
+      "SRTF"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Round Robin (RR) CPU Scheduling and how does the Time Quantum affect system performance?",
+    "expectedTopics": [
+      "Round Robin",
+      "Time Quantum",
+      "Preemptive Scheduling"
+    ],
+    "keyPoints": [
+      "Round Robin is a preemptive scheduling algorithm designed for time-sharing systems where each process gets a small fixed slice of CPU time (Time Quantum).",
+      "If Time Quantum is too large: RR degrades into FCFS.",
+      "If Time Quantum is too small: Excessive context switching overhead destroys CPU performance.",
+      "Provides excellent interactive response time."
+    ],
+    "tags": [
+      "Round Robin",
+      "Time Quantum"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Priority Scheduling and how does Aging prevent process starvation?",
+    "expectedTopics": [
+      "Priority Scheduling",
+      "Starvation",
+      "Aging Technique"
+    ],
+    "keyPoints": [
+      "Priority Scheduling allocates CPU to the process with the highest priority rank.",
+      "Starvation (Indefinite Blocking): Low-priority processes may wait indefinitely if high-priority tasks continuously arrive.",
+      "Aging Solution: Gradually increases the priority of long-waiting processes over time until they execute.",
+      "Prevents indefinite task postponement."
+    ],
+    "tags": [
+      "Priority Scheduling",
+      "Aging"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Critical Section in process synchronization?",
+    "expectedTopics": [
+      "Critical Section",
+      "Race Conditions",
+      "Process Synchronization"
+    ],
+    "keyPoints": [
+      "A Critical Section is a segment of code accessing shared variables, databases, or files that MUST NOT be executed concurrently by multiple processes.",
+      "Race Condition: Occurs when un-synchronized concurrent threads mutate shared data, leading to non-deterministic data corruption.",
+      "Requirements: Mutual Exclusion, Progress, and Bounded Waiting."
+    ],
+    "tags": [
+      "Critical Section",
+      "Synchronization"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Semaphore and how do Counting Semaphores differ from Binary Semaphores (Mutexes)?",
+    "expectedTopics": [
+      "Semaphore",
+      "Counting Semaphore",
+      "Binary Semaphore"
+    ],
+    "keyPoints": [
+      "A Semaphore is an integer synchronization variable accessed via atomic wait() / P() and signal() / V() operations.",
+      "Counting Semaphore: Integer value range can represent N available units of a finite shared resource.",
+      "Binary Semaphore: Integer value restricted to 0 or 1, acting similarly to a Mutex lock.",
+      "Used for signaling event completion between threads."
+    ],
+    "tags": [
+      "Semaphore",
+      "Synchronization"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Mutex (Mutual Exclusion Lock) and how does it protect shared resources?",
+    "expectedTopics": [
+      "Mutex",
+      "Lock Ownership",
+      "Mutual Exclusion"
+    ],
+    "keyPoints": [
+      "A Mutex is a locking mechanism used to synchronize access to a single shared resource.",
+      "Strict Ownership: ONLY the specific thread that acquired/locked the Mutex is allowed to unlock it.",
+      "Threads attempting to acquire an already-locked Mutex block until it is released.",
+      "Prevents concurrent data corruption in critical sections."
+    ],
+    "tags": [
+      "Mutex",
+      "Locking"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Deadlock in operating systems and what are the 4 Coffman conditions required for a deadlock?",
+    "expectedTopics": [
+      "Deadlock Definition",
+      "Coffman Conditions",
+      "Resource Contention"
+    ],
+    "keyPoints": [
+      "Deadlock is a state where a set of processes are blocked indefinitely because each process holds a resource while waiting for another held by another process.",
+      "Condition 1 - Mutual Exclusion: Resources cannot be shared simultaneously.",
+      "Condition 2 - Hold and Wait: A process holding a resource requests additional resources.",
+      "Condition 3 - No Preemption: Resources cannot be forcibly confiscated from processes.",
+      "Condition 4 - Circular Wait: A closed chain of processes exists where each process waits for a resource held by the next."
+    ],
+    "tags": [
+      "Deadlock",
+      "Coffman Conditions"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Memory Management in OS and what is the difference between Logical Address and Physical Address?",
+    "expectedTopics": [
+      "Memory Management",
+      "Logical vs Physical Address",
+      "MMU"
+    ],
+    "keyPoints": [
+      "Logical Address (Virtual Address): Generated by the CPU during code execution; reference space visible to application program.",
+      "Physical Address: Concrete location address in physical RAM chips.",
+      "Memory Management Unit (MMU): Hardware chip translating Logical addresses to Physical addresses at runtime using page tables."
+    ],
+    "tags": [
+      "Memory Management",
+      "MMU"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Paging in memory management and what is a Page Table?",
+    "expectedTopics": [
+      "Paging",
+      "Page Table",
+      "Page vs Frame"
+    ],
+    "keyPoints": [
+      "Paging is a non-contiguous memory management scheme dividing logical memory into fixed-size blocks called Pages, and physical RAM into equal-sized Frames.",
+      "Page Table: Per-process lookup data structure mapping Logical Page numbers to Physical Frame numbers.",
+      "Eliminates external fragmentation completely.",
+      "Allows allocating physical memory out of order anywhere in RAM."
+    ],
+    "tags": [
+      "Paging",
+      "Page Table"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Segmentation in memory management and how does it differ from Paging?",
+    "expectedTopics": [
+      "Segmentation",
+      "Logical Segments",
+      "Paging vs Segmentation"
+    ],
+    "keyPoints": [
+      "Segmentation divides logical memory into variable-sized user-view modules (e.g. Code, Stack, Heap, Symbol Table).",
+      "Paging uses fixed-size memory blocks; Segmentation uses variable-length variable-sized segments.",
+      "Requires Segment Table storing Segment Base Address and Limit (Length).",
+      "Prone to external fragmentation due to variable segment allocation sizes."
+    ],
+    "tags": [
+      "Segmentation",
+      "Memory Management"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Internal Fragmentation vs External Fragmentation?",
+    "expectedTopics": [
+      "Internal Fragmentation",
+      "External Fragmentation",
+      "Memory Waste"
+    ],
+    "keyPoints": [
+      "Internal Fragmentation: Occurs when allocated memory block is larger than requested data size, leaving unused wasted space INSIDE fixed-size page frames.",
+      "External Fragmentation: Occurs when total free memory space is sufficient to satisfy a request, but the space is fragmented into small non-contiguous holes OUTSIDE allocated blocks.",
+      "Paging eliminates External Fragmentation but causes minor Internal Fragmentation."
+    ],
+    "tags": [
+      "Fragmentation",
+      "Memory Waste"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Virtual Memory and what benefits does it offer to application software?",
+    "expectedTopics": [
+      "Virtual Memory",
+      "Address Abstraction",
+      "Demanded Paging"
+    ],
+    "keyPoints": [
+      "Virtual Memory separates logical user memory from physical storage RAM.",
+      "Allows executing programs whose combined logical size exceeds total physical RAM capacity.",
+      "Provides isolation: Protects each process address space from unauthorized access by other processes.",
+      "Loads program pages lazily on demand (Demand Paging)."
+    ],
+    "tags": [
+      "Virtual Memory",
+      "Isolation"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Page Fault and what steps occur when a page fault exception is raised?",
+    "expectedTopics": [
+      "Page Fault",
+      "Trap Exception",
+      "Page Replacement"
+    ],
+    "keyPoints": [
+      "A Page Fault occurs when a program attempts to access a virtual page whose Present Bit in the Page Table is 0 (not loaded in physical RAM).",
+      "Step 1: CPU hardware triggers a Page Fault Trap to the OS kernel.",
+      "Step 2: OS locates requested page on secondary storage disk (swap space).",
+      "Step 3: OS finds free physical frame (evicting a dirty page if RAM is full) and reads disk page into frame.",
+      "Step 4: OS updates Page Table present bit and restarts faulting instruction."
+    ],
+    "tags": [
+      "Page Fault",
+      "Virtual Memory"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a File System and what are common file allocation methods (Contiguous, Linked, Indexed)?",
+    "expectedTopics": [
+      "File System",
+      "File Allocation Methods",
+      "Disk Blocks"
+    ],
+    "keyPoints": [
+      "A File System manages organization, storage, retrieval, and naming of data files on secondary storage devices.",
+      "Contiguous Allocation: Stores file blocks in consecutive disk sectors (Fast, prone to external fragmentation).",
+      "Linked Allocation: Each file block contains a pointer to the next block (No fragmentation, slow random access).",
+      "Indexed Allocation: Brings all block pointers together into an Index Block / Inode (Fast random access)."
+    ],
+    "tags": [
+      "File System",
+      "Disk Allocation"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is an Inode in Unix/Linux file systems and what metadata does it store?",
+    "expectedTopics": [
+      "Inode Structure",
+      "File Metadata",
+      "Unix File Systems"
+    ],
+    "keyPoints": [
+      "An Inode (Index Node) is a data structure on disk storing metadata about a specific file or directory.",
+      "Metadata stored: File size, Owner UID/GID, Access permissions (rwx), Timestamps (atime, mtime, ctime), Link count, and Direct/Indirect block pointers to disk data blocks.",
+      "Inode DOES NOT store the file name; file names are mapped to inode numbers inside Directory entries."
+    ],
+    "tags": [
+      "Inode",
+      "Linux File System"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a System Call in OS and how does the CPU transition from User Mode to Kernel Mode?",
+    "expectedTopics": [
+      "System Calls",
+      "User vs Kernel Mode",
+      "Hardware Trap"
+    ],
+    "keyPoints": [
+      "A System Call is a programmatic interface allowing user-space applications to request privileged services from the OS kernel.",
+      "User Mode (Ring 3): Restricted execution mode preventing direct hardware access.",
+      "Kernel Mode (Ring 0): Unrestricted privileged execution mode.",
+      "Transition: App invokes software interrupt / trap instruction (e.g. `syscall` or `int 0x80`), switching CPU execution to kernel mode interrupt handlers."
+    ],
+    "tags": [
+      "System Call",
+      "Kernel Mode"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does the Translation Lookaside Buffer (TLB) accelerate virtual-to-physical address translation?",
+    "expectedTopics": [
+      "TLB",
+      "Address Translation",
+      "Cache Hit Miss"
+    ],
+    "keyPoints": [
+      "TLB is a fast hardware associative cache inside the MMU storing recent Page Table translations.",
+      "TLB Hit: MMU retrieves Physical Frame number instantly without accessing RAM page tables (1 cycle).",
+      "TLB Miss: MMU walks multi-level Page Tables in RAM (multiple memory accesses), updates TLB, and resumes execution.",
+      "High TLB hit rates (>99%) are critical for low-latency memory accesses."
+    ],
+    "tags": [
+      "TLB",
+      "MMU",
+      "Virtual Memory"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the Producer-Consumer Problem (Bounded Buffer Problem) and how to solve it using Semaphores and Mutexes.",
+    "expectedTopics": [
+      "Producer Consumer",
+      "Bounded Buffer",
+      "Synchronization Primitives"
+    ],
+    "keyPoints": [
+      "Problem: Producers insert data into a fixed-size buffer while Consumers remove data concurrently without overflow or underflow.",
+      "Primitives: Mutex lock `mutex` (protects buffer array), Counting Semaphore `empty` (tracks free slots), Counting Semaphore `full` (tracks filled items).",
+      "Producer: `wait(empty) -> wait(mutex) -> insert() -> signal(mutex) -> signal(full)`.",
+      "Consumer: `wait(full) -> wait(mutex) -> remove() -> signal(mutex) -> signal(empty)`."
+    ],
+    "tags": [
+      "Producer Consumer",
+      "Synchronization"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the Readers-Writers Problem and how to resolve reader/writer starvation.",
+    "expectedTopics": [
+      "Readers Writers Problem",
+      "Concurrency",
+      "Starvation Mitigation"
+    ],
+    "keyPoints": [
+      "Problem: Multiple Readers can read shared data concurrently, but Writers require exclusive access.",
+      "First Readers Preference: Allows continuous arriving readers to read; risks Writer Starvation.",
+      "First Writers Preference: Blocks new readers if a writer is waiting; risks Reader Starvation.",
+      "Fair Solution: Uses a Queue Semaphore (FIFO ordering) so arriving readers and writers wait in exact arrival sequence."
+    ],
+    "tags": [
+      "Readers Writers",
+      "Concurrency"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the Dining Philosophers Problem and how to prevent deadlocks using resource hierarchy or semaphores.",
+    "expectedTopics": [
+      "Dining Philosophers",
+      "Deadlock Prevention",
+      "Resource Hierarchy"
+    ],
+    "keyPoints": [
+      "Problem: 5 philosophers sit at a round table requiring 2 adjacent chopsticks to eat; naive picking causes circular wait deadlocks.",
+      "Solution 1 - Resource Hierarchy (Dijkstra): Enforce picking lower-numbered chopstick first. The last philosopher picks in reverse order, breaking circular wait.",
+      "Solution 2 - Asymmetric Pick: Odd philosophers pick left chopstick first; even philosophers pick right chopstick first.",
+      "Solution 3 - Monitor / State Array: Allow picking chopsticks ONLY when both neighbors are not eating."
+    ],
+    "tags": [
+      "Dining Philosophers",
+      "Deadlock Prevention"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain Banker's Algorithm for Deadlock Avoidance and how to check if a system is in a Safe State.",
+    "expectedTopics": [
+      "Banker's Algorithm",
+      "Deadlock Avoidance",
+      "Safe State"
+    ],
+    "keyPoints": [
+      "Banker's Algorithm dynamically tests resource allocations by simulating worst-case max resource claims for all active processes.",
+      "Data Structures: Available vector, Max matrix, Allocation matrix, Need matrix (Max - Allocation).",
+      "Safe State: System checks if there exists at least one execution sequence where every process can satisfy its Need and finish execution.",
+      "If allocating a requested resource leads to an Unsafe state, the request is denied and the process must wait."
+    ],
+    "tags": [
+      "Bankers Algorithm",
+      "Deadlock Avoidance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are Deadlock Detection and Recovery strategies in operating systems?",
+    "expectedTopics": [
+      "Deadlock Detection",
+      "Deadlock Recovery",
+      "Process Termination"
+    ],
+    "keyPoints": [
+      "Detection: OS periodically runs detection algorithms (e.g. Wait-For Graph cycle detection for single-unit resources).",
+      "Recovery - Process Termination: Abort all deadlocked processes OR abort one process at a time until deadlock cycle is broken.",
+      "Recovery - Resource Preemption: Forcibly preempt resources from processes, rolling back their state to a previous safe checkpoint.",
+      "Most general-purpose OS (Linux, Windows) ignore deadlocks (Ostrich Algorithm) due to detection cost."
+    ],
+    "tags": [
+      "Deadlock Recovery",
+      "Detection"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare Page Replacement Algorithms (FIFO, LRU, OPT) and explain Belady's Anomaly.",
+    "expectedTopics": [
+      "Page Replacement",
+      "FIFO LRU OPT",
+      "Belady's Anomaly"
+    ],
+    "keyPoints": [
+      "FIFO: Evicts oldest page loaded; simple, but prone to high page faults.",
+      "LRU (Least Recently Used): Evicts page not accessed for longest duration; requires stack/timestamp tracking hardware.",
+      "Optimal (OPT): Evicts page that will not be used for longest future period (Theoretical benchmark).",
+      "Belady's Anomaly: A phenomenon in FIFO where increasing physical page frames results in MORE page faults for certain access strings."
+    ],
+    "tags": [
+      "Page Replacement",
+      "Beladys Anomaly"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain Thrashing in virtual memory systems and how the Working Set Model stabilizes memory demand.",
+    "expectedTopics": [
+      "Thrashing",
+      "Working Set Model",
+      "Memory Collapse"
+    ],
+    "keyPoints": [
+      "Thrashing occurs when active processes spend more time paging data to/from disk than executing CPU instructions.",
+      "Root Cause: Sum of active working set sizes exceeds available physical RAM frames.",
+      "Working Set Model: Tracks the set of pages referenced by a process in recent time window delta.",
+      "OS prevents thrashing by swapping out low-priority processes completely to disk when total working sets exceed RAM capacity."
+    ],
+    "tags": [
+      "Thrashing",
+      "Working Set"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Multi-level Paging (Hierarchical Paging) and Inverted Page Tables, and why are they needed for 64-bit architectures?",
+    "expectedTopics": [
+      "Multi-level Paging",
+      "Inverted Page Table",
+      "64-bit Address Space"
+    ],
+    "keyPoints": [
+      "Problem: A flat 64-bit virtual page table would require terabytes of memory per process.",
+      "Multi-level Paging: Breaks virtual address into multiple page table directory levels, allocating sub-page tables lazily only for used address ranges.",
+      "Inverted Page Table: Contains one entry per PHYSICAL RAM frame rather than per virtual page, using hash tables for lookup.",
+      "Significantly reduces memory footprint of OS page tables."
+    ],
+    "tags": [
+      "Multi-level Paging",
+      "Inverted Page Table"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Copy-on-Write (COW) optimize process creation (fork system call) in Unix-like operating systems?",
+    "expectedTopics": [
+      "Copy-on-Write",
+      "fork() Syscall",
+      "Memory Optimization"
+    ],
+    "keyPoints": [
+      "Traditional `fork()`: Duplicates parent entire address space in physical RAM (expensive).",
+      "Copy-on-Write (COW): Parent and child initial processes share the exact same physical RAM pages marked Read-Only.",
+      "When parent or child attempts to WRITE to a shared page, MMU triggers a page fault exception.",
+      "OS kernel intercepts fault, duplicates ONLY that single modified page frame, updates page tables, and resumes writing.",
+      "Makes `fork()` nearly instantaneous."
+    ],
+    "tags": [
+      "Copy-on-Write",
+      "fork",
+      "Unix"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare Inter-Process Communication (IPC) mechanisms: Shared Memory, Message Passing, Pipes, Named Pipes (FIFOs), and Sockets.",
+    "expectedTopics": [
+      "IPC Mechanisms",
+      "Shared Memory vs Message Passing",
+      "Pipes Sockets"
+    ],
+    "keyPoints": [
+      "Shared Memory: Map same RAM page into both process address spaces; fastest IPC, requires manual lock synchronization.",
+      "Message Passing: OS kernel routes discrete messages via system calls; slower, but safer.",
+      "Anonymous Pipes: Uni-directional byte streams between related parent/child processes.",
+      "Named Pipes (FIFOs): Uni-directional byte streams across unrelated processes via file system paths.",
+      "Sockets: Network-capable IPC across local or remote machines."
+    ],
+    "tags": [
+      "IPC",
+      "Shared Memory",
+      "Pipes"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain Disk Scheduling Algorithms: FCFS, SSTF, SCAN (Elevator algorithm), and C-SCAN.",
+    "expectedTopics": [
+      "Disk Scheduling",
+      "SSTF",
+      "SCAN C-SCAN"
+    ],
+    "keyPoints": [
+      "FCFS: Serves disk I/O requests in arrival order (High seek time).",
+      "SSTF (Shortest Seek Time First): Serves request closest to current disk head position; risks disk arm starvation.",
+      "SCAN (Elevator): Disk head moves in one direction serving all requests until reaching end, then reverses direction.",
+      "C-SCAN (Circular SCAN): Moves in one direction serving requests, then returns immediately to start without serving requests on return sweep.",
+      "Provides uniform waiting time distribution."
+    ],
+    "tags": [
+      "Disk Scheduling",
+      "SCAN",
+      "SSTF"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is a Journaling File System (ext4, NTFS) and how does it prevent file system corruption during sudden power failures?",
+    "expectedTopics": [
+      "Journaling File System",
+      "Crash Consistency",
+      "ext4 NTFS"
+    ],
+    "keyPoints": [
+      "Problem: Sudden power loss mid-write causes inconsistency between metadata inodes and data blocks.",
+      "Journaling: Writes upcoming file modifications into a dedicated circular log (Journal) on disk BEFORE modifying main file system structures.",
+      "Commit: Once journal write is flushed, OS updates main data blocks.",
+      "Recovery: Upon reboot post-crash, OS replays completed journal transactions, restoring file system integrity in seconds without running full `fsck` scans."
+    ],
+    "tags": [
+      "Journaling",
+      "File System Crash Recovery"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Priority Inversion in process scheduling and how does Priority Inheritance Protocol resolve it?",
+    "expectedTopics": [
+      "Priority Inversion",
+      "Priority Inheritance",
+      "Real-time Scheduling"
+    ],
+    "keyPoints": [
+      "Priority Inversion: Occurs when a high-priority task (H) gets blocked waiting for a lock held by a low-priority task (L), while a medium-priority task (M) preempts (L), delaying (H) indirectly.",
+      "Priority Inheritance Protocol: Temporarily elevates the priority of low-priority task (L) to match high-priority task (H) until (L) releases the shared lock.",
+      "Prevents medium-priority tasks from preempting the lock holder."
+    ],
+    "tags": [
+      "Priority Inversion",
+      "Priority Inheritance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Linux Completely Fair Scheduler (CFS) use Red-Black trees to achieve O(log N) scheduling fairness?",
+    "expectedTopics": [
+      "Linux CFS",
+      "Virtual Runtime (vruntime)",
+      "Red-Black Tree"
+    ],
+    "keyPoints": [
+      "CFS discards traditional time slices, assigning CPU proportions based on task weights (nice values).",
+      "Tracks `vruntime` (virtual execution time) for each task.",
+      "Red-Black Tree: Stores runnable tasks ordered by `vruntime`.",
+      "Scheduler always picks leftmost tree node (task with smallest `vruntime`) in O(1) time, and re-inserts tasks in O(log N) time post-execution.",
+      "Enforces completely fair CPU distribution."
+    ],
+    "tags": [
+      "Linux CFS",
+      "vruntime",
+      "Red-Black Tree"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "High-Performance Multithreading Scenario: A trading system suffers from Mutex lock contention. Design a solution using Lock-Free Atomic CAS instructions.",
+    "expectedTopics": [
+      "Lock-Free Programming",
+      "Atomic CAS",
+      "Lock Contention"
+    ],
+    "keyPoints": [
+      "Mutex lock contention causes thread context switches and OS kernel sleeping overhead.",
+      "Lock-Free Design: Replaces Mutexes with hardware-supported Atomic Compare-And-Swap (`std::atomic::compare_exchange_weak`) instructions.",
+      "Uses lock-free queue/ring buffer with ABA problem protection using Hazard Pointers or Generation Counters.",
+      "Ensures system-wide progress without thread blocking."
+    ],
+    "tags": [
+      "Lock-Free",
+      "Atomic CAS",
+      "Multithreading"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "System Crash Debugging Scenario: Walk through debugging a Linux Kernel Panic using gdb, crash, /proc/kallsyms, and kernel oops stack trace analysis.",
+    "expectedTopics": [
+      "Kernel Panic",
+      "Kernel Oops",
+      "crash gdb"
+    ],
+    "keyPoints": [
+      "Analyze Kernel Oops stack trace to identify faulting instruction pointer (EIP/RIP) and register dump.",
+      "Match fault address against `/proc/kallsyms` to identify kernel function name and module offset.",
+      "Load `vmcore` memory dump into `crash` utility alongside unstripped kernel image (`vmlinux`).",
+      "Disassemble instructions (`dis -l <address>`) to pinpoint exact NULL pointer dereference line."
+    ],
+    "tags": [
+      "Kernel Debugging",
+      "Kernel Panic",
+      "gdb"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into NUMA (Non-Uniform Memory Access) Architectures: Explain memory node placement, NUMA distance, thread affinity, and allocation policies.",
+    "expectedTopics": [
+      "NUMA Architecture",
+      "Thread Affinity",
+      "numactl"
+    ],
+    "keyPoints": [
+      "NUMA connects multi-socket CPU processors to local dedicated RAM nodes via high-speed interconnects (QPI/UPI).",
+      "Local Node Access: Sub-100ns latency; Remote Node Access: Up to 2x higher latency.",
+      "Thread Affinity (`numactl --cpunodebind=0 --membind=0`): Binds thread execution and memory allocations to exact same NUMA node.",
+      "Allocation Policies: `localalloc` (prefer local RAM) vs `interleave` (round-robin across nodes)."
+    ],
+    "tags": [
+      "NUMA",
+      "Hardware Architecture",
+      "Performance"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into Virtual Memory & Huge Pages: Explain 4KB pages vs 2MB/1GB Huge Pages (THP), TLB miss reduction, and memory fragmentation trade-offs.",
+    "expectedTopics": [
+      "Huge Pages",
+      "Transparent Huge Pages (THP)",
+      "TLB Efficiency"
+    ],
+    "keyPoints": [
+      "Standard 4KB pages in multi-gigabyte memory applications exhaust TLB entries, causing high TLB miss latency penalties.",
+      "Huge Pages (2MB/1GB): Spans larger contiguous memory blocks, reducing page table levels and dramatically improving TLB hit rates.",
+      "Transparent Huge Pages (THP): Kernel attempts automatic allocation, but can cause latency spikes during background compaction.",
+      "Best practice for Databases (PostgreSQL, Redis) is allocating static Explicit Huge Pages."
+    ],
+    "tags": [
+      "Huge Pages",
+      "TLB",
+      "Virtual Memory"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Real-Time OS (RTOS) Scheduling Deep Dive: Compare Hard Real-Time vs Soft Real-Time OS scheduling using Rate Monotonic Scheduling (RMS) and EDF.",
+    "expectedTopics": [
+      "RTOS Scheduling",
+      "Rate Monotonic Scheduling (RMS)",
+      "Earliest Deadline First (EDF)"
+    ],
+    "keyPoints": [
+      "Hard Real-Time: Missed deadline constitutes total system failure; Soft Real-Time: Missed deadline degrades quality.",
+      "Rate Monotonic Scheduling (RMS): Static-priority algorithm assigning higher priority to periodic tasks with shorter periods (Utilization bound ~69.3%).",
+      "Earliest Deadline First (EDF): Dynamic-priority algorithm assigning highest priority to task with nearest absolute deadline (Achieves up to 100% CPU utilization)."
+    ],
+    "tags": [
+      "RTOS",
+      "RMS",
+      "EDF"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Storage Subsystem & RAID Architecture: Compare RAID 0, RAID 1, RAID 5, RAID 6, and RAID 10 in terms of IOPS, parity overhead, and fault tolerance.",
+    "expectedTopics": [
+      "RAID Architecture",
+      "Striping Parity Mirroring",
+      "Storage Reliability"
+    ],
+    "keyPoints": [
+      "RAID 0 (Striping): Maximum performance, zero fault tolerance.",
+      "RAID 1 (Mirroring): 50% capacity efficiency, tolerates 1 drive failure per mirror pair.",
+      "RAID 5 (Distributed Parity): N-1 capacity, tolerates 1 drive failure, write penalty due to Parity Read-Modify-Write.",
+      "RAID 6 (Dual Parity): N-2 capacity, tolerates 2 simultaneous drive failures.",
+      "RAID 10 (Striped Mirrors): Combines RAID 1 speed and RAID 0 capacity with fast rebuild times."
+    ],
+    "tags": [
+      "RAID",
+      "Storage Architecture"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Asynchronous I/O Framework Deep Dive: Compare Synchronous Blocking I/O, I/O Multiplexing (epoll), and modern Linux io_uring ring buffer architecture.",
+    "expectedTopics": [
+      "Async I/O",
+      "epoll",
+      "io_uring"
+    ],
+    "keyPoints": [
+      "Synchronous Blocking I/O: Thread blocks on kernel read/write system calls.",
+      "I/O Multiplexing (`epoll`): Readiness notification mechanism allowing one thread to monitor thousands of file descriptors.",
+      "`io_uring`: Asynchronous completion queue architecture using two shared memory ring buffers (Submission Queue & Completion Queue).",
+      "Bypasses kernel syscall overhead completely in polling mode (`IORING_SETUP_SQPOLL`), achieving multi-million IOPS."
+    ],
+    "tags": [
+      "io_uring",
+      "epoll",
+      "Async IO"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Operating System Security & Container Isolation: How do Linux cgroups, namespaces, and seccomp-bpf syscall filtering enforce container sandboxing?",
+    "expectedTopics": [
+      "Container Isolation",
+      "cgroups & Namespaces",
+      "seccomp-bpf"
+    ],
+    "keyPoints": [
+      "Linux Namespaces: Provide logical view isolation (PID hides host processes, NET isolates network interfaces, MNT isolates mount points).",
+      "Control Groups (cgroups): Enforce hardware resource limits (CPU %, RAM MB, I/O bandwidth).",
+      "seccomp-bpf: Filters and blocks unauthorized kernel system calls at runtime.",
+      "Combines lightweight kernel isolation without virtual machine hypervisor overhead."
+    ],
+    "tags": [
+      "cgroups",
+      "Namespaces",
+      "Container Security"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Page Replacement & Cache Pollution Scenario: A sequential file scan purges active application pages from Linux page cache. How do Linux 2Q and posix_fadvise prevent cache pollution?",
+    "expectedTopics": [
+      "Cache Pollution",
+      "Linux 2Q Dual-LRU",
+      "posix_fadvise"
+    ],
+    "keyPoints": [
+      "Cache Pollution: One-time large sequential read scans evict frequently accessed hot application pages.",
+      "Linux 2Q (Dual-LRU): Splits page cache into Inactive List and Active List. Pages enter Inactive List first and upgrade to Active List ONLY upon second reference.",
+      "`posix_fadvise(fd, offset, len, POSIX_FADV_DONTNEED)`: Explicitly hints kernel to evict scanned file pages from page cache immediately post-read."
+    ],
+    "tags": [
+      "Cache Pollution",
+      "Linux Page Cache",
+      "Dual LRU"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Operating System",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Memory Allocation Internals: Design a custom High-Performance User-Space Memory Allocator (tcmalloc/jemalloc architecture).",
+    "expectedTopics": [
+      "Memory Allocator Internals",
+      "Thread Local Cache",
+      "Arena Slabs"
+    ],
+    "keyPoints": [
+      "Global Heap Lock Contention: Naive `malloc` locks global heap mutex on every allocation.",
+      "Thread-Local Caches (Thread Cache): Provides per-thread lock-free memory pools for small allocation sizes (binning).",
+      "Arena Slabs: Large memory chunks requested from kernel via `mmap` divided into fixed-size slab classes.",
+      "Central Cache & Page Heap: Refill thread caches when empty using lock-free page allocation structures."
+    ],
+    "tags": [
+      "Memory Allocator",
+      "tcmalloc",
+      "jemalloc"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

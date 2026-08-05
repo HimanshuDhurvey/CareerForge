@@ -1,0 +1,1215 @@
+[
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Database Management System (DBMS) and what are its key advantages over traditional File Processing Systems?",
+    "expectedTopics": [
+      "DBMS Overview",
+      "File System vs DBMS",
+      "Data Redundancy"
+    ],
+    "keyPoints": [
+      "A DBMS is software designed to store, retrieve, define, and manage structured data efficiently.",
+      "Reduces data redundancy and inconsistency through centralized data storage.",
+      "Provides concurrent access, data isolation, crash recovery, and transactional ACID guarantees.",
+      "Enforces data security access rights and data integrity rules automatically."
+    ],
+    "tags": [
+      "DBMS",
+      "Basics"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the 3-Schema Architecture (ANSI-SPARC) in DBMS (Internal, Conceptual, External levels)?",
+    "expectedTopics": [
+      "3-Schema Architecture",
+      "ANSI-SPARC",
+      "Schema Levels"
+    ],
+    "keyPoints": [
+      "Internal (Physical) Level: Describes physical storage structures, index files, and access paths on disk.",
+      "Conceptual (Logical) Level: Describes database structure, entities, data types, relationships, and constraints.",
+      "External (View) Level: Describes tailored user views, hiding unneeded database schema complexity.",
+      "Promotes data abstraction and data independence across schema layers."
+    ],
+    "tags": [
+      "Architecture",
+      "Schemas"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Data Independence in DBMS and how do Logical and Physical Data Independence differ?",
+    "expectedTopics": [
+      "Data Independence",
+      "Logical Independence",
+      "Physical Independence"
+    ],
+    "keyPoints": [
+      "Data Independence is the ability to modify schema at one level without altering schema at higher levels.",
+      "Logical Data Independence: Capacity to modify conceptual schema without changing external schema views or applications.",
+      "Physical Data Independence: Capacity to modify physical storage or indexes without changing conceptual schema.",
+      "Physical independence is easier to achieve than logical independence."
+    ],
+    "tags": [
+      "Data Independence",
+      "Abstraction"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the Entity-Relationship (ER) Model and what are Entities, Attributes, and Relationships?",
+    "expectedTopics": [
+      "ER Model",
+      "Entity & Attribute",
+      "Relationships"
+    ],
+    "keyPoints": [
+      "ER Model is a high-level conceptual data modeling framework representing database domain structures.",
+      "Entity: Real-world object distinguishable from others (e.g. Student, Car), represented by rectangles.",
+      "Attribute: Property or characteristic describing an entity (e.g. Age, Name), represented by ovals.",
+      "Relationship: Association between two or more entities (e.g. Enrolls_In), represented by diamonds."
+    ],
+    "tags": [
+      "ER Model",
+      "Conceptual Design"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain different attribute types in ER Diagrams (Simple, Composite, Single-valued, Multi-valued, Derived, Key).",
+    "expectedTopics": [
+      "Attribute Types",
+      "Multi-valued Attributes",
+      "Derived Attributes"
+    ],
+    "keyPoints": [
+      "Simple: Cannot be divided into sub-components (e.g. Age).",
+      "Composite: Can be divided into smaller sub-parts (e.g. Address into Street, City, Zip).",
+      "Multi-valued: Can hold multiple values for an entity instance (e.g. PhoneNumbers), shown as double ovals.",
+      "Derived: Computed from other attributes (e.g. Age derived from BirthDate), shown as dashed ovals.",
+      "Key: Uniquely identifies entity instances, underlined."
+    ],
+    "tags": [
+      "ER Diagram",
+      "Attributes"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Weak Entity Set in ER Modeling and how is it identified using a Discriminator and Identifying Relationship?",
+    "expectedTopics": [
+      "Weak Entity Set",
+      "Discriminator",
+      "Identifying Relationship"
+    ],
+    "keyPoints": [
+      "A Weak Entity Set lacks a primary key attribute to uniquely identify its own instances.",
+      "Depends on an Identifying Owner Entity Set for existence.",
+      "Identified by combining Owner Entity Primary Key + Weak Entity Partial Key (Discriminator).",
+      "Represented by double rectangles in ER diagrams, linked via double diamonds."
+    ],
+    "tags": [
+      "Weak Entity",
+      "ER Model"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain Relational Model concepts: Relation, Attribute, Domain, Tuple, Degree, and Cardinality.",
+    "expectedTopics": [
+      "Relational Model",
+      "Tuple & Domain",
+      "Degree & Cardinality"
+    ],
+    "keyPoints": [
+      "Relation: A table containing data structured in rows and columns.",
+      "Attribute: A named column header in a relation.",
+      "Domain: Set of permitted atomic values for an attribute.",
+      "Tuple: A single row record in a relation table.",
+      "Degree: Total count of attributes (columns) in a relation.",
+      "Cardinality: Total count of tuples (rows) in a relation."
+    ],
+    "tags": [
+      "Relational Model",
+      "Terminology"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Compare Candidate Keys, Primary Keys, Super Keys, Alternate Keys, and Foreign Keys.",
+    "expectedTopics": [
+      "Database Keys",
+      "Super Key",
+      "Candidate Key"
+    ],
+    "keyPoints": [
+      "Super Key: Any set of one or more attributes that uniquely identifies tuples in a relation.",
+      "Candidate Key: Minimal Super Key with no redundant attributes.",
+      "Primary Key: Candidate Key selected by database designer to uniquely identify tuples (cannot be NULL).",
+      "Alternate Key: Candidate Keys not selected as Primary Key.",
+      "Foreign Key: Attribute in relation pointing to Primary Key of another relation."
+    ],
+    "tags": [
+      "Keys",
+      "Relational Schema"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Referential Integrity Constraint and how does it prevent invalid foreign key references?",
+    "expectedTopics": [
+      "Referential Integrity",
+      "Foreign Key Constraints",
+      "Orphan Records"
+    ],
+    "keyPoints": [
+      "Referential Integrity requires foreign key values in a child table to match a valid primary key in the parent table or be NULL.",
+      "Prevents orphaned child records when parent rows are deleted or modified.",
+      "Database engines enforce rules via ON DELETE / ON UPDATE actions (CASCADE, RESTRICT, SET NULL).",
+      "Guarantees relational consistency across linked database tables."
+    ],
+    "tags": [
+      "Integrity",
+      "Constraints"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Functional Dependency (FD) in relational databases (X -> Y)?",
+    "expectedTopics": [
+      "Functional Dependency",
+      "X -> Y",
+      "Determinant"
+    ],
+    "keyPoints": [
+      "A Functional Dependency X -> Y states attribute set X uniquely determines attribute set Y.",
+      "If two tuples share identical values for X, they MUST share identical values for Y.",
+      "X is called the Determinant; Y is called the Dependent.",
+      "Forms the theoretical foundation for database Normalization."
+    ],
+    "tags": [
+      "Functional Dependency",
+      "Theory"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are Armstrong's Axioms for functional dependencies (Reflexivity, Augmentation, Transitivity)?",
+    "expectedTopics": [
+      "Armstrong's Axioms",
+      "Inference Rules",
+      "Functional Dependency Rules"
+    ],
+    "keyPoints": [
+      "Reflexivity: If Y is a subset of X, then X -> Y holds.",
+      "Augmentation: If X -> Y holds, then XZ -> YZ holds for any attribute set Z.",
+      "Transitivity: If X -> Y holds and Y -> Z holds, then X -> Z holds.",
+      "Sound and complete rules for inferring all valid functional dependencies."
+    ],
+    "tags": [
+      "Armstrong Axioms",
+      "FD Rules"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Database Normalization and why is it essential for relational schema design?",
+    "expectedTopics": [
+      "Database Normalization",
+      "Anomalies",
+      "Redundancy"
+    ],
+    "keyPoints": [
+      "Normalization reorganizes relational schemas to minimize data redundancy.",
+      "Eliminates Insertion, Update, and Deletion Anomalies.",
+      "Divides large unnormalized tables into smaller well-structured tables linked by foreign keys.",
+      "Ensures functional dependencies are enforced cleanly."
+    ],
+    "tags": [
+      "Normalization",
+      "Schema Design"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is First Normal Form (1NF) and how does it eliminate multi-valued or composite attributes?",
+    "expectedTopics": [
+      "1NF",
+      "Atomic Values",
+      "Repeating Groups"
+    ],
+    "keyPoints": [
+      "1NF requires all column attribute cells to contain atomic (indivisible) single values.",
+      "Eliminates multi-valued attributes and repeating groups (e.g. comma-separated lists in a cell).",
+      "Requires each tuple row to be uniquely identifiable via a Primary Key.",
+      "Ensures table structure is strictly tabular."
+    ],
+    "tags": [
+      "1NF",
+      "Normalization"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Database Transaction and what are the ACID properties?",
+    "expectedTopics": [
+      "Transactions",
+      "ACID Properties",
+      "Atomicity & Consistency"
+    ],
+    "keyPoints": [
+      "A Transaction is a logical unit of database processing containing one or more SQL operations.",
+      "Atomicity: All operations succeed together or entire transaction rolls back.",
+      "Consistency: Database transitions from one valid consistent state to another.",
+      "Isolation: Concurrent transactions execute without interfering with each other.",
+      "Durability: Committed updates persist permanently even through system crashes."
+    ],
+    "tags": [
+      "ACID",
+      "Transactions"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain Transaction States in DBMS (Active, Partially Committed, Committed, Failed, Aborted).",
+    "expectedTopics": [
+      "Transaction States",
+      "Lifecycle",
+      "Commit & Abort"
+    ],
+    "keyPoints": [
+      "Active: Initial state while transaction operations are executing.",
+      "Partially Committed: Final statement executed; data modifications in buffer RAM before disk write.",
+      "Committed: All updates written permanently to disk; transaction successfully completed.",
+      "Failed: Execution error detected during active or partially committed state.",
+      "Aborted: Transaction rolled back, restoring database to pre-transaction state."
+    ],
+    "tags": [
+      "Transaction Lifecycle",
+      "States"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Concurrency Control in DBMS and why is concurrent execution management necessary?",
+    "expectedTopics": [
+      "Concurrency Control",
+      "Interleaved Execution",
+      "Concurrency Problems"
+    ],
+    "keyPoints": [
+      "Concurrency Control manages simultaneous transaction executions on shared database items.",
+      "Maximizes CPU throughput and minimizes transaction waiting times.",
+      "Prevents Lost Updates, Dirty Reads, and Inconsistent Analysis problems.",
+      "Maintains database consistency during interleaved execution."
+    ],
+    "tags": [
+      "Concurrency",
+      "Transactions"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Deadlock in database systems and how does it occur?",
+    "expectedTopics": [
+      "Deadlock",
+      "Circular Wait",
+      "Lock Wait"
+    ],
+    "keyPoints": [
+      "A Deadlock occurs when two or more transactions are in a circular wait condition.",
+      "Transaction T1 holds Lock A waiting for Lock B; Transaction T2 holds Lock B waiting for Lock A.",
+      "Neither transaction can proceed without external intervention.",
+      "DBMS Deadlock Detectors identify circular waits and abort one transaction (the victim)."
+    ],
+    "tags": [
+      "Deadlock",
+      "Locks"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Database Indexing and why is it used?",
+    "expectedTopics": [
+      "Indexing",
+      "Data Structures",
+      "Search Speed"
+    ],
+    "keyPoints": [
+      "Indexing creates specialized data structures (B-Tree, Hash) mapping search keys to disk pointers.",
+      "Replaces expensive Full Table Scans (O(N)) with fast Index Seeks (O(log N)).",
+      "Drastically reduces disk I/O operations for SELECT queries.",
+      "Adds slight overhead during INSERT, UPDATE, and DELETE operations."
+    ],
+    "tags": [
+      "Indexing",
+      "Performance"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between Primary Index, Secondary Index, and Clustering Index?",
+    "expectedTopics": [
+      "Primary Index",
+      "Secondary Index",
+      "Clustering Index"
+    ],
+    "keyPoints": [
+      "Primary Index: Defined on an ordered key field (Primary Key) of a sequentially ordered data file.",
+      "Clustering Index: Defined on a non-key ordered field (e.g. DepartmentId) of a sequentially ordered data file.",
+      "Secondary Index: Defined on an un-ordered field of a data file, pointing to actual data record pointers.",
+      "Primary/Clustering indexes determine physical data page ordering; Secondary indexes do not."
+    ],
+    "tags": [
+      "Index Types",
+      "Storage"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are B-Tree and B+ Tree index structures in relational databases?",
+    "expectedTopics": [
+      "B-Tree",
+      "B+ Tree",
+      "Tree Indexing"
+    ],
+    "keyPoints": [
+      "B-Tree is a self-balancing search tree storing keys and data pointers in internal nodes.",
+      "B+ Tree stores data pointers ONLY in leaf nodes; internal nodes store routing keys.",
+      "B+ Tree leaf nodes are linked together sequentially in a doubly-linked list.",
+      "B+ Trees provide superior range query scanning performance."
+    ],
+    "tags": [
+      "B-Tree",
+      "B+ Tree"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the CAP Theorem in distributed databases (Consistency, Availability, Partition Tolerance)?",
+    "expectedTopics": [
+      "CAP Theorem",
+      "Distributed Systems",
+      "Trade-offs"
+    ],
+    "keyPoints": [
+      "Consistency: Every read returns the most recent write or an error.",
+      "Availability: Every non-failing node returns a non-error response without guaranteeing latest data.",
+      "Partition Tolerance: System continues operating despite network message loss or partitioning.",
+      "CAP Theorem states distributed systems can guarantee at most TWO out of three properties during network partitions."
+    ],
+    "tags": [
+      "CAP Theorem",
+      "Distributed DBMS"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Compare Relational Databases (RDBMS) vs NoSQL Databases.",
+    "expectedTopics": [
+      "SQL vs NoSQL",
+      "ACID vs BASE",
+      "Scaling"
+    ],
+    "keyPoints": [
+      "RDBMS: Structured tables, fixed schemas, SQL queries, ACID compliance, vertical scaling.",
+      "NoSQL: Flexible schemas (Document, Key-Value, Graph, Column), BASE consistency model, horizontal scaling.",
+      "Use RDBMS for complex joins, ACID compliance, and structured schemas.",
+      "Use NoSQL for high velocity, unstructured data, and massive distributed scale."
+    ],
+    "tags": [
+      "RDBMS",
+      "NoSQL"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Database Log (Redo Log and Undo Log) and why is it used for database recovery?",
+    "expectedTopics": [
+      "Database Logs",
+      "Redo Log",
+      "Undo Log"
+    ],
+    "keyPoints": [
+      "Database Log is an append-only file recording all state modifications before applying them to database pages.",
+      "Undo Log: Contains pre-image values used to rollback uncommitted transaction changes.",
+      "Redo Log: Contains post-image values used to reapply committed transaction updates after a crash.",
+      "Enables crash recovery guaranteeing Atomicity and Durability."
+    ],
+    "tags": [
+      "Recovery",
+      "Logging"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Query Processing in DBMS and what are its main steps?",
+    "expectedTopics": [
+      "Query Processing",
+      "Parser & Optimizer",
+      "Execution Engine"
+    ],
+    "keyPoints": [
+      "Step 1: Parsing and Translation - Checks syntax, verifies schema permissions, translates SQL into Relational Algebra.",
+      "Step 2: Query Optimization - Evaluates algebraic expressions and generates lowest-cost Execution Plan.",
+      "Step 3: Query Execution - Code generator executes chosen plan against storage engine and returns tuples."
+    ],
+    "tags": [
+      "Query Processing",
+      "Execution"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between Lossless Join Decomposition and Dependency Preserving Decomposition?",
+    "expectedTopics": [
+      "Decomposition",
+      "Lossless Join",
+      "Dependency Preservation"
+    ],
+    "keyPoints": [
+      "Lossless Join Decomposition guarantees natural join of decomposed sub-relations recreates original relation without spurious tuples.",
+      "Dependency Preserving Decomposition ensures all original functional dependencies can be enforced within sub-relations without cross-table joins.",
+      "Lossless join is mandatory for valid normalization.",
+      "3NF guarantees both Lossless Join and Dependency Preservation; BCNF guarantees Lossless Join but may lose dependencies."
+    ],
+    "tags": [
+      "Decomposition",
+      "Normalization Theory"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do B+ Trees differ from standard B-Trees and why are B+ Trees preferred for disk-based database indexing?",
+    "expectedTopics": [
+      "B+ Tree vs B-Tree",
+      "Leaf Pointer Linked List",
+      "Disk I/O Efficiency"
+    ],
+    "keyPoints": [
+      "B-Tree stores key-data record pointers in internal nodes; B+ Tree stores record pointers strictly in leaf nodes.",
+      "B+ Tree internal nodes store only routing keys, increasing node capacity (fan-out) and reducing tree height.",
+      "Lower tree height results in fewer disk I/O accesses per lookup.",
+      "B+ Tree leaf nodes link sequentially in a linked list, enabling ultra-fast range queries."
+    ],
+    "tags": [
+      "B+ Tree",
+      "Indexing"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain Serializability in transaction processing: Conflict Serializability vs View Serializability.",
+    "expectedTopics": [
+      "Serializability",
+      "Conflict Serializability",
+      "View Serializability"
+    ],
+    "keyPoints": [
+      "A schedule is Serializable if its execution output is equivalent to some serial execution of its transactions.",
+      "Conflict Serializability: Schedule can be transformed into a serial schedule by swapping non-conflicting operations.",
+      "View Serializability: Broader class of schedules matching initial reads, intermediate writes, and final writes of a serial schedule.",
+      "All Conflict Serializable schedules are View Serializable, but not vice versa."
+    ],
+    "tags": [
+      "Serializability",
+      "Transactions"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does the Precedence Graph (Serialization Graph) algorithm test a schedule for Conflict Serializability?",
+    "expectedTopics": [
+      "Precedence Graph",
+      "Conflict Test",
+      "Cycle Detection"
+    ],
+    "keyPoints": [
+      "Construct directed graph G = (V, E) where vertices V represent transactions.",
+      "Draw edge Ti -> Tj if Ti executes conflicting operation (Read-Write, Write-Read, Write-Write) on item X before Tj.",
+      "If the Precedence Graph contains a CYCLE, the schedule is NOT conflict serializable.",
+      "If graph is ACYCLIC, topological sort yields the equivalent serial order."
+    ],
+    "tags": [
+      "Precedence Graph",
+      "Serializability"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Two-Phase Locking (2PL) protocol guarantee Conflict Serializability? Compare Basic 2PL, Strict 2PL, and Rigorous 2PL.",
+    "expectedTopics": [
+      "2PL Protocol",
+      "Growing & Shrinking",
+      "Strict vs Rigorous 2PL"
+    ],
+    "keyPoints": [
+      "Growing Phase: Transaction acquires locks without releasing any.",
+      "Shrinking Phase: Transaction releases locks without acquiring any.",
+      "Basic 2PL guarantees conflict serializability but may suffer from cascading rollbacks.",
+      "Strict 2PL holds exclusive write locks until transaction COMMIT/ABORT, preventing dirty reads.",
+      "Rigorous 2PL holds ALL locks (shared and exclusive) until COMMIT/ABORT."
+    ],
+    "tags": [
+      "2PL",
+      "Locking"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are Lock Granularities in DBMS and how do Intent Locks (IS, IX, SIX) work in Multiple Granularity Locking?",
+    "expectedTopics": [
+      "Multiple Granularity",
+      "Intent Locks",
+      "IS IX SIX Locks"
+    ],
+    "keyPoints": [
+      "Lock Granularity allows locking at different levels: Database, Table, Page, Tuple.",
+      "Intent Shared (IS): Indicates intention to acquire Shared locks at lower hierarchy nodes.",
+      "Intent Exclusive (IX): Indicates intention to acquire Exclusive locks at lower hierarchy nodes.",
+      "Shared Intent Exclusive (SIX): Explicit Shared lock on current node + Intent Exclusive on lower nodes.",
+      "Prevents needing to search all lower nodes when testing table-level lock compatibility."
+    ],
+    "tags": [
+      "Lock Granularity",
+      "Intent Locks"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does the Timestamp Ordering Protocol prevent concurrency conflicts without using locks?",
+    "expectedTopics": [
+      "Timestamp Ordering",
+      "Read_TS & Write_TS",
+      "Lock-Free Concurrency"
+    ],
+    "keyPoints": [
+      "Assigns unique monotonically increasing timestamp TS(Ti) to each transaction at start.",
+      "Maintains Read_TS(X) and Write_TS(X) for every database item X.",
+      "If transaction Ti attempts Read(X) when TS(Ti) < Write_TS(X), Ti is aborted and restarted with new timestamp.",
+      "If transaction Ti attempts Write(X) when TS(Ti) < Read_TS(X) or TS(Ti) < Write_TS(X), Ti is aborted.",
+      "Guarantees conflict serializability without deadlock."
+    ],
+    "tags": [
+      "Timestamp Ordering",
+      "Concurrency"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Thomas' Write Rule in Timestamp Ordering Concurrency Control?",
+    "expectedTopics": [
+      "Thomas Write Rule",
+      "Obsolete Writes",
+      "Optimization"
+    ],
+    "keyPoints": [
+      "Modification to basic Timestamp Ordering Protocol for Write(X) operations.",
+      "If TS(Ti) < Write_TS(X), Thomas' Write Rule ignores and skips the obsolete Write(X) operation instead of aborting Ti.",
+      "Valid because a newer write operation has already overwritten item X.",
+      "Increases concurrency while maintaining view serializability."
+    ],
+    "tags": [
+      "Thomas Write Rule",
+      "Timestamping"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Deadlock Detection using Wait-For Graphs (WFG) differ from Deadlock Prevention schemes (Wait-Die and Wound-Wait)?",
+    "expectedTopics": [
+      "Deadlock Detection",
+      "Wait-Die",
+      "Wound-Wait"
+    ],
+    "keyPoints": [
+      "Deadlock Detection: Periodically inspects Wait-For Graph (WFG) for cycles and aborts victim transaction.",
+      "Wait-Die (Non-preemptive): Older transaction WAITS for younger transaction; younger transaction DIES if requesting lock held by older.",
+      "Wound-Wait (Preemptive): Older transaction WOUNDS (preempts/aborts) younger transaction; younger transaction WAITS for older.",
+      "Prevention schemes eliminate deadlocks using transaction timestamps."
+    ],
+    "tags": [
+      "Deadlock Detection",
+      "WFG"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain Database Log-Based Recovery Techniques: Deferred Update vs Immediate Update and Checkpointing.",
+    "expectedTopics": [
+      "Log Recovery",
+      "Deferred Update",
+      "Immediate Update",
+      "Checkpointing"
+    ],
+    "keyPoints": [
+      "Deferred Update (NO-UNDO/REDO): Database writes deferred until COMMIT; requires REDO only during recovery.",
+      "Immediate Update (UNDO/REDO): Database writes applied immediately to buffer pages; requires UNDO for uncommitted and REDO for committed.",
+      "Checkpointing: Flushes dirty buffer pages to disk and records active transaction list in log file.",
+      "Checkpoints bound recovery log scanning time during system restarts."
+    ],
+    "tags": [
+      "Recovery",
+      "Checkpointing"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does the ARIES (Algorithms for Recovery and Isolation Exploiting Semantics) algorithm work across Analysis, Redo, and Undo phases?",
+    "expectedTopics": [
+      "ARIES Algorithm",
+      "Analysis Redo Undo",
+      "Crash Recovery"
+    ],
+    "keyPoints": [
+      "Analysis Phase: Scans log forward from checkpoint to identify active uncommitted transactions and dirty buffer pages.",
+      "Redo Phase: Scans log forward replaying all log changes (Repeating History) to restore pre-crash database state.",
+      "Undo Phase: Scans log backward rolling back operations of all uncommitted transactions (loser transactions).",
+      "Uses Compensation Log Records (CLRs) to prevent repeated rollbacks if crash occurs during recovery."
+    ],
+    "tags": [
+      "ARIES",
+      "Crash Recovery"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Deep dive into Normalization: Explain 2NF (Partial Dependency), 3NF (Transitive Dependency), and BCNF.",
+    "expectedTopics": [
+      "2NF 3NF BCNF",
+      "Transitive Dependency",
+      "Super Key"
+    ],
+    "keyPoints": [
+      "2NF: Must be in 1NF and eliminate Partial Dependencies (non-prime attribute dependent on part of composite key).",
+      "3NF: Must be in 2NF and eliminate Transitive Dependencies (non-prime attribute dependent on another non-prime attribute).",
+      "BCNF: For every functional dependency X -> Y, X MUST be a Super Key.",
+      "BCNF strictly eliminates all functional redundancy, but may sacrifice dependency preservation."
+    ],
+    "tags": [
+      "2NF",
+      "3NF",
+      "BCNF"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you find the Minimal Cover (Canonical Cover) of a set of Functional Dependencies?",
+    "expectedTopics": [
+      "Canonical Cover",
+      "Minimal Cover",
+      "Extraneous Attributes"
+    ],
+    "keyPoints": [
+      "Step 1: Decompose right-hand side of functional dependencies into single attributes using decomposition rule.",
+      "Step 2: Remove redundant (extraneous) left-side attributes from functional dependencies.",
+      "Step 3: Remove redundant functional dependencies whose closure can be derived from remaining dependencies.",
+      "Produces a minimal, equivalent set of dependencies for 3NF synthesis."
+    ],
+    "tags": [
+      "Canonical Cover",
+      "FD Minimal Cover"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Query Optimization transform relational algebra expressions into an optimal Execution Plan using cost-based optimizers?",
+    "expectedTopics": [
+      "Query Optimization",
+      "Relational Algebra Equivalences",
+      "Cost-Based Optimizer"
+    ],
+    "keyPoints": [
+      "Parser generates initial relational algebra tree.",
+      "Optimizer applies heuristic equivalence rules (pushing selections and projections down tree nodes).",
+      "Cost-Based Optimizer estimates disk I/O and CPU cost across candidate execution plans using data distribution histograms.",
+      "Chooses lowest-cost plan selecting join algorithms (Hash Join, Nested Loop, Merge Join)."
+    ],
+    "tags": [
+      "Query Optimization",
+      "Execution Plan"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain CAP Theorem trade-offs in distributed system design: AP (Eventual Consistency) vs CP (Strong Consistency).",
+    "expectedTopics": [
+      "AP vs CP",
+      "Eventual Consistency",
+      "Distributed Trade-offs"
+    ],
+    "keyPoints": [
+      "CP Systems (Consistency + Partition Tolerance): Reject writes during network partitions to ensure data consistency across nodes (e.g. HBase, MongoDB majority).",
+      "AP Systems (Availability + Partition Tolerance): Accept writes during partitions, sacrificing immediate consistency for eventual consistency (e.g. Cassandra, DynamoDB).",
+      "Network partitions (P) are inevitable in distributed networks.",
+      "System architects choose between consistency vs availability based on domain requirements."
+    ],
+    "tags": [
+      "CAP Theorem",
+      "Distributed Systems"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Multiversion Concurrency Control (MVCC) enable concurrent readers and writers to execute without blocking?",
+    "expectedTopics": [
+      "MVCC",
+      "Non-blocking Reads",
+      "Snapshot Isolation"
+    ],
+    "keyPoints": [
+      "MVCC maintains multiple historical version snapshots of database tuples.",
+      "Read operations access a consistent snapshot version corresponding to transaction start time without acquiring read locks.",
+      "Write operations create a new tuple version alongside creation timestamp / transaction ID.",
+      "Eliminates read-write lock contention: 'Readers do not block writers, and writers do not block readers'."
+    ],
+    "tags": [
+      "MVCC",
+      "Snapshot Isolation"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A relational database experiences cascading rollbacks under high concurrency. Diagnose 2PL flaws and demonstrate how Strict 2PL prevents Cascading Aborts.",
+    "expectedTopics": [
+      "Cascading Aborts",
+      "Dirty Read",
+      "Strict 2PL Solution"
+    ],
+    "keyPoints": [
+      "Basic 2PL allows releasing exclusive locks before commit; transaction T2 reads uncommitted write of T1 (Dirty Read).",
+      "If T1 fails and aborts, T2 MUST also abort, triggering cascading rollbacks across dependent transactions.",
+      "Fix: Enforce Strict 2PL, keeping all exclusive write locks until transaction COMMIT/ABORT.",
+      "Prevents any transaction from reading uncommitted modifications, guaranteeing cascadeless schedules."
+    ],
+    "tags": [
+      "2PL",
+      "Cascading Rollback"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Complex Algorithmic Scenario: Given relational schema R(A, B, C, D, E) and FDs { A->B, BC->D, E->C }, compute Candidate Keys and test if R is in BCNF.",
+    "expectedTopics": [
+      "Candidate Key Closure",
+      "BCNF Testing",
+      "Attribute Closure"
+    ],
+    "keyPoints": [
+      "Compute attribute closure (AE)+: A->B, E->C, (BC)+ -> D. (AE)+ = {A,B,C,D,E}. Candidate Key = AE.",
+      "Test BCNF condition: For every FD X -> Y, X must be a Super Key.",
+      "Check A -> B: A is not a super key (AE is super key). Violation of BCNF!",
+      "Decompose R into R1(A, B) and R2(A, C, D, E) to achieve BCNF."
+    ],
+    "tags": [
+      "BCNF",
+      "Candidate Keys"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Architecture & Design: How would you design a distributed DBMS cluster balancing the CAP Theorem, using 2-Phase Commit (2PC) and Paxos/Raft consensus?",
+    "expectedTopics": [
+      "Distributed DBMS Architecture",
+      "Two-Phase Commit (2PC)",
+      "Paxos/Raft"
+    ],
+    "keyPoints": [
+      "Use Paxos/Raft consensus protocols for leader election and distributed metadata replication across cluster nodes.",
+      "Use 2-Phase Commit (2PC) (Prepare & Commit phases) to guarantee atomic multi-node distributed transactions.",
+      "Handle coordinator failure in 2PC by utilizing 3PC or Paxos-backed fault-tolerant coordinators.",
+      "Balance CAP by selecting CP mode for financial ledgers and AP mode for user sessions."
+    ],
+    "tags": [
+      "Architecture",
+      "2PC",
+      "Raft"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into B+ Tree Index Mechanics: Calculate node capacity (fan-out) and tree height given page size 8KB, key size 16B, pointer size 8B.",
+    "expectedTopics": [
+      "B+ Tree Calculation",
+      "Fan-out",
+      "Index Node Capacity"
+    ],
+    "keyPoints": [
+      "Node capacity formula: n * key_size + (n + 1) * pointer_size <= page_size.",
+      "Calculation: 16n + 8n + 8 <= 8192 => 24n <= 8184 => n = 341 keys per internal node (Fan-out ~342).",
+      "Height calculation: For 10 million records, height = log_342(10,000,000) ~ 3 levels.",
+      "Demonstrates why B+ Trees retrieve records in only 3 disk I/Os."
+    ],
+    "tags": [
+      "B+ Tree",
+      "Math Calculations"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: A high-throughput database experiences deadlocks every few minutes. Compare Wait-Die vs Wound-Wait prevention and refactor transaction ordering.",
+    "expectedTopics": [
+      "Deadlock Prevention",
+      "Wait-Die vs Wound-Wait",
+      "Refactoring"
+    ],
+    "keyPoints": [
+      "Analyze Wait-For Graph cycles identifying competing lock resources.",
+      "Wait-Die (Non-preemptive): Older transaction waits; younger transaction dies on lock collision.",
+      "Wound-Wait (Preemptive): Older transaction preempts/aborts younger transaction; younger transaction waits.",
+      "Wound-Wait generally produces fewer transaction aborts than Wait-Die.",
+      "Refactor application transactions to acquire locks in identical global key order."
+    ],
+    "tags": [
+      "Deadlock",
+      "Wound-Wait"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How does ARIES Recovery protocol reconstruct in-memory state after a sudden crash using DPT, TT, PageLSN, and Compensation Log Records (CLRs)?",
+    "expectedTopics": [
+      "ARIES Protocol",
+      "PageLSN & CLR",
+      "Dirty Page Table"
+    ],
+    "keyPoints": [
+      "PageLSN stored on every data page records LSN of last log update modifying that page.",
+      "Redo Phase skips replaying log records if Log Record LSN <= PageLSN on target data page (avoids redundant I/O).",
+      "Undo Phase writes Compensation Log Records (CLRs) containing UndoNextLSN pointers while rolling back loser transactions.",
+      "CLRs guarantee recovery can resume without repeating already undone operations if crash recurs during recovery."
+    ],
+    "tags": [
+      "ARIES",
+      "PageLSN"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Concurrency Scenario: Optimistic Concurrency Control (OCC) experiences high abort rates during flash sales. Compare OCC vs Pessimistic 2PL.",
+    "expectedTopics": [
+      "OCC vs 2PL",
+      "High Contention",
+      "Flash Sale Concurrency"
+    ],
+    "keyPoints": [
+      "OCC operates in 3 phases: Read, Validate, Write.",
+      "OCC assumes conflicts are rare; validation fails and aborts transactions if conflicting write occurred.",
+      "Under high write contention (flash sales), OCC validation repeatedly fails, causing catastrophic abort storms.",
+      "Pessimistic 2PL (SELECT FOR UPDATE) blocks concurrent writes upfront, eliminating abort storms under high conflict."
+    ],
+    "tags": [
+      "OCC",
+      "2PL",
+      "Contention"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into Relational Query Optimization: Explain how System R dynamic programming algorithm evaluates join orders and physical operators.",
+    "expectedTopics": [
+      "System R Algorithm",
+      "Join Order Search Space",
+      "Dynamic Programming"
+    ],
+    "keyPoints": [
+      "System R restricts join search space to Left-Deep Trees to reduce physical execution complexity.",
+      "Uses Dynamic Programming to build optimal join order size k from optimal size (k - 1) sub-plans.",
+      "Retains interesting orders (sub-plans sorted on columns needed by downstream GROUP BY or ORDER BY).",
+      "Evaluates cost across physical join operators (Hash, Nested Loop, Merge Join)."
+    ],
+    "tags": [
+      "System R",
+      "Query Optimization"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Contrast PACELC Theorem with CAP Theorem in distributed databases for latency and consistency trade-offs.",
+    "expectedTopics": [
+      "PACELC Theorem",
+      "Latency vs Consistency",
+      "Distributed Database Trade-offs"
+    ],
+    "keyPoints": [
+      "PACELC extends CAP Theorem by addressing trade-offs during NORMAL non-partitioned operation.",
+      "If Partition (P): Choose Availability (A) or Consistency (C).",
+      "Else (E): Choose Latency (L) or Consistency (C).",
+      "Example: MongoDB is PC/EC (chooses consistency in both cases); DynamoDB/Cassandra is PA/EL (chooses availability and low latency)."
+    ],
+    "tags": [
+      "PACELC",
+      "CAP Theorem"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A database system experiences Phantom Reads despite using Strict 2PL on tuples. Explain why Predicate Locking / Index Range Locks are required.",
+    "expectedTopics": [
+      "Phantom Read Bug",
+      "Predicate Locking",
+      "Index Range Locking"
+    ],
+    "keyPoints": [
+      "Phantom Read occurs when Transaction T1 reads a set of rows matching a predicate; T2 inserts a NEW row matching predicate and commits.",
+      "Strict 2PL tuple locks lock EXISTING rows only, failing to lock non-existent phantom rows.",
+      "Fix: Implement Predicate Locking (locking search predicate logic) OR Index Range Locking (Next-Key Locking in InnoDB).",
+      "Next-Key locks lock both the index record AND the gap preceding it, preventing phantom inserts."
+    ],
+    "tags": [
+      "Phantom Read",
+      "Index Range Locking"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

@@ -1,0 +1,1165 @@
+[
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is React and why is it called a component-based UI library?",
+    "expectedTopics": [
+      "Component-Based Architecture",
+      "Declarative UI",
+      "Virtual DOM"
+    ],
+    "keyPoints": [
+      "React is an open-source JavaScript library developed by Meta for building interactive user interfaces.",
+      "Component-based architecture breaks the UI into small, self-contained, and reusable pieces.",
+      "Declarative programming allows developers to specify what the UI should look like based on state, rather than manipulating DOM elements imperatively.",
+      "Increases code maintainability, testability, and reusability across web applications."
+    ],
+    "tags": [
+      "React",
+      "Basics"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain the key differences between Single Page Applications (SPAs) and Multi-Page Applications (MPAs).",
+    "expectedTopics": [
+      "Client-Side Routing",
+      "Page Reloads",
+      "User Experience"
+    ],
+    "keyPoints": [
+      "SPAs load a single HTML document and dynamically rewrite page content as the user interacts without full page reloads.",
+      "MPAs request a brand new page from the server on every navigation link click.",
+      "SPAs provide fluid, desktop-like user experience but require client-side routing (e.g. React Router).",
+      "Initial bundle load in SPAs may be heavier, whereas MPAs distribute page loads across requests."
+    ],
+    "tags": [
+      "SPA",
+      "Architecture"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is JSX and how does it differ from standard HTML syntax?",
+    "expectedTopics": [
+      "Syntax Extension",
+      "JavaScript Expressions",
+      "Babel Transpilation"
+    ],
+    "keyPoints": [
+      "JSX stands for JavaScript XML, a syntax extension for JavaScript that allows writing HTML-like markup inside JS code.",
+      "JSX attributes use camelCase naming (e.g., className instead of class, htmlFor instead of for).",
+      "JavaScript expressions can be embedded inside JSX using single curly braces {}.",
+      "JSX compiles down to standard React.createElement() function calls."
+    ],
+    "tags": [
+      "JSX",
+      "Syntax"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Can web browsers parse JSX directly? Explain the compilation process.",
+    "expectedTopics": [
+      "Transpilation",
+      "Babel",
+      "React.createElement"
+    ],
+    "keyPoints": [
+      "Browsers can only execute standard ECMAScript JavaScript and cannot read JSX directly.",
+      "Build tools like Babel, SWC, or Vite compile JSX into regular JavaScript objects and functions.",
+      "Transpilation converts JSX tags like <h1 className='title'>Hi</h1> into React.createElement('h1', { className: 'title' }, 'Hi') or the modern _jsx runtime calls."
+    ],
+    "tags": [
+      "JSX",
+      "Babel"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between Functional Components and Class Components in React?",
+    "expectedTopics": [
+      "Functional vs Class",
+      "React Hooks",
+      "Boilerplate Code"
+    ],
+    "keyPoints": [
+      "Functional components are plain JS functions returning JSX, whereas Class components extend React.Component.",
+      "Functional components use Hooks (useState, useEffect) for state and side effects; Class components use ES6 class state and lifecycle methods.",
+      "Functional components have less boilerplate, are easier to test, and represent modern React standards."
+    ],
+    "tags": [
+      "Components",
+      "Functional"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are props in React and why are they considered read-only / immutable?",
+    "expectedTopics": [
+      "Props",
+      "Unidirectional Data Flow",
+      "Immutability"
+    ],
+    "keyPoints": [
+      "Props (short for properties) pass configuration and data down from parent components to child components.",
+      "Props are read-only and immutable in the receiving child component to preserve pure functional component behavior.",
+      "Unidirectional data flow ensures predictable data changes and easier debugging across component trees."
+    ],
+    "tags": [
+      "Props",
+      "Data Flow"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is state in React and how does it differ from props?",
+    "expectedTopics": [
+      "State vs Props",
+      "Component Internal Data",
+      "Re-rendering"
+    ],
+    "keyPoints": [
+      "State is internal, mutable data owned and managed directly within a component.",
+      "Props are external data passed into a component from its parent.",
+      "When component state changes, React triggers a re-render to update the user interface."
+    ],
+    "tags": [
+      "State",
+      "Props"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do you handle click events in React compared to native DOM event handling?",
+    "expectedTopics": [
+      "Synthetic Events",
+      "camelCase Handlers",
+      "Event Delegation"
+    ],
+    "keyPoints": [
+      "React uses camelCase event attributes like onClick instead of lowercase onclick.",
+      "Event handler functions are passed as references ({handleClick}) rather than executed strings.",
+      "React wraps native browser events inside SyntheticEvent objects to guarantee cross-browser consistency."
+    ],
+    "tags": [
+      "Events",
+      "SyntheticEvents"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain conditional rendering in React and mention two common ways to achieve it.",
+    "expectedTopics": [
+      "Ternary Operator",
+      "Logical AND Operator",
+      "Conditional Rendering"
+    ],
+    "keyPoints": [
+      "Conditional rendering renders different UI sub-elements based on state or prop evaluations.",
+      "Logical AND operator (condition && <Component />) renders elements only when condition is true.",
+      "Ternary operator (condition ? <TrueComp /> : <FalseComp />) handles binary true/false branch rendering."
+    ],
+    "tags": [
+      "Conditional Rendering",
+      "JSX"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Why are keys required when rendering lists in React, and why is using array index as a key discouraged?",
+    "expectedTopics": [
+      "List Keys",
+      "Reconciliation",
+      "Index as Key"
+    ],
+    "keyPoints": [
+      "Keys help React identify which items in a list have changed, been added, or been removed during rendering.",
+      "Unique keys allow the Virtual DOM diffing algorithm to reuse existing DOM nodes efficiently.",
+      "Using array indexes as keys leads to bugs in sorting, filtering, or deletion because item ordering shifts."
+    ],
+    "tags": [
+      "Keys",
+      "Lists"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between controlled and uncontrolled components in form handling?",
+    "expectedTopics": [
+      "Controlled Components",
+      "Uncontrolled Components",
+      "DOM Refs"
+    ],
+    "keyPoints": [
+      "Controlled components store input state directly in React state (useState) with value and onChange handlers.",
+      "Uncontrolled components keep form data in the DOM itself, retrieving values via React refs (useRef).",
+      "Controlled components allow instant validation and dynamic field behaviors; uncontrolled components are useful for simple integrations."
+    ],
+    "tags": [
+      "Forms",
+      "Controlled Components"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are React Hooks and what major problems did they solve upon introduction?",
+    "expectedTopics": [
+      "React Hooks",
+      "State in Functional Components",
+      "Code Organization"
+    ],
+    "keyPoints": [
+      "Hooks are functions that let functional components attach to React state and lifecycle features.",
+      "They eliminated wrapper hell caused by higher-order components (HOCs) and render props.",
+      "They enabled sharing stateful logic between components cleanly without modifying hierarchy."
+    ],
+    "tags": [
+      "Hooks",
+      "Fundamentals"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How does the useState Hook work, and why must state never be mutated directly?",
+    "expectedTopics": [
+      "useState",
+      "Immutability",
+      "Triggering Re-renders"
+    ],
+    "keyPoints": [
+      "useState returns a tuple: the current state value and a state updater function.",
+      "Direct state mutations (e.g. state.count = 5) do not notify React that state has changed, missing UI re-renders.",
+      "State updater functions schedule asynchronous state transitions and trigger Virtual DOM reconciliation."
+    ],
+    "tags": [
+      "useState",
+      "Hooks"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the primary role of the useEffect Hook in functional components?",
+    "expectedTopics": [
+      "useEffect",
+      "Side Effects",
+      "Lifecycle Management"
+    ],
+    "keyPoints": [
+      "useEffect manages side effects like API data fetching, subscriptions, DOM updates, and timers in functional components.",
+      "It runs after component rendering completes, preventing blocking of browser painting.",
+      "It consolidates class lifecycle behaviors (componentDidMount, componentDidUpdate, componentWillUnmount) into a single functional API."
+    ],
+    "tags": [
+      "useEffect",
+      "Hooks"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is prop drilling and why can it become a problem in large applications?",
+    "expectedTopics": [
+      "Prop Drilling",
+      "State Sharing",
+      "Component Hierarchy"
+    ],
+    "keyPoints": [
+      "Prop drilling occurs when data is passed through intermediate components that do not need it, just to reach deep child components.",
+      "It bloats intermediate component props, making components tightly coupled and harder to refactor.",
+      "Can be solved using React Context API or state management tools like Redux/Zustand."
+    ],
+    "tags": [
+      "Prop Drilling",
+      "Architecture"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the purpose of React Context API and the useContext Hook?",
+    "expectedTopics": [
+      "Context API",
+      "useContext",
+      "Global State"
+    ],
+    "keyPoints": [
+      "Context API provides a way to pass data through the component tree without manually drilling props at every level.",
+      "useContext Hook allows functional components to consume context values effortlessly.",
+      "Ideal for application-wide data such as themes, authentication user info, and localization settings."
+    ],
+    "tags": [
+      "Context",
+      "useContext"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the Virtual DOM and how does it improve web application performance?",
+    "expectedTopics": [
+      "Virtual DOM",
+      "In-Memory Representation",
+      "Batch Updating"
+    ],
+    "keyPoints": [
+      "Virtual DOM is an in-memory lightweight JS object representation of the actual HTML DOM tree.",
+      "When state changes, React creates a new Virtual DOM tree and compares it with the previous tree (diffing).",
+      "React batches real DOM updates, updating only modified nodes rather than repainting entire subtrees."
+    ],
+    "tags": [
+      "Virtual DOM",
+      "Performance"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are synthetic events in React and why does React use them?",
+    "expectedTopics": [
+      "Synthetic Events",
+      "Cross-Browser Compatibility",
+      "Event Pooling"
+    ],
+    "keyPoints": [
+      "SyntheticEvent is React's cross-browser wrapper around the browser's native event object.",
+      "Provides uniform event properties and behaviors across different web browsers.",
+      "Improves performance by attaching event listeners at root level (event delegation) rather than individual DOM elements."
+    ],
+    "tags": [
+      "SyntheticEvents",
+      "Events"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is React.Fragment and why is it preferred over wrapping elements in a div?",
+    "expectedTopics": [
+      "React.Fragment",
+      "DOM Overhead",
+      "Cleaner Markup"
+    ],
+    "keyPoints": [
+      "React.Fragment (<></>) allows grouping multiple adjacent elements without adding extra wrapper nodes to the DOM.",
+      "Reduces DOM node count, improving rendering performance and memory usage.",
+      "Prevents invalid HTML output in cases like <table> or <ul> layout sub-items."
+    ],
+    "tags": [
+      "Fragment",
+      "JSX"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is React.StrictMode and what benefits does it provide during development?",
+    "expectedTopics": [
+      "StrictMode",
+      "Double Invocation",
+      "Deprecated APIs"
+    ],
+    "keyPoints": [
+      "React.StrictMode is a development-only helper component that checks for potential problems in an application.",
+      "It intentionally double-invokes render functions and effect hooks in dev mode to catch impure side effects.",
+      "Warns about deprecated lifecycle methods, legacy ref usage, and unexpected side-effect behaviors."
+    ],
+    "tags": [
+      "StrictMode",
+      "Debugging"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the useRef Hook used for in functional components?",
+    "expectedTopics": [
+      "useRef",
+      "DOM Access",
+      "Persistent Mutables"
+    ],
+    "keyPoints": [
+      "useRef returns a mutable ref object whose .current property persists across component re-renders.",
+      "Commonly used to directly access and manipulate underlying DOM elements (e.g. focus input, scroll position).",
+      "Mutating ref.current does not trigger component re-renders, making it ideal for storing instance variables."
+    ],
+    "tags": [
+      "useRef",
+      "DOM"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What does 'lifting state up' mean in React and when should you use it?",
+    "expectedTopics": [
+      "Lifting State Up",
+      "Shared State",
+      "Common Ancestor"
+    ],
+    "keyPoints": [
+      "Lifting state up involves moving shared state up to the closest common ancestor component.",
+      "Used when two or more sibling components need to synchronize data or react to state changes.",
+      "Ancestor passes state down as props and updater functions as callback props to children."
+    ],
+    "tags": [
+      "State",
+      "Best Practices"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Compare CSS Modules with traditional global CSS styling in React projects.",
+    "expectedTopics": [
+      "CSS Modules",
+      "Scope Leakage",
+      "Class Naming"
+    ],
+    "keyPoints": [
+      "Global CSS styles apply globally across all components, risking scope collision and selector leakage.",
+      "CSS Modules automatically generate unique class names scoped locally to specific components.",
+      "CSS Modules prevent class name conflicts while keeping CSS and JSX modular and clean."
+    ],
+    "tags": [
+      "Styling",
+      "CSS Modules"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do you pass data from a child component back up to a parent component in React?",
+    "expectedTopics": [
+      "Callback Props",
+      "Child to Parent Data",
+      "Event Callbacks"
+    ],
+    "keyPoints": [
+      "Parent components pass a callback function as a prop down to the child component.",
+      "Child component invokes the callback function, passing required data arguments up.",
+      "Parent receives data inside callback body and updates parent state accordingly."
+    ],
+    "tags": [
+      "Props",
+      "Callbacks"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the purpose of default props or default parameters in functional components?",
+    "expectedTopics": [
+      "Default Parameters",
+      "Fallback Props",
+      "Component Robustness"
+    ],
+    "keyPoints": [
+      "Default props or ES6 default parameters provide fallback values if a parent omits a prop.",
+      "Prevents undefined runtime errors when accessing optional prop values.",
+      "Improves component resilience and self-documentation."
+    ],
+    "tags": [
+      "Props",
+      "JavaScript"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does React's Reconciliation process and Diffing Algorithm update the DOM efficiently?",
+    "expectedTopics": [
+      "Reconciliation",
+      "Diffing Algorithm",
+      "O(N) Complexity"
+    ],
+    "keyPoints": [
+      "Reconciliation compares new and previous Virtual DOM trees to compute optimal DOM operations.",
+      "Heuristic Diffing reduces algorithmic complexity from O(N^3) down to O(N).",
+      "Elements of different types tear down old subtree and build fresh nodes.",
+      "Keys allow matching children across list updates without rebuilding nodes unnecessarily."
+    ],
+    "tags": [
+      "Reconciliation",
+      "Performance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Automatic Batching in React 18 and how does it improve state updates?",
+    "expectedTopics": [
+      "Automatic Batching",
+      "React 18",
+      "Async State Updates"
+    ],
+    "keyPoints": [
+      "Batching groups multiple state updates into a single re-render for better performance.",
+      "Prior to React 18, batching only occurred inside React event handlers.",
+      "React 18 automatically batches state updates inside promises, setTimeout, and native event handlers."
+    ],
+    "tags": [
+      "React 18",
+      "Batching"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain how the dependency array works in useEffect. How do you identify and fix infinite render loops?",
+    "expectedTopics": [
+      "Dependency Array",
+      "Infinite Re-renders",
+      "Object References"
+    ],
+    "keyPoints": [
+      "Empty array [] runs effect once on mount; omitted array runs effect on every single render; array with values runs when values change.",
+      "Infinite render loops occur when an effect updates state that is also listed in its own dependency array.",
+      "Passing unmemoized object or array literals creates new reference locations on every render, triggering effects endlessly."
+    ],
+    "tags": [
+      "useEffect",
+      "Debugging"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Why is the cleanup function in useEffect necessary and what memory leaks can occur if omitted?",
+    "expectedTopics": [
+      "Cleanup Function",
+      "Memory Leaks",
+      "Subscriptions"
+    ],
+    "keyPoints": [
+      "Cleanup function runs before effect re-runs and during component unmounting.",
+      "Prevents memory leaks by clearing active timers (clearInterval), unsubscribing WebSockets, or aborting fetch requests.",
+      "Prevents setting state on unmounted components which leads to memory overhead."
+    ],
+    "tags": [
+      "useEffect",
+      "Cleanup"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "When should you choose useReducer instead of useState for state management?",
+    "expectedTopics": [
+      "useReducer",
+      "Complex State",
+      "Reducer Pattern"
+    ],
+    "keyPoints": [
+      "useReducer is preferred when state logic is complex with multiple sub-values or dependent state transitions.",
+      "Decouples state update logic from UI rendering components using dispatch(action) dispatchers.",
+      "Makes testing complex state transitions predictable and centralized."
+    ],
+    "tags": [
+      "useReducer",
+      "State Management"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the difference between useMemo and useCallback? Provide scenario examples for both.",
+    "expectedTopics": [
+      "useMemo vs useCallback",
+      "Memoization",
+      "Performance Optimization"
+    ],
+    "keyPoints": [
+      "useMemo memoizes the returned result value of a calculation function.",
+      "useCallback memoizes the function definition reference itself between renders.",
+      "Use useMemo for expensive data transformations; use useCallback when passing callbacks to memoized child components (React.memo)."
+    ],
+    "tags": [
+      "useMemo",
+      "useCallback"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does React.memo work and how do you write a custom comparison function for complex props?",
+    "expectedTopics": [
+      "React.memo",
+      "Shallow Comparison",
+      "Custom Comparator"
+    ],
+    "keyPoints": [
+      "React.memo is a higher-order component that skips re-rendering if props have not changed.",
+      "Performs shallow object reference comparison by default on incoming props.",
+      "Accepts a custom comparison function (prevProps, nextProps) => boolean for custom deep comparison rules."
+    ],
+    "tags": [
+      "React.memo",
+      "Performance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you create a custom Hook in React to share stateful logic between components?",
+    "expectedTopics": [
+      "Custom Hooks",
+      "Code Reusability",
+      "Naming Convention"
+    ],
+    "keyPoints": [
+      "Custom Hooks are JavaScript functions starting with prefix 'use' that call other React Hooks.",
+      "Extracts component logic (e.g. data fetching, form handling, local storage sync) into reusable functions.",
+      "Each component using a custom Hook gets completely independent state isolation."
+    ],
+    "tags": [
+      "Custom Hooks",
+      "Architecture"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the purpose of React.forwardRef and useImperativeHandle when interacting with child DOM elements.",
+    "expectedTopics": [
+      "forwardRef",
+      "useImperativeHandle",
+      "DOM Exposure"
+    ],
+    "keyPoints": [
+      "React.forwardRef allows functional components to receive ref objects from parent components.",
+      "useImperativeHandle customizes the exact ref object values exposed to parent components.",
+      "Encapsulates internal component implementation while permitting specific imperative methods (e.g., focus(), scroll())."
+    ],
+    "tags": [
+      "forwardRef",
+      "Refs"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you implement Code Splitting using React.lazy and Suspense for route-based chunking?",
+    "expectedTopics": [
+      "Code Splitting",
+      "React.lazy",
+      "Suspense Fallback"
+    ],
+    "keyPoints": [
+      "Code splitting divides large application bundles into smaller dynamic chunks loaded on demand.",
+      "React.lazy() dynamically imports components (const DynamicComp = React.lazy(() => import('./Comp'))).",
+      "Suspense component wraps lazy components, displaying fallback loader UI while bundle chunk fetches over network."
+    ],
+    "tags": [
+      "Code Splitting",
+      "Performance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are Error Boundaries in React and why must they be implemented as class components?",
+    "expectedTopics": [
+      "Error Boundaries",
+      "componentDidCatch",
+      "Fallback UI"
+    ],
+    "keyPoints": [
+      "Error Boundaries catch JavaScript errors anywhere in child component trees during rendering and log errors.",
+      "Render a fallback UI instead of crashing the entire application component tree.",
+      "Must be class components because lifecycle methods getDerivedStateFromError and componentDidCatch have no functional Hook equivalents."
+    ],
+    "tags": [
+      "Error Boundaries",
+      "Error Handling"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you cancel pending HTTP requests using AbortController inside useEffect on component unmount?",
+    "expectedTopics": [
+      "AbortController",
+      "Cancel Requests",
+      "Cleanup"
+    ],
+    "keyPoints": [
+      "Instantiate const controller = new AbortController() before initiating fetch or axios request.",
+      "Pass controller.signal option to HTTP fetch call.",
+      "In useEffect cleanup function, call controller.abort() to cancel in-flight network requests on unmount."
+    ],
+    "tags": [
+      "API",
+      "AbortController"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare useLayoutEffect and useEffect regarding rendering phase and browser screen paint.",
+    "expectedTopics": [
+      "useLayoutEffect vs useEffect",
+      "Browser Paint",
+      "Synchronous DOM Updates"
+    ],
+    "keyPoints": [
+      "useEffect runs asynchronously after the browser paints screen pixels, avoiding rendering blockages.",
+      "useLayoutEffect runs synchronously after DOM mutations but before the browser paints.",
+      "Use useLayoutEffect for measuring DOM dimensions or positioning UI elements before user sees flicker."
+    ],
+    "tags": [
+      "useLayoutEffect",
+      "Hooks"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you prevent unnecessary re-renders in Context API consumers when global state updates?",
+    "expectedTopics": [
+      "Context Optimization",
+      "Splitting Contexts",
+      "React.memo"
+    ],
+    "keyPoints": [
+      "Every component consuming a Context re-renders whenever the context value reference changes.",
+      "Split large context states into separate smaller Context Providers based on update frequency.",
+      "Memoize provider value objects using useMemo so identity reference remains constant across renders."
+    ],
+    "tags": [
+      "Context",
+      "Optimization"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does React Hook Form optimize form performance compared to traditional controlled inputs?",
+    "expectedTopics": [
+      "React Hook Form",
+      "Uncontrolled Performance",
+      "Re-render Elimination"
+    ],
+    "keyPoints": [
+      "Controlled inputs re-render parent components on every keystroke as state updates.",
+      "React Hook Form uses uncontrolled inputs under the hood with refs, eliminating keystroke re-renders.",
+      "Subscribes only specific elements needing dynamic validation, significantly boosting input form performance."
+    ],
+    "tags": [
+      "Forms",
+      "Performance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A heavy dashboard component re-renders on every mouse movement despite wrapping with React.memo. Trace potential root causes and detail how to resolve them.",
+    "expectedTopics": [
+      "React.memo Breakage",
+      "Object Reference Instability",
+      "useCallback & useMemo Fix"
+    ],
+    "keyPoints": [
+      "React.memo performs shallow prop equality comparison. Passing inline object literals ({}) or inline arrow functions creates new references on every parent render.",
+      "Trace mouse event handlers updating parent container state, triggering parent re-renders.",
+      "Fix by wrapping callback handlers with useCallback and object data with useMemo.",
+      "Verify prop stability using React DevTools Profiler or custom prop comparison inspection."
+    ],
+    "tags": [
+      "Debugging",
+      "Performance"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How does React 18 Concurrent Rendering architecture (Fibers, Time Slicing, useTransition) improve UI responsiveness during heavy workloads?",
+    "expectedTopics": [
+      "Concurrent React",
+      "useTransition",
+      "Time Slicing"
+    ],
+    "keyPoints": [
+      "Concurrent rendering allows React to interrupt long rendering tasks to handle urgent user inputs (typing, clicking).",
+      "Time Slicing breaks large rendering work into small tasks executed within browser requestIdleCallback frames.",
+      "useTransition marks state updates as non-urgent transitions, keeping main thread responsive while background UI renders.",
+      "useDeferredValue defers recalculations for lower-priority prop updates without blocking input UI."
+    ],
+    "tags": [
+      "React 18",
+      "Concurrent Engine"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Architectural Design: How would you design a custom, production-grade useFetch Hook supporting caching, retry logic, request deduplication, and automatic revalidation?",
+    "expectedTopics": [
+      "Custom Hook Architecture",
+      "In-Memory Cache",
+      "Deduplication & Retry"
+    ],
+    "keyPoints": [
+      "Maintain global in-memory Map cache keyed by request URL to store responses and timestamps.",
+      "Track active request promises to deduplicate simultaneous requests targeting identical endpoints.",
+      "Implement exponential backoff retry counter for network failure resilience.",
+      "Return status states (data, isLoading, isError, mutate) with cleanup AbortController listeners."
+    ],
+    "tags": [
+      "Architecture",
+      "Custom Hooks"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into React Fiber: What is a Fiber node, how does the work loop split Render and Commit phases, and why is Render interruptible?",
+    "expectedTopics": [
+      "React Fiber",
+      "Render Phase",
+      "Commit Phase"
+    ],
+    "keyPoints": [
+      "Fiber is a plain JS object representing a unit of work in React's component tree.",
+      "Render phase recursively builds Fiber tree and computes side-effect flags; this phase is pure and interruptible.",
+      "Commit phase applies computed DOM changes synchronously and runs layout side effects; this phase cannot be interrupted.",
+      "Fibers enable priority-based cooperative scheduling and pause/resume execution."
+    ],
+    "tags": [
+      "React Fiber",
+      "Internals"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Performance Optimization Scenario: A list containing 10,000 items is lagging during scrolling. Compare windowing techniques against DOM recycling.",
+    "expectedTopics": [
+      "List Virtualization",
+      "Windowing",
+      "DOM Recycling"
+    ],
+    "keyPoints": [
+      "Rendering 10,000 DOM nodes exceeds browser memory bounds and slows diffing reconciliation.",
+      "Virtualization libraries (e.g. react-window) calculate visible scroll bounds and render only visible item rows (~20 items).",
+      "DOM nodes are recycled and repositioned dynamically using absolute CSS positioning offsets.",
+      "Dramatically reduces DOM tree complexity, maintaining 60 FPS scroll performance."
+    ],
+    "tags": [
+      "Virtualization",
+      "Performance"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How do React Server Components (RSC) differ from traditional Client Components and Server-Side Rendering (SSR)?",
+    "expectedTopics": [
+      "React Server Components",
+      "SSR vs RSC",
+      "Zero-Bundle Size"
+    ],
+    "keyPoints": [
+      "SSR renders HTML on server but sends full JS bundle to client for hydration.",
+      "RSC executes exclusively on the server and streams lightweight JSON-like UI structures to client without sending JS bundle code.",
+      "RSCs have direct access to backend resources (DB, file system) with zero client bundle impact.",
+      "Client components handle interactivity and state hooks inside RSC applications."
+    ],
+    "tags": [
+      "Server Components",
+      "SSR"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: You encounter a stale closure bug inside a useCallback function attached to a window scroll listener. Explain why it occurs and how to fix it.",
+    "expectedTopics": [
+      "Stale Closures",
+      "useRef State Pattern",
+      "Updater Function"
+    ],
+    "keyPoints": [
+      "Stale closures happen when callback captures state values from an earlier render scope that never updates due to missing dependency array variables.",
+      "Fix option 1: Add missing state variable to useCallback dependency array (rebinds listener).",
+      "Fix option 2: Store mutable state in a useRef object (ref.current always references latest data).",
+      "Fix option 3: Pass state updater function (setCount(prev => prev + 1)) to avoid referencing outer state."
+    ],
+    "tags": [
+      "Stale Closures",
+      "Debugging"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How do you structure an enterprise React application codebase for optimal scalability, modularity, and micro-frontend isolation?",
+    "expectedTopics": [
+      "Folder Structure",
+      "Feature-Based Design",
+      "Domain Boundaries"
+    ],
+    "keyPoints": [
+      "Organize codebase by domain feature modules (features/auth, features/dashboard) rather than technical layer types.",
+      "Enforce strict public API exports (index.js barrel files) per feature folder.",
+      "Separate presentation components, custom hooks, services, and state stores into isolated domain packages.",
+      "Use Module Federation or Nx monorepos for micro-frontend code sharing and independent deployments."
+    ],
+    "tags": [
+      "Architecture",
+      "Best Practices"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Contrast the execution timing, SSR compatibility, and layout measurement behavior of useEffect, useLayoutEffect, and useInsertionEffect.",
+    "expectedTopics": [
+      "useInsertionEffect",
+      "useLayoutEffect",
+      "useEffect Timing"
+    ],
+    "keyPoints": [
+      "useInsertionEffect runs synchronously BEFORE DOM mutations occur; intended for CSS-in-JS libraries injecting dynamic style tags.",
+      "useLayoutEffect runs synchronously AFTER DOM mutations but BEFORE browser paint; ideal for DOM measurements and preventing visual flashes.",
+      "useEffect runs asynchronously AFTER browser paint; best for data fetching and side effects that do not block rendering."
+    ],
+    "tags": [
+      "Hooks",
+      "Execution Timing"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "React",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A complex multi-step checkout form loses user input data during browser refresh and tab switching. How would you design persistent form state boundaries?",
+    "expectedTopics": [
+      "Form State Persistence",
+      "SessionStorage Sync",
+      "URL Search Params"
+    ],
+    "keyPoints": [
+      "Create custom usePersistentForm Hook syncing form draft state to sessionStorage / localStorage on change.",
+      "Sync step progress and non-sensitive filter IDs to URL search parameters for link bookmarking.",
+      "Implement auto-save debounce timer to prevent excessive storage writes.",
+      "Clear persisted form cache on successful transaction completion."
+    ],
+    "tags": [
+      "Form Architecture",
+      "Persistence"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

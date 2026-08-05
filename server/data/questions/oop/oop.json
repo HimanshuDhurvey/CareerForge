@@ -1,0 +1,1207 @@
+[
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Object-Oriented Programming (OOP) and how does it differ from Procedural Programming?",
+    "expectedTopics": [
+      "OOP Overview",
+      "Procedural vs OOP",
+      "Objects & Data"
+    ],
+    "keyPoints": [
+      "OOP is a programming paradigm centered around Objects containing data fields and associated methods.",
+      "Procedural programming organizes code around sequential functions and procedures operating on global data.",
+      "OOP promotes data encapsulation, modularity, reusability, and maintainability.",
+      "Improves software scalability through abstraction and inheritance."
+    ],
+    "tags": [
+      "OOP",
+      "Basics"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are the four core pillars of Object-Oriented Programming?",
+    "expectedTopics": [
+      "Encapsulation",
+      "Abstraction",
+      "Inheritance",
+      "Polymorphism"
+    ],
+    "keyPoints": [
+      "Encapsulation: Bundling data and methods into a single unit while restricting direct external field access.",
+      "Abstraction: Hiding complex implementation details and exposing only essential interface capabilities.",
+      "Inheritance: Deriving new classes from existing classes to promote code reuse.",
+      "Polymorphism: Allowing objects to respond differently to the same method invocation."
+    ],
+    "tags": [
+      "OOP",
+      "Pillars"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Class and what is an Object in OOP?",
+    "expectedTopics": [
+      "Class Definition",
+      "Object Instance",
+      "Blueprint"
+    ],
+    "keyPoints": [
+      "A Class is a user-defined blueprint or template specifying attributes (state) and methods (behavior).",
+      "An Object is a concrete instance of a class allocated in memory with distinct identity and state.",
+      "A class is a logical construct; an object is a physical entity.",
+      "Multiple objects can be instantiated from a single class definition."
+    ],
+    "tags": [
+      "Class",
+      "Object"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Encapsulation in OOP and how is it implemented using access modifiers?",
+    "expectedTopics": [
+      "Encapsulation",
+      "Access Modifiers",
+      "Data Hiding"
+    ],
+    "keyPoints": [
+      "Encapsulation wraps data fields and methods together while hiding internal state from external direct access.",
+      "Private access modifiers prevent direct external modification of class member variables.",
+      "Public getters and setters provide controlled, validated access to internal fields.",
+      "Protects object integrity and prevents unexpected side effects from external code."
+    ],
+    "tags": [
+      "Encapsulation",
+      "Data Hiding"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Abstraction in OOP and how does it differ from Encapsulation?",
+    "expectedTopics": [
+      "Abstraction",
+      "Encapsulation vs Abstraction",
+      "Interface Hiding"
+    ],
+    "keyPoints": [
+      "Abstraction focuses on WHAT an object does, hiding internal implementation complexity behind simple interfaces.",
+      "Encapsulation focuses on HOW data is protected, bundling data and restricting direct access.",
+      "Abstraction is achieved using Abstract Classes and Interfaces.",
+      "Reduces overall cognitive complexity for developers consuming object APIs."
+    ],
+    "tags": [
+      "Abstraction",
+      "OOP Principles"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Inheritance in OOP and what are its primary benefits and drawbacks?",
+    "expectedTopics": [
+      "Inheritance",
+      "Code Reuse",
+      "Tight Coupling"
+    ],
+    "keyPoints": [
+      "Inheritance allows a child class (derived/subclass) to inherit fields and methods from a parent class (base/superclass).",
+      "Benefits: Promotes code reusability, reduces redundancy, and establishes hierarchical classification.",
+      "Drawbacks: Introduces tight coupling between parent and child classes.",
+      "Changes in parent classes can unintentionally break child class functionality."
+    ],
+    "tags": [
+      "Inheritance",
+      "Code Reuse"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Polymorphism in OOP and how do static and dynamic polymorphism differ?",
+    "expectedTopics": [
+      "Polymorphism",
+      "Static Polymorphism",
+      "Dynamic Polymorphism"
+    ],
+    "keyPoints": [
+      "Polymorphism allows objects of different types to be treated as instances of a common base interface.",
+      "Static (Compile-time) Polymorphism: Achieved via Method Overloading; resolved at compile time.",
+      "Dynamic (Runtime) Polymorphism: Achieved via Method Overriding; resolved at runtime via virtual method tables.",
+      "Enables flexible, extensible software design."
+    ],
+    "tags": [
+      "Polymorphism",
+      "Overloading",
+      "Overriding"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Method Overloading (Compile-Time Polymorphism)?",
+    "expectedTopics": [
+      "Method Overloading",
+      "Method Signature",
+      "Compile-time Binding"
+    ],
+    "keyPoints": [
+      "Method Overloading occurs when multiple methods in the same class share the exact same method name.",
+      "Methods MUST differ in parameter count, types, or parameter order.",
+      "Return type alone is NOT sufficient to overload a method.",
+      "Resolved statically by the compiler during code compilation."
+    ],
+    "tags": [
+      "Overloading",
+      "Polymorphism"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Method Overriding (Runtime Polymorphism)?",
+    "expectedTopics": [
+      "Method Overriding",
+      "Runtime Binding",
+      "Subclass Methods"
+    ],
+    "keyPoints": [
+      "Method Overriding occurs when a child class provides a specific implementation for a method defined in its parent class.",
+      "Overriding methods MUST have matching method names, parameter signatures, and compatible return types.",
+      "Resolved dynamically at runtime based on the actual object instance being invoked.",
+      "Enforces specialized child behaviors while maintaining base class interface compatibility."
+    ],
+    "tags": [
+      "Overriding",
+      "Polymorphism"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is an Abstract Class and when should you use it over a concrete class?",
+    "expectedTopics": [
+      "Abstract Class",
+      "Partial Implementation",
+      "Base Classes"
+    ],
+    "keyPoints": [
+      "An Abstract Class cannot be instantiated directly using new; serves as a base for derived classes.",
+      "Can contain both abstract methods (without implementation) and concrete implemented methods.",
+      "Can hold instance fields and constructor definitions.",
+      "Use when closely related classes share common code and state variables."
+    ],
+    "tags": [
+      "Abstract Class",
+      "Abstraction"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is an Interface and how does it define a software contract?",
+    "expectedTopics": [
+      "Interface",
+      "Software Contract",
+      "Multiple Interfaces"
+    ],
+    "keyPoints": [
+      "An Interface defines a purely abstract contract specifying methods a implementing class MUST provide.",
+      "Contains method declarations without implementation bodies (except default/static methods in modern OOP languages).",
+      "A class can implement multiple interfaces, enabling multiple interface inheritance.",
+      "Decouples caller code from concrete implementing classes."
+    ],
+    "tags": [
+      "Interface",
+      "Abstraction"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Association in OOP relationships?",
+    "expectedTopics": [
+      "Association",
+      "Object Relationships",
+      "Bi-directional"
+    ],
+    "keyPoints": [
+      "Association represents a general relationship where two independent objects interact with each other.",
+      "Can be uni-directional or bi-directional (e.g. Teacher and Student).",
+      "Both objects have independent lifecycles; neither object owns the other.",
+      "Formed when one object invokes methods on another object."
+    ],
+    "tags": [
+      "Association",
+      "Relationships"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Aggregation ('has-a' weak relationship) in OOP?",
+    "expectedTopics": [
+      "Aggregation",
+      "Weak Relationship",
+      "Has-A Relationship"
+    ],
+    "keyPoints": [
+      "Aggregation is a specialized form of Association representing a weak 'has-a' relationship.",
+      "The child object can exist independently outside the scope of the parent container object.",
+      "Example: A Department has Teachers; if Department is destroyed, Teachers continue to exist.",
+      "Child objects are passed into parent container via constructors or setters."
+    ],
+    "tags": [
+      "Aggregation",
+      "Relationships"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Composition ('has-a' strong relationship) in OOP?",
+    "expectedTopics": [
+      "Composition",
+      "Strong Relationship",
+      "Owned Lifecycle"
+    ],
+    "keyPoints": [
+      "Composition is a specialized form of Aggregation representing a strong, dependent 'has-a' relationship.",
+      "The child object cannot exist independently outside the parent container object.",
+      "Example: A House has Rooms; if House is destroyed, the Rooms are also destroyed.",
+      "Parent object fully controls the lifecycle and creation of child objects."
+    ],
+    "tags": [
+      "Composition",
+      "Relationships"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Compare Aggregation vs Composition in object-oriented design.",
+    "expectedTopics": [
+      "Aggregation vs Composition",
+      "Weak vs Strong Has-A",
+      "Object Lifecycle"
+    ],
+    "keyPoints": [
+      "Aggregation represents a weak 'has-a' relationship; Composition represents a strong 'has-a' relationship.",
+      "In Aggregation, child objects survive parent destruction; in Composition, child objects die with parent destruction.",
+      "Aggregation passes references in; Composition instantiates child objects internally.",
+      "Composition provides tighter encapsulation than Aggregation."
+    ],
+    "tags": [
+      "Aggregation",
+      "Composition"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between 'is-a' relationship and 'has-a' relationship in object-oriented design?",
+    "expectedTopics": [
+      "Is-A vs Has-A",
+      "Inheritance vs Composition",
+      "Object Modeling"
+    ],
+    "keyPoints": [
+      "'Is-A' relationship represents Inheritance (e.g. Dog IS-A Animal, Car IS-A Vehicle).",
+      "'Has-A' relationship represents Composition or Aggregation (e.g. Car HAS-A Engine).",
+      "Use 'is-a' when child class specializes parent class behavior while conforming to interface.",
+      "Use 'has-a' when building complex objects by combining simpler component objects."
+    ],
+    "tags": [
+      "Is-A",
+      "Has-A"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Why is 'Favor Composition over Inheritance' a fundamental object-oriented design guideline?",
+    "expectedTopics": [
+      "Composition over Inheritance",
+      "Loose Coupling",
+      "Flexibility"
+    ],
+    "keyPoints": [
+      "Inheritance introduces tight coupling; changes to parent class break child classes (Fragile Base Class problem).",
+      "Inheritance is fixed statically at compile time; Composition allows dynamic runtime behavior swapping.",
+      "Composition allows combining multiple behaviors without deep complex inheritance hierarchies.",
+      "Promotes loose coupling and better testability."
+    ],
+    "tags": [
+      "Composition",
+      "Design Principles"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Constructor in OOP and what is Constructor Overloading?",
+    "expectedTopics": [
+      "Constructor",
+      "Constructor Overloading",
+      "Instance Setup"
+    ],
+    "keyPoints": [
+      "A Constructor is a special method called automatically when an object instance is created.",
+      "Initializes default or custom object state variables.",
+      "Constructor Overloading occurs when a class defines multiple constructors with different parameter lists.",
+      "Allows instantiating objects with varying initial parameter configurations."
+    ],
+    "tags": [
+      "Constructor",
+      "Initialization"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the this keyword in OOP and how is it used?",
+    "expectedTopics": [
+      "this Keyword",
+      "Current Instance",
+      "Disambiguation"
+    ],
+    "keyPoints": [
+      "this is a reference variable pointing to the current object instance executing the code.",
+      "Used to disambiguate instance variables from constructor/method parameters with identical names.",
+      "Used to invoke other overloaded constructors within the same class (this(...)).",
+      "Used to pass current instance as argument to other methods."
+    ],
+    "tags": [
+      "this Keyword",
+      "Instance Reference"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the super or base keyword in OOP inheritance?",
+    "expectedTopics": [
+      "super Keyword",
+      "Base Class Reference",
+      "Parent Invocation"
+    ],
+    "keyPoints": [
+      "super (or base in C#) refers directly to the immediate parent class instance.",
+      "Used to invoke parent class constructors (super(...)) from derived class constructors.",
+      "Used to call overridden parent class methods explicitly.",
+      "Used to access parent class fields shadowed by child class fields."
+    ],
+    "tags": [
+      "super Keyword",
+      "Inheritance"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Destructor or Finalizer in object lifecycles?",
+    "expectedTopics": [
+      "Destructor",
+      "Finalizer",
+      "Resource Cleanup"
+    ],
+    "keyPoints": [
+      "A Destructor (~ClassName() in C++) is invoked automatically when an object is destroyed to release unmanaged resources.",
+      "In languages with Garbage Collection (Java, C#), finalizers/cleaners run before memory reclamation.",
+      "Explicit resource management (AutoCloseable, Dispose pattern) is preferred over relying on delayed finalizers.",
+      "Prevents memory and native file handle leaks."
+    ],
+    "tags": [
+      "Destructor",
+      "Lifecycle"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is an Immutable Object and how do you create one in OOP?",
+    "expectedTopics": [
+      "Immutable Object",
+      "State Protection",
+      "Thread Safety"
+    ],
+    "keyPoints": [
+      "An Immutable Object is an object whose internal state cannot be modified after creation.",
+      "To create: Make all fields private and final; omit setter methods; declare class final.",
+      "Perform deep defensive copying for mutable constructor arguments and getter returns.",
+      "Inherently thread-safe without needing synchronization locks."
+    ],
+    "tags": [
+      "Immutability",
+      "Thread Safety"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are Access Modifiers (Public, Private, Protected, Package/Default) and why are they used?",
+    "expectedTopics": [
+      "Access Modifiers",
+      "Public Private Protected",
+      "Scope Control"
+    ],
+    "keyPoints": [
+      "Private: Accessible ONLY within the defining class.",
+      "Protected: Accessible within defining class, package, and derived subclasses.",
+      "Public: Accessible from any class anywhere in the application.",
+      "Package/Default: Accessible only within classes inside the same package.",
+      "Enforces security scope and encapsulates implementation details."
+    ],
+    "tags": [
+      "Access Modifiers",
+      "Encapsulation"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Dynamic Dispatch (Virtual Method Table / VTABLE) in object polymorphism?",
+    "expectedTopics": [
+      "Dynamic Dispatch",
+      "VTABLE",
+      "Runtime Resolution"
+    ],
+    "keyPoints": [
+      "Dynamic Dispatch is the process of selecting which overridden method implementation to invoke at runtime.",
+      "Uses a Virtual Method Table (VTABLE) stored with object instance headers.",
+      "VTABLE contains pointers to actual method implementations for the object's concrete class.",
+      "Enables runtime polymorphism."
+    ],
+    "tags": [
+      "Dynamic Dispatch",
+      "VTABLE"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are Coupling and Cohesion in object-oriented software engineering?",
+    "expectedTopics": [
+      "Coupling vs Cohesion",
+      "High Cohesion",
+      "Loose Coupling"
+    ],
+    "keyPoints": [
+      "Coupling measures the degree of interdependence between different software classes.",
+      "Cohesion measures how focused and closely related the responsibilities inside a single class are.",
+      "Goal: High Cohesion (class does one job well) and Low Coupling (classes depend on abstractions, not concrete implementations).",
+      "High cohesion and low coupling produce maintainable, testable code."
+    ],
+    "tags": [
+      "Coupling",
+      "Cohesion"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the Single Responsibility Principle (SRP) from SOLID with an example.",
+    "expectedTopics": [
+      "Single Responsibility Principle",
+      "SRP",
+      "SOLID Principles"
+    ],
+    "keyPoints": [
+      "SRP states a class should have ONE, and only one, reason to change.",
+      "Each class should encapsulate a single specific responsibility or feature domain.",
+      "Violation: A User class managing user fields, database saves, and sending email notifications.",
+      "Fix: Separate into User model, UserRepository for DB persistence, and EmailService for notifications."
+    ],
+    "tags": [
+      "SOLID",
+      "SRP"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the Open/Closed Principle (OCP) from SOLID and how Abstraction supports extension without modification.",
+    "expectedTopics": [
+      "Open Closed Principle",
+      "OCP",
+      "Abstraction Extension"
+    ],
+    "keyPoints": [
+      "OCP states software entities (classes, modules) should be OPEN for extension, but CLOSED for modification.",
+      "Allows adding new features without altering existing tested source code.",
+      "Achieved using Abstraction, Interfaces, and Design Patterns (Strategy, Decorator).",
+      "Example: PaymentProcessor accepting IPaymentMethod interface implementations (CreditCard, PayPal, Crypto) without modifying core checkout code."
+    ],
+    "tags": [
+      "SOLID",
+      "OCP"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the Liskov Substitution Principle (LSP) from SOLID and why a Square extending a Rectangle violates LSP.",
+    "expectedTopics": [
+      "Liskov Substitution Principle",
+      "LSP Violation",
+      "Subtype Substitution"
+    ],
+    "keyPoints": [
+      "LSP states objects of a superclass should be replaceable with objects of a subclass without breaking application behavior.",
+      "Subclasses must conform to pre-conditions and post-conditions expected from the superclass.",
+      "Square-Rectangle Problem: Setting width on a Rectangle changes only width; setting width on a Square forces height change, breaking Rectangle assumptions.",
+      "Fix: Do not make Square inherit from Rectangle; create common Shape interface."
+    ],
+    "tags": [
+      "SOLID",
+      "LSP"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the Interface Segregation Principle (ISP) from SOLID and why fat interfaces should be broken down.",
+    "expectedTopics": [
+      "Interface Segregation Principle",
+      "ISP",
+      "Fat Interfaces"
+    ],
+    "keyPoints": [
+      "ISP states clients should not be forced to depend upon interfaces they do not use.",
+      "Fat interfaces force implementing classes to write dummy / empty implementations for irrelevant methods.",
+      "Fix: Break monolithic fat interfaces into small, specific, focused interfaces (e.g. Printer, Scanner, Fax interfaces instead of MultiFunctionMachine).",
+      "Promotes clean composition."
+    ],
+    "tags": [
+      "SOLID",
+      "ISP"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the Dependency Inversion Principle (DIP) from SOLID and how Dependency Injection (DI) achieves loose coupling.",
+    "expectedTopics": [
+      "Dependency Inversion Principle",
+      "DIP",
+      "Dependency Injection"
+    ],
+    "keyPoints": [
+      "High-level modules should not depend on low-level modules; both should depend on abstractions.",
+      "Abstractions should not depend on details; details should depend on abstractions.",
+      "Dependency Injection passes interface instances into class constructors rather than instantiating concrete classes internally.",
+      "Enforces loose coupling and enables seamless unit test mocking."
+    ],
+    "tags": [
+      "SOLID",
+      "DIP"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Singleton Design Pattern and how do double-checked locking and thread safety work?",
+    "expectedTopics": [
+      "Singleton Pattern",
+      "Double-Checked Locking",
+      "Thread Safety"
+    ],
+    "keyPoints": [
+      "Singleton ensures a class has only ONE instance and provides a global access point to it.",
+      "Requires private constructor, private static instance variable, and public static getInstance() method.",
+      "Double-Checked Locking checks instance without lock first, then acquires lock and checks again before instantiating.",
+      "Instance variable must be declared volatile to prevent instruction reordering bugs."
+    ],
+    "tags": [
+      "Singleton",
+      "Design Patterns"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Factory Method Design Pattern and how does it encapsulate object creation?",
+    "expectedTopics": [
+      "Factory Method Pattern",
+      "Object Creation",
+      "Creational Patterns"
+    ],
+    "keyPoints": [
+      "Factory Method defines an interface/abstract method for creating objects, letting subclasses decide which class to instantiate.",
+      "Decouples object creation logic from client application code.",
+      "Adheres to Open/Closed Principle by enabling new product types without modifying factory callers.",
+      "Replaces direct new Keyword calls with factory method invocations."
+    ],
+    "tags": [
+      "Factory Pattern",
+      "Design Patterns"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Abstract Factory Design Pattern and how does it differ from Factory Method?",
+    "expectedTopics": [
+      "Abstract Factory Pattern",
+      "Factory of Factories",
+      "Product Families"
+    ],
+    "keyPoints": [
+      "Abstract Factory provides an interface for creating families of related or dependent objects without specifying concrete classes.",
+      "Factory Method creates ONE product; Abstract Factory creates FAMILIES of related products (e.g. MacUIFactory vs WindowsUIFactory).",
+      "Acts as a factory of factories.",
+      "Guarantees that created products belong to the same compatible product family."
+    ],
+    "tags": [
+      "Abstract Factory",
+      "Design Patterns"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Observer Design Pattern and how does it implement a publish-subscribe event notification model?",
+    "expectedTopics": [
+      "Observer Pattern",
+      "Publish-Subscribe",
+      "Behavioral Patterns"
+    ],
+    "keyPoints": [
+      "Observer defines a one-to-many dependency where changing a Subject object's state notifies all registered Observers automatically.",
+      "Subject maintains list of Observers and exposes attach(), detach(), and notify() methods.",
+      "Observers implement an update() callback interface.",
+      "Decouples event producers from event consumers."
+    ],
+    "tags": [
+      "Observer Pattern",
+      "Design Patterns"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Strategy Design Pattern and how does it encapsulate interchangeable algorithms?",
+    "expectedTopics": [
+      "Strategy Pattern",
+      "Interchangeable Algorithms",
+      "Behavioral Patterns"
+    ],
+    "keyPoints": [
+      "Strategy defines a family of algorithms, encapsulates each one, and makes them interchangeable at runtime.",
+      "Context class holds reference to a Strategy interface and delegates algorithm execution.",
+      "Replaces complex conditional if-else / switch statements with polymorphic algorithm classes.",
+      "Allows dynamic behavior swapping at runtime."
+    ],
+    "tags": [
+      "Strategy Pattern",
+      "Design Patterns"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Decorator Design Pattern and how does it dynamically add responsibilities without subclassing?",
+    "expectedTopics": [
+      "Decorator Pattern",
+      "Dynamic Wrapper",
+      "Structural Patterns"
+    ],
+    "keyPoints": [
+      "Decorator dynamically attaches additional responsibilities to an object wrapper at runtime.",
+      "Provides flexible alternative to static subclassing for extending functionality.",
+      "Decorator class implements target interface AND contains an instance reference to target component.",
+      "Example: Java I/O Streams (new BufferedReader(new FileReader(file)))."
+    ],
+    "tags": [
+      "Decorator Pattern",
+      "Design Patterns"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Adapter Design Pattern and how does it bridge incompatible interfaces?",
+    "expectedTopics": [
+      "Adapter Pattern",
+      "Wrapper",
+      "Interface Translation"
+    ],
+    "keyPoints": [
+      "Adapter converts the interface of a class into another interface that clients expect.",
+      "Allows classes with incompatible interfaces to work together seamlessly.",
+      "Target interface defines client expectations; Adaptee is legacy class; Adapter translates calls.",
+      "Can be implemented as Class Adapter (inheritance) or Object Adapter (composition)."
+    ],
+    "tags": [
+      "Adapter Pattern",
+      "Design Patterns"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Command Design Pattern and how does it encapsulate request operations as objects?",
+    "expectedTopics": [
+      "Command Pattern",
+      "Encapsulated Request",
+      "Undo/Redo"
+    ],
+    "keyPoints": [
+      "Command encapsulates a request/action as a standalone object containing all execution parameters.",
+      "Decouples sender (Invoker) from receiver that executes the action (Receiver).",
+      "Enables queuing operations, logging execution history, and implementing multi-level Undo/Redo operations.",
+      "Command interface defines execute() and undo() methods."
+    ],
+    "tags": [
+      "Command Pattern",
+      "Design Patterns"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Template Method Design Pattern and how does it define algorithm skeletons in base classes?",
+    "expectedTopics": [
+      "Template Method Pattern",
+      "Algorithm Skeleton",
+      "Base Class Method"
+    ],
+    "keyPoints": [
+      "Template Method defines the high-level skeleton of an algorithm in a base class method, deferring specific steps to subclasses.",
+      "Base class marks template method final to preserve structural algorithm execution order.",
+      "Subclasses override specific step methods without altering overall algorithm structure.",
+      "Enforces Don't Repeat Yourself (DRY) principles across variant algorithms."
+    ],
+    "tags": [
+      "Template Method",
+      "Design Patterns"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do Covariant Return Types work in OOP method overriding?",
+    "expectedTopics": [
+      "Covariant Return Types",
+      "Method Overriding",
+      "Subtype Returns"
+    ],
+    "keyPoints": [
+      "Covariant return type allows an overriding method in a child class to return a SUBTYPE of parent method's return type.",
+      "Eliminates needing explicit client type casts when calling overridden methods.",
+      "Supported in modern OOP languages like Java 5+ and C# 9+.",
+      "Ensures type safety while providing more specific type returns."
+    ],
+    "tags": [
+      "Covariant Return",
+      "Overriding"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging & Design Scenario: A legacy application uses rigid switch statements for payment types. Refactor using Strategy and Factory Patterns following OCP.",
+    "expectedTopics": [
+      "Refactoring",
+      "Strategy & Factory Patterns",
+      "OCP Compliance"
+    ],
+    "keyPoints": [
+      "Problem: Adding new payment methods requires modifying monolithic switch statements, violating OCP.",
+      "Step 1: Create IPaymentStrategy interface defining processPayment(amount) method.",
+      "Step 2: Create concrete implementations (CreditCardStrategy, PayPalStrategy, CryptoStrategy).",
+      "Step 3: Create PaymentStrategyFactory mapping payment type keys to strategy implementations.",
+      "Adding new payment methods now requires only adding a new strategy class without touching existing code."
+    ],
+    "tags": [
+      "Refactoring",
+      "Strategy Pattern"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Object Modeling Scenario: Design a Parking Lot System handling multiple vehicle types, spot allocations, and payment processing following SOLID principles.",
+    "expectedTopics": [
+      "System Design",
+      "Parking Lot Modeling",
+      "SOLID Applications"
+    ],
+    "keyPoints": [
+      "Classes: Vehicle (abstract base), Car/Bike/Truck (subclasses), ParkingSpot, ParkingFloor, ParkingLot (Singleton), PaymentService.",
+      "Use Strategy Pattern for fee calculation (HourlyStrategy, FlatRateStrategy).",
+      "Use Factory Pattern to allocate suitable ParkingSpot based on VehicleType enum.",
+      "Apply Observer Pattern to notify display boards when floor availability changes."
+    ],
+    "tags": [
+      "Object Modeling",
+      "System Design"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: Duck extends Bird, but Penguin extends Bird throwing UnsupportedOperationException in fly(). Explain LSP violation and refactor.",
+    "expectedTopics": [
+      "LSP Violation",
+      "Inheritance Refactoring",
+      "Interface Segregation"
+    ],
+    "keyPoints": [
+      "LSP Violation: Client code expecting Bird to fly breaks when substituted with Penguin throwing exception.",
+      "Fix: Remove fly() from base Bird class.",
+      "Create interface IFlyable with fly() method.",
+      "Duck extends Bird implements IFlyable; Penguin extends Bird without implementing IFlyable.",
+      "Ensures all subclasses safely honor base class interfaces."
+    ],
+    "tags": [
+      "LSP",
+      "Refactoring"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into Virtual Method Tables (VTABLE) & Dynamic Dispatch: Explain how compilers resolve overridden virtual methods at runtime.",
+    "expectedTopics": [
+      "VTABLE Mechanics",
+      "vptr Pointer",
+      "Dynamic Dispatch Internal"
+    ],
+    "keyPoints": [
+      "Compiler creates a VTABLE array for every class containing virtual methods, storing function pointers.",
+      "Each object instance contains a hidden vptr pointer in its memory header pointing to its class VTABLE.",
+      "Runtime method invocation ptr->foo() resolves to (*ptr->vptr[index])(ptr).",
+      "Incurs one extra pointer dereference cost, enabling runtime dynamic polymorphism."
+    ],
+    "tags": [
+      "VTABLE",
+      "Dynamic Dispatch"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Design Pattern Scenario: Design an extensible Notification Engine supporting Email, SMS, and Push Notifications with logging using Observer, Decorator, and Factory patterns.",
+    "expectedTopics": [
+      "Notification Engine",
+      "Observer Decorator Factory",
+      "Pattern Combination"
+    ],
+    "keyPoints": [
+      "Factory Pattern instantiates Notification objects based on notification type.",
+      "Observer Pattern subscribes NotificationEngine to system events (OrderPlaced -> trigger notifications).",
+      "Decorator Pattern dynamically wraps notification objects to add extra features (e.g. LoggingNotificationDecorator, EncryptionDecorator).",
+      "Demonstrates multi-pattern composition for robust enterprise architectures."
+    ],
+    "tags": [
+      "Design Patterns",
+      "Architecture"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Contrast Tight Coupling vs Loose Coupling: Demonstrate how Dependency Injection (Constructor Injection) eliminates hardcoded dependencies for Unit Testing.",
+    "expectedTopics": [
+      "Tight vs Loose Coupling",
+      "Dependency Injection",
+      "Unit Test Mocking"
+    ],
+    "keyPoints": [
+      "Tight Coupling: Class directly instantiates concrete dependencies internally (this.db = new MySQLDatabase()).",
+      "Loose Coupling: Class depends on IDatabase interface injected via constructor (this.db = db).",
+      "Loose coupling allows swapping MySQLDatabase for MockDatabase during unit tests.",
+      "Increases testability, flexibility, and maintainability."
+    ],
+    "tags": [
+      "Coupling",
+      "Dependency Injection"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: A document editor needs multi-level Undo/Redo operations and macro action recording. Design a solution using Command and Memento patterns.",
+    "expectedTopics": [
+      "Command & Memento",
+      "Undo Redo",
+      "State Snapshot"
+    ],
+    "keyPoints": [
+      "Command Pattern encapsulates editor actions (InsertTextCommand, DeleteTextCommand) into objects stored on an Undo Stack.",
+      "Memento Pattern captures document state snapshots without violating encapsulation.",
+      "Executing command pushes it to Undo Stack; calling undo() pops command and invokes command.undo() using Memento snapshot.",
+      "Redo Stack stores undone commands for re-execution."
+    ],
+    "tags": [
+      "Command Pattern",
+      "Memento Pattern"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into Object Lifetime & Memory Layout: Explain object headers, vptr pointers, alignment padding, and GC root retention graphs.",
+    "expectedTopics": [
+      "Memory Layout",
+      "Object Header",
+      "GC Root Graph"
+    ],
+    "keyPoints": [
+      "Object memory layout consists of Object Header (Mark Word + Class Metadata Pointer), Instance Fields, and Alignment Padding.",
+      "Mark Word stores hashcode, GC age bits, and lock state flags.",
+      "vptr pointer points to virtual method table for dynamic dispatch.",
+      "Garbage Collector builds reachability graphs from GC Roots (stack frames, static references); unreachable objects are collected."
+    ],
+    "tags": [
+      "Memory Layout",
+      "Object Lifetime"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Contrast State Design Pattern with Finite State Machines (FSM) in OOP for managing dynamic object state transitions.",
+    "expectedTopics": [
+      "State Design Pattern",
+      "Finite State Machine",
+      "State Transitions"
+    ],
+    "keyPoints": [
+      "State Pattern encapsulates state-specific behaviors into individual State classes (OrderCreatedState, OrderShippedState).",
+      "Context delegates actions to current State object reference.",
+      "Replaces giant nested switch/if statements with polymorphic state transition classes.",
+      "New states can be added cleanly by implementing State interface without touching existing state code."
+    ],
+    "tags": [
+      "State Pattern",
+      "State Machine"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Object Oriented Programming",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Refactoring Scenario: Convert a bloated monolithic God Object class into clean, SRP-compliant single-purpose classes using Facade and Mediator patterns.",
+    "expectedTopics": [
+      "God Object Refactoring",
+      "Facade Pattern",
+      "Mediator Pattern"
+    ],
+    "keyPoints": [
+      "God Object anti-pattern: A single class holding excessive responsibilities and state.",
+      "Decompose God Object into focused single-purpose classes (AuthService, OrderRepository, NotificationService).",
+      "Use Facade Pattern to present a unified simple interface for complex sub-system interactions.",
+      "Use Mediator Pattern to coordinate complex inter-object communication without direct coupling."
+    ],
+    "tags": [
+      "Refactoring",
+      "God Object"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

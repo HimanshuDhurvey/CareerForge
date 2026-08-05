@@ -1,0 +1,1203 @@
+[
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Java and what does the motto 'Write Once, Run Anywhere' (WORA) mean?",
+    "expectedTopics": [
+      "WORA",
+      "Bytecode",
+      "JVM"
+    ],
+    "keyPoints": [
+      "Java is a high-level, class-based, object-oriented programming language designed for platform independence.",
+      "WORA means Java source code (.java) compiles into platform-independent bytecode (.class files).",
+      "The Java Virtual Machine (JVM) interprets and compiles bytecode into native machine instructions for specific operating systems.",
+      "Enables Java applications to run on any device with a compatible JVM installed."
+    ],
+    "tags": [
+      "Java",
+      "Basics"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain the differences between JDK, JRE, and JVM in the Java ecosystem.",
+    "expectedTopics": [
+      "JDK",
+      "JRE",
+      "JVM"
+    ],
+    "keyPoints": [
+      "JVM (Java Virtual Machine) is the abstract execution engine that executes Java bytecode.",
+      "JRE (Java Runtime Environment) includes the JVM plus runtime core libraries required to execute Java apps.",
+      "JDK (Java Development Kit) is the full development kit containing JRE plus development tools (javac compiler, jdb debugger, javadoc).",
+      "Developers need JDK to write code; end users need JRE (or bundled JVM) to run applications."
+    ],
+    "tags": [
+      "JDK",
+      "JVM"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are primitive data types in Java and how do wrapper classes work?",
+    "expectedTopics": [
+      "Primitives",
+      "Wrapper Classes",
+      "Data Types"
+    ],
+    "keyPoints": [
+      "Java has 8 primitive data types: byte, short, int, long, float, double, char, and boolean.",
+      "Primitives store raw values directly in memory with fixed memory sizes.",
+      "Wrapper classes (Integer, Double, Boolean, etc.) wrap primitive values inside objects.",
+      "Wrapper classes allow primitives to be used in generic Collections and utility methods."
+    ],
+    "tags": [
+      "Primitives",
+      "Data Types"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Autoboxing and Unboxing in Java?",
+    "expectedTopics": [
+      "Autoboxing",
+      "Unboxing",
+      "Type Conversion"
+    ],
+    "keyPoints": [
+      "Autoboxing is the automatic conversion performed by the Java compiler from primitive types to wrapper objects (e.g. int to Integer).",
+      "Unboxing is the automatic conversion from wrapper objects back to primitive types (e.g. Integer to int).",
+      "Simplifies code when working with collections (e.g. list.add(5)).",
+      "Unboxing null wrapper objects throws NullPointerException at runtime."
+    ],
+    "tags": [
+      "Autoboxing",
+      "Wrapper Classes"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain the four fundamental pillars of Object-Oriented Programming (OOP) in Java.",
+    "expectedTopics": [
+      "Encapsulation",
+      "Abstraction",
+      "Inheritance",
+      "Polymorphism"
+    ],
+    "keyPoints": [
+      "Encapsulation: Bundling fields and methods into a single unit and restricting direct field access via access modifiers.",
+      "Abstraction: Hiding internal implementation details and exposing only essential interface features.",
+      "Inheritance: Allowing child classes to inherit attributes and behaviors from parent classes.",
+      "Polymorphism: Allowing objects to take multiple forms through method overloading and overriding."
+    ],
+    "tags": [
+      "OOP",
+      "Pillars"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between a class and an object in Java?",
+    "expectedTopics": [
+      "Class",
+      "Object",
+      "Instantiation"
+    ],
+    "keyPoints": [
+      "A class is a blueprint or template defining fields (state) and methods (behavior).",
+      "An object is a concrete instance of a class allocated in memory using the new keyword.",
+      "A class is a logical entity; an object is a physical entity with memory allocation.",
+      "Multiple objects can be instantiated from a single class blueprint."
+    ],
+    "tags": [
+      "Class",
+      "Object"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are constructors in Java and how do default constructors differ from parameterized constructors?",
+    "expectedTopics": [
+      "Constructors",
+      "Default Constructor",
+      "Parameterized Constructor"
+    ],
+    "keyPoints": [
+      "Constructors are special methods invoked automatically during object creation to initialize fields.",
+      "They have the exact same name as the class and no return type (not even void).",
+      "If no constructor is defined, the Java compiler generates a no-argument default constructor.",
+      "Parameterized constructors accept custom arguments to initialize specific instance state."
+    ],
+    "tags": [
+      "Constructors",
+      "Initialization"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between Method Overloading and Method Overriding in Java polymorphism?",
+    "expectedTopics": [
+      "Method Overloading",
+      "Method Overriding",
+      "Compile-time vs Runtime"
+    ],
+    "keyPoints": [
+      "Overloading occurs within the same class when methods share names but have different parameter signatures (compile-time polymorphism).",
+      "Overriding occurs when a child class provides a specific implementation for a method declared in parent class (runtime polymorphism).",
+      "Overriding methods must match parent method name, parameter list, and return type exactly.",
+      "@Override annotation verifies overriding accuracy at compile time."
+    ],
+    "tags": [
+      "Polymorphism",
+      "Methods"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain Encapsulation in Java and how getters and setters with private fields enforce data hiding.",
+    "expectedTopics": [
+      "Encapsulation",
+      "Data Hiding",
+      "Access Modifiers"
+    ],
+    "keyPoints": [
+      "Encapsulation keeps class fields private (data hiding) to prevent unauthorized direct modification from outside code.",
+      "Exposes controlled public getter and setter methods to read and update field values.",
+      "Setters can include validation logic to reject invalid state transitions.",
+      "Improves code maintainability, security, and flexibility for internal refactoring."
+    ],
+    "tags": [
+      "Encapsulation",
+      "OOP"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Inheritance in Java and why does Java not support multiple inheritance with classes?",
+    "expectedTopics": [
+      "Inheritance",
+      "Diamond Problem",
+      "extends Keyword"
+    ],
+    "keyPoints": [
+      "Inheritance allows a child class (subclass) to inherit fields and methods from a parent class (superclass) using extends.",
+      "Java does not support multiple class inheritance to avoid the Diamond Problem (ambiquity when inheriting conflicting methods from two parents).",
+      "Multiple inheritance behavior can be achieved safely using interfaces.",
+      "Promotes code reusability and hierarchical relationships."
+    ],
+    "tags": [
+      "Inheritance",
+      "OOP"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is an Abstract Class in Java and when should you use it over a concrete class?",
+    "expectedTopics": [
+      "Abstract Class",
+      "abstract Keyword",
+      "Template Design"
+    ],
+    "keyPoints": [
+      "An abstract class is declared with abstract keyword and cannot be instantiated directly using new.",
+      "Can contain both abstract methods (without body) and concrete methods (with implementation body).",
+      "Subclasses extending abstract classes MUST implement all inherited abstract methods.",
+      "Used to define common base templates and shared code across closely related subclasses."
+    ],
+    "tags": [
+      "Abstraction",
+      "Abstract Class"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is an Interface in Java and how do default and static methods work (Java 8+)?",
+    "expectedTopics": [
+      "Interface",
+      "Default Methods",
+      "Multiple Inheritance"
+    ],
+    "keyPoints": [
+      "An interface defines a fully abstract contract specifying methods a class must implement.",
+      "A class can implement multiple interfaces (implements InterfaceA, InterfaceB).",
+      "Java 8 added default methods allowing interfaces to provide method implementations without breaking existing implementers.",
+      "Java 8 added static interface methods called directly on the interface type."
+    ],
+    "tags": [
+      "Interface",
+      "Java 8"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain the difference between == operator and .equals() method when comparing objects and Strings in Java.",
+    "expectedTopics": [
+      "== vs equals()",
+      "Reference Equality",
+      "Value Comparison"
+    ],
+    "keyPoints": [
+      "The == operator compares reference memory addresses (identity) for objects.",
+      "The .equals() method compares content equality (value equivalence) when overridden.",
+      "For primitives, == compares actual raw values.",
+      "For Strings, 'hello' == 'hello' may evaluate true due to String Constant Pool, but string1.equals(string2) should always be used."
+    ],
+    "tags": [
+      "Equality",
+      "Strings"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is String immutability in Java and why is the String Constant Pool used?",
+    "expectedTopics": [
+      "String Immutability",
+      "String Constant Pool",
+      "Security & Caching"
+    ],
+    "keyPoints": [
+      "Strings in Java are immutable; once a String object is created, its character contents cannot be changed.",
+      "Modifying a String creates a brand new String object in memory.",
+      "String Constant Pool in heap memory caches String literals to save memory across duplicate declarations.",
+      "Immutability guarantees thread safety, secure classloading, and safe hashcode caching in HashMaps."
+    ],
+    "tags": [
+      "Strings",
+      "Immutability"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Compare String, StringBuilder, and StringBuffer regarding mutability, performance, and thread safety.",
+    "expectedTopics": [
+      "StringBuilder vs StringBuffer",
+      "Thread Safety",
+      "Performance"
+    ],
+    "keyPoints": [
+      "String is immutable; string modifications allocate new objects in memory.",
+      "StringBuilder is mutable and un-synchronized, offering fast performance in single-threaded operations.",
+      "StringBuffer is mutable and synchronized, providing thread-safe operations in multi-threaded environments.",
+      "Use StringBuilder for sequential loops and string manipulations unless thread safety is required."
+    ],
+    "tags": [
+      "Strings",
+      "StringBuilder"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the final keyword in Java when applied to variables, methods, and classes?",
+    "expectedTopics": [
+      "final Keyword",
+      "Immutability",
+      "Constants"
+    ],
+    "keyPoints": [
+      "final variable: Creates a constant whose value/reference cannot be changed after initialization.",
+      "final method: Prevents the method from being overridden by subclasses.",
+      "final class: Prevents the class from being extended / inherited (e.g. java.lang.String).",
+      "Improves security and design predictability."
+    ],
+    "tags": [
+      "final",
+      "Keywords"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between Checked Exceptions and Unchecked (Runtime) Exceptions in Java?",
+    "expectedTopics": [
+      "Checked Exceptions",
+      "Unchecked Exceptions",
+      "RuntimeException"
+    ],
+    "keyPoints": [
+      "Checked exceptions (extending Exception) are verified at compile time; compiler forces handling via try-catch or throws declaration (e.g. IOException, SQLException).",
+      "Unchecked exceptions (extending RuntimeException) occur at runtime; compiler does not force explicit handling (e.g. NullPointerException, ArrayIndexOutOfBoundsException).",
+      "Checked exceptions represent recoverable external conditions; unchecked exceptions represent programming errors."
+    ],
+    "tags": [
+      "Exceptions",
+      "Error Handling"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How does try-with-resources work in Java 7+ and why is it preferred over traditional finally blocks for resource cleanup?",
+    "expectedTopics": [
+      "try-with-resources",
+      "AutoCloseable",
+      "Resource Management"
+    ],
+    "keyPoints": [
+      "try-with-resources automatically closes resources (streams, connections, files) declared inside try(...) parenthesis.",
+      "Requires resources to implement java.lang.AutoCloseable or Closeable interface.",
+      "Eliminates boilerplate nested finally blocks and prevents resource leaks.",
+      "Handles suppressed exceptions cleanly when closing resources."
+    ],
+    "tags": [
+      "Exceptions",
+      "AutoCloseable"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the Java Collections Framework and what are the primary interfaces (List, Set, Map, Queue)?",
+    "expectedTopics": [
+      "Collections Framework",
+      "List Set Map Queue",
+      "Data Structures"
+    ],
+    "keyPoints": [
+      "Java Collections Framework provides unified architecture for storing and manipulating groups of objects.",
+      "List: Ordered collection supporting duplicate elements (e.g. ArrayList, LinkedList).",
+      "Set: Unordered collection enforcing unique element constraints (e.g. HashSet, TreeSet).",
+      "Map: Key-value pair mapping with unique keys (e.g. HashMap, TreeMap).",
+      "Queue: First-In-First-Out data processing pipeline (e.g. PriorityQueue, ArrayDeque)."
+    ],
+    "tags": [
+      "Collections",
+      "Data Structures"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between ArrayList and LinkedList regarding internal data structures and performance?",
+    "expectedTopics": [
+      "ArrayList vs LinkedList",
+      "Dynamic Array",
+      "Doubly-Linked List"
+    ],
+    "keyPoints": [
+      "ArrayList is backed by a resizable dynamic array; provides fast O(1) random access by index.",
+      "LinkedList is backed by a doubly-linked list; provides fast O(1) insertion/deletion at ends but slow O(N) positional search.",
+      "ArrayList incurs expensive resizing array copies when capacity limits are hit.",
+      "ArrayList has better cache locality than LinkedList node memory allocations."
+    ],
+    "tags": [
+      "ArrayList",
+      "LinkedList"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between HashSet and TreeSet in Java?",
+    "expectedTopics": [
+      "HashSet vs TreeSet",
+      "Hashing",
+      "Sorted Set"
+    ],
+    "keyPoints": [
+      "HashSet is backed by a HashMap, offering O(1) performance without element ordering guarantees.",
+      "TreeSet is backed by a Red-Black Tree (NavigableMap), maintaining elements in natural or comparator sorted order with O(log N) operations.",
+      "HashSet allows one null element; TreeSet throws NullPointerException for null elements when using natural ordering.",
+      "Use HashSet for fast lookups; use TreeSet when sorted collection ordering is required."
+    ],
+    "tags": [
+      "Set",
+      "Collections"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How does HashMap work internally in Java (buckets, hash code, index calculation)?",
+    "expectedTopics": [
+      "HashMap Mechanics",
+      "hashCode() & equals()",
+      "Buckets"
+    ],
+    "keyPoints": [
+      "HashMap stores data in an array of Node buckets using key.hashCode().",
+      "Index location is calculated using hash % capacity (bitwise (n - 1) & hash).",
+      "Hash collisions (different keys matching same bucket index) store entries in linked lists.",
+      "Retrieval uses hashCode() to locate bucket and equals() to find matching key-value node."
+    ],
+    "tags": [
+      "HashMap",
+      "Data Structures"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are Generics in Java and how do they provide compile-time type safety?",
+    "expectedTopics": [
+      "Generics",
+      "Type Safety",
+      "ClassCastException"
+    ],
+    "keyPoints": [
+      "Generics allow classes, interfaces, and methods to operate on parameterized types (e.g. List<String>).",
+      "Provides compile-time type checking, catching type mismatch errors during compilation.",
+      "Eliminates needing explicit manual type casting when retrieving items from collections.",
+      "Prevents runtime ClassCastException."
+    ],
+    "tags": [
+      "Generics",
+      "Type Safety"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Lambda Expression in Java 8 and what is a Functional Interface (@FunctionalInterface)?",
+    "expectedTopics": [
+      "Lambda Expressions",
+      "Functional Interface",
+      "Java 8"
+    ],
+    "keyPoints": [
+      "A Lambda expression is an anonymous concise function representation ((params) -> expression).",
+      "A Functional Interface is an interface declared with exactly ONE abstract method (annotated with @FunctionalInterface).",
+      "Lambda expressions provide inline implementations for functional interfaces (e.g. Runnable, Comparator, Predicate).",
+      "Enables functional programming styles in Java."
+    ],
+    "tags": [
+      "Lambda",
+      "Java 8"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the role of the static keyword in Java when applied to variables, methods, and nested classes?",
+    "expectedTopics": [
+      "static Keyword",
+      "Class Level Members",
+      "Static Context"
+    ],
+    "keyPoints": [
+      "static variables: Shared across all instances of a class, stored in JVM Metaspace/Class static memory.",
+      "static methods: Belong to the class itself, called without creating instances, cannot access non-static instance fields directly.",
+      "static nested class: Nested class that does not hold implicit reference to outer class instance.",
+      "static initialization blocks execute once when class is loaded into JVM."
+    ],
+    "tags": [
+      "static",
+      "Memory"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does JVM Memory Architecture divide memory into Heap, Stack, Metaspace, Program Counter, and Native Method Stacks?",
+    "expectedTopics": [
+      "JVM Memory Model",
+      "Heap vs Stack",
+      "Metaspace"
+    ],
+    "keyPoints": [
+      "Heap Memory: Shared across threads, stores all object instances and array allocations.",
+      "Stack Memory: Thread-private, stores primitive variables and stack frames for active method calls.",
+      "Metaspace: Out-of-heap native memory storing class metadata, method structures, and static variables (replaced PermGen in Java 8).",
+      "Program Counter (PC) Register: Tracks current JVM instruction execution per thread."
+    ],
+    "tags": [
+      "JVM",
+      "Memory Architecture"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Garbage Collection work in Java? Compare Young Generation (Eden, Survivor) and Old Generation memory pools.",
+    "expectedTopics": [
+      "Garbage Collection",
+      "Generational GC",
+      "Eden & Survivor"
+    ],
+    "keyPoints": [
+      "Generational GC assumes most objects die young.",
+      "Young Generation: New objects allocated in Eden space; surviving objects copied between Survivor spaces (S0/S1) during Minor GC.",
+      "Old (Tenured) Generation: Objects surviving multiple GC cycles are promoted to Old Gen, collected via Major/Full GC.",
+      "Minor GC is fast; Full GC scans entire heap and causes longer Stop-The-World (STW) pauses."
+    ],
+    "tags": [
+      "Garbage Collection",
+      "JVM"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain Java Stream API operations: intermediate operations (filter, map, flatMap) vs terminal operations (collect, reduce).",
+    "expectedTopics": [
+      "Stream API",
+      "Intermediate Operations",
+      "Terminal Operations"
+    ],
+    "keyPoints": [
+      "Intermediate operations (filter, map, flatMap, sorted) return a new Stream and execute lazily.",
+      "Terminal operations (collect, reduce, forEach, findFirst) trigger stream pipeline evaluation and return concrete values.",
+      "flatMap flattens nested streams/collections into a single stream of elements.",
+      "Streams are consumed once and cannot be reused after terminal operation execution."
+    ],
+    "tags": [
+      "Streams",
+      "Java 8"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Multithreading work in Java? Compare Thread class vs Runnable vs Callable interfaces.",
+    "expectedTopics": [
+      "Multithreading",
+      "Runnable vs Callable",
+      "Thread Execution"
+    ],
+    "keyPoints": [
+      "Extending Thread class limits single inheritance; implementing Runnable is preferred.",
+      "Runnable interface run() method cannot return values or throw checked exceptions.",
+      "Callable interface call() method returns a Future result and allows throwing checked exceptions.",
+      "ExecutorService submits Callable/Runnable tasks to thread pools for execution."
+    ],
+    "tags": [
+      "Multithreading",
+      "Callable"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Thread Synchronization in Java and how does the synchronized keyword (Intrinsic Lock / Monitor) prevent race conditions?",
+    "expectedTopics": [
+      "Synchronization",
+      "Intrinsic Lock",
+      "Race Conditions"
+    ],
+    "keyPoints": [
+      "Synchronization ensures only one thread executes a critical code section at a time.",
+      "synchronized method or block acquires the object's Intrinsic Lock (Monitor).",
+      "Other threads attempting to enter synchronized block are blocked in BLOCKED state until lock releases.",
+      "Prevents data corruption from race conditions in shared mutable state."
+    ],
+    "tags": [
+      "Synchronization",
+      "Concurrency"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the volatile keyword in Java and how does it ensure thread visibility without mutual exclusion locks?",
+    "expectedTopics": [
+      "volatile Keyword",
+      "Thread Visibility",
+      "CPU Cache"
+    ],
+    "keyPoints": [
+      "volatile guarantees CPU cache visibility: variable reads/writes go directly to main memory.",
+      "Prevents threads from caching stale variable values in CPU registers or L1/L2 caches.",
+      "Prevents instruction reordering for volatile reads/writes (happens-before relationship).",
+      "Does NOT guarantee atomicity for compound operations (e.g. count++ is not atomic)."
+    ],
+    "tags": [
+      "volatile",
+      "Concurrency"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare ConcurrentHashMap and Collections.synchronizedMap() regarding thread safety and concurrency performance.",
+    "expectedTopics": [
+      "ConcurrentHashMap",
+      "Synchronized Collections",
+      "Lock Striping"
+    ],
+    "keyPoints": [
+      "Collections.synchronizedMap() locks the entire map on every operation, creating bottle-necks under high concurrency.",
+      "ConcurrentHashMap uses lock striping / CAS (Compare-And-Swap) operations for bucket-level fine-grained locking.",
+      "Reads in ConcurrentHashMap occur without locking, providing superior throughput.",
+      "ConcurrentHashMap does not allow null keys or null values."
+    ],
+    "tags": [
+      "ConcurrentHashMap",
+      "Concurrency"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the Java Executor Framework (ExecutorService, ThreadPoolExecutor) and how fixed thread pools manage task queues.",
+    "expectedTopics": [
+      "ExecutorService",
+      "ThreadPoolExecutor",
+      "Task Queues"
+    ],
+    "keyPoints": [
+      "ExecutorService decouples task submission from thread creation and lifecycle management.",
+      "Executors.newFixedThreadPool(n) maintains a pool of n worker threads processing a BlockingQueue.",
+      "Reuses worker threads, eliminating expensive thread creation and teardown overhead.",
+      "Rejection policies (AbortPolicy, CallerRunsPolicy) handle tasks submitted when queue and pool reach limits."
+    ],
+    "tags": [
+      "Executors",
+      "Thread Pool"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does HashMap collision resolution work in Java 8 (converting linked list buckets to red-black trees)?",
+    "expectedTopics": [
+      "HashMap Java 8",
+      "Treeification",
+      "Red-Black Tree"
+    ],
+    "keyPoints": [
+      "In Java 7, HashMap collisions stored entries in single linked lists with O(N) search time.",
+      "In Java 8, when a bucket exceeds TREEIFY_THRESHOLD (8 entries) and table capacity >= 64, the bucket converts to a Red-Black Tree.",
+      "Red-Black Tree improves worst-case lookup performance from O(N) down to O(log N).",
+      "Converts back to linked list if bucket size drops below UNTREEIFY_THRESHOLD (6 entries)."
+    ],
+    "tags": [
+      "HashMap",
+      "Java 8"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are Bounded Wildcards in Java Generics (? extends T vs ? super T) and the PECS rule?",
+    "expectedTopics": [
+      "Bounded Wildcards",
+      "PECS Rule",
+      "Variance"
+    ],
+    "keyPoints": [
+      "PECS stands for Producer Extends, Consumer Super.",
+      "? extends T (Upper Bounded): Use when collection produces/reads elements of type T (covariance).",
+      "? super T (Lower Bounded): Use when collection consumes/writes elements of type T (contravariance).",
+      "Enforces safe compile-time generic collection polymorphism."
+    ],
+    "tags": [
+      "Generics",
+      "PECS"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the difference between Shallow Copy and Deep Copy in Java using Cloneable or Copy Constructors.",
+    "expectedTopics": [
+      "Shallow Copy",
+      "Deep Copy",
+      "Cloneable"
+    ],
+    "keyPoints": [
+      "Shallow copy duplicates top-level primitives; referenced object fields still point to shared memory.",
+      "Deep copy recursively duplicates all nested objects, creating completely independent object graphs.",
+      "Object.clone() performs a shallow copy by default and requires implementing Cloneable interface.",
+      "Copy constructors or serialization are preferred over Object.clone() for deep copying."
+    ],
+    "tags": [
+      "Cloning",
+      "Object Copy"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does CompletableFuture enable non-blocking asynchronous pipeline chaining in Java 8+?",
+    "expectedTopics": [
+      "CompletableFuture",
+      "Async Chaining",
+      "Reactive Pipelines"
+    ],
+    "keyPoints": [
+      "CompletableFuture implements Future and CompletionStage interfaces for async programming.",
+      "thenApply(), thenAccept(), and thenCompose() chain async stages without blocking main threads.",
+      "exceptionally() and handle() provide clean asynchronous exception recovery.",
+      "CompletableFuture.allOf() coordinates execution of multiple parallel futures."
+    ],
+    "tags": [
+      "CompletableFuture",
+      "Async"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are Java Annotations and how do custom runtime annotations (@Retention(RetentionPolicy.RUNTIME)) work via Reflection?",
+    "expectedTopics": [
+      "Annotations",
+      "Reflection API",
+      "RetentionPolicy"
+    ],
+    "keyPoints": [
+      "Annotations provide metadata information about code without altering execution logic.",
+      "@Retention(RetentionPolicy.RUNTIME) retains annotation metadata in compiled bytecode for runtime access.",
+      "Java Reflection API inspects classes and methods at runtime to read annotation attributes.",
+      "Used extensively by frameworks like Spring and Hibernate for dependency injection and ORM mapping."
+    ],
+    "tags": [
+      "Annotations",
+      "Reflection"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do ReentrantLock and ReadWriteLock in java.util.concurrent.locks provide advanced concurrency features over synchronized blocks?",
+    "expectedTopics": [
+      "ReentrantLock",
+      "ReadWriteLock",
+      "Lock Features"
+    ],
+    "keyPoints": [
+      "ReentrantLock offers tryLock() (timed lock attempts) and lockInterruptibly() to prevent deadlocks.",
+      "Supports Fair locking policy serving threads in first-come-first-served order.",
+      "ReadWriteLock separates read locks (shared concurrency) from write locks (exclusive access).",
+      "Requires explicit unlock() call in a finally block."
+    ],
+    "tags": [
+      "Locks",
+      "ReentrantLock"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the Java Module System (JPMS / Project Jigsaw) and how does module-info.java enforce strong encapsulation?",
+    "expectedTopics": [
+      "JPMS",
+      "module-info.java",
+      "Strong Encapsulation"
+    ],
+    "keyPoints": [
+      "Introduced in Java 9 to modularize the JDK and application packages.",
+      "module-info.java defines module dependencies (requires) and exported packages (exports).",
+      "Enforces strong encapsulation: unexported packages are inaccessible even via Reflection.",
+      "Reduces application memory footprint and enables custom lightweight JRE runtime images (via jlink)."
+    ],
+    "tags": [
+      "Modules",
+      "Java 9"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A high-throughput Java service experiences severe latency spikes due to Full GC pauses. Compare G1GC vs ZGC STW phases and tune JVM flags.",
+    "expectedTopics": [
+      "GC Tuning",
+      "G1GC vs ZGC",
+      "JVM Flags"
+    ],
+    "keyPoints": [
+      "G1GC splits heap into region blocks, balancing pause time targets (-XX:MaxGCPauseMillis=200).",
+      "ZGC (Z Garbage Collector) uses colored pointers and load barriers to achieve sub-millisecond STW pause times on multi-terabyte heaps.",
+      "Diagnose latency using GC logs (-Xlog:gc*).",
+      "Tune heap bounds (-Xms, -Xmx) and Survivor ratios (-XX:SurvivingRatio) to minimize Old Gen promotions."
+    ],
+    "tags": [
+      "Garbage Collection",
+      "Performance"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive: How would you build a lock-free Bounded Blocking Queue from scratch using AtomicInteger and Compare-And-Swap (CAS) instructions?",
+    "expectedTopics": [
+      "Lock-Free Algorithms",
+      "CAS Operations",
+      "AtomicInteger"
+    ],
+    "keyPoints": [
+      "Use array circular buffer with head and tail AtomicInteger position markers.",
+      "Use Compare-And-Swap (CAS) loop (compareAndSet) to atomically increment indices without synchronized locks.",
+      "Handle Queue Full / Queue Empty conditions using spin-waiting or LockSupport.park() / unpark().",
+      "Eliminates thread context switching overhead for high-concurrency message passing."
+    ],
+    "tags": [
+      "Lock-Free",
+      "Concurrency"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Architectural Design: How would you design a scalable financial transaction engine in Java ensuring ACID guarantees, idempotency, and concurrent updates?",
+    "expectedTopics": [
+      "Financial Transaction Engine",
+      "Optimistic Locking",
+      "Idempotency"
+    ],
+    "keyPoints": [
+      "Use Optimistic Locking (@Version) or explicit database SELECT FOR UPDATE row locking to prevent lost updates.",
+      "Enforce unique transaction idempotency keys to handle network retry duplicates safely.",
+      "Use Spring @Transactional with isolation level SERIALIZABLE or REPEATABLE_READ for critical account transfers.",
+      "Log double-entry audit trails to an append-only event stream."
+    ],
+    "tags": [
+      "Architecture",
+      "Transactions"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into JVM Classloading: Explain Bootstrap, Extension, and Application ClassLoaders, and resolve ClassNotFoundException vs NoClassDefFoundError.",
+    "expectedTopics": [
+      "Classloading Delegation",
+      "ClassNotFoundException",
+      "NoClassDefFoundError"
+    ],
+    "keyPoints": [
+      "Classloading uses Parent Delegation Model: requests delegate up to Bootstrap -> Extension/Platform -> Application ClassLoader.",
+      "ClassNotFoundException occurs when class name is dynamically requested (Class.forName) but not found on classpath at runtime.",
+      "NoClassDefFoundError occurs when class was present during compilation but missing or failed static initialization at runtime.",
+      "Custom ClassLoaders enable plugin hot-swapping and class isolation."
+    ],
+    "tags": [
+      "Classloader",
+      "JVM Internals"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: A Java app crashes with 'OutOfMemoryError: Java heap space' due to unclosed DB pools and static collection references. Diagnose using Eclipse Memory Analyzer (MAT).",
+    "expectedTopics": [
+      "OutOfMemoryError",
+      "Heap Dump Analysis",
+      "Eclipse MAT"
+    ],
+    "keyPoints": [
+      "Generate heap dump automatically on crash using -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=...",
+      "Load .hprof file into Eclipse Memory Analyzer (MAT).",
+      "Inspect Dominator Tree and Leak Suspects Report to locate accumulation point.",
+      "Follow shortest path to GC Roots to identify static variables or unclosed pool objects retaining unreachable memory."
+    ],
+    "tags": [
+      "Debugging",
+      "Memory Leak"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How do Java 21 Virtual Threads (Project Loom) differ from traditional platform OS threads, and how do they eliminate thread pool exhaustion?",
+    "expectedTopics": [
+      "Virtual Threads",
+      "Project Loom",
+      "Continuation"
+    ],
+    "keyPoints": [
+      "Platform threads map 1:1 to operating system kernel threads (heavy, ~1MB stack memory).",
+      "Virtual Threads (Java 21) are lightweight user-mode threads managed by JVM (~few hundred bytes stack).",
+      "When a Virtual Thread blocks on I/O, JVM unmounts it from its underlying carrier thread, executing other Virtual Threads.",
+      "Allows scaling to millions of concurrent threads without thread pool exhaustion."
+    ],
+    "tags": [
+      "Virtual Threads",
+      "Java 21"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: A deadlock occurs in a production Java service involving two threads acquiring nested locks in reverse order. Diagnose using jstack thread dumps.",
+    "expectedTopics": [
+      "Deadlock Diagnosis",
+      "jstack",
+      "Lock Ordering"
+    ],
+    "keyPoints": [
+      "Generate thread dump using jstack <pid> or jcmd <pid> Thread.print.",
+      "Inspect bottom of thread dump for 'Found one Java-level deadlock' block.",
+      "Trace Thread-1 holding LockA waiting for LockB, while Thread-2 holds LockB waiting for LockA.",
+      "Fix by enforcing a strict global lock acquisition ordering or using tryLock() with timeouts."
+    ],
+    "tags": [
+      "Deadlock",
+      "Debugging"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How does Method Inlining, Escape Analysis, and Scalar Replacement operate inside the JVM Just-In-Time (JIT C2) compiler?",
+    "expectedTopics": [
+      "JIT Compilation",
+      "Escape Analysis",
+      "Scalar Replacement"
+    ],
+    "keyPoints": [
+      "Method Inlining replaces method calls with actual method body code, eliminating call frame overhead.",
+      "Escape Analysis analyzes if an object allocated inside a method escapes outside method scope.",
+      "If object does not escape, Scalar Replacement decomposes object into primitive variables on stack/registers without heap allocation.",
+      "Dramatically reduces GC pressure and speeds up execution loops."
+    ],
+    "tags": [
+      "JIT Compiler",
+      "JVM Performance"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Contrast Java Reflection performance overhead against MethodHandle and VarHandle for dynamic invocation.",
+    "expectedTopics": [
+      "MethodHandle",
+      "VarHandle",
+      "Reflection Overhead"
+    ],
+    "keyPoints": [
+      "Reflection performs security checks and boxing/unboxing on every call, incurring runtime performance penalties.",
+      "MethodHandle (Java 7) provides strongly-typed, directly executable references with JVM JIT inlining optimizations.",
+      "VarHandle (Java 9) replaces sun.misc.Unsafe, providing atomic and memory-fenced access to variables.",
+      "MethodHandle/VarHandle execute much faster than Reflection when invoked repeatedly."
+    ],
+    "tags": [
+      "MethodHandle",
+      "VarHandle"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Java",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A multi-threaded cache experiences stale data updates due to Instruction Reordering and Memory Barriers. Explain the Java Memory Model (JMM) happens-before relationship.",
+    "expectedTopics": [
+      "Java Memory Model",
+      "happens-before",
+      "Memory Barriers"
+    ],
+    "keyPoints": [
+      "JMM permits compilers and CPUs to reorder instructions for performance if single-thread execution is unchanged.",
+      "In multithreaded execution, reordering can cause thread reads to observe partially initialized objects or stale data.",
+      "Happens-before guarantees order: volatile writes, synchronized lock releases, and Thread.start() establish memory barriers.",
+      "Fix by declaring shared variables volatile or wrapping read/write accesses in synchronized/lock blocks."
+    ],
+    "tags": [
+      "JMM",
+      "Memory Barriers"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

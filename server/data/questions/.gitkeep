@@ -1,0 +1,2 @@
+# Question Data Directory
+# Place JSON question files in this directory to be imported via `npm run seed:questions` or `node scripts/seedQuestions.js`.

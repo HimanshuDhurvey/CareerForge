@@ -1,0 +1,722 @@
+[
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Easy",
+    "interviewType": "Behavioral",
+    "question": "Tell me about a time when you demonstrated leadership without having an official leadership title.",
+    "expectedTopics": [
+      "Initiative",
+      "Peer Influence",
+      "Problem Ownership"
+    ],
+    "keyPoints": [
+      "Explain the specific situation where a leadership gap or initiative opportunity arose.",
+      "Detail the actions taken to guide team members, organize tasks, or unblock progress proactively.",
+      "Highlight positive outcomes using the STAR method (Situation, Task, Action, Result).",
+      "Demonstrate personal accountability and teamwork without relying on formal authority."
+    ],
+    "tags": [
+      "Leadership",
+      "Initiative"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Easy",
+    "interviewType": "Behavioral",
+    "question": "Describe a scenario where you had to explain a complex technical concept to a non-technical stakeholder.",
+    "expectedTopics": [
+      "Communication",
+      "Empathy",
+      "Simplification"
+    ],
+    "keyPoints": [
+      "Describe the technical concept and target audience (e.g., client, product manager, sales team).",
+      "Explain how you simplified jargon using analogies, visual aids, or plain business language.",
+      "Show how you verified understanding and aligned on goals.",
+      "Emphasize communication effectiveness and active listening."
+    ],
+    "tags": [
+      "Communication",
+      "Stakeholders"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Easy",
+    "interviewType": "Behavioral",
+    "question": "Give an example of a time when you took full ownership of a project task from start to finish.",
+    "expectedTopics": [
+      "Ownership",
+      "Accountability",
+      "Execution"
+    ],
+    "keyPoints": [
+      "Detail the task scope and why it required personal ownership.",
+      "Describe proactive steps taken to gather requirements, manage risks, and deliver quality results.",
+      "Highlight how you followed up post-delivery to ensure customer or stakeholder satisfaction.",
+      "Demonstrate a high standard of personal responsibility."
+    ],
+    "tags": [
+      "Ownership",
+      "Accountability"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Easy",
+    "interviewType": "Behavioral",
+    "question": "Describe a situation where you had to quickly adapt to a sudden change in project priorities or requirements.",
+    "expectedTopics": [
+      "Adaptability",
+      "Agility",
+      "Resilience"
+    ],
+    "keyPoints": [
+      "Explain what caused the priority shift and its impact on your ongoing work.",
+      "Describe how you re-evaluated workload, reprioritized tasks, and stayed calm under pressure.",
+      "Highlight communication with team members to ensure smooth alignment.",
+      "Show flexibility and a positive attitude toward organizational change."
+    ],
+    "tags": [
+      "Adaptability",
+      "Flexibility"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Easy",
+    "interviewType": "Behavioral",
+    "question": "Tell me about a time when you made a mistake at work. How did you hold yourself accountable and resolve it?",
+    "expectedTopics": [
+      "Failure & Learning",
+      "Accountability",
+      "Remediation"
+    ],
+    "keyPoints": [
+      "Transparently describe the mistake without making excuses or blaming others.",
+      "Detail immediate corrective actions taken to mitigate negative impact.",
+      "Explain long-term preventative measures implemented to ensure it never happens again.",
+      "Demonstrate maturity, accountability, and continuous learning."
+    ],
+    "tags": [
+      "Accountability",
+      "Failure"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Easy",
+    "interviewType": "Behavioral",
+    "question": "Describe a project or achievement that you consider your greatest professional success. What made it successful?",
+    "expectedTopics": [
+      "Success",
+      "Impact",
+      "Goal Achievement"
+    ],
+    "keyPoints": [
+      "Outline project objectives, scale, and your specific role.",
+      "Detail key actions, strategic choices, and personal contributions to success.",
+      "Quantify measurable business or technical metrics achieved.",
+      "Reflect on what made the achievement personally and professionally meaningful."
+    ],
+    "tags": [
+      "Success",
+      "Impact"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Easy",
+    "interviewType": "Behavioral",
+    "question": "Tell me about a time when you had to learn a completely new technology or skill on a tight deadline.",
+    "expectedTopics": [
+      "Continuous Learning",
+      "Resourcefulness",
+      "Time Management"
+    ],
+    "keyPoints": [
+      "Describe the skill gap and deadline context.",
+      "Detail your self-learning strategy (documentation, tutorials, hands-on prototyping, pair programming).",
+      "Show how quickly you applied the new knowledge to deliver project requirements.",
+      "Demonstrate learning agility and curiosity."
+    ],
+    "tags": [
+      "Learning",
+      "Adaptability"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Easy",
+    "interviewType": "Behavioral",
+    "question": "How do you structure your behavioral interview answers using the STAR method (Situation, Task, Action, Result)?",
+    "expectedTopics": [
+      "STAR Method",
+      "Structured Communication",
+      "Storytelling"
+    ],
+    "keyPoints": [
+      "Situation: Set context, background, and environment clearly.",
+      "Task: Outline specific challenges, responsibilities, or goals.",
+      "Action: Detail YOUR specific personal contributions and steps taken (70% of answer weight).",
+      "Result: Quantify positive business/team outcomes and lessons learned."
+    ],
+    "tags": [
+      "STAR Method",
+      "Communication"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Easy",
+    "interviewType": "Behavioral",
+    "question": "Tell me about a time when you had to ask for help when blocked on a task.",
+    "expectedTopics": [
+      "Self-Awareness",
+      "Collaboration",
+      "Unblocking Progress"
+    ],
+    "keyPoints": [
+      "Describe the blocker and initial troubleshooting attempts before escalating.",
+      "Explain how you recognized when to ask for assistance to avoid wasting time.",
+      "Detail how you communicated effectively with peers/mentors to resolve issues.",
+      "Highlight what you learned to handle similar tasks independently in the future."
+    ],
+    "tags": [
+      "Collaboration",
+      "Problem Solving"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Easy",
+    "interviewType": "Behavioral",
+    "question": "Describe a situation where you received constructive feedback from a manager or teammate. How did you respond?",
+    "expectedTopics": [
+      "Feedback Acceptance",
+      "Growth Mindset",
+      "Self-Improvement"
+    ],
+    "keyPoints": [
+      "Share the nature of the constructive feedback objectively.",
+      "Describe your initial reaction and how you welcomed feedback with a growth mindset.",
+      "Detail concrete behavioral or process changes implemented in response.",
+      "Demonstrate open-mindedness and commitment to professional growth."
+    ],
+    "tags": [
+      "Feedback",
+      "Growth Mindset"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Medium",
+    "interviewType": "Behavioral",
+    "question": "Tell me about a time when you had a disagreement or conflict with a team member. How did you resolve it constructively?",
+    "expectedTopics": [
+      "Conflict Resolution",
+      "Emotional Intelligence",
+      "Professionalism"
+    ],
+    "keyPoints": [
+      "Explain the root cause of professional disagreement (technical direction, scope, responsibilities).",
+      "Detail private 1-on-1 conversations held to listen actively and understand perspectives.",
+      "Show how you focused on objective data, shared goals, and compromise.",
+      "Highlight how team rapport and project outcomes improved post-resolution."
+    ],
+    "tags": [
+      "Conflict Resolution",
+      "Teamwork"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Medium",
+    "interviewType": "Behavioral",
+    "question": "Describe a scenario where you had to make an important decision with incomplete or ambiguous data.",
+    "expectedTopics": [
+      "Decision Making",
+      "Risk Assessment",
+      "Ambiguity"
+    ],
+    "keyPoints": [
+      "Detail context where urgent decisions were needed without full information.",
+      "Explain analytical steps taken to evaluate risks, gather available signals, and consult advisors.",
+      "Describe how you made a decisive choice and created fallback mitigation plans.",
+      "Reflect on decision outcome and key takeaways for handling ambiguity."
+    ],
+    "tags": [
+      "Decision Making",
+      "Ambiguity"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Medium",
+    "interviewType": "Behavioral",
+    "question": "Tell me about a time when a project failed to meet its deadline or goals. What did you learn from the experience?",
+    "expectedTopics": [
+      "Failure Analysis",
+      "Post-Mortem",
+      "Resilience"
+    ],
+    "keyPoints": [
+      "Provide honest context around project failure without shifting blame.",
+      "Detail root cause analysis (underestimated scope, dependency delay, communication breakdown).",
+      "Explain how you conducted retrospective analysis and implemented process changes.",
+      "Show how subsequent projects succeeded using lessons learned."
+    ],
+    "tags": [
+      "Failure",
+      "Retrospective"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Medium",
+    "interviewType": "Behavioral",
+    "question": "Describe a situation where you mentored or helped upskill a colleague.",
+    "expectedTopics": [
+      "Mentorship",
+      "Knowledge Sharing",
+      "Team Growth"
+    ],
+    "keyPoints": [
+      "Explain the colleague's learning needs or onboarding context.",
+      "Detail tailored mentorship actions (code reviews, pair programming, documentation, structured check-ins).",
+      "Highlight colleague growth metrics (increased autonomy, successful project contributions).",
+      "Demonstrate dedication to building strong engineering cultures."
+    ],
+    "tags": [
+      "Mentorship",
+      "Leadership"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Medium",
+    "interviewType": "Behavioral",
+    "question": "Tell me about a time when you advocated for technical quality or refactoring technical debt against tight business deadlines.",
+    "expectedTopics": [
+      "Technical Debt",
+      "Stakeholder Alignment",
+      "Pragmatism"
+    ],
+    "keyPoints": [
+      "Describe the technical debt risk and potential impact on system stability/velocity.",
+      "Explain how you translated technical risk into business metrics (downtime risk, maintenance cost).",
+      "Detail negotiated compromise (incremental refactoring, dedicated tech debt sprints).",
+      "Demonstrate balanced advocacy for long-term code health."
+    ],
+    "tags": [
+      "Technical Debt",
+      "Advocacy"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Medium",
+    "interviewType": "Behavioral",
+    "question": "Describe a scenario where you had to deliver bad news to a stakeholder or manager. How did you handle communication?",
+    "expectedTopics": [
+      "Difficult Communication",
+      "Transparency",
+      "Solution-Oriented"
+    ],
+    "keyPoints": [
+      "Explain the context (missed deadline, budget overrun, critical bug discovery).",
+      "Detail how quickly and transparently you communicated without hiding facts.",
+      "Describe how you presented concrete mitigation options alongside the problem.",
+      "Emphasize trust preservation and solution-oriented focus."
+    ],
+    "tags": [
+      "Communication",
+      "Transparency"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Medium",
+    "interviewType": "Behavioral",
+    "question": "Tell me about a time when you had to prioritize multiple competing urgent tasks.",
+    "expectedTopics": [
+      "Prioritization",
+      "Time Management",
+      "Focus"
+    ],
+    "keyPoints": [
+      "Detail competing tasks and stakeholder demands.",
+      "Explain your framework for prioritization (Eisenhower Matrix, business impact assessment, SLA urgency).",
+      "Describe communication with stakeholders to manage expectations.",
+      "Highlight successful delivery outcomes without burnout."
+    ],
+    "tags": [
+      "Time Management",
+      "Prioritization"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Medium",
+    "interviewType": "Behavioral",
+    "question": "Describe a situation where you disagreed with a manager's or team lead's decision. How did you handle it (Disagree and Commit)?",
+    "expectedTopics": [
+      "Disagree and Commit",
+      "Professional Debate",
+      "Alignment"
+    ],
+    "keyPoints": [
+      "Explain the disagreement context and your data-driven counter-arguments presented in private.",
+      "Describe how you listened to leadership reasoning and accepted final decision.",
+      "Show how you executed the decision with 100% commitment once finalized.",
+      "Demonstrate professional maturity and team alignment."
+    ],
+    "tags": [
+      "Conflict Resolution",
+      "Commitment"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Medium",
+    "interviewType": "Behavioral",
+    "question": "Tell me about a project where you collaborated with cross-functional teams (Design, Product, QA, Engineering).",
+    "expectedTopics": [
+      "Cross-Functional Collaboration",
+      "Team Alignment",
+      "Communication"
+    ],
+    "keyPoints": [
+      "Outline cross-functional dynamics and differing team priorities.",
+      "Detail collaborative initiatives (joint discovery sessions, clear API specs, shared communication channels).",
+      "Explain how you resolved misunderstandings between teams.",
+      "Highlight successful unified delivery."
+    ],
+    "tags": [
+      "Collaboration",
+      "Cross-Functional"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Medium",
+    "interviewType": "Behavioral",
+    "question": "Describe a time when you proactively identified a risk or failure point in a system before it occurred.",
+    "expectedTopics": [
+      "Risk Mitigation",
+      "Proactivity",
+      "Problem Solving"
+    ],
+    "keyPoints": [
+      "Explain how you spotted potential failure risks during code reviews, testing, or architecture planning.",
+      "Detail actions taken to quantify potential impact and propose preventative solutions.",
+      "Describe implementation of safeguards (monitoring alerts, fallbacks, automated tests).",
+      "Emphasize proactive mindset and quality focus."
+    ],
+    "tags": [
+      "Proactivity",
+      "Risk Management"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Hard",
+    "interviewType": "Behavioral",
+    "question": "High-Stakes Crisis Scenario: Tell me about a time when a critical production outage occurred under your watch. Walk me through response and post-mortem accountability.",
+    "expectedTopics": [
+      "Incident Management",
+      "Crisis Response",
+      "Post-Mortem Analysis"
+    ],
+    "keyPoints": [
+      "Detail high-stakes production outage incident context and severity.",
+      "Walk through immediate triage steps (triage, rollback, customer communication, incident lead coordination).",
+      "Explain blameless post-mortem analysis conducted to identify root cause.",
+      "Detail permanent architectural or process hardening fixes implemented to prevent recurrence."
+    ],
+    "tags": [
+      "Crisis Management",
+      "Production Incident"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Hard",
+    "interviewType": "Behavioral",
+    "question": "Leadership Under Adversity: Describe a situation where you led a demotivated team through a high-stress project phase or restructuring.",
+    "expectedTopics": [
+      "Leadership Under Fire",
+      "Team Morale",
+      "Resilience"
+    ],
+    "keyPoints": [
+      "Describe cause of team demotivation (layoffs, tight deadlines, project scope shifts).",
+      "Detail actions to restore trust, open communication, and re-ignite motivation (empathy check-ins, celebrating small wins, removing blockers).",
+      "Show how you protected team focus while managing external executive pressure.",
+      "Highlight successful team turnaround and project delivery."
+    ],
+    "tags": [
+      "Leadership",
+      "Team Morale"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Hard",
+    "interviewType": "Behavioral",
+    "question": "Ethical & Trade-off Decision Making: Tell me about a time when you faced an ethical dilemma or chose between delivering on time vs security standards.",
+    "expectedTopics": [
+      "Ethics & Integrity",
+      "Security Trade-offs",
+      "Principle Standard"
+    ],
+    "keyPoints": [
+      "Outline trade-off pressure between shipping fast vs maintaining security/compliance/data privacy standards.",
+      "Explain how you evaluated ethical or regulatory risks objectively.",
+      "Detail how you stood firm on non-negotiable quality/security benchmarks while finding creative compromise timelines.",
+      "Demonstrate unyielding integrity and strategic risk leadership."
+    ],
+    "tags": [
+      "Ethics",
+      "Decision Making"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Hard",
+    "interviewType": "Behavioral",
+    "question": "Strategic Failure & Pivot: Describe a scenario where you invested significant effort into an initiative, only to realize it was the wrong approach. How did you pivot?",
+    "expectedTopics": [
+      "Sunk Cost Fallacy",
+      "Strategic Pivot",
+      "Decisive Action"
+    ],
+    "keyPoints": [
+      "Detail initial initiative hypothesis and significant resource investment made.",
+      "Explain key data or user feedback signals proving approach was failing.",
+      "Describe how you overcame sunk cost fallacy, admitted error, and led swift pivot to better alternative.",
+      "Detail communication with leadership to realign resources cleanly."
+    ],
+    "tags": [
+      "Strategic Pivot",
+      "Adaptability"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Hard",
+    "interviewType": "Behavioral",
+    "question": "Managing Difficult Stakeholders: Tell me about a time when you managed a highly demanding or resistant stakeholder who pushed back on decisions.",
+    "expectedTopics": [
+      "Stakeholder Management",
+      "Negotiation",
+      "Relationship Building"
+    ],
+    "keyPoints": [
+      "Describe stakeholder resistance context and underlying concerns.",
+      "Detail steps taken to build rapport, understand their business incentives, and present data-backed proposals.",
+      "Explain negotiation techniques used to align expectations and establish boundary agreements.",
+      "Show long-term transformation into positive working relationship."
+    ],
+    "tags": [
+      "Stakeholder Management",
+      "Negotiation"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Hard",
+    "interviewType": "Behavioral",
+    "question": "Cross-Cultural / Remote Collaboration: Describe a situation where you navigated cultural differences, timezone challenges, or communication barriers in a remote team.",
+    "expectedTopics": [
+      "Remote Collaboration",
+      "Cultural Intelligence",
+      "Async Communication"
+    ],
+    "keyPoints": [
+      "Detail distributed team composition across diverse cultures and timezones.",
+      "Explain asynchronous communication frameworks implemented (detailed RFCs, recorded walkthroughs, inclusive meeting schedules).",
+      "Describe how you fostered psychological safety and cultural awareness.",
+      "Highlight high productivity and team cohesion achieved."
+    ],
+    "tags": [
+      "Remote Work",
+      "Cultural Intelligence"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Hard",
+    "interviewType": "Behavioral",
+    "question": "Ownership of Systemic Change: Tell me about a time when you identified a systemic organizational flaw and drove cultural or process improvements across teams.",
+    "expectedTopics": [
+      "Systemic Change",
+      "Process Improvement",
+      "Organizational Impact"
+    ],
+    "keyPoints": [
+      "Identify systemic problem (broken CI/CD, poor testing culture, high turnover, siloed teams).",
+      "Detail strategy used to rally cross-team support, pilot solutions, and demonstrate measurable pilot ROI.",
+      "Explain how you scaled solution into company-wide standard process.",
+      "Quantify broad organizational productivity or quality improvements."
+    ],
+    "tags": [
+      "Systemic Change",
+      "Leadership"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Hard",
+    "interviewType": "Behavioral",
+    "question": "Resource Scarcity & Scope Creep: Describe a project where budget, headcount, or time was slashed halfway through execution. How did you renegotiate scope?",
+    "expectedTopics": [
+      "Resource Constraint",
+      "Scope Negotiation",
+      "Agile Prioritization"
+    ],
+    "keyPoints": [
+      "Outline sudden resource cut context and potential project collapse risks.",
+      "Detail framework used to identify Minimum Viable Product (MVP) core vs nice-to-have features.",
+      "Describe transparent negotiations with executive sponsors to adjust scope expectations.",
+      "Highlight successful on-time delivery of high-value core requirements."
+    ],
+    "tags": [
+      "Scope Management",
+      "Resource Allocation"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Hard",
+    "interviewType": "Behavioral",
+    "question": "Conflict Resolution Between Senior Leaders: Tell me about a scenario where two senior technical leaders held opposing architectural visions. How did you facilitate alignment?",
+    "expectedTopics": [
+      "Consensus Facilitation",
+      "Technical Mediation",
+      "Executive Alignment"
+    ],
+    "keyPoints": [
+      "Describe opposing technical architectures and political friction involved.",
+      "Detail objective evaluation framework introduced (PoC benchmarks, trade-off matrix, total cost of ownership analysis).",
+      "Explain how you facilitated neutral architecture review workshops to build consensus.",
+      "Show how team unified behind winning hybrid architecture decision."
+    ],
+    "tags": [
+      "Mediation",
+      "Consensus"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "Behavioral",
+    "difficulty": "Hard",
+    "interviewType": "Behavioral",
+    "question": "Long-Term Vision vs Short-Term Execution: Describe a time when you sacrificed short-term gains in favor of a long-term scalable strategy. How did you justify investment?",
+    "expectedTopics": [
+      "Strategic Vision",
+      "Long-Term Thinking",
+      "Executive Buy-in"
+    ],
+    "keyPoints": [
+      "Explain quick fix option vs robust long-term architectural solution.",
+      "Detail business case presented to executive leadership proving ROI of long-term investment.",
+      "Describe execution plan balancing short-term stability with phased long-term build-out.",
+      "Quantify multi-year scalability and cost savings realized."
+    ],
+    "tags": [
+      "Strategic Vision",
+      "Long-Term Strategy"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

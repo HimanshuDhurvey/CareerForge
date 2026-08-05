@@ -1,0 +1,1205 @@
+[
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Express.js and why is it the standard web framework for Node.js applications?",
+    "expectedTopics": [
+      "Express.js Overview",
+      "Middleware Pipeline",
+      "Routing Simplicity"
+    ],
+    "keyPoints": [
+      "Express.js is a minimal, unopinionated web framework for Node.js.",
+      "Provides robust features for building single-page, multi-page, and RESTful API applications.",
+      "Simplifies HTTP request handling, routing, header management, and middleware integration.",
+      "Acts as the standard backend layer in popular stacks like MERN and MEAN."
+    ],
+    "tags": [
+      "Express",
+      "Basics"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain the fundamental middleware architecture of Express.js.",
+    "expectedTopics": [
+      "Middleware Chain",
+      "Request-Response Cycle",
+      "next() Function"
+    ],
+    "keyPoints": [
+      "Middleware functions have access to the request object (req), response object (res), and next middleware function (next).",
+      "Executes sequentially in the order registered via app.use() or HTTP methods.",
+      "Can modify req/res objects, end request-response cycles, or call next() to pass control downstream.",
+      "Forms the core mechanism for authentication, logging, body parsing, and error handling."
+    ],
+    "tags": [
+      "Middleware",
+      "Architecture"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do application-level middleware and router-level middleware differ in Express?",
+    "expectedTopics": [
+      "Application-Level",
+      "Router-Level",
+      "Scope"
+    ],
+    "keyPoints": [
+      "Application-level middleware is bound to an instance of app using app.use() or app.METHOD().",
+      "Router-level middleware is bound to an instance of express.Router() using router.use() or router.METHOD().",
+      "Router-level middleware limits execution scope to specific route sub-trees.",
+      "Promotes modular code separation and feature-based route organization."
+    ],
+    "tags": [
+      "Middleware",
+      "Router"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the role of the next() function in Express middleware chains?",
+    "expectedTopics": [
+      "next() Function",
+      "Control Flow",
+      "Error Passing"
+    ],
+    "keyPoints": [
+      "next() signals Express to execute the next matching middleware function in the stack.",
+      "If next() is omitted and no response is sent, the client request will hang until timeout.",
+      "Passing an argument to next(err) instructs Express to skip remaining route handlers and invoke error middleware.",
+      "Passing 'route' string (next('route')) skips remaining middleware in the current route block."
+    ],
+    "tags": [
+      "Middleware",
+      "Control Flow"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What happens if you omit calling next() or returning a response inside Express middleware?",
+    "expectedTopics": [
+      "Hanging Request",
+      "Client Timeout",
+      "Response Termination"
+    ],
+    "keyPoints": [
+      "The HTTP request remains in a pending state on the main single thread queue.",
+      "Client browser/Postman hangs indefinitely until client or server socket timeout occurs.",
+      "Every middleware MUST either send a response (res.json, res.send) OR call next() to pass control.",
+      "Common bug when developers miss next() inside conditional execution branches."
+    ],
+    "tags": [
+      "Middleware",
+      "Debugging"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do route parameters (req.params) differ from query parameters (req.query) in Express routing?",
+    "expectedTopics": [
+      "req.params",
+      "req.query",
+      "URL Structures"
+    ],
+    "keyPoints": [
+      "Route parameters (req.params) are named URL segments defined in the path specification (e.g. /users/:id).",
+      "Query parameters (req.query) are optional key-value pairs appended after the '?' symbol in the URL (e.g. /users?page=2).",
+      "Route parameters identify specific resources; query parameters filter, sort, or paginate results.",
+      "Both are automatically parsed into JS key-value objects on the req object."
+    ],
+    "tags": [
+      "Routing",
+      "Parameters"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain key properties of the Express Request (req) object.",
+    "expectedTopics": [
+      "req Object",
+      "req.body",
+      "req.headers"
+    ],
+    "keyPoints": [
+      "req.body: Parsed incoming request payload object (populated by express.json middleware).",
+      "req.params: Object containing named route parameter values.",
+      "req.query: Object containing parsed URL query string parameters.",
+      "req.headers: Object containing incoming HTTP request headers (authorization, content-type).",
+      "req.ip: Client IP address making the HTTP request."
+    ],
+    "tags": [
+      "Request",
+      "API"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain key methods of the Express Response (res) object.",
+    "expectedTopics": [
+      "res Object",
+      "res.json",
+      "res.status"
+    ],
+    "keyPoints": [
+      "res.status(code): Sets the HTTP status code (e.g. 200, 201, 400, 404, 500).",
+      "res.json(payload): Sends a JSON response with automatic Content-Type: application/json header.",
+      "res.send(body): Sends HTTP response accepting String, Buffer, Object, or Array.",
+      "res.redirect(url): Redirects client browser to specified URL.",
+      "Methods can be chained (e.g. res.status(201).json(data))."
+    ],
+    "tags": [
+      "Response",
+      "API"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is express.Router() and how does it help modularize application routes?",
+    "expectedTopics": [
+      "express.Router()",
+      "Modular Routing",
+      "Sub-routers"
+    ],
+    "keyPoints": [
+      "express.Router() creates isolated, modular mini-Express router instances.",
+      "Routes and router-level middleware are registered on the router instance.",
+      "Router instances are exported and mounted on main Express app via app.use('/prefix', subRouter).",
+      "Keeps route definitions clean, manageable, and organized by feature domain."
+    ],
+    "tags": [
+      "Router",
+      "Architecture"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are the built-in body parsing middlewares in Express (express.json and express.urlencoded)?",
+    "expectedTopics": [
+      "express.json()",
+      "express.urlencoded()",
+      "Body Parsing"
+    ],
+    "keyPoints": [
+      "express.json(): Parses incoming request payloads formatted as JSON and populates req.body.",
+      "express.urlencoded({ extended: true }): Parses incoming URL-encoded form payloads.",
+      "Prior to Express 4.16+, body-parser package was required; now included natively in Express.",
+      "Must be mounted before route handlers to ensure req.body is populated."
+    ],
+    "tags": [
+      "Body Parser",
+      "Middleware"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do you implement global error handling middleware in Express using the 4-argument signature?",
+    "expectedTopics": [
+      "Error Middleware",
+      "4-Argument Signature",
+      "Global Error Handler"
+    ],
+    "keyPoints": [
+      "Error handling middleware MUST declare exactly 4 arguments: (err, req, res, next).",
+      "Express identifies middleware with 4 arguments specifically as error handling middleware.",
+      "Must be registered LAST in the app middleware chain after all route handlers.",
+      "Receives errors passed down via next(err) or thrown in synchronous routes."
+    ],
+    "tags": [
+      "Error Handling",
+      "Middleware"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is MVC (Model-View-Controller) architecture and how is it organized in Express applications?",
+    "expectedTopics": [
+      "MVC Pattern",
+      "Models Controllers Views",
+      "Code Separation"
+    ],
+    "keyPoints": [
+      "Model: Defines data schemas, database interactions, and business entities (e.g. Mongoose models).",
+      "View: Renders user interface templates or sends JSON API responses to client.",
+      "Controller: Handles HTTP requests, invokes services/models, and returns responses.",
+      "Separates data persistence, request orchestration, and UI rendering cleanly."
+    ],
+    "tags": [
+      "MVC",
+      "Architecture"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is REST architecture and what standard HTTP methods are used in Express REST APIs?",
+    "expectedTopics": [
+      "RESTful APIs",
+      "HTTP Verbs",
+      "Resource Routing"
+    ],
+    "keyPoints": [
+      "REST (Representational State Transfer) uses standard HTTP methods to perform CRUD operations on resources.",
+      "GET: Retrieves resource data without modifying server state.",
+      "POST: Creates a new resource entity.",
+      "PUT/PATCH: Replaces or partially updates an existing resource.",
+      "DELETE: Removes a specified resource entity."
+    ],
+    "tags": [
+      "REST",
+      "HTTP"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is CORS and why is the cors middleware package required in Express APIs?",
+    "expectedTopics": [
+      "CORS",
+      "Same-Origin Policy",
+      "cors Package"
+    ],
+    "keyPoints": [
+      "CORS (Cross-Origin Resource Sharing) is a browser security mechanism restricting cross-origin HTTP requests.",
+      "Browsers block frontend clients (e.g. React at localhost:5173) from fetching Express APIs (at localhost:5000) unless CORS headers exist.",
+      "The cors package injects Access-Control-Allow-Origin headers into Express response objects.",
+      "Allows specifying allowed origins, HTTP methods, and credentials."
+    ],
+    "tags": [
+      "CORS",
+      "Security"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Helmet.js and how does it secure Express applications through HTTP headers?",
+    "expectedTopics": [
+      "Helmet.js",
+      "Security Headers",
+      "Hardening Express"
+    ],
+    "keyPoints": [
+      "Helmet.js is middleware that sets HTTP response security headers automatically.",
+      "Sets Content-Security-Policy, X-Frame-Options (prevents clickjacking), X-Content-Type-Options (prevents MIME sniffing), and Strict-Transport-Security.",
+      "Hides X-Powered-By: Express header to prevent technology stack disclosure.",
+      "Provides essential baseline security hardening for Express production applications."
+    ],
+    "tags": [
+      "Helmet",
+      "Security"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How does request validation work using express-validator middleware in Express?",
+    "expectedTopics": [
+      "express-validator",
+      "Input Sanitization",
+      "Validation Chains"
+    ],
+    "keyPoints": [
+      "express-validator provides middleware chains for validating and sanitizing incoming request inputs.",
+      "Validates body, query, and params fields using rules like isEmail(), isLength(), trim(), and normalizeEmail().",
+      "validationResult(req) extracts validation error arrays.",
+      "Prevents invalid or malicious input payloads from reaching database layers."
+    ],
+    "tags": [
+      "Validation",
+      "express-validator"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is JWT (JSON Web Token) authentication and how is it passed in request headers?",
+    "expectedTopics": [
+      "JWT",
+      "Authorization Header",
+      "Stateless Auth"
+    ],
+    "keyPoints": [
+      "JWT is a compact, URL-safe token containing signed JSON payloads.",
+      "Composed of three dot-separated parts: Header, Payload, and Signature.",
+      "Sent by client in the Authorization HTTP header using Bearer scheme (Authorization: Bearer <token>).",
+      "Allows stateless user authentication without storing session state in server memory."
+    ],
+    "tags": [
+      "JWT",
+      "Authentication"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between Authentication and Authorization in Express API endpoints?",
+    "expectedTopics": [
+      "Authentication vs Authorization",
+      "Identity Verification",
+      "Permissions"
+    ],
+    "keyPoints": [
+      "Authentication verifies WHO the user is (e.g. checking login email and password, validating JWT).",
+      "Authorization verifies WHAT resources the authenticated user is allowed to access (e.g. checking user roles like admin vs student).",
+      "Authentication middleware runs first; Authorization guard middleware runs second.",
+      "Returns 401 Unauthorized for authentication failure; 403 Forbidden for authorization failure."
+    ],
+    "tags": [
+      "Authentication",
+      "Authorization"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is cookie-parser middleware in Express and how are HttpOnly cookies set via res.cookie()?",
+    "expectedTopics": [
+      "cookie-parser",
+      "HttpOnly Cookies",
+      "res.cookie()"
+    ],
+    "keyPoints": [
+      "cookie-parser middleware parses Cookie header and populates req.cookies object.",
+      "res.cookie('name', 'value', options) sets Set-Cookie HTTP headers in response.",
+      "HttpOnly flag (httpOnly: true) prevents client-side JavaScript (XSS attacks) from reading cookie data.",
+      "Secure flag (secure: true) ensures cookies are transmitted only over HTTPS connections."
+    ],
+    "tags": [
+      "Cookies",
+      "cookie-parser"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between session-based authentication (express-session) and JWT-based authentication?",
+    "expectedTopics": [
+      "Session vs JWT",
+      "Stateful vs Stateless",
+      "Server Storage"
+    ],
+    "keyPoints": [
+      "Session authentication stores session data in server memory/store (Redis) and sends session ID in cookies.",
+      "JWT authentication stores signed payload token on the client and validates signature statelessly on server.",
+      "Sessions allow instant server-side revocation; JWTs require revocation blacklists.",
+      "JWTs scale better horizontally across multi-server microservices."
+    ],
+    "tags": [
+      "Sessions",
+      "JWT"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Multer middleware in Express and why is it needed for multipart/form-data file uploads?",
+    "expectedTopics": [
+      "Multer",
+      "multipart/form-data",
+      "File Uploads"
+    ],
+    "keyPoints": [
+      "Multer is middleware designed specifically for handling multipart/form-data payloads.",
+      "Standard body parsers (express.json) cannot parse binary file uploads.",
+      "Multer parses incoming file streams, populating req.file (single) or req.files (array) and req.body for text fields.",
+      "Provides storage engines for disk storage or memory buffer storage."
+    ],
+    "tags": [
+      "Multer",
+      "File Upload"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do you serve static assets (images, CSS, JS) in Express using express.static() middleware?",
+    "expectedTopics": [
+      "express.static()",
+      "Static Assets",
+      "Public Directory"
+    ],
+    "keyPoints": [
+      "express.static('public') serves static files directly from the specified directory.",
+      "Can be mounted on a virtual path prefix: app.use('/static', express.static('public')).",
+      "Automatically handles static file reading, MIME types, and caching HTTP headers.",
+      "Eliminates writing manual file-reading route handlers for static assets."
+    ],
+    "tags": [
+      "Static Files",
+      "Middleware"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Morgan middleware in Express and how is it used for HTTP request logging?",
+    "expectedTopics": [
+      "Morgan",
+      "HTTP Logging",
+      "Request Logs"
+    ],
+    "keyPoints": [
+      "Morgan is an HTTP request logger middleware for Node.js Express apps.",
+      "Logs request method, URL status code, response time, and content length to console or stream.",
+      "Provides pre-defined formats like 'dev' (colored development output) and 'combined' (Apache-style production format).",
+      "Can stream log entries directly to file streams or logging services."
+    ],
+    "tags": [
+      "Morgan",
+      "Logging"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do you configure environment-specific behaviors in Express using process.env.NODE_ENV?",
+    "expectedTopics": [
+      "NODE_ENV",
+      "Development vs Production",
+      "Configuration"
+    ],
+    "keyPoints": [
+      "process.env.NODE_ENV distinguishes environment contexts ('development', 'production', 'test').",
+      "In development, enable detailed error stack traces and verbose logging (morgan('dev')).",
+      "In production, hide error stack traces, enable response caching, and turn on security optimizations.",
+      "Express internal view engines and performance optimizations automatically adjust based on NODE_ENV."
+    ],
+    "tags": [
+      "NODE_ENV",
+      "Configuration"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do you define a 404 Not Found catch-all route handler in Express routing?",
+    "expectedTopics": [
+      "404 Handler",
+      "Catch-all Route",
+      "Middleware Ordering"
+    ],
+    "keyPoints": [
+      "Place 404 catch-all middleware AFTER all defined application API routes.",
+      "Triggers only when no preceding route path matches the incoming HTTP request URL.",
+      "Creates a 404 error (new ApiError(404, 'Route not found')) and forwards to next(err) or sends 404 JSON response.",
+      "Prevents Express from returning default HTML error pages for unmatched API endpoints."
+    ],
+    "tags": [
+      "404",
+      "Routing"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Express execute asynchronous middleware, and why do unhandled promise rejections in async routes cause server hangs prior to Express 5?",
+    "expectedTopics": [
+      "Async Middleware",
+      "Unhandled Rejections",
+      "Express 5 vs Express 4"
+    ],
+    "keyPoints": [
+      "Express 4 router does NOT automatically catch rejected promises inside async route handlers.",
+      "Uncaught promise rejections bypass the 4-argument error middleware, leaving requests hanging.",
+      "In Express 4, async errors must be wrapped in try/catch and passed to next(error) manually or using an express-async-handler wrapper.",
+      "Express 5 natively catches rejected promises from async handlers and forwards them to error middleware."
+    ],
+    "tags": [
+      "Async",
+      "Error Handling"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you design a reusable ApiError class and global error middleware to format consistent JSON responses?",
+    "expectedTopics": [
+      "ApiError Class",
+      "Global Error Handler",
+      "Standardized Responses"
+    ],
+    "keyPoints": [
+      "Create custom ApiError class extending Error, storing statusCode, message, and field error arrays.",
+      "Global error middleware normalizes incoming errors (Mongoose CastError, ValidationError, JWT errors) into ApiError instances.",
+      "Returns unified JSON shape: { success: false, statusCode, message, errors, stack }.",
+      "Hides stack traces in production (NODE_ENV === 'production') for security compliance."
+    ],
+    "tags": [
+      "ApiError",
+      "Error Middleware"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does express-rate-limit middleware work to protect authentication endpoints from Denial of Service (DoS) and Brute-Force attacks?",
+    "expectedTopics": [
+      "express-rate-limit",
+      "Rate Limiting",
+      "Brute-Force Protection"
+    ],
+    "keyPoints": [
+      "express-rate-limit tracks request counts per IP address within a configurable time window (windowMs).",
+      "Rejects requests exceeding max threshold with 429 Too Many Requests HTTP status.",
+      "Sets RateLimit-Limit, RateLimit-Remaining, and Retry-After response headers.",
+      "Protects critical routes (e.g. /api/auth/login, /api/auth/register) against automated password guessing."
+    ],
+    "tags": [
+      "Rate Limiting",
+      "Security"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain how Multer handles file upload validation (file size limits, MIME type filtering) and disk vs memory storage engines.",
+    "expectedTopics": [
+      "Multer Storage",
+      "File Validation",
+      "fileFilter"
+    ],
+    "keyPoints": [
+      "multer.diskStorage() saves files to server disk directory; multer.memoryStorage() buffers file in RAM as Buffer objects.",
+      "limits option specifies max allowed file size (e.g. fileSize: 5 * 1024 * 1024 for 5MB).",
+      "fileFilter callback validates file mimetype (e.g. image/jpeg, image/png) and rejects unallowed file extensions.",
+      "Memory storage is ideal when uploading files directly to cloud storage (S3/Cloudinary) without disk write overhead."
+    ],
+    "tags": [
+      "Multer",
+      "File Upload"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you implement refresh token rotation and HttpOnly cookie security in Express JWT authentication flows?",
+    "expectedTopics": [
+      "Refresh Token",
+      "Token Rotation",
+      "HttpOnly Cookies"
+    ],
+    "keyPoints": [
+      "Short-lived access token (15m) sent in Authorization header or cookie; long-lived refresh token (7d) stored in HttpOnly cookie.",
+      "When access token expires, client hits POST /api/auth/refresh passing HttpOnly refresh token cookie.",
+      "Server verifies refresh token, revokes old refresh token in database, issues new access and refresh tokens (rotation).",
+      "Mitigates token theft impact and prevents XSS token extraction."
+    ],
+    "tags": [
+      "JWT",
+      "Token Rotation"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Role-Based Access Control (RBAC) in Express and how do you write a generic authorize(...roles) middleware guard?",
+    "expectedTopics": [
+      "RBAC",
+      "Authorization Guard",
+      "Higher-Order Middleware"
+    ],
+    "keyPoints": [
+      "RBAC restricts access to endpoints based on user roles attached to req.user by authentication middleware.",
+      "Create higher-order function: const authorize = (...roles) => (req, res, next) => { ... }.",
+      "Checks if roles.includes(req.user.role); calls next() if true.",
+      "Forwards 403 Forbidden ApiError to next() if user role is unauthorized."
+    ],
+    "tags": [
+      "Authorization",
+      "RBAC"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do CORS preflight requests (OPTIONS method) work and how do you configure explicit origin whitelists in Express?",
+    "expectedTopics": [
+      "CORS Preflight",
+      "OPTIONS Method",
+      "Origin Whitelist"
+    ],
+    "keyPoints": [
+      "Browsers issue preflight HTTP OPTIONS requests for non-simple requests (custom headers, PUT/DELETE/PATCH, JSON body).",
+      "Express cors middleware handles OPTIONS preflight by returning allowed headers, methods, and origins.",
+      "Pass origin callback function in cors(corsOptions) checking if requesting origin matches allowed whitelist array.",
+      "Rejects unauthorized origins with CORS Error while allowing server-to-server requests without origin."
+    ],
+    "tags": [
+      "CORS",
+      "Preflight"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does sub-router mounting (app.use('/api/v1/users', userRouter)) work internally in Express route resolution?",
+    "expectedTopics": [
+      "Sub-router Mounting",
+      "Route Prefixing",
+      "Layer Stack"
+    ],
+    "keyPoints": [
+      "app.use(prefix, router) creates a Layer object in the Express top-level stack with matching path regex.",
+      "Strips the matched route prefix from req.url before passing request down to sub-router stack.",
+      "Sub-router processes nested paths (e.g. /:id matches /api/v1/users/:id).",
+      "Restores original req.url when exiting sub-router stack."
+    ],
+    "tags": [
+      "Routing",
+      "Sub-routers"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you structure an Express API controller layer to delegate business logic to decoupled service modules?",
+    "expectedTopics": [
+      "Controller-Service Pattern",
+      "Decoupled Architecture",
+      "Thin Controllers"
+    ],
+    "keyPoints": [
+      "Controllers extract HTTP data (req.body, req.params, req.query, req.user) and invoke services.",
+      "Services contain core business logic, database queries, and external API calls, remaining agnostic of Express req/res objects.",
+      "Controllers return standard ApiResponse objects or pass caught errors to next(error).",
+      "Facilitates unit testing of service logic without mocking Express request/response objects."
+    ],
+    "tags": [
+      "Architecture",
+      "Controllers"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does express-session store session IDs in client cookies while managing session data in server-side stores like Redis?",
+    "expectedTopics": [
+      "express-session",
+      "Connect-Redis",
+      "Session Store"
+    ],
+    "keyPoints": [
+      "express-session generates a unique cryptographic session ID signed and stored in a client cookie (connect.sid).",
+      "Server uses session ID key to retrieve and save session data in server memory or external store (connect-redis).",
+      "Redis session store ensures session persistence across Express server restarts and multi-instance loads.",
+      "HttpOnly, Secure, and SameSite cookie options protect session IDs from client-side script theft."
+    ],
+    "tags": [
+      "Sessions",
+      "Redis"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What security vulnerabilities like NoSQL Injection and XSS affect Express APIs and how do you sanitize req.body?",
+    "expectedTopics": [
+      "NoSQL Injection",
+      "XSS Sanitization",
+      "mongo-sanitize"
+    ],
+    "keyPoints": [
+      "NoSQL Injection occurs when attackers send objects with MongoDB operators ({ $ne: '' }) in req.body.",
+      "Sanitize inputs using express-mongo-sanitize to strip $ and . characters from user payloads.",
+      "Cross-Site Scripting (XSS) occurs when malicious HTML/JS scripts are stored and rendered; sanitize via xss-clean or validator.escape().",
+      "Enforce strict input schema validation on all incoming request fields."
+    ],
+    "tags": [
+      "Security",
+      "Sanitization"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do you implement API request logging using Winston or Pino with correlation IDs (x-request-id) in Express?",
+    "expectedTopics": [
+      "Structured Logging",
+      "Winston/Pino",
+      "Correlation ID"
+    ],
+    "keyPoints": [
+      "Generate or extract unique UUID correlation ID (x-request-id) in initial middleware.",
+      "Attach request ID to req object and response headers.",
+      "Configure Winston or Pino logger to output structured JSON logs containing x-request-id, method, url, status, and duration.",
+      "Enables tracing asynchronous request execution flows across microservices in log aggregators (Datadog, ELK)."
+    ],
+    "tags": [
+      "Logging",
+      "Winston"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does response compression middleware (compression gzip/brotli) optimize payload transfer size in Express?",
+    "expectedTopics": [
+      "compression Middleware",
+      "Gzip / Brotli",
+      "Network Optimization"
+    ],
+    "keyPoints": [
+      "compression middleware intercepts response payloads and compresses them using Gzip or Brotli.",
+      "Checks client Accept-Encoding request header before applying compression.",
+      "Dramatically reduces JSON payload transfer sizes over the network (up to 70-80% compression).",
+      "Should be mounted early in application middleware stack."
+    ],
+    "tags": [
+      "Compression",
+      "Performance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is req.app, app.set(), and app.get() in Express and how do you store application-wide singletons?",
+    "expectedTopics": [
+      "app.set / app.get",
+      "req.app",
+      "Application Singletons"
+    ],
+    "keyPoints": [
+      "app.set('key', value) and app.get('key') store and retrieve application-wide setting variables or singletons.",
+      "req.app provides access to the main Express app instance from inside route handlers and middleware.",
+      "Useful for sharing singletons like database connection pools or Socket.io instances across controllers.",
+      "Avoids circular dependency imports when sharing application-level services."
+    ],
+    "tags": [
+      "Express State",
+      "Singletons"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare res.download(), res.sendFile(), and stream piping for serving file downloads in Express.",
+    "expectedTopics": [
+      "res.download()",
+      "res.sendFile()",
+      "Stream Downloads"
+    ],
+    "keyPoints": [
+      "res.download(path, filename) sets Content-Disposition: attachment header prompting browser file save dialog.",
+      "res.sendFile(path) transfers static file at path, setting Content-Type based on extension (inline display).",
+      "Piping stream (fs.createReadStream(path).pipe(res)) streams large files directly without memory buffering.",
+      "Use streaming for large video/ZIP downloads to prevent server RAM spikes."
+    ],
+    "tags": [
+      "File Transfer",
+      "Response"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: An Express application hangs indefinitely when an async route handler throws an error. Diagnose root causes across Express 4 vs 5 router layers and write a wrapper utility to fix it.",
+    "expectedTopics": [
+      "Async Handler Bug",
+      "Express 4 Router",
+      "asyncHandler Wrapper"
+    ],
+    "keyPoints": [
+      "Express 4 router layer does not wrap route execution in Promise.catch(); unhandled rejected promises do not reach next(err).",
+      "Diagnose: Unhandled promise rejection occurs, leaving HTTP request pending until client timeout.",
+      "Fix: Implement higher-order wrapper: const asyncHandler = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next).",
+      "Wrap all async controllers in Express 4 or upgrade application to Express 5."
+    ],
+    "tags": [
+      "Debugging",
+      "Async Router"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Architectural Design: How would you design a high-availability Express microservice API Gateway handling authentication, rate limiting, request proxying, and circuit breaking?",
+    "expectedTopics": [
+      "API Gateway Architecture",
+      "express-http-proxy",
+      "Circuit Breaker"
+    ],
+    "keyPoints": [
+      "Mount early security middleware (Helmet, CORS, Rate Limiting) at gateway entry level.",
+      "Validate JWT tokens at Gateway level before forwarding request to internal microservices.",
+      "Use express-http-proxy or http-proxy-middleware to route requests based on path prefix (/api/v1/orders -> Orders Service).",
+      "Implement Circuit Breaker pattern (Opossum) to fail fast when downstream microservices time out or error."
+    ],
+    "tags": [
+      "Architecture",
+      "API Gateway"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: A file upload endpoint using Multer crashes the Express server when multiple users upload 500MB video files simultaneously. Refactor using streaming uploads directly to Cloud Storage.",
+    "expectedTopics": [
+      "Multer Memory Crash",
+      "Streaming Upload",
+      "S3 / Cloudinary Stream"
+    ],
+    "keyPoints": [
+      "Multer memoryStorage buffers 500MB file into V8 RAM; multiple concurrent uploads exceed process heap limits, causing OOM crash.",
+      "Multer diskStorage fills server disk space under heavy upload concurrency.",
+      "Refactor using streaming upload middleware (e.g. multer-s3 or Busboy stream transformer) streaming incoming req bytes directly to S3 multipart upload.",
+      "Enforces strict payload size streaming limits without buffering files to RAM or local disk."
+    ],
+    "tags": [
+      "Multer",
+      "Memory Management"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into Express Router Internals: Explain how app._router, Layer stack objects, regex route matching, and route dispatching operate internally.",
+    "expectedTopics": [
+      "app._router",
+      "Layer Stack",
+      "Path Regex Matching"
+    ],
+    "keyPoints": [
+      "Express app contains an internal Router instance referenced via app._router holding an array of Layer objects (stack).",
+      "Each Layer object stores a path regex (compiled via path-to-regexp), handle function, and route object.",
+      "Incoming request traverses Layer stack sequentially; Layer.match(path) tests path regex.",
+      "When route matches, Layer.handle_request executes handler chain, passing control via next()."
+    ],
+    "tags": [
+      "Express Internals",
+      "Router Engine"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Implement a custom Distributed Rate Limiter middleware from scratch using Redis atomic operations (Sliding Window Log or INCR/EXPIRE) without external packages.",
+    "expectedTopics": [
+      "Custom Rate Limiter",
+      "Redis Atomic Ops",
+      "Sliding Window"
+    ],
+    "keyPoints": [
+      "Construct Redis key based on client IP: ratelimit:${req.ip}:${currentWindowMinute}.",
+      "Use Redis pipeline with multi(): INCR key and EXPIRE key windowSeconds.",
+      "Check if returned count exceeds allowed limit (e.g. 100 requests per minute).",
+      "If exceeded, set Retry-After header and return 429 Too Many Requests response; otherwise call next()."
+    ],
+    "tags": [
+      "Rate Limiting",
+      "Redis"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Security Scenario: An attacker bypasses JWT authentication in an Express API due to algorithm 'none' vulnerability or weak secret verification. Detail how to audit and secure JWT verification.",
+    "expectedTopics": [
+      "JWT Vulnerabilities",
+      "Algorithm None Attack",
+      "Strict Verification"
+    ],
+    "keyPoints": [
+      "Algorithm 'none' attack occurs when jwt.verify accepts unverified tokens with header { alg: 'none' }.",
+      "Weak secret attack occurs when HMAC secret key is short or easily guessable via brute-force dictionary attacks.",
+      "Fix 1: Explicitly enforce allowed algorithms in jwt.verify(token, secret, { algorithms: ['HS256', 'RS256'] }).",
+      "Fix 2: Store strong 256-bit random secrets in environment variables or use asymmetric RSA/ECDSA public-private key pairs."
+    ],
+    "tags": [
+      "Security",
+      "JWT"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How do you implement zero-downtime rolling updates and graceful HTTP connection draining for Express servers managed by PM2 or Kubernetes?",
+    "expectedTopics": [
+      "Zero-Downtime Deployment",
+      "PM2 Reload",
+      "Graceful Shutdown"
+    ],
+    "keyPoints": [
+      "Use PM2 cluster mode (pm2 start app.js -i max) and execute pm2 reload app instead of pm2 restart.",
+      "PM2 reloads workers sequentially: spawns new worker, waits for online signal, then terminates old worker.",
+      "Express process listens for SIGINT/SIGTERM, stops accepting new connections via server.close(), and drains active DB/HTTP sockets within graceful timeout.",
+      "Prevents dropped HTTP requests during continuous integration/deployment (CI/CD) pipelines."
+    ],
+    "tags": [
+      "Production",
+      "Zero-Downtime"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: An Express API experiencing high memory usage is diagnosed with a memory leak inside a custom middleware storing request objects in a global cache. Detail remediation and testing.",
+    "expectedTopics": [
+      "Middleware Memory Leak",
+      "Global State Cache",
+      "Leaking req Object"
+    ],
+    "keyPoints": [
+      "Express req and res objects hold large closure references (socket buffers, response data, headers).",
+      "Storing req objects inside global arrays or unevicted Maps prevents garbage collection of entire request trees.",
+      "Remediation: Store only primitive IDs/strings instead of full req objects; use WeakMap or LRU cache with max item limits.",
+      "Write load test scripts (autocannon) monitoring heap usage over 100k requests to verify flat memory profile."
+    ],
+    "tags": [
+      "Debugging",
+      "Memory Leak"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Contrast HTTP Long Polling, Server-Sent Events (SSE), and WebSockets (Socket.io) integration inside Express web applications.",
+    "expectedTopics": [
+      "Real-time Architectures",
+      "SSE vs WebSockets",
+      "Express Integration"
+    ],
+    "keyPoints": [
+      "Long Polling: Client sends HTTP request; server holds connection open until data arrives, then responds and closes. High HTTP overhead.",
+      "SSE (Server-Sent Events): Single persistent HTTP connection (Content-Type: text/event-stream) streaming server-to-client updates over Express response.",
+      "WebSockets (Socket.io): Full-duplex bidirectional TCP connection established via HTTP upgrade header; ideal for real-time chat/collaboration.",
+      "SSE works natively over standard Express HTTP routes; WebSockets require attaching Socket.io server to underlying http.Server instance."
+    ],
+    "tags": [
+      "WebSockets",
+      "Real-Time"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Backend Developer",
+    "category": "Express",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: CORS headers fail to attach on 500 Internal Server Error responses in Express, blocking frontend clients from reading error messages. Trace the bug and detail the fix.",
+    "expectedTopics": [
+      "CORS Error Middleware Bug",
+      "Middleware Ordering",
+      "Header Attachment"
+    ],
+    "keyPoints": [
+      "Cause: CORS middleware (app.use(cors())) was placed AFTER a route handler, OR custom error middleware bypassed CORS header injection by sending early res.status(500).json().",
+      "Browsers block frontend code from reading HTTP 500 error response body due to missing Access-Control-Allow-Origin header.",
+      "Fix 1: Always register app.use(cors()) at the VERY TOP of the middleware chain before any routes or error handlers.",
+      "Fix 2: Ensure global error handler delegates response formatting without resetting previously attached CORS headers."
+    ],
+    "tags": [
+      "CORS",
+      "Debugging"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

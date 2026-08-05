@@ -1,0 +1,1230 @@
+[
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the OSI (Open Systems Interconnection) reference model and what are its 7 layers?",
+    "expectedTopics": [
+      "OSI Model",
+      "7 Layers",
+      "Network Protocol Stack"
+    ],
+    "keyPoints": [
+      "Layer 7 - Application: User interfaces and protocols (HTTP, FTP, SMTP).",
+      "Layer 6 - Presentation: Data formatting, encryption, and compression.",
+      "Layer 5 - Session: Managing session connections between applications.",
+      "Layer 4 - Transport: End-to-end communication and data delivery (TCP, UDP).",
+      "Layer 3 - Network: Logical addressing and routing across subnets (IP, ICMP).",
+      "Layer 2 - Data Link: Physical addressing (MAC) and frame delivery (Ethernet).",
+      "Layer 1 - Physical: Transmission of raw bits over physical mediums."
+    ],
+    "tags": [
+      "OSI Model",
+      "Basics"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the TCP/IP model and how do its 4 layers map to the OSI model?",
+    "expectedTopics": [
+      "TCP/IP Model",
+      "Layer Mapping",
+      "Internet Protocol Suite"
+    ],
+    "keyPoints": [
+      "Application Layer: Combines OSI Application, Presentation, and Session layers (HTTP, DNS, SSH).",
+      "Transport Layer: Maps to OSI Transport layer (TCP, UDP).",
+      "Internet Layer: Maps to OSI Network layer (IP, ICMP, ARP).",
+      "Network Access Layer: Combines OSI Data Link and Physical layers (Ethernet, Wi-Fi).",
+      "TCP/IP is the practical architecture implementation underpinning the global Internet."
+    ],
+    "tags": [
+      "TCP/IP",
+      "Architecture"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between TCP (Transmission Control Protocol) and UDP (User Datagram Protocol)?",
+    "expectedTopics": [
+      "TCP vs UDP",
+      "Connection Oriented",
+      "Datagrams"
+    ],
+    "keyPoints": [
+      "TCP is connection-oriented (requires 3-way handshake); UDP is connectionless.",
+      "TCP guarantees ordered, reliable packet delivery with error checking and retransmission; UDP provides no delivery guarantees.",
+      "TCP includes flow control and congestion control; UDP has low overhead and minimal latency.",
+      "Use cases: TCP for Web, Email, File Transfer; UDP for Live Video Streaming, Gaming, DNS queries."
+    ],
+    "tags": [
+      "TCP",
+      "UDP"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the MAC (Media Access Control) address vs IP (Internet Protocol) address?",
+    "expectedTopics": [
+      "MAC Address",
+      "IP Address",
+      "Addressing"
+    ],
+    "keyPoints": [
+      "MAC Address is a hardware-burned 48-bit physical address operating at Layer 2 (Data Link).",
+      "IP Address is a logical software address operating at Layer 3 (Network) for routing across networks.",
+      "MAC addresses identify devices on the local local area network (LAN).",
+      "IP addresses route packets globally across interconnected subnets."
+    ],
+    "tags": [
+      "MAC Address",
+      "IP Address"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is HTTP (Hypertext Transfer Protocol) and what are standard HTTP request methods?",
+    "expectedTopics": [
+      "HTTP Overview",
+      "HTTP Methods",
+      "Stateless Protocol"
+    ],
+    "keyPoints": [
+      "HTTP is an application-layer stateless request-response protocol.",
+      "GET: Retrieves data resources without side effects (Idempotent).",
+      "POST: Submits payload data to create new resources.",
+      "PUT: Replaces targeted resource entirely (Idempotent).",
+      "DELETE: Removes targeted resource (Idempotent).",
+      "PATCH: Partially modifies an existing resource."
+    ],
+    "tags": [
+      "HTTP",
+      "Web"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is HTTPS and how does it secure HTTP web communication?",
+    "expectedTopics": [
+      "HTTPS",
+      "TLS Encryption",
+      "Security"
+    ],
+    "keyPoints": [
+      "HTTPS is HTTP running over an encrypted SSL/TLS tunnel (default port 443).",
+      "Encrypts HTTP requests and responses to prevent eavesdropping and man-in-the-middle (MITM) attacks.",
+      "Uses Digital Certificates issued by Certificate Authorities (CAs) to authenticate server identity.",
+      "Ensures Data Integrity, Confidentiality, and Authentication."
+    ],
+    "tags": [
+      "HTTPS",
+      "Security"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is DNS (Domain Name System) and what role does it play on the Internet?",
+    "expectedTopics": [
+      "DNS Overview",
+      "Domain Resolution",
+      "Internet Directory"
+    ],
+    "keyPoints": [
+      "DNS acts as the phonebook of the Internet, translating human-readable domain names (e.g. google.com) into numerical IP addresses (e.g. 142.250.190.46).",
+      "Uses a hierarchical distributed database structure.",
+      "Operates primarily over UDP port 53 for fast queries.",
+      "Eliminates needing users to memorize complex IP addresses."
+    ],
+    "tags": [
+      "DNS",
+      "Domain Resolution"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is DHCP (Dynamic Host Configuration Protocol) and what is the DORA process?",
+    "expectedTopics": [
+      "DHCP",
+      "DORA Process",
+      "IP Assignment"
+    ],
+    "keyPoints": [
+      "DHCP automatically assigns IP addresses, subnet masks, default gateways, and DNS servers to client devices.",
+      "D - Discover: Client broadcasts a DHCPDISCOVER message to locate available DHCP servers.",
+      "O - Offer: DHCP server responds with a DHCPOFFER message proposing an IP lease.",
+      "R - Request: Client broadcasts a DHCPREQUEST message requesting the offered IP.",
+      "A - Acknowledge: Server sends a DHCPACK message finalizing the lease contract."
+    ],
+    "tags": [
+      "DHCP",
+      "DORA"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between a Router and a Switch in network architecture?",
+    "expectedTopics": [
+      "Router vs Switch",
+      "Layer 2 vs Layer 3",
+      "Packet Forwarding"
+    ],
+    "keyPoints": [
+      "Switch operates at Layer 2 (Data Link) using MAC addresses to connect devices within the SAME local network (LAN).",
+      "Router operates at Layer 3 (Network) using IP addresses to route packets BETWEEN DIFFERENT networks (WAN/LAN).",
+      "Switches forward frames via MAC CAM tables; Routers route packets via IP Routing Tables.",
+      "Routers establish network boundaries and NAT translation."
+    ],
+    "tags": [
+      "Router",
+      "Switch"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Subnet Mask and what is CIDR (Classless Inter-Domain Routing) notation?",
+    "expectedTopics": [
+      "Subnet Mask",
+      "CIDR Notation",
+      "IP Subnetting"
+    ],
+    "keyPoints": [
+      "A Subnet Mask divides an IP address into Network ID bits and Host ID bits.",
+      "CIDR notation specifies the number of leading 1-bits in the subnet mask using prefix length (e.g., /24 = 255.255.255.0).",
+      "Allows flexible network aggregation and prevents IPv4 address space exhaustion.",
+      "A /24 subnet provides 256 total IP addresses (254 usable hosts)."
+    ],
+    "tags": [
+      "Subnetting",
+      "CIDR"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the 3-Way Handshake in TCP connection establishment?",
+    "expectedTopics": [
+      "TCP Handshake",
+      "SYN SYN-ACK ACK",
+      "Connection Setup"
+    ],
+    "keyPoints": [
+      "Step 1: Client sends SYN packet with an initial sequence number (ISN_c) to Server.",
+      "Step 2: Server receives SYN and responds with SYN-ACK packet containing ISN_s and ACK (ISN_c + 1).",
+      "Step 3: Client receives SYN-ACK and sends ACK packet (ISN_s + 1) to establish ESTABLISHED connection state.",
+      "Synchronizes initial sequence numbers and socket allocation on both sides."
+    ],
+    "tags": [
+      "TCP Handshake",
+      "Connection Setup"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the 4-Way Handshake in TCP connection termination?",
+    "expectedTopics": [
+      "TCP Teardown",
+      "FIN ACK",
+      "Connection Termination"
+    ],
+    "keyPoints": [
+      "Step 1: Active closer sends FIN packet indicating no more data to send.",
+      "Step 2: Passive receiver responds with ACK packet entering CLOSE_WAIT state.",
+      "Step 3: Passive receiver finishes sending remaining data and sends its own FIN packet.",
+      "Step 4: Active closer responds with ACK and enters TIME_WAIT state (2 * MSL) before closing socket."
+    ],
+    "tags": [
+      "TCP Teardown",
+      "FIN ACK"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is IPv4 vs IPv6 and why is the transition to IPv6 necessary?",
+    "expectedTopics": [
+      "IPv4 vs IPv6",
+      "32-bit vs 128-bit",
+      "IP Address Exhaustion"
+    ],
+    "keyPoints": [
+      "IPv4 uses 32-bit addresses (~4.3 billion unique IPs); IPv6 uses 128-bit hexadecimal addresses (~3.4x10^38 IPs).",
+      "Transition is necessary due to total exhaustion of unallocated IPv4 address pools.",
+      "IPv6 eliminates needing NAT, simplifies packet headers (no checksum at IP layer), and supports auto-configuration (SLAAC).",
+      "Provides built-in IPsec security support."
+    ],
+    "tags": [
+      "IPv4",
+      "IPv6"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is ARP (Address Resolution Protocol) and how does it map IP addresses to MAC addresses?",
+    "expectedTopics": [
+      "ARP Protocol",
+      "MAC Mapping",
+      "Layer 2 Resolution"
+    ],
+    "keyPoints": [
+      "ARP maps a known Layer 3 IP address to an unknown Layer 2 MAC address on a local segment.",
+      "Sender broadcasts an ARP Request: 'Who has IP X.X.X.X? Tell MAC Y:Y:Y:Y'.",
+      "Target host responds with unicast ARP Reply containing its MAC address.",
+      "Results are cached in local ARP tables to speed up future frame deliveries."
+    ],
+    "tags": [
+      "ARP",
+      "MAC Mapping"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Network Port and what are standard well-known port numbers?",
+    "expectedTopics": [
+      "Network Ports",
+      "Well-known Ports",
+      "Transport Sockets"
+    ],
+    "keyPoints": [
+      "A Port is a 16-bit numerical identifier (0-65535) specifying particular application processes on a host.",
+      "Port 80: HTTP (Unencrypted Web).",
+      "Port 443: HTTPS (Encrypted Web).",
+      "Port 22: SSH (Secure Shell) / SFTP.",
+      "Port 53: DNS (Domain Name System).",
+      "Port 21: FTP; Port 25: SMTP."
+    ],
+    "tags": [
+      "Network Ports",
+      "Sockets"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is ICMP (Internet Control Message Protocol) and how do ping and traceroute tools use it?",
+    "expectedTopics": [
+      "ICMP",
+      "Ping",
+      "Traceroute"
+    ],
+    "keyPoints": [
+      "ICMP is a network-layer diagnostic protocol used to send error messages and operational information.",
+      "`ping` uses ICMP Echo Request (Type 8) and Echo Reply (Type 0) to measure reachability and round-trip time (RTT).",
+      "`traceroute` sends packets with incrementing TTL values (1, 2, 3...) to trigger ICMP Time Exceeded messages from intermediate routers.",
+      "Essential tool for network diagnostic troubleshooting."
+    ],
+    "tags": [
+      "ICMP",
+      "Diagnostics"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between Unicast, Multicast, and Broadcast communication?",
+    "expectedTopics": [
+      "Unicast Multicast Broadcast",
+      "Cast Modes",
+      "Network Delivery"
+    ],
+    "keyPoints": [
+      "Unicast: One-to-One transmission from a single sender to a single targeted receiver.",
+      "Broadcast: One-to-All transmission from a single sender to ALL devices on the local subnet (e.g. 255.255.255.255).",
+      "Multicast: One-to-Many transmission from a single sender to a subscribed group of hosts (Class D IP 224.0.0.0/4).",
+      "IPv6 eliminates Broadcast entirely, replacing it with Multicast."
+    ],
+    "tags": [
+      "Unicast",
+      "Broadcast",
+      "Multicast"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is NAT (Network Address Translation) and why is it used in home and corporate routers?",
+    "expectedTopics": [
+      "NAT",
+      "Private IP vs Public IP",
+      "PAT"
+    ],
+    "keyPoints": [
+      "NAT modifies IP address headers while packets pass through a routing device.",
+      "Translates multiple private local IP addresses (e.g. 192.168.x.x) into a single public IP address.",
+      "PAT (Port Address Translation) uses ephemeral source ports to multiplex multiple internal hosts over one public IP.",
+      "Conserves public IPv4 addresses and adds a basic security layer by hiding internal network topology."
+    ],
+    "tags": [
+      "NAT",
+      "Routing"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a Default Gateway in a local network topology?",
+    "expectedTopics": [
+      "Default Gateway",
+      "Router Hop",
+      "Subnet Egress"
+    ],
+    "keyPoints": [
+      "A Default Gateway is the node/router IP address serving as the access point for packets destined OUTSIDE the local subnet.",
+      "When a host sends a packet to a destination IP not matching its local subnet mask, it forwards the frame to the Default Gateway.",
+      "Default Gateway routes the packet onward across external networks.",
+      "Configured via static settings or DHCP."
+    ],
+    "tags": [
+      "Gateway",
+      "Routing"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between Half-Duplex and Full-Duplex communication?",
+    "expectedTopics": [
+      "Half-Duplex vs Full-Duplex",
+      "Channel Direction",
+      "Data Flow"
+    ],
+    "keyPoints": [
+      "Half-Duplex: Data can flow in both directions, but ONLY ONE direction at a time (e.g., Walkie-talkies, legacy hubs).",
+      "Full-Duplex: Data can flow in BOTH directions SIMULTANEOUSLY without collisions (e.g., Telephone calls, modern Ethernet switches).",
+      "Full-Duplex doubles effective channel throughput and eliminates collisions."
+    ],
+    "tags": [
+      "Duplex",
+      "Data Transmission"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Bandwidth vs Throughput vs Latency in network performance?",
+    "expectedTopics": [
+      "Bandwidth",
+      "Throughput",
+      "Latency"
+    ],
+    "keyPoints": [
+      "Bandwidth: Maximum theoretical data transmission capacity of a network channel (e.g., 1 Gbps).",
+      "Throughput: Actual rate of successful data delivery over the network channel at a given time (e.g., 600 Mbps).",
+      "Latency: Time delay for a data packet to travel from sender to receiver (measured in milliseconds).",
+      "High bandwidth does not guarantee low latency."
+    ],
+    "tags": [
+      "Bandwidth",
+      "Latency",
+      "Throughput"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is an IP loopback address (127.0.0.1 / localhost)?",
+    "expectedTopics": [
+      "Loopback Address",
+      "Localhost",
+      "Loopback Interface"
+    ],
+    "keyPoints": [
+      "Loopback address (127.0.0.1 in IPv4, ::1 in IPv6) refers directly to the local host machine.",
+      "Packets sent to loopback bypass physical network interface cards (NICs) and stay within the host operating system kernel.",
+      "Used for local inter-process communication, testing backend servers, and local web development.",
+      "Domain name `localhost` resolves to loopback IP."
+    ],
+    "tags": [
+      "Loopback",
+      "Localhost"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a VLAN (Virtual Local Area Network) and why is it used in switches?",
+    "expectedTopics": [
+      "VLAN",
+      "Network Segmentation",
+      "802.1Q"
+    ],
+    "keyPoints": [
+      "VLAN logically partitions a single physical switch into multiple isolated virtual Layer 2 broadcast domains.",
+      "Uses IEEE 802.1Q VLAN tagging headers on Ethernet frames.",
+      "Improves security, isolates network traffic, and reduces broadcast storm impact.",
+      "Routing between different VLANs requires a Layer 3 Router or Layer 3 Switch."
+    ],
+    "tags": [
+      "VLAN",
+      "Switching"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the role of a Proxy Server vs a Reverse Proxy Server?",
+    "expectedTopics": [
+      "Forward Proxy vs Reverse Proxy",
+      "Client Proxy",
+      "Server Proxy"
+    ],
+    "keyPoints": [
+      "Forward Proxy acts on behalf of CLIENTS to access external internet sites (hides client IP, content filtering, caching).",
+      "Reverse Proxy acts on behalf of SERVERS to receive incoming client requests (load balancing, SSL termination, caching, DDoS protection).",
+      "Forward proxy protects clients; Reverse proxy protects backend servers."
+    ],
+    "tags": [
+      "Proxy",
+      "Reverse Proxy"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is TTL (Time to Live) in an IP packet header and how does it prevent infinite loops?",
+    "expectedTopics": [
+      "TTL",
+      "Routing Loops",
+      "Packet Header"
+    ],
+    "keyPoints": [
+      "TTL is an 8-bit counter in the IP header specifying the maximum number of router hops a packet can traverse.",
+      "Each router decrement TTL by 1 upon forwarding the packet.",
+      "If TTL reaches 0, the router drops the packet and sends an ICMP Time Exceeded message back to sender.",
+      "Prevents packets from looping endlessly in routing loops due to misconfigured routing tables."
+    ],
+    "tags": [
+      "TTL",
+      "Routing"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Trace what happens under the hood when you type https://www.example.com into your browser address bar and hit Enter.",
+    "expectedTopics": [
+      "Browser Request Flow",
+      "DNS Resolution",
+      "TLS Handshake",
+      "HTTP Exchange"
+    ],
+    "keyPoints": [
+      "Step 1: Browser checks caches (Browser, OS, Router, ISP). If missing, performs DNS resolution (Root -> TLD -> Authoritative).",
+      "Step 2: Establishes TCP connection via 3-way handshake (SYN, SYN-ACK, ACK) on port 443.",
+      "Step 3: Performs TLS handshake to exchange keys, authenticate server digital certificate, and establish encrypted session.",
+      "Step 4: Sends HTTP GET request over TLS tunnel; server responds with HTTP 200 payload.",
+      "Step 5: Browser parses HTML, renders DOM, fetches CSS/JS assets, and closes/reuses TCP connection."
+    ],
+    "tags": [
+      "Browser Flow",
+      "Web Architecture"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain TCP Flow Control and how the Sliding Window Protocol prevents receiver buffer overflow.",
+    "expectedTopics": [
+      "TCP Flow Control",
+      "Sliding Window",
+      "Receive Window (rwnd)"
+    ],
+    "keyPoints": [
+      "Flow control ensures a fast sender does not overwhelm a slow receiver's buffer space.",
+      "Receiver advertises its available buffer space in the TCP header as Receive Window (rwnd).",
+      "Sender restricts unacknowledged bytes in flight to <= advertised rwnd.",
+      "If rwnd reaches 0, sender stops transmitting and sends Zero Window Probes periodically until buffer frees up."
+    ],
+    "tags": [
+      "TCP Flow Control",
+      "Sliding Window"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain TCP Congestion Control algorithms (Slow Start, Congestion Avoidance, Fast Retransmit, Fast Recovery).",
+    "expectedTopics": [
+      "Congestion Control",
+      "cwnd & ssthresh",
+      "Slow Start",
+      "Fast Retransmit"
+    ],
+    "keyPoints": [
+      "Congestion control prevents sender from overloading intermediate network router queues.",
+      "Sender maintains Congestion Window (cwnd) and Slow Start Threshold (ssthresh).",
+      "Slow Start: cwnd doubles every RTT exponentially until reaching ssthresh.",
+      "Congestion Avoidance: cwnd increases linearly (+1 MSS per RTT).",
+      "Fast Retransmit: 3 duplicate ACKs trigger instant packet retransmission before timer expiration.",
+      "Fast Recovery: Halves ssthresh and cwnd instead of dropping back to 1 MSS."
+    ],
+    "tags": [
+      "Congestion Control",
+      "TCP Performance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does the SSL/TLS Handshake work to establish an encrypted TLS connection?",
+    "expectedTopics": [
+      "TLS Handshake",
+      "Asymmetric vs Symmetric Keys",
+      "Digital Certificates"
+    ],
+    "keyPoints": [
+      "ClientHello: Client sends supported TLS versions, cipher suites, and random number (ClientRandom).",
+      "ServerHello: Server selects cipher suite, sends ServerRandom and Digital Certificate (containing Server Public Key).",
+      "Authentication: Client verifies server certificate against trusted Root Certificate Authorities (CAs).",
+      "Key Exchange: Using ECDHE, both parties exchange key parameters to compute a shared Pre-Master Secret.",
+      "Master Key: Both derive identical Symmetric Session Keys using ClientRandom + ServerRandom + Pre-Master Secret for bulk payload encryption."
+    ],
+    "tags": [
+      "TLS Handshake",
+      "SSL/TLS"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare HTTP/1.1 vs HTTP/2 vs HTTP/3 (QUIC over UDP).",
+    "expectedTopics": [
+      "HTTP/1.1 vs HTTP/2 vs HTTP/3",
+      "Multiplexing",
+      "QUIC Protocol"
+    ],
+    "keyPoints": [
+      "HTTP/1.1: Text-based, persistent connections, but suffers from Head-of-Line (HoL) blocking at application level.",
+      "HTTP/2: Binary protocol, introduces stream multiplexing over a single TCP connection, HPACK header compression, and Server Push.",
+      "HTTP/3: Replaces TCP with QUIC over UDP, resolving transport-layer HoL blocking and providing 0-RTT handshakes.",
+      "HTTP/3 eliminates TCP handshake latency and supports IP mobility connection migration."
+    ],
+    "tags": [
+      "HTTP/2",
+      "HTTP/3",
+      "QUIC"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does DNS resolution work step-by-step across Root, TLD, and Authoritative Nameservers?",
+    "expectedTopics": [
+      "DNS Resolution Steps",
+      "Recursive Resolver",
+      "Root & TLD Servers"
+    ],
+    "keyPoints": [
+      "Client queries local Recursive DNS Resolver (e.g., ISP or 8.8.8.8).",
+      "If not cached, Recursive Resolver queries Root Nameserver (.) returning TLD server IP.",
+      "Resolver queries TLD Nameserver (.com) returning Authoritative Nameserver IP.",
+      "Resolver queries Authoritative Nameserver (example.com) returning target A record IP address.",
+      "Resolver caches answer with TTL and returns IP to client."
+    ],
+    "tags": [
+      "DNS Resolution",
+      "DNS Architecture"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are primary DNS record types (A, AAAA, CNAME, MX, TXT, NS) and how does TTL caching work?",
+    "expectedTopics": [
+      "DNS Record Types",
+      "A CNAME MX TXT Records",
+      "TTL Caching"
+    ],
+    "keyPoints": [
+      "A Record: Maps domain to IPv4 address.",
+      "AAAA Record: Maps domain to IPv6 address.",
+      "CNAME Record: Alias pointing one domain name to another domain name.",
+      "MX Record: Specifies mail exchange servers for email routing.",
+      "TXT Record: Arbitrary text data used for SPF, DKIM, and domain ownership verification.",
+      "TTL (Time to Live) determines how many seconds resolvers cache DNS records before re-querying."
+    ],
+    "tags": [
+      "DNS Records",
+      "TTL"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the difference between Distance Vector Routing (RIP) and Link State Routing (OSPF).",
+    "expectedTopics": [
+      "Routing Protocols",
+      "Distance Vector vs Link State",
+      "RIP vs OSPF"
+    ],
+    "keyPoints": [
+      "Distance Vector (e.g. RIP): Routers pass full routing tables only to immediate neighbors using Bellman-Ford algorithm based on hop count.",
+      "Suffers from slow convergence and Count-to-Infinity problems.",
+      "Link State (e.g. OSPF): Routers broadcast Link-State Advertisements (LSAs) to all routers, building full network topology map using Dijkstra's shortest path algorithm.",
+      "Provides fast convergence and supports large enterprise networks."
+    ],
+    "tags": [
+      "Routing",
+      "OSPF",
+      "RIP"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is BGP (Border Gateway Protocol) and how does Autonomous System (AS) routing drive the Internet backbone?",
+    "expectedTopics": [
+      "BGP",
+      "Autonomous System (AS)",
+      "Path Vector Routing"
+    ],
+    "keyPoints": [
+      "BGP is the Path Vector exterior gateway routing protocol connecting different Autonomous Systems (AS) across the global Internet.",
+      "An Autonomous System is a collection of IP subnets under single administrative control (ISPs, Tech Giants).",
+      "BGP routes based on AS-PATH attributes, policy rules, and peering agreements rather than pure shortest path.",
+      "Powers global Internet backbone routing tables."
+    ],
+    "tags": [
+      "BGP",
+      "Internet Backbone"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do WebSockets work to provide full-duplex persistent communication over a single TCP connection?",
+    "expectedTopics": [
+      "WebSockets",
+      "HTTP Upgrade Handshake",
+      "Bi-directional Streaming"
+    ],
+    "keyPoints": [
+      "WebSockets begin with a standard HTTP GET request containing `Upgrade: websocket` and `Connection: Upgrade` headers.",
+      "Server responds with HTTP 101 Switching Protocols.",
+      "Connection upgrades from HTTP to persistent, low-overhead WebSocket frame protocol over underlying TCP socket.",
+      "Enables real-time bi-directional messaging (chat apps, financial tickers, multiplayer games)."
+    ],
+    "tags": [
+      "WebSockets",
+      "Real-time"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is CORS (Cross-Origin Resource Sharing) and how do HTTP preflight OPTIONS requests work?",
+    "expectedTopics": [
+      "CORS",
+      "Same-Origin Policy",
+      "Preflight OPTIONS"
+    ],
+    "keyPoints": [
+      "Same-Origin Policy (SOP) restricts web browsers from making cross-origin requests unless authorized.",
+      "CORS uses HTTP headers (`Access-Control-Allow-Origin`, `Access-Control-Allow-Methods`) to grant cross-origin access.",
+      "Non-simple HTTP requests (PUT, DELETE, custom headers) trigger an automatic preflight `OPTIONS` request.",
+      "Browser sends OPTIONS request first to check server authorization before sending actual payload."
+    ],
+    "tags": [
+      "CORS",
+      "Web Security"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain TCP SYN Flood attacks and how SYN Cookies mitigate denial-of-service vulnerabilities.",
+    "expectedTopics": [
+      "SYN Flood Attack",
+      "SYN Cookies",
+      "DDoS Defense"
+    ],
+    "keyPoints": [
+      "Attacker sends massive floods of spoofed TCP SYN packets without sending final ACK, exhausting server half-open socket queues.",
+      "SYN Cookies mitigation: Server does NOT allocate socket memory on SYN receipt.",
+      "Instead, server encodes connection state into initial sequence number (ISN) returned in SYN-ACK.",
+      "Server allocates memory ONLY when valid client ACK arrives with matching sequence cookie."
+    ],
+    "tags": [
+      "SYN Flood",
+      "SYN Cookies",
+      "Security"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare Symmetric Encryption vs Asymmetric Encryption in TLS/SSL key exchange.",
+    "expectedTopics": [
+      "Symmetric Encryption",
+      "Asymmetric Encryption",
+      "Hybrid Cryptography"
+    ],
+    "keyPoints": [
+      "Asymmetric Encryption (RSA, ECC) uses public/private key pairs; computationally slow, used for initial TLS handshake authentication and key exchange.",
+      "Symmetric Encryption (AES-GCM, ChaCha20) uses a single shared secret key; extremely fast, used for bulk payload data encryption.",
+      "TLS utilizes Hybrid Cryptography: Asymmetric during handshake to exchange Symmetric session key."
+    ],
+    "tags": [
+      "Cryptography",
+      "Encryption"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is a Load Balancer (Layer 4 vs Layer 7 load balancing)?",
+    "expectedTopics": [
+      "Load Balancer",
+      "Layer 4 vs Layer 7",
+      "Traffic Distribution"
+    ],
+    "keyPoints": [
+      "Layer 4 Load Balancer routes traffic based on IP addresses and TCP/UDP ports without inspecting application payload (high throughput, simple).",
+      "Layer 7 Load Balancer routes traffic based on HTTP headers, URLs, cookies, and payload content (smart routing, SSL termination, rate limiting).",
+      "L4 is faster and lightweight; L7 offers context-aware routing."
+    ],
+    "tags": [
+      "Load Balancing",
+      "System Architecture"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does MTU (Maximum Transmission Unit) and IP Packet Fragmentation work?",
+    "expectedTopics": [
+      "MTU",
+      "IP Fragmentation",
+      "Path MTU Discovery"
+    ],
+    "keyPoints": [
+      "MTU specifies maximum size of a Layer 3 packet that can be transmitted without fragmentation (default 1500 bytes on Ethernet).",
+      "If packet size exceeds MTU along path, router splits payload into fragments unless Don't Fragment (DF) bit is set.",
+      "If DF bit is set and packet > MTU, router drops packet and sends ICMP Destination Unreachable (Fragmentation Needed).",
+      "Path MTU Discovery (PMTUD) determines optimal path MTU dynamically."
+    ],
+    "tags": [
+      "MTU",
+      "Fragmentation"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "High-Concurrency Server Scenario: A backend server suffers from TIME_WAIT socket exhaustion under heavy HTTP load. How do you diagnose and tune kernel parameters?",
+    "expectedTopics": [
+      "TIME_WAIT Exhaustion",
+      "Kernel Socket Tuning",
+      "SO_REUSEADDR"
+    ],
+    "keyPoints": [
+      "Diagnosis: Inspect socket state counts (`netstat -an | grep TIME_WAIT`); observe ephemeral port depletion errors.",
+      "Cause: Server actively closes client connections, keeping sockets in TIME_WAIT for 2 * MSL (60s).",
+      "Kernel Tuning: Enable `sysctl -w net.ipv4.tcp_tw_reuse=1` to allow recycling TIME_WAIT sockets for outgoing connections.",
+      "Application Fix: Enable HTTP Keep-Alive / connection pooling to reuse persistent TCP connections."
+    ],
+    "tags": [
+      "TIME_WAIT",
+      "Kernel Tuning",
+      "Concurrency"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario-based Debugging: Walk through network packet analysis using tcpdump, wireshark, and PMTUD ICMP blackhole identification.",
+    "expectedTopics": [
+      "tcpdump Wireshark",
+      "PMTUD Blackhole",
+      "Packet Troubleshooting"
+    ],
+    "keyPoints": [
+      "Capture packets using `tcpdump -i eth0 -nn -w capture.pcap 'tcp port 443'`; analyze in Wireshark.",
+      "PMTUD ICMP Blackhole: Happens when a middlebox/firewall drops ICMP Fragmentation Needed packets.",
+      "Symptom: TCP handshake succeeds (small SYN packets pass), but large HTTP payload GET requests hang indefinitely.",
+      "Fix: Clamp TCP MSS (`iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu`)."
+    ],
+    "tags": [
+      "tcpdump",
+      "Wireshark",
+      "Debugging"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into TCP Congestion Control: Compare Loss-based Congestion Control (Cubic) with Bandwidth-based Congestion Control (Google BBR).",
+    "expectedTopics": [
+      "TCP Cubic vs BBR",
+      "Loss-based vs Delay-based",
+      "BBR Congestion Control"
+    ],
+    "keyPoints": [
+      "Loss-based (Cubic): Assumes packet loss indicates network congestion; expands window until loss occurs, causing bufferbloat and latency spikes.",
+      "Bandwidth-based (BBR): Models bottleneck bandwidth (BtlBw) and round-trip propagation delay (RTprop) explicitly.",
+      "BBR transmits data at calculated pacing rate without overfilling router buffers.",
+      "Yields significantly higher throughput and lower queueing latency on lossy wireless/cloud networks."
+    ],
+    "tags": [
+      "TCP BBR",
+      "Cubic",
+      "Congestion Control"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive into HTTP/3 & QUIC: Explain how QUIC over UDP solves Head-of-Line (HoL) Blocking at the transport layer.",
+    "expectedTopics": [
+      "HTTP/3 QUIC",
+      "Transport HoL Blocking",
+      "Connection Migration"
+    ],
+    "keyPoints": [
+      "HTTP/2 over single TCP: A single lost packet blocks ALL multiplexed streams on that TCP connection (Transport HoL).",
+      "QUIC over UDP: Implements independent stream framing natively at transport layer; loss in Stream A does NOT block Stream B.",
+      "Combines TLS 1.3 cryptographic handshake into transport setup, enabling 0-RTT connection resumption.",
+      "Uses 64-bit Connection IDs instead of IP:Port tuples, enabling seamless client IP mobility (switching Wi-Fi to 5G)."
+    ],
+    "tags": [
+      "QUIC",
+      "HTTP/3",
+      "Transport Protocol"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "BGP Routing Flap & Hijacking Scenario: Explain how BGP route leaks occur and how RPKI secures BGP routing tables.",
+    "expectedTopics": [
+      "BGP Hijacking",
+      "RPKI Validation",
+      "Backbone Security"
+    ],
+    "keyPoints": [
+      "BGP Route Hijack: Rogue Autonomous System advertises unauthorized specific IP prefixes, rerouting internet traffic through rogue nodes.",
+      "RPKI (Resource Public Key Infrastructure): Cryptographic PKI framework tying IP address blocks to authorized AS numbers via Route Origin Authorizations (ROAs).",
+      "Routers perform RPKI Route Origin Validation (ROV) to drop invalid BGP announcements automatically.",
+      "Prevents global traffic redirection and MITM interception."
+    ],
+    "tags": [
+      "BGP Hijacking",
+      "RPKI",
+      "Network Security"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Designing a Global Anycast DNS Network: How do Anycast BGP routing and geo-DNS latency routing deliver sub-10ms DNS resolution?",
+    "expectedTopics": [
+      "Anycast DNS",
+      "BGP Anycast",
+      "Global Infrastructure"
+    ],
+    "keyPoints": [
+      "Anycast BGP announces the EXACT SAME IP address from dozens of globally distributed edge data centers simultaneously.",
+      "BGP routing automatically directs client queries to topologically closest edge server node.",
+      "Local edge nodes resolve DNS queries from memory cache in sub-10ms.",
+      "Provides inherent DDoS absorption by spreading traffic bursts across global data centers."
+    ],
+    "tags": [
+      "Anycast",
+      "DNS",
+      "Global Routing"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "TLS 1.3 Optimization Deep Dive: Compare TLS 1.2 (2-RTT) with TLS 1.3 (1-RTT & 0-RTT) and explain Forward Secrecy.",
+    "expectedTopics": [
+      "TLS 1.3",
+      "0-RTT Resumption",
+      "Forward Secrecy"
+    ],
+    "keyPoints": [
+      "TLS 1.2 requires 2 full round-trips for handshake completion; TLS 1.3 achieves 1-RTT handshake by bundling key share in ClientHello.",
+      "TLS 1.3 0-RTT Resumption allows returning clients to send encrypted early data in very first packet.",
+      "Mandates Ephemeral Diffie-Hellman (ECDHE) key exchange, enforcing Perfect Forward Secrecy (PFS).",
+      "PFS guarantees past session traffic cannot be decrypted even if server long-term private key is compromised in future."
+    ],
+    "tags": [
+      "TLS 1.3",
+      "Forward Secrecy"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Network Security Scenario: Design an Enterprise Zero-Trust Network Architecture (ZTNA) utilizing Mutual TLS (mTLS) and Microsegmentation.",
+    "expectedTopics": [
+      "Zero Trust Architecture",
+      "mTLS",
+      "Microsegmentation"
+    ],
+    "keyPoints": [
+      "Zero Trust Principle: 'Never Trust, Always Verify'; eliminates perimeter-only security assumptions.",
+      "mTLS (Mutual TLS): Both client and server present X.509 digital certificates to authenticate identity bi-directionally.",
+      "Microsegmentation: Enforces fine-grained Layer 7 security policies blocking lateral movement between microservices.",
+      "Integrates Software-Defined Perimeter (SDP) for dynamic identity-based access control."
+    ],
+    "tags": [
+      "Zero Trust",
+      "mTLS",
+      "Security Architecture"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "NAT Traversal Deep Dive: Explain how STUN, TURN, and ICE protocols enable WebRTC P2P communication behind Symmetric NATs.",
+    "expectedTopics": [
+      "NAT Traversal",
+      "STUN TURN ICE",
+      "WebRTC P2P"
+    ],
+    "keyPoints": [
+      "STUN (Session Traversal Utilities for NAT): Client queries STUN server to discover its public IP and mapped port.",
+      "Fails with Symmetric NATs because public port mapping changes per destination address.",
+      "TURN (Traversal Using Relays around NAT): Relays media streams through a fallback server when direct P2P fails.",
+      "ICE (Interactive Connectivity Establishment): Framework trying STUN candidates first, falling back to TURN relay."
+    ],
+    "tags": [
+      "NAT Traversal",
+      "WebRTC",
+      "STUN TURN"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Software Engineer",
+    "category": "Computer Networks",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Network Packet Capture Refactoring: A low-latency platform experiences packet drops in kernel ring buffers. Explain zero-copy DPDK/eBPF kernel bypass.",
+    "expectedTopics": [
+      "Kernel Bypass",
+      "DPDK eBPF",
+      "Low-Latency Networking"
+    ],
+    "keyPoints": [
+      "Traditional Linux Network Stack: Interrupt handling, socket buffer allocation (sk_buff), and context switches cause latency microburst drops.",
+      "DPDK (Data Plane Development Kit): Bypasses Linux kernel entirely, polling NIC ring buffers directly from user space (Zero-Copy).",
+      "eBPF / XDP (eXpress Data Path): Executes sandboxed bytecode directly inside NIC driver layer before sk_buff memory allocation.",
+      "Reduces packet processing latency from microseconds to sub-nanoseconds."
+    ],
+    "tags": [
+      "Kernel Bypass",
+      "DPDK",
+      "eBPF"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

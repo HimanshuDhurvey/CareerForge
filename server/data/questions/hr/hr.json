@@ -1,0 +1,1202 @@
+[
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "Tell me about yourself and walk me through your professional background.",
+    "expectedTopics": [
+      "Self Introduction",
+      "Career Journey",
+      "Key Accomplishments"
+    ],
+    "keyPoints": [
+      "Provide a concise 2-minute summary of educational background, career milestones, and key technical/domain expertise.",
+      "Highlight major achievements and skills relevant to the target role.",
+      "Explain your current career pivot or reason for pursuing this opportunity.",
+      "Keep the narrative structured, engaging, and professional."
+    ],
+    "tags": [
+      "Self Introduction",
+      "Background"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "What are your greatest professional strengths and how do they benefit a team?",
+    "expectedTopics": [
+      "Strengths",
+      "Value Addition",
+      "Team Impact"
+    ],
+    "keyPoints": [
+      "Identify 2-3 genuine professional strengths (e.g. problem solving, adaptability, communication).",
+      "Provide concrete examples demonstrating how these strengths created positive team outcomes.",
+      "Align strengths directly with key requirements of the target position.",
+      "Avoid generic self-praise without supporting evidence."
+    ],
+    "tags": [
+      "Strengths",
+      "Self Assessment"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "What is your biggest professional weakness and what steps are you taking to improve it?",
+    "expectedTopics": [
+      "Weaknesses",
+      "Self-Awareness",
+      "Active Improvement"
+    ],
+    "keyPoints": [
+      "Share a real, non-fatal professional weakness (avoid fake weaknesses like 'I work too hard').",
+      "Explain how you recognized this weakness through self-reflection or feedback.",
+      "Detail proactive steps and habits implemented to overcome or manage the weakness.",
+      "Demonstrate strong self-awareness and commitment to growth."
+    ],
+    "tags": [
+      "Weaknesses",
+      "Self Improvement"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "Why do you want to work for our company specifically?",
+    "expectedTopics": [
+      "Company Research",
+      "Mission Alignment",
+      "Career Fit"
+    ],
+    "keyPoints": [
+      "Demonstrate clear knowledge of company products, culture, mission, and recent achievements.",
+      "Align your personal career goals and values with company vision.",
+      "Explain what specifically excites you about the company's tech stack or market impact.",
+      "Show genuine enthusiasm for contributing to the team's goals."
+    ],
+    "tags": [
+      "Company Research",
+      "Motivation"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "Where do you see yourself in 3 to 5 years in your career journey?",
+    "expectedTopics": [
+      "Career Goals",
+      "Ambition",
+      "Long-Term Vision"
+    ],
+    "keyPoints": [
+      "Outline realistic career progression goals aligned with the target role and industry.",
+      "Emphasize mastering technical skills, taking on higher ownership, or stepping into leadership.",
+      "Show long-term commitment to growing within the company rather than job hopping.",
+      "Balance ambition with pragmatic steps for skill development."
+    ],
+    "tags": [
+      "Career Goals",
+      "Future Vision"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "What environment or company culture enables you to perform at your best?",
+    "expectedTopics": [
+      "Cultural Fit",
+      "Work Environment",
+      "Productivity"
+    ],
+    "keyPoints": [
+      "Describe work environments supporting collaboration, continuous learning, and open communication.",
+      "Highlight appreciation for autonomy, psychological safety, and clear goal alignment.",
+      "Show adaptability to both fast-paced startup dynamics and structured enterprise processes.",
+      "Demonstrate cultural alignment with target company values."
+    ],
+    "tags": [
+      "Culture",
+      "Work Environment"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "Why are you looking to leave your current role or company?",
+    "expectedTopics": [
+      "Career Transition",
+      "Professional Growth",
+      "Positivity"
+    ],
+    "keyPoints": [
+      "Frame transition rationale positively around seeking new challenges and professional growth.",
+      "Avoid badmouthing previous employers, managers, or coworkers under any circumstance.",
+      "Focus on what you want to move TOWARD (new learning, bigger impact) rather than what you are running away from.",
+      "Maintain high professional diplomacy."
+    ],
+    "tags": [
+      "Job Transition",
+      "Career Growth"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "How do you handle work-related stress or pressure during tight deadlines?",
+    "expectedTopics": [
+      "Stress Management",
+      "Pressure Handling",
+      "Resilience"
+    ],
+    "keyPoints": [
+      "Describe healthy coping mechanisms and structured prioritization habits.",
+      "Provide an example of maintaining composure and focus during high-pressure project crunch periods.",
+      "Explain how open communication with managers prevents team burnout.",
+      "Demonstrate emotional stability and resilience."
+    ],
+    "tags": [
+      "Stress Management",
+      "Resilience"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "Describe a time when you had to work as part of a team to accomplish a goal.",
+    "expectedTopics": [
+      "Teamwork",
+      "Collaboration",
+      "Shared Success"
+    ],
+    "keyPoints": [
+      "Detail team composition, project objective, and your specific role.",
+      "Explain how team members shared responsibilities, resolved ideas, and supported each other.",
+      "Highlight overall team achievement and project delivery metrics.",
+      "Demonstrate team-first mindset and collaborative nature."
+    ],
+    "tags": [
+      "Teamwork",
+      "Collaboration"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "What motivates you to perform well in your daily work?",
+    "expectedTopics": [
+      "Motivation",
+      "Intrinsic Drive",
+      "Work Ethic"
+    ],
+    "keyPoints": [
+      "Share intrinsic motivators (solving tough technical problems, mastering skills, making user impact).",
+      "Mention extrinsic motivators (positive team recognition, career growth opportunities).",
+      "Connect personal motivation to achieving high-quality project outcomes.",
+      "Demonstrate strong internal drive and reliability."
+    ],
+    "tags": [
+      "Motivation",
+      "Work Ethic"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "What are your salary expectations for this position?",
+    "expectedTopics": [
+      "Salary Expectations",
+      "Market Research",
+      "Negotiation"
+    ],
+    "keyPoints": [
+      "Provide a realistic salary range based on market research, experience, and location.",
+      "Express flexibility depending on total compensation package (benefits, equity, bonuses).",
+      "Inquire about standard compensation bands for the level if unsure.",
+      "Maintain professional confidence without pricing yourself out or underselling."
+    ],
+    "tags": [
+      "Salary",
+      "Compensation"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "How do you prioritize tasks when faced with multiple deadlines?",
+    "expectedTopics": [
+      "Time Management",
+      "Task Prioritization",
+      "Efficiency"
+    ],
+    "keyPoints": [
+      "Describe structured frameworks used (Eisenhower Matrix, urgency vs impact).",
+      "Detail communication with stakeholders to align expectations when conflicts arise.",
+      "Explain how you break large projects into manageable daily action items.",
+      "Highlight track record of meeting commitments consistently."
+    ],
+    "tags": [
+      "Time Management",
+      "Prioritization"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "What do you know about our company's mission, values, and products?",
+    "expectedTopics": [
+      "Company Knowledge",
+      "Industry Context",
+      "Alignment"
+    ],
+    "keyPoints": [
+      "Summarize key products, target market, and company vision accurately.",
+      "Reference company core values and give an example of how you embody them.",
+      "Mention recent company news, product releases, or milestones.",
+      "Proves genuine preparation and interest in the organization."
+    ],
+    "tags": [
+      "Company Knowledge",
+      "Preparation"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "How do you maintain work-life balance while meeting professional commitments?",
+    "expectedTopics": [
+      "Work-Life Balance",
+      "Boundary Setting",
+      "Productivity Habits"
+    ],
+    "keyPoints": [
+      "Explain efficient time management habits during work hours to minimize overtime needs.",
+      "Describe personal wellness routines that restore mental energy for work.",
+      "Discuss clear communication regarding availability and realistic boundary setting.",
+      "Demonstrate sustainable productivity."
+    ],
+    "tags": [
+      "Work-Life Balance",
+      "Wellness"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "What makes you unique compared to other candidates applying for this role?",
+    "expectedTopics": [
+      "Unique Selling Proposition",
+      "Differentiator",
+      "Skill Combination"
+    ],
+    "keyPoints": [
+      "Highlight your unique combination of technical expertise, soft skills, and domain experience.",
+      "Mention specific achievements or rare problem-solving perspective you bring.",
+      "Focus on value creation and passion for the team's specific goals.",
+      "Deliver a compelling pitch without arrogance."
+    ],
+    "tags": [
+      "Differentiation",
+      "Value Proposition"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "Describe your ideal manager and leadership management style.",
+    "expectedTopics": [
+      "Leadership Style",
+      "Management Expectations",
+      "Manager Fit"
+    ],
+    "keyPoints": [
+      "Describe managers who provide clear direction, trust team members with autonomy, and offer constructive feedback.",
+      "Highlight appreciation for supportive, empathetic, and communicative leaders.",
+      "Show adaptability to work effectively under various management styles.",
+      "Demonstrate positive relationship management."
+    ],
+    "tags": [
+      "Leadership",
+      "Management Fit"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "How do you prefer to receive feedback from your supervisors or peers?",
+    "expectedTopics": [
+      "Feedback Reception",
+      "Communication Preference",
+      "Growth Mindset"
+    ],
+    "keyPoints": [
+      "Express preference for direct, constructive, and actionable feedback delivered in 1-on-1 settings.",
+      "Highlight viewing feedback as an opportunity for continuous improvement rather than personal criticism.",
+      "Describe how you follow up after receiving feedback to track progress.",
+      "Show high emotional maturity."
+    ],
+    "tags": [
+      "Feedback",
+      "Communication"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "Are you open to relocating or working in a hybrid/remote setup if required?",
+    "expectedTopics": [
+      "Flexibility",
+      "Relocation",
+      "Work Arrangement"
+    ],
+    "keyPoints": [
+      "State your actual willingness and preferences regarding remote, hybrid, or on-site work.",
+      "Address relocation feasibility clearly if applicable.",
+      "Highlight experience working effectively across distributed remote or hybrid environments.",
+      "Provide transparent logistics clarity."
+    ],
+    "tags": [
+      "Flexibility",
+      "Work Arrangement"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "What is your notice period and how soon can you join our team if selected?",
+    "expectedTopics": [
+      "Notice Period",
+      "Availability",
+      "Transition Planning"
+    ],
+    "keyPoints": [
+      "State your exact official notice period duration (e.g. 30 days, 60 days, immediate).",
+      "Mention possibility of early buyout or buyout negotiation if applicable.",
+      "Explain commitment to executing smooth handover to current employer before joining.",
+      "Give accurate timeline expectations."
+    ],
+    "tags": [
+      "Notice Period",
+      "Availability"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Easy",
+    "interviewType": "HR",
+    "question": "Do you have any questions for us about the company, role, or team culture?",
+    "expectedTopics": [
+      "Candidate Questions",
+      "Engagement",
+      "Interview Reverse"
+    ],
+    "keyPoints": [
+      "Ask thoughtful, high-level questions about team challenges, growth vision, or engineering culture.",
+      "Example: 'What does success look like for someone in this role over the first 90 days?'",
+      "Example: 'What is the biggest technical challenge the team is currently working to solve?'",
+      "Demonstrates high interest, curiosity, and proactive engagement."
+    ],
+    "tags": [
+      "Reverse Interview",
+      "Engagement"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Describe a situation where you had to deal with a difficult coworker. How did you handle the relationship?",
+    "expectedTopics": [
+      "Conflict Resolution",
+      "Professionalism",
+      "Interpersonal Skills"
+    ],
+    "keyPoints": [
+      "Describe friction professionally without personal insults or hostility.",
+      "Detail steps taken to initiate private 1-on-1 dialogue to understand underlying frustrations.",
+      "Explain how you focused on objective shared goals and professional boundaries.",
+      "Highlight improved working relationship and successful project outcome."
+    ],
+    "tags": [
+      "Conflict",
+      "Interpersonal Skills"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Tell me about a time when you received negative or critical performance feedback. How did you react?",
+    "expectedTopics": [
+      "Handling Criticism",
+      "Growth Mindset",
+      "Action Plan"
+    ],
+    "keyPoints": [
+      "Share genuine critical feedback received objectively.",
+      "Describe initial reaction control, listening without defensiveness.",
+      "Detail concrete action plan created to address identified gaps.",
+      "Show how follow-up evaluations demonstrated significant performance improvement."
+    ],
+    "tags": [
+      "Feedback",
+      "Personal Growth"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Describe a time when you had to step outside your defined job responsibilities to help your team succeed.",
+    "expectedTopics": [
+      "Ownership",
+      "Flexibility",
+      "Team Player"
+    ],
+    "keyPoints": [
+      "Explain emergency situation or resource gap that arose in project.",
+      "Describe how you took initiative to learn unassigned tasks or cover for absent teammates.",
+      "Show how going above and beyond enabled team to meet critical goals.",
+      "Demonstrate strong commitment to collective team success."
+    ],
+    "tags": [
+      "Ownership",
+      "Initiative"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "How do you handle constructive disagreement with a decision made by senior management?",
+    "expectedTopics": [
+      "Disagree and Commit",
+      "Upward Communication",
+      "Professional Diplomacy"
+    ],
+    "keyPoints": [
+      "Explain how you voice data-backed concerns respectfully through appropriate channels.",
+      "Describe listening to executive business context and reasoning.",
+      "Detail commitment to fully executing final decision once leadership makes a call ('Disagree and Commit').",
+      "Demonstrate professional diplomacy and organizational alignment."
+    ],
+    "tags": [
+      "Upward Communication",
+      "Alignment"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Describe a time when you had to adapt quickly to a major organizational change or restructuring.",
+    "expectedTopics": [
+      "Change Management",
+      "Adaptability",
+      "Resilience"
+    ],
+    "keyPoints": [
+      "Explain organizational shift (re-org, leadership change, pivot in strategy).",
+      "Describe how you maintained positive attitude and helped teammates navigate uncertainty.",
+      "Detail how you quickly realigned personal goals with new team directions.",
+      "Demonstrate agility and resilience."
+    ],
+    "tags": [
+      "Change Management",
+      "Adaptability"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Tell me about a project that did not go as planned. What went wrong and how did you handle the outcome?",
+    "expectedTopics": [
+      "Failure Handling",
+      "Retrospective",
+      "Accountability"
+    ],
+    "keyPoints": [
+      "Describe project missteps objectively without blaming external parties.",
+      "Detail immediate steps taken to minimize damage and communicate with stakeholders.",
+      "Explain post-mortem retrospective conducted to identify root causes.",
+      "Highlight process changes introduced to prevent future failures."
+    ],
+    "tags": [
+      "Failure",
+      "Retrospective"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Describe a time when you had to convince your team or manager to adopt your idea or proposal.",
+    "expectedTopics": [
+      "Persuasion",
+      "Influence",
+      "Data-Driven Arguments"
+    ],
+    "keyPoints": [
+      "Describe proposed idea and initial hesitation or pushback from team.",
+      "Detail how you gathered data, built prototypes, or demonstrated ROI to address concerns.",
+      "Explain collaborative presentation of proposal addressing stakeholder needs.",
+      "Highlight successful adoption and positive project impact."
+    ],
+    "tags": [
+      "Persuasion",
+      "Influence"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "How do you handle working on repetitive or tedious tasks while maintaining high quality standards?",
+    "expectedTopics": [
+      "Quality Assurance",
+      "Diligence",
+      "Process Automation"
+    ],
+    "keyPoints": [
+      "Explain mental discipline and focus on quality despite task monotony.",
+      "Describe how you look for automation or workflow optimization opportunities.",
+      "Highlight understanding of how tedious tasks contribute to larger business success.",
+      "Show consistency, reliability, and continuous process improvement."
+    ],
+    "tags": [
+      "Diligence",
+      "Quality"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Describe a scenario where you had to manage conflicting feedback or expectations from multiple stakeholders.",
+    "expectedTopics": [
+      "Stakeholder Alignment",
+      "Conflict Resolution",
+      "Prioritization"
+    ],
+    "keyPoints": [
+      "Detail conflicting expectations between stakeholders (e.g. Sales vs Product vs Engineering).",
+      "Explain how you brought parties together to clarify priorities and tradeoffs.",
+      "Describe data-backed negotiation resulting in agreed consensus scope.",
+      "Highlight strong stakeholder management skills."
+    ],
+    "tags": [
+      "Stakeholder Management",
+      "Alignment"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Tell me about a time when you worked under a manager whose leadership style differed from your preferred style.",
+    "expectedTopics": [
+      "Adaptability",
+      "Manager Relationship",
+      "Professional Maturity"
+    ],
+    "keyPoints": [
+      "Describe manager's style (e.g. micromanagement vs hands-off) without disrespect.",
+      "Explain how you adapted communication habits to meet manager expectations.",
+      "Detail proactive updates or discussions held to build mutual trust.",
+      "Demonstrate high workplace adaptability."
+    ],
+    "tags": [
+      "Adaptability",
+      "Management Fit"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "How do you ensure continuous learning and stay up-to-date with industry trends in your field?",
+    "expectedTopics": [
+      "Continuous Learning",
+      "Self Improvement",
+      "Industry Trends"
+    ],
+    "keyPoints": [
+      "Detail specific learning resources used (blogs, courses, tech books, podcasts, open-source).",
+      "Describe side projects or practical experiments undertaken to apply new concepts.",
+      "Mention knowledge sharing with team members (tech talks, documentation).",
+      "Demonstrate curiosity and passion for field growth."
+    ],
+    "tags": [
+      "Continuous Learning",
+      "Curiosity"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Describe a time when you recognized a process flaw in your team's workflow and took initiative to improve it.",
+    "expectedTopics": [
+      "Process Improvement",
+      "Initiative",
+      "Problem Solving"
+    ],
+    "keyPoints": [
+      "Detail workflow flaw (e.g. manual testing bottlenecks, poor documentation, delayed reviews).",
+      "Explain proposed improvement and how you onboarded team members.",
+      "Quantify time saved or error rate reduction achieved.",
+      "Show proactive problem-solving leadership."
+    ],
+    "tags": [
+      "Process Improvement",
+      "Initiative"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "How do you approach salary negotiations if an offer falls below your initial expectations?",
+    "expectedTopics": [
+      "Salary Negotiation",
+      "Professional Diplomacy",
+      "Value Communication"
+    ],
+    "keyPoints": [
+      "Express enthusiasm for company and role first before discussing numbers.",
+      "Present data-backed market benchmarks and unique value contributions justifying request.",
+      "Inquire about total package flexibility (equity, bonuses, performance review timelines).",
+      "Maintain respectful, collaborative negotiation tone."
+    ],
+    "tags": [
+      "Salary",
+      "Negotiation"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Tell me about a time when you had to make a tough trade-off between speed of delivery and perfectionism.",
+    "expectedTopics": [
+      "Pragmatism",
+      "Trade-off Analysis",
+      "Delivery Speed"
+    ],
+    "keyPoints": [
+      "Explain context where perfect solution would cause missed critical deadline.",
+      "Detail pragmatic evaluation of MVP requirements vs post-launch enhancements.",
+      "Describe transparent communication with product team regarding technical trade-offs.",
+      "Highlight on-time delivery with plan for future iteration."
+    ],
+    "tags": [
+      "Pragmatism",
+      "Trade-offs"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Describe a situation where you had to build a working relationship with someone you initially found difficult.",
+    "expectedTopics": [
+      "Relationship Building",
+      "Empathy",
+      "Professionalism"
+    ],
+    "keyPoints": [
+      "Describe initial friction or personality mismatch objectively.",
+      "Explain effort made to understand their work style, pressure, and perspectives.",
+      "Detail finding common ground and establishing clear collaboration norms.",
+      "Demonstrate high interpersonal empathy and professionalism."
+    ],
+    "tags": [
+      "Relationship Building",
+      "Empathy"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Tell me about a time when you took on a leadership role during a high-pressure situation or crisis.",
+    "expectedTopics": [
+      "Crisis Leadership",
+      "Pressure Response",
+      "Ownership"
+    ],
+    "keyPoints": [
+      "Describe crisis context (e.g. outage, sudden departure, major client issue).",
+      "Detail how you remained calm, organized team efforts, and delegated tasks.",
+      "Explain clear status updates communicated to leadership and clients.",
+      "Highlight successful resolution and team stabilization."
+    ],
+    "tags": [
+      "Leadership",
+      "Crisis Management"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "How do you manage your time and stay productive when working remotely without direct supervision?",
+    "expectedTopics": [
+      "Remote Work",
+      "Self Discipline",
+      "Time Management"
+    ],
+    "keyPoints": [
+      "Describe personal productivity routines (calendar blocking, task tracking, async check-ins).",
+      "Detail proactive communication habits keeping managers updated without micromanagement.",
+      "Explain how you minimize distractions and maintain focus.",
+      "Show strong self-discipline and trustworthiness."
+    ],
+    "tags": [
+      "Remote Work",
+      "Self Discipline"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Describe a time when you had to say 'no' to a request from a manager or client. How did you handle it?",
+    "expectedTopics": [
+      "Boundary Setting",
+      "Expectation Management",
+      "Diplomacy"
+    ],
+    "keyPoints": [
+      "Explain unrealistic request context (e.g. impossible deadline, out-of-scope feature).",
+      "Detail how you politely declined using data, capacity limits, and alternative options.",
+      "Show collaborative negotiation of realistic alternative scope or timeline.",
+      "Demonstrate professional boundary management."
+    ],
+    "tags": [
+      "Boundary Setting",
+      "Communication"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Tell me about a time when you helped a colleague who was struggling with their workload or personal challenges.",
+    "expectedTopics": [
+      "Empathy",
+      "Peer Support",
+      "Teamwork"
+    ],
+    "keyPoints": [
+      "Describe colleague's struggle and how you noticed without being intrusive.",
+      "Detail supportive actions taken (offloading tasks, pair programming, emotional support).",
+      "Explain how team delivered goals while protecting colleague's well-being.",
+      "Demonstrate strong empathy and team solidarity."
+    ],
+    "tags": [
+      "Empathy",
+      "Peer Support"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Medium",
+    "interviewType": "HR",
+    "question": "Describe how your career goals align specifically with our company's long-term growth vision.",
+    "expectedTopics": [
+      "Career Alignment",
+      "Strategic Fit",
+      "Company Growth"
+    ],
+    "keyPoints": [
+      "Connect your personal career trajectory with company's strategic roadmap.",
+      "Explain how solving company's core challenges accelerates your professional growth.",
+      "Show mutual value creation for both yourself and the organization.",
+      "Demonstrate strategic thinking and commitment."
+    ],
+    "tags": [
+      "Alignment",
+      "Career Goals"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Hard",
+    "interviewType": "HR",
+    "question": "Executive Alignment Scenario: Describe a situation where you discovered a significant gap between your team's project goals and executive strategy. How did you realign?",
+    "expectedTopics": [
+      "Strategic Alignment",
+      "Executive Communication",
+      "Organizational Impact"
+    ],
+    "keyPoints": [
+      "Explain alignment gap discovered between daily project tasks and high-level company OKRs.",
+      "Detail proactive steps taken to gather data, schedule executive review, and propose roadmap pivot.",
+      "Describe change management implemented to realign team efforts cleanly.",
+      "Highlight strategic leadership and business acumen."
+    ],
+    "tags": [
+      "Executive Alignment",
+      "Strategic Vision"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Hard",
+    "interviewType": "HR",
+    "question": "Ethical Boundary Scenario: Tell me about a time when you were asked to do something that breached your ethical boundaries or company policy. How did you handle it?",
+    "expectedTopics": [
+      "Ethics & Integrity",
+      "Policy Compliance",
+      "Courage"
+    ],
+    "keyPoints": [
+      "Describe ethical conflict context clearly without compromising confidential info.",
+      "Detail firm, respectful refusal explaining regulatory or ethical risks involved.",
+      "Explain escalation to compliance/HR or offering compliant alternative solutions.",
+      "Demonstrate unyielding professional integrity."
+    ],
+    "tags": [
+      "Ethics",
+      "Integrity"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Hard",
+    "interviewType": "HR",
+    "question": "Burnout Recovery: Describe a period when you experienced severe burnout or extreme workload. How did you recover and rebuild sustainable habits?",
+    "expectedTopics": [
+      "Burnout Recovery",
+      "Self Awareness",
+      "Sustainable Productivity"
+    ],
+    "keyPoints": [
+      "Share burnout experience candidly and root causes identified.",
+      "Detail transparent communication with management to restructure commitments.",
+      "Explain long-term lifestyle, wellness, and boundary habits implemented.",
+      "Demonstrate resilience and sustainable high performance."
+    ],
+    "tags": [
+      "Burnout",
+      "Resilience"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Hard",
+    "interviewType": "HR",
+    "question": "Handling Downsizing: Describe your experience navigating team downsizing or company layoffs. How did you support remaining team members?",
+    "expectedTopics": [
+      "Crisis Leadership",
+      "Empathy",
+      "Team Stabilization"
+    ],
+    "keyPoints": [
+      "Detail restructuring context and emotional impact on team.",
+      "Describe actions taken to maintain transparent communication and support departing/remaining colleagues.",
+      "Explain how you realigned workload to prevent remaining team burnout.",
+      "Show exceptional empathetic leadership under adversity."
+    ],
+    "tags": [
+      "Downsizing",
+      "Crisis Leadership"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Hard",
+    "interviewType": "HR",
+    "question": "Career Pivot Rationale: If you are making a significant career transition or role pivot, justify why this move makes strategic sense and how skills transfer.",
+    "expectedTopics": [
+      "Career Pivot",
+      "Transferable Skills",
+      "Strategic Rationale"
+    ],
+    "keyPoints": [
+      "Articulate clear strategic rationale driving your career direction shift.",
+      "Map past transferable achievements directly to new role core competencies.",
+      "Detail self-learning and certifications completed to bridge technical gaps.",
+      "Deliver confident, well-reasoned career narrative."
+    ],
+    "tags": [
+      "Career Pivot",
+      "Transferable Skills"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Hard",
+    "interviewType": "HR",
+    "question": "Unmet Promises: Describe a situation where promised promotions, raises, or resources were delayed or revoked by leadership. How did you handle it?",
+    "expectedTopics": [
+      "Disappointment Handling",
+      "Professional Maturity",
+      "Constructive Dialogue"
+    ],
+    "keyPoints": [
+      "Explain unmet expectation context without bitterness or anger.",
+      "Detail professional 1-on-1 discussion held with manager to understand business constraints.",
+      "Describe how you established clear measurable criteria and future review timelines.",
+      "Show high professional maturity and poise under disappointment."
+    ],
+    "tags": [
+      "Disappointment",
+      "Professionalism"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Hard",
+    "interviewType": "HR",
+    "question": "Managing Underperformance: Tell me about a time when a team member under your leadership was placed on a PIP or underperforming. How did you balance empathy with rigor?",
+    "expectedTopics": [
+      "Performance Management",
+      "Empathy & Rigor",
+      "PIP Management"
+    ],
+    "keyPoints": [
+      "Explain performance gap context and clear expectations set.",
+      "Detail structured support provided (weekly 1-on-1s, training, clear metrics).",
+      "Describe balancing compassionate support with firm business accountability.",
+      "Detail final outcome (performance recovery or graceful transition)."
+    ],
+    "tags": [
+      "Performance Management",
+      "Leadership"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Hard",
+    "interviewType": "HR",
+    "question": "Navigating Office Politics: Describe a scenario where team politics or competing agendas threatened project success. How did you navigate without compromising integrity?",
+    "expectedTopics": [
+      "Office Politics",
+      "Diplomacy",
+      "Integrity"
+    ],
+    "keyPoints": [
+      "Describe political friction context objectively without gossiping.",
+      "Detail how you stayed neutral, focused on shared business metrics, and built cross-departmental bridges.",
+      "Explain transparent data-backed communication used to defuse political posturing.",
+      "Demonstrate high political intelligence paired with unyielding integrity."
+    ],
+    "tags": [
+      "Office Politics",
+      "Diplomacy"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Hard",
+    "interviewType": "HR",
+    "question": "Strategic Job Change Rationale: Address how you demonstrate long-term stability without risking skill stagnation if you have changed jobs frequently or stayed long-term.",
+    "expectedTopics": [
+      "Job Tenure",
+      "Career Stability",
+      "Skill Currency"
+    ],
+    "keyPoints": [
+      "If frequent transitions: Explain growth motivations behind each move and highlight rapid adaptability.",
+      "If long tenure: Highlight internal role changes, new tech adoption, and continuous promotions within same firm.",
+      "Emphasize commitment to establishing long-term impact in target company.",
+      "Reassure employer regarding retention and stability."
+    ],
+    "tags": [
+      "Job Stability",
+      "Career Narrative"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "General",
+    "category": "HR",
+    "difficulty": "Hard",
+    "interviewType": "HR",
+    "question": "Describe the biggest professional risk you have ever taken in your career. What was the outcome and what did you learn?",
+    "expectedTopics": [
+      "Professional Risk",
+      "Risk Management",
+      "Growth"
+    ],
+    "keyPoints": [
+      "Detail calculated risk context (e.g. joining early startup, spearheading new project, major career pivot).",
+      "Explain risk-benefit analysis conducted before taking leap.",
+      "Detail execution resilience when challenges emerged during risk realization.",
+      "Share key lessons learned about personal risk tolerance and growth."
+    ],
+    "tags": [
+      "Risk Taking",
+      "Career Growth"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]

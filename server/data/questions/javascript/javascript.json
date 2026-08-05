@@ -1,0 +1,1205 @@
+[
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are the primitive data types in JavaScript and how are they stored in memory compared to reference types?",
+    "expectedTopics": [
+      "Primitive vs Reference",
+      "Memory Allocation",
+      "Stack vs Heap"
+    ],
+    "keyPoints": [
+      "JavaScript primitive types are string, number, bigint, boolean, undefined, symbol, and null.",
+      "Primitives are immutable and stored directly in stack memory by value.",
+      "Reference types (objects, arrays, functions) are stored in heap memory, while variables hold reference memory pointers in the stack.",
+      "Copying primitive variables copies actual values, whereas copying objects copies memory references."
+    ],
+    "tags": [
+      "JavaScript",
+      "Data Types"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain the key differences between var, let, and const regarding scope, hoisting, and re-assignment.",
+    "expectedTopics": [
+      "Scope",
+      "Hoisting",
+      "Temporal Dead Zone"
+    ],
+    "keyPoints": [
+      "var is function-scoped or globally scoped, while let and const are block-scoped.",
+      "var variables are hoisted and initialized to undefined; let and const are hoisted but remain uninitialized in the Temporal Dead Zone (TDZ).",
+      "var and let allow re-assignment; const enforces read-only binding references that cannot be reassigned.",
+      "var allows redeclaration within the same scope, whereas let and const throw syntax errors."
+    ],
+    "tags": [
+      "Variables",
+      "Scope"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is type coercion in JavaScript? Explain the difference between implicit and explicit coercion.",
+    "expectedTopics": [
+      "Type Coercion",
+      "Implicit vs Explicit",
+      "Abstract Equality"
+    ],
+    "keyPoints": [
+      "Type coercion is the automatic or manual conversion of values from one data type to another.",
+      "Implicit coercion occurs automatically by JS engine operations (e.g. '5' + 2 evaluates to '52', '5' - 2 evaluates to 3).",
+      "Explicit coercion is performed intentionally by developers using constructors or helper methods (e.g. Number('5'), String(100), Boolean(val)).",
+      "Implicit coercion rules can lead to unexpected edge cases in logical comparisons."
+    ],
+    "tags": [
+      "Coercion",
+      "Types"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between loose equality (==) and strict equality (===) in JavaScript?",
+    "expectedTopics": [
+      "Equality Operators",
+      "Type Coercion",
+      "Best Practices"
+    ],
+    "keyPoints": [
+      "Loose equality (==) compares values after applying implicit type coercion if types differ.",
+      "Strict equality (===) compares both values and data types without performing type conversion.",
+      "Examples: 5 == '5' returns true, but 5 === '5' returns false.",
+      "Strict equality is strongly recommended across JavaScript codebases to prevent coercion bugs."
+    ],
+    "tags": [
+      "Operators",
+      "Equality"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do ES6 arrow functions differ from traditional function declarations regarding syntax and 'this' binding?",
+    "expectedTopics": [
+      "Arrow Functions",
+      "Lexical this",
+      "Constructors"
+    ],
+    "keyPoints": [
+      "Arrow functions offer concise syntax, omitting function keyword and curly braces for single-expression implicit returns.",
+      "Arrow functions do not have their own 'this' binding; they lexically inherit 'this' from their outer enclosing scope.",
+      "Arrow functions lack their own arguments object and super bindings.",
+      "Arrow functions cannot be used as constructors (cannot be invoked with new keyword)."
+    ],
+    "tags": [
+      "Functions",
+      "ES6"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain hoisting in JavaScript and how function declarations vs variable declarations behave during compilation.",
+    "expectedTopics": [
+      "Hoisting",
+      "Creation Phase",
+      "Function Declarations"
+    ],
+    "keyPoints": [
+      "Hoisting is JavaScript's mechanism of moving variable and function declarations to the top of their scope during the compilation phase.",
+      "Function declarations are hoisted completely with their function body implementation.",
+      "var variables are hoisted with initial value undefined.",
+      "let and const variables are hoisted into the Temporal Dead Zone (TDZ) and accessing them before initialization throws a ReferenceError."
+    ],
+    "tags": [
+      "Hoisting",
+      "Execution Context"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between global scope, function scope, and block scope in JavaScript?",
+    "expectedTopics": [
+      "Global Scope",
+      "Function Scope",
+      "Block Scope"
+    ],
+    "keyPoints": [
+      "Global scope variables are accessible anywhere throughout the entire script execution.",
+      "Function scope variables declared inside a function (with var, let, or const) are accessible only within that function.",
+      "Block scope variables declared with let or const inside curly braces {} are accessible only within that block code.",
+      "Block scoping prevents variable leaks outside loops and conditional blocks."
+    ],
+    "tags": [
+      "Scope",
+      "Variables"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the purpose of template literals in ES6 and how do they support expression interpolation?",
+    "expectedTopics": [
+      "Template Literals",
+      "String Interpolation",
+      "Multi-line Strings"
+    ],
+    "keyPoints": [
+      "Template literals use backticks (``) instead of single/double quotes for string creation.",
+      "Allow expression interpolation inside string literals using ${expression} syntax.",
+      "Support clean multi-line string declarations without explicit newline escape sequences (\\n).",
+      "Support tagged template functions for specialized string parsing (e.g., styled-components)."
+    ],
+    "tags": [
+      "ES6",
+      "Strings"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain object destructuring and array destructuring in ES6 with practical syntax examples.",
+    "expectedTopics": [
+      "Destructuring",
+      "Default Values",
+      "Property Renaming"
+    ],
+    "keyPoints": [
+      "Destructuring allows extracting values from arrays or properties from objects into distinct variables.",
+      "Array destructuring extracts items by positional order: const [first, second] = arr.",
+      "Object destructuring extracts properties by key matching: const { name, age } = user.",
+      "Supports property renaming ({ name: fullName }) and fallback default values ({ role = 'guest' })."
+    ],
+    "tags": [
+      "Destructuring",
+      "ES6"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the spread operator (...) and what are common use cases for arrays and objects?",
+    "expectedTopics": [
+      "Spread Operator",
+      "Array Cloning",
+      "Object Merging"
+    ],
+    "keyPoints": [
+      "The spread operator (...) expands an iterable (like an array or object) into individual elements.",
+      "Used for shallow copying arrays ([...existingArray]) and objects ({ ...existingObject }).",
+      "Used for merging multiple arrays or objects cleanly without mutation.",
+      "Used to pass array elements as separate arguments to functions (Math.max(...numbers))."
+    ],
+    "tags": [
+      "Spread Operator",
+      "ES6"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the rest parameter syntax (...args) and how does it replace the legacy arguments object?",
+    "expectedTopics": [
+      "Rest Parameters",
+      "Arguments Object",
+      "Variadic Functions"
+    ],
+    "keyPoints": [
+      "Rest parameter syntax (...args) gathers remaining function arguments into a true Array instance.",
+      "Must be the last parameter in a function definition.",
+      "Unlike the array-like arguments object, rest arrays support array methods (map, filter, reduce).",
+      "Arrow functions support rest parameters but lack arguments objects."
+    ],
+    "tags": [
+      "Rest Operator",
+      "Functions"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do default parameter values work in JavaScript functions when arguments are omitted or passed as undefined?",
+    "expectedTopics": [
+      "Default Parameters",
+      "Undefined Evaluation",
+      "Function Defaults"
+    ],
+    "keyPoints": [
+      "Default parameters allow initializing function parameters with default values if no value or undefined is passed.",
+      "Triggers default assignment when argument is undefined, but NOT for null, false, 0, or empty string.",
+      "Default values are evaluated at function call time, not function definition time.",
+      "Earlier parameters can be referenced in later default parameter expressions."
+    ],
+    "tags": [
+      "Default Parameters",
+      "Functions"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain the differences between null and undefined in JavaScript.",
+    "expectedTopics": [
+      "Null vs Undefined",
+      "Type Checking",
+      "Intentional Absence"
+    ],
+    "keyPoints": [
+      "undefined means a variable has been declared but has not yet been assigned a value.",
+      "null represents an intentional absence of any object value assigned by a developer.",
+      "typeof undefined is 'undefined', whereas typeof null returns 'object' due to historical JS implementation.",
+      "null == undefined is true, but null === undefined is false."
+    ],
+    "tags": [
+      "Types",
+      "JavaScript"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What are pure functions in JavaScript and why are they fundamental in functional programming?",
+    "expectedTopics": [
+      "Pure Functions",
+      "Side Effects",
+      "Deterministic Output"
+    ],
+    "keyPoints": [
+      "A pure function produces identical return output given identical input arguments.",
+      "Causes no side effects (no mutating global variables, modifying DOM, or network/disk I/O).",
+      "Pure functions are easier to test, refactor, debug, and memoize.",
+      "Enhances predictability and state tracking in application development."
+    ],
+    "tags": [
+      "Functional Programming",
+      "Pure Functions"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between Array.prototype.map() and Array.prototype.forEach()?",
+    "expectedTopics": [
+      "Array Methods",
+      "Immutability",
+      "Return Values"
+    ],
+    "keyPoints": [
+      "map() creates and returns a brand new array populated with transformed results of the callback.",
+      "forEach() executes a provided callback once for each array element and returns undefined.",
+      "map() is chainable with other array methods (filter, reduce), whereas forEach() is not.",
+      "Use map() for transformations; use forEach() for side-effect iteration."
+    ],
+    "tags": [
+      "Array Methods",
+      "Iteration"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do array methods filter(), reduce(), and find() work in JavaScript?",
+    "expectedTopics": [
+      "Filter",
+      "Reduce",
+      "Find"
+    ],
+    "keyPoints": [
+      "filter() returns a new array containing all elements that pass the predicate function condition.",
+      "reduce() executes an accumulator reducer function across all items, returning a single consolidated value.",
+      "find() returns the first element matching the predicate condition, or undefined if no match is found.",
+      "All three methods do not mutate the original input array."
+    ],
+    "tags": [
+      "Array Methods",
+      "Functional Methods"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is JSON and how do JSON.stringify() and JSON.parse() work?",
+    "expectedTopics": [
+      "JSON Parsing",
+      "Serialization",
+      "JSON.stringify"
+    ],
+    "keyPoints": [
+      "JSON (JavaScript Object Notation) is a lightweight text-based data interchange format.",
+      "JSON.stringify() converts a JavaScript object/value into a JSON-formatted string.",
+      "JSON.parse() converts a valid JSON string back into a JavaScript object structure.",
+      "JSON.stringify ignores function definitions, undefined properties, and symbol keys."
+    ],
+    "tags": [
+      "JSON",
+      "Serialization"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Compare localStorage, sessionStorage, and Cookies regarding storage capacity and lifecycle.",
+    "expectedTopics": [
+      "Web Storage API",
+      "Cookies",
+      "Data Persistence"
+    ],
+    "keyPoints": [
+      "localStorage persists data permanently across browser sessions until explicitly cleared (~5MB limit).",
+      "sessionStorage persists data only for the current browser tab session (~5MB limit).",
+      "Cookies store small key-value strings (~4KB limit) sent automatically with HTTP requests to the server.",
+      "Cookies support HttpOnly and Secure flags for enhanced security authentication."
+    ],
+    "tags": [
+      "Web Storage",
+      "Browser API"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "Explain Event Bubbling and Event Capturing (trickling) in DOM event propagation.",
+    "expectedTopics": [
+      "Event Propagation",
+      "Event Bubbling",
+      "Event Capturing"
+    ],
+    "keyPoints": [
+      "DOM event propagation consists of three phases: Capturing, Target, and Bubbling phases.",
+      "Event Capturing triggers handlers from window down the DOM tree to the target element.",
+      "Event Bubbling triggers handlers from target element upwards through parent ancestors to window.",
+      "event.stopPropagation() stops event propagation along the event path."
+    ],
+    "tags": [
+      "DOM Events",
+      "Bubbling"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is Event Delegation in JavaScript DOM manipulation and what benefits does it offer?",
+    "expectedTopics": [
+      "Event Delegation",
+      "Event Bubbling",
+      "Performance"
+    ],
+    "keyPoints": [
+      "Event delegation attaches a single event listener to a parent container instead of multiple listeners on individual children.",
+      "Leverages Event Bubbling: parent handler inspects event.target to process child triggers.",
+      "Reduces memory consumption significantly by keeping DOM event handler count low.",
+      "Automatically handles dynamically appended child DOM elements without attaching new handlers."
+    ],
+    "tags": [
+      "Event Delegation",
+      "DOM"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the difference between setTimeout() and setInterval() timers in JavaScript?",
+    "expectedTopics": [
+      "Timers",
+      "setTimeout",
+      "setInterval"
+    ],
+    "keyPoints": [
+      "setTimeout() schedules a callback to execute once after a specified delay in milliseconds.",
+      "setInterval() repeatedly executes a callback at fixed time interval delays.",
+      "Both return a numeric timer ID used with clearTimeout() or clearInterval() to cancel execution.",
+      "Nested setTimeout() calls are preferred over setInterval() to avoid overlapping callback queue stacking."
+    ],
+    "tags": [
+      "Timers",
+      "Async"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is a JavaScript Promise and what are its three internal states?",
+    "expectedTopics": [
+      "Promise States",
+      "Asynchronous JS",
+      "Pending/Fulfilled/Rejected"
+    ],
+    "keyPoints": [
+      "A Promise represents eventual completion or failure of an asynchronous operation and its resulting value.",
+      "Pending: Initial state, neither fulfilled nor rejected.",
+      "Fulfilled: Operation completed successfully (resolve() invoked).",
+      "Rejected: Operation failed (reject() or thrown exception invoked).",
+      "Once settled (fulfilled or rejected), a Promise becomes immutable."
+    ],
+    "tags": [
+      "Promises",
+      "Async"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How does async/await syntax simplify working with asynchronous Promises in JavaScript?",
+    "expectedTopics": [
+      "async/await",
+      "Syntactic Sugar",
+      "Promise Handling"
+    ],
+    "keyPoints": [
+      "async/await is syntactic sugar built on top of Promises, writing asynchronous code in a synchronous style.",
+      "Declaring async on a function ensures it automatically returns a Promise.",
+      "await pauses async function execution until the awaited Promise settles.",
+      "Allows using standard try...catch blocks for asynchronous error handling."
+    ],
+    "tags": [
+      "Async/Await",
+      "Promises"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "How do ES6 Modules (import/export) differ from CommonJS modules (require/module.exports)?",
+    "expectedTopics": [
+      "ES6 Modules",
+      "CommonJS",
+      "Static Analysis"
+    ],
+    "keyPoints": [
+      "ES6 Modules use static import/export syntax analyzed at compile time.",
+      "CommonJS uses dynamic require() calls evaluated at runtime (standard in Node.js).",
+      "ES6 modules support tree-shaking dead code elimination due to static structure.",
+      "ES6 modules create live read-only bindings; CommonJS exports value copies."
+    ],
+    "tags": [
+      "Modules",
+      "ES6"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "interviewType": "Technical",
+    "question": "What is the purpose of try...catch...finally blocks in JavaScript error handling?",
+    "expectedTopics": [
+      "Error Handling",
+      "try catch finally",
+      "Exception Handling"
+    ],
+    "keyPoints": [
+      "try block wraps code that may throw runtime exceptions.",
+      "catch block executes when an error occurs in try, receiving the Error instance.",
+      "finally block executes unconditionally after try/catch completes, regardless of success or error.",
+      "finally is ideal for cleanup tasks (closing resources, resetting loading indicators)."
+    ],
+    "tags": [
+      "Error Handling",
+      "Control Flow"
+    ],
+    "estimatedTime": 120,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is a Closure in JavaScript? Explain the Lexical Environment and provide a practical use case.",
+    "expectedTopics": [
+      "Closures",
+      "Lexical Environment",
+      "Data Encapsulation"
+    ],
+    "keyPoints": [
+      "A closure is a function bundled together with references to its surrounding lexical environment.",
+      "Enables inner functions to access outer function variables even after the outer function has returned.",
+      "Used for data privacy / encapsulation (emulating private variables) and function currying.",
+      "Retains variable references in memory, which can lead to leaks if unneeded references persist."
+    ],
+    "tags": [
+      "Closures",
+      "Lexical Scope"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does the 'this' keyword get bound dynamically across different invocation contexts in JavaScript?",
+    "expectedTopics": [
+      "this Binding",
+      "Implicit Binding",
+      "Explicit & Lexical Binding"
+    ],
+    "keyPoints": [
+      "Global context: 'this' refers to window (browser) or global/undefined in strict mode.",
+      "Object method context: 'this' refers to the object calling the method (implicit binding).",
+      "Explicit binding: call(), apply(), and bind() force specific 'this' references.",
+      "Arrow functions: 'this' is lexically bound from surrounding scope during creation."
+    ],
+    "tags": [
+      "this Keyword",
+      "Binding"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the differences between Function.prototype.call(), apply(), and bind() methods.",
+    "expectedTopics": [
+      "call",
+      "apply",
+      "bind"
+    ],
+    "keyPoints": [
+      "call() invokes function immediately with a specified 'this' value and arguments passed individually (comma-separated).",
+      "apply() invokes function immediately with a specified 'this' value and arguments passed as an array.",
+      "bind() returns a brand new bound function with locked 'this' and preset initial arguments, without immediate invocation.",
+      "Used to borrow object methods or prespecify function contexts."
+    ],
+    "tags": [
+      "call apply bind",
+      "this Keyword"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does Prototypal Inheritance and the Prototype Chain work in JavaScript under the hood?",
+    "expectedTopics": [
+      "Prototypes",
+      "Prototype Chain",
+      "Object.create"
+    ],
+    "keyPoints": [
+      "Every JavaScript object has an internal [[Prototype]] link pointing to another object (or null).",
+      "Property lookup traverses up the prototype chain until property is found or null is reached.",
+      "Object.prototype is at the top of the standard prototype chain.",
+      "Methods defined on prototypes (Array.prototype) are shared across all instances without duplicating memory."
+    ],
+    "tags": [
+      "Prototypes",
+      "Inheritance"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do ES6 Class syntaxes map to JavaScript's underlying prototypal inheritance model?",
+    "expectedTopics": [
+      "ES6 Classes",
+      "Prototypal Inheritance",
+      "Syntactic Sugar"
+    ],
+    "keyPoints": [
+      "ES6 classes are syntactic sugar over standard prototypal inheritance constructor functions.",
+      "Class constructor method runs when instantiating via new Keyword.",
+      "Methods declared inside class body are added to Class.prototype rather than individual instances.",
+      "extends keyword sets up internal prototype links between child and parent constructor prototypes."
+    ],
+    "tags": [
+      "Classes",
+      "OOP"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain the JavaScript Event Loop execution order between Call Stack, Macrotask Queue, and Microtask Queue.",
+    "expectedTopics": [
+      "Event Loop",
+      "Microtasks vs Macrotasks",
+      "Call Stack"
+    ],
+    "keyPoints": [
+      "JavaScript single-threaded runtime executes synchronous code on Call Stack first.",
+      "Async operations register callbacks in Macrotask queue (setTimeout, setInterval) or Microtask queue (Promises, queueMicrotask).",
+      "When call stack is empty, Event Loop clears the ENTIRE Microtask queue before picking ONE Macrotask.",
+      "Microtasks have higher execution priority than Macrotasks."
+    ],
+    "tags": [
+      "Event Loop",
+      "Async Architecture"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is the difference between shallow copy and deep copy of objects in JavaScript?",
+    "expectedTopics": [
+      "Shallow Copy",
+      "Deep Copy",
+      "structuredClone"
+    ],
+    "keyPoints": [
+      "Shallow copy (Object.assign, spread ...) copies top-level properties; nested objects still share memory references.",
+      "Deep copy duplicates all nested objects and values recursively into completely independent memory locations.",
+      "Deep copy techniques include structuredClone(obj), JSON.parse(JSON.stringify(obj)), or custom recursive cloners.",
+      "JSON serialization misses functions, undefined, Map, Set, and circular references."
+    ],
+    "tags": [
+      "Objects",
+      "Cloning"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Compare Promise.all(), Promise.allSettled(), Promise.race(), and Promise.any() behaviors.",
+    "expectedTopics": [
+      "Promise Combinators",
+      "Promise.all",
+      "Promise.allSettled"
+    ],
+    "keyPoints": [
+      "Promise.all() resolves when all promises fulfill; short-circuits rejects immediately if ANY promise rejects.",
+      "Promise.allSettled() waits for ALL promises to complete, returning an array of fulfillment/rejection status objects.",
+      "Promise.race() settles (fulfills or rejects) as soon as the FIRST promise settles.",
+      "Promise.any() fulfills as soon as the FIRST promise fulfills; rejects only if ALL promises reject."
+    ],
+    "tags": [
+      "Promises",
+      "Combinators"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Debouncing in JavaScript? Provide an implementation scenario and contrast with Throttling.",
+    "expectedTopics": [
+      "Debouncing",
+      "Timers",
+      "Performance"
+    ],
+    "keyPoints": [
+      "Debouncing delays function execution until a specified time passes after the LAST event trigger.",
+      "Resets delay timer on each subsequent trigger call.",
+      "Ideal for search autocomplete inputs and window resize handlers.",
+      "Throttling guarantees execution at steady interval rates, whereas debouncing waits for inactivity."
+    ],
+    "tags": [
+      "Debounce",
+      "Optimization"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What is Throttling in JavaScript and how is it implemented using timestamps or timers?",
+    "expectedTopics": [
+      "Throttling",
+      "Rate Limiting",
+      "Performance"
+    ],
+    "keyPoints": [
+      "Throttling limits function execution to at most once per specified time interval.",
+      "Ensures continuous periodic execution during ongoing high-frequency events (e.g. scroll, mousemove).",
+      "Can be implemented by comparing Date.now() timestamps or utilizing timer flags.",
+      "Prevents UI lag caused by excessive DOM recalculations during fast scrolling."
+    ],
+    "tags": [
+      "Throttle",
+      "Optimization"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do Object.freeze() and Object.seal() differ in enforcing object immutability?",
+    "expectedTopics": [
+      "Object.freeze",
+      "Object.seal",
+      "Immutability"
+    ],
+    "keyPoints": [
+      "Object.freeze() makes an object completely immutable: prevents adding, deleting, or editing property values.",
+      "Object.seal() prevents adding or deleting properties, but ALLOWS modifying existing property values.",
+      "Both methods perform shallow immutability (nested objects remain mutable).",
+      "Object.isFrozen() and Object.isSealed() check immutability state."
+    ],
+    "tags": [
+      "Objects",
+      "Immutability"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "Explain WeakMap and WeakSet in JavaScript and how they differ from standard Map and Set regarding garbage collection.",
+    "expectedTopics": [
+      "WeakMap",
+      "WeakSet",
+      "Garbage Collection"
+    ],
+    "keyPoints": [
+      "WeakMap keys and WeakSet items MUST be objects/symbols, held as weak references.",
+      "If no other references point to a key object, garbage collection reclaims it automatically without memory leaks.",
+      "WeakMap/WeakSet are non-enumerable (no size property, keys(), values(), or iteration loops).",
+      "Ideal for storing private object metadata or caching DOM element references."
+    ],
+    "tags": [
+      "WeakMap",
+      "Garbage Collection"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How does the Fetch API handle HTTP error responses (like 404 or 500) compared to network failures?",
+    "expectedTopics": [
+      "Fetch API",
+      "HTTP Status",
+      "Error Handling"
+    ],
+    "keyPoints": [
+      "Fetch API promises DO NOT reject on HTTP error status codes (404, 500).",
+      "Fetch promises reject ONLY on network failures or request blockages.",
+      "Developers must explicitly check response.ok boolean flag or response.status code.",
+      "Throw explicit Error if response.ok is false to catch errors in catch blocks."
+    ],
+    "tags": [
+      "Fetch API",
+      "HTTP"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "What are JavaScript Generators (function*) and Iterators (Symbol.iterator)?",
+    "expectedTopics": [
+      "Generators",
+      "Iterators",
+      "Yield Keyword"
+    ],
+    "keyPoints": [
+      "Iterators are objects implementing a next() method returning { value, done } result objects.",
+      "Generators (function*) are pauses-and-resumes functions using the yield keyword.",
+      "Calling a generator function returns a Generator Iterator object.",
+      "Useful for lazy data evaluation, custom iteration protocols, and async task orchestrations."
+    ],
+    "tags": [
+      "Generators",
+      "Iterators"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "interviewType": "Technical",
+    "question": "How do Custom Events (CustomEvent API and dispatchEvent) enable decoupled component communication?",
+    "expectedTopics": [
+      "CustomEvent",
+      "dispatchEvent",
+      "DOM Messaging"
+    ],
+    "keyPoints": [
+      "CustomEvent API allows creating custom DOM events carrying payload data inside detail property.",
+      "Target DOM nodes invoke dispatchEvent(customEvent) to dispatch signals.",
+      "Other components listen using addEventListener('customEventName', handler).",
+      "Enables loosely-coupled event messaging between isolated DOM components."
+    ],
+    "tags": [
+      "Events",
+      "DOM"
+    ],
+    "estimatedTime": 180,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A single-page application experiences memory leaks due to detached DOM nodes and uncleared event listeners. Trace how V8 Garbage Collector works and how to locate the leak in Chrome DevTools.",
+    "expectedTopics": [
+      "Memory Leaks",
+      "V8 Garbage Collection",
+      "Chrome DevTools Memory"
+    ],
+    "keyPoints": [
+      "V8 uses Mark-and-Sweep algorithm starting from roots (global window); unreachable objects are collected.",
+      "Detached DOM nodes remain in heap memory if JS references (like global arrays or closures) still hold pointers.",
+      "Diagnose using Chrome DevTools Memory tab: take Heap Snapshots, filter by 'Detached HTMLInputElement'.",
+      "Use Allocation Timelines / Sampling Profiler to identify uncleaned addEventListener or setInterval instances.",
+      "Fix by setting references to null and invoking removeEventListener in component teardowns."
+    ],
+    "tags": [
+      "Debugging",
+      "Memory Management"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Deep Dive: How would you build a custom Promise polyfill implementation adhering to the Promises/A+ specification?",
+    "expectedTopics": [
+      "Promise Polyfill",
+      "Promises/A+ Spec",
+      "Async Chaining"
+    ],
+    "keyPoints": [
+      "Store internal state (PENDING, FULFILLED, REJECTED), value/reason data, and callbacks arrays.",
+      "Implement resolve(val) and reject(reason) ensuring state immutability once settled.",
+      "then() method returns a new Promise instance to enable chaining.",
+      "Execute callbacks asynchronously using queueMicrotask or MutationObserver to respect microtask timing.",
+      "Handle promise resolution procedure for nested thenable objects."
+    ],
+    "tags": [
+      "Promises",
+      "Polyfill"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How does V8 JavaScript Engine optimize execution using Just-In-Time (JIT) compilation, Hidden Classes (Shapes), and Inline Caching (IC)?",
+    "expectedTopics": [
+      "V8 Engine",
+      "Hidden Classes",
+      "JIT Compilation"
+    ],
+    "keyPoints": [
+      "V8 compiles JS bytecode via Ignition interpreter and optimizes hot functions with TurboFan JIT compiler.",
+      "Hidden Classes (Shapes) dynamically track object property layouts in memory.",
+      "Instantiating objects with identical property insertion order allows reusing Hidden Classes.",
+      "Inline Caching (IC) shortcuts property lookup offsets, avoiding expensive dictionary lookups."
+    ],
+    "tags": [
+      "V8 Engine",
+      "Performance"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: Implement a custom debounce function supporting immediate (leading) execution and a .cancel() method to abort pending timeouts.",
+    "expectedTopics": [
+      "Custom Debounce",
+      "Leading Execution",
+      "Cancellation Method"
+    ],
+    "keyPoints": [
+      "Maintain timeout timer ID variable inside closure scope.",
+      "If leading is true and no timer is active, execute function immediately.",
+      "Reset timer via clearTimeout(timer) on subsequent function calls.",
+      "Attach cancel method to debounced function: debouncedFn.cancel = () => clearTimeout(timer)."
+    ],
+    "tags": [
+      "Debounce",
+      "Implementation"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Implement a robust deep-clone function (deepClone(obj)) supporting circular references, Functions, Dates, RegExps, Maps, Sets, and Symbols without structuredClone.",
+    "expectedTopics": [
+      "Deep Clone",
+      "Circular References",
+      "WeakMap Cache"
+    ],
+    "keyPoints": [
+      "Use WeakMap hash cache to track visited object references and resolve circular reference loops.",
+      "Check object type constructors: construct new Date(obj), new RegExp(obj.source, obj.flags).",
+      "Handle Map/Set objects by instantiating new Map/Set and recursively cloning items.",
+      "Traverse properties using Reflect.ownKeys(obj) to include Symbol keys and non-enumerable properties."
+    ],
+    "tags": [
+      "Deep Clone",
+      "Algorithms"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "How does JavaScript Proxy and Reflect API enable metaprogramming, reactivity systems, and property traps?",
+    "expectedTopics": [
+      "Proxy API",
+      "Reflect API",
+      "Reactivity Systems"
+    ],
+    "keyPoints": [
+      "Proxy object wraps a target object and intercepts fundamental operations using handler traps (get, set, deleteProperty).",
+      "Reflect API provides default forwarding methods mirroring Proxy handler traps.",
+      "Used by modern reactive frameworks (like Vue 3) to automatically track dependencies on property get and trigger updates on set.",
+      "Enables property validation, transparent logging, and dynamic property computation."
+    ],
+    "tags": [
+      "Proxy",
+      "Metaprogramming"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A high-frequency scroll event handler causes UI layout thrashing (forced synchronous layout). Diagnose the cause and refactor using requestAnimationFrame.",
+    "expectedTopics": [
+      "Layout Thrashing",
+      "Reflow & Repaint",
+      "requestAnimationFrame"
+    ],
+    "keyPoints": [
+      "Layout thrashing occurs when code repeatedly reads layout properties (offsetTop, clientHeight) immediately after modifying DOM styles.",
+      "Forces browser to calculate synchronous reflow layout before completing JS execution frame.",
+      "Diagnose using Chrome DevTools Performance tab looking for warning 'Forced Reflow'.",
+      "Fix by batching DOM reads first, then batching style writes inside requestAnimationFrame callback."
+    ],
+    "tags": [
+      "Performance",
+      "Reflow"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Detail the execution order and microtask/macrotask queue priorities of process.nextTick, Promise.then, setTimeout, setImmediate, and requestAnimationFrame.",
+    "expectedTopics": [
+      "Microtask Order",
+      "process.nextTick",
+      "requestAnimationFrame"
+    ],
+    "keyPoints": [
+      "process.nextTick queue executes immediately after current synchronous script, BEFORE standard Promise microtasks.",
+      "Promise microtask queue empties fully before moving to next phase.",
+      "requestAnimationFrame executes right before browser rendering/paint phase.",
+      "setTimeout (timers phase) executes before setImmediate (check phase) in Node.js event loop cycles."
+    ],
+    "tags": [
+      "Event Loop",
+      "Microtasks"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Scenario: Implement an asynchronous concurrency pool limiter (asyncPool(concurrencyLimit, tasks)) that processes tasks concurrently without exceeding limit N.",
+    "expectedTopics": [
+      "Concurrency Limiter",
+      "Promise Queue",
+      "Async Control Flow"
+    ],
+    "keyPoints": [
+      "Maintain active executing promise pool array of size N.",
+      "Iterate over task generators array; when executing pool reaches limit N, use Promise.race() to wait for fastest task completion.",
+      "Remove completed task from executing pool and immediately launch next pending task.",
+      "Return Promise.all() resolving all task results."
+    ],
+    "tags": [
+      "Async",
+      "Concurrency"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  },
+  {
+    "role": "Frontend Developer",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "interviewType": "Technical",
+    "question": "Debugging Scenario: A developer uses var inside an asynchronous for-loop with setTimeout, printing unexpected index values. Explain the root cause and provide 3 refactored solutions.",
+    "expectedTopics": [
+      "Stale Closures",
+      "Block Scope",
+      "IIFE"
+    ],
+    "keyPoints": [
+      "var is function-scoped; single shared variable instance is mutated by loop and captured in closures, resolving to final index value.",
+      "Solution 1: Replace var with block-scoped let (creates fresh variable binding for each loop iteration).",
+      "Solution 2: Wrap setTimeout in an Immediately Invoked Function Expression (IIFE) passing index parameter.",
+      "Solution 3: Pass index as setTimeout extra argument parameter (setTimeout(callback, delay, i))."
+    ],
+    "tags": [
+      "Debugging",
+      "Scope"
+    ],
+    "estimatedTime": 300,
+    "isActive": true
+  }
+]
