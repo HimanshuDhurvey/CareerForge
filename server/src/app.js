@@ -33,6 +33,7 @@ const resumeRoutes       = require('./routes/resumeRoutes');
 const interviewRoutes    = require('./routes/interviewRoutes');
 const aiEvaluationRoutes = require('./routes/aiEvaluationRoutes');
 const dashboardRoutes    = require('./routes/dashboardRoutes');
+const roadmapRoutes      = require('./routes/roadmapRoutes');
 const notFoundMiddleware = require('./middlewares/notFoundMiddleware');
 const errorMiddleware    = require('./middlewares/errorMiddleware');
 
@@ -123,6 +124,9 @@ app.use('/api/ai', aiEvaluationRoutes);
 
 /** Dashboard — GET /api/dashboard */
 app.use('/api/dashboard', dashboardRoutes);
+
+/** Career Roadmap — POST /api/roadmap/generate | GET /api/roadmap, /history, /:id | DELETE /api/roadmap/:id */
+app.use('/api/roadmap', roadmapRoutes);
 
 // ─── 404 catch-all ───────────────────────────────────────────────────────────
 

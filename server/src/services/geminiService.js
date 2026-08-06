@@ -253,7 +253,267 @@ const evaluateInterviewWithGemini = async (payload) => {
   };
 };
 
+/**
+ * Heuristic Roadmap Fallback Engine.
+ * Produces structured 8-week career roadmap when Gemini API is unavailable.
+ */
+function generateSmartFallbackRoadmap(context) {
+  const goal = context.careerGoal || 'Full-Stack Software Engineer';
+  const level = context.currentLevel || 'Intermediate';
+  const readiness = context.careerReadiness || 72;
+
+  const prioritySkills = [
+    'System Design & Microservices',
+    'Advanced React & State Management',
+    'Node.js & Async Performance',
+    'PostgreSQL & MongoDB Optimization',
+    'Docker & CI/CD Pipelines',
+    'Redis Caching & Queue Management',
+  ];
+
+  const recommendedProjects = [
+    'Distributed Task Queue & Background Worker System (Node.js + Redis + BullMQ)',
+    'Real-time Collaborative Dashboard with WebSockets & React',
+    'High-Throughput Microservice with Rate Limiting & Docker Deployment',
+  ];
+
+  const recommendedCertifications = [
+    'AWS Certified Solutions Architect – Associate',
+    'Meta Front-End / Back-End Professional Certificate',
+    'MongoDB Certified Developer Associate',
+  ];
+
+  const weeklyPlan = [
+    {
+      week: 1,
+      title: 'Advanced JavaScript Engine & Node.js Async Internals',
+      description: 'Deep dive into event loop phases, microtasks, streams, and memory profiling to eliminate async bottlenecks.',
+      skills: ['Node.js Async Hooks', 'Event Loop', 'Memory Leak Analysis'],
+      resources: [
+        { title: 'Node.js Official Event Loop Documentation', url: 'https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/', type: 'Documentation' },
+        { title: 'Advanced Asynchronous JavaScript Masterclass', url: 'https://youtube.com', type: 'Video' },
+        { title: 'Node.js Streams & Buffers Exercises', url: 'https://nodeschool.io', type: 'Practice' },
+      ],
+      miniProject: 'Build a custom streaming file parser with backpressure control in Node.js',
+      estimatedHours: 12,
+      completed: false,
+    },
+    {
+      week: 2,
+      title: 'React Architecture, Performance & Custom Hooks',
+      description: 'Master React reconciliation, memory optimization, custom hooks abstractions, and global state pattern trade-offs.',
+      skills: ['React 18 Concurrent Rendering', 'Custom Hooks', 'React Performance Profiler'],
+      resources: [
+        { title: 'React Official Documentation - Re-rendering Guide', url: 'https://react.dev/learn/render-and-commit', type: 'Documentation' },
+        { title: 'React Advanced Patterns Workshop', url: 'https://frontendmasters.com', type: 'Video' },
+        { title: 'React Hooks Optimization Challenges', url: 'https://leetcode.com', type: 'Practice' },
+      ],
+      miniProject: 'Create a reusable stateful Data Grid with virtualized scroll rendering',
+      estimatedHours: 10,
+      completed: false,
+    },
+    {
+      week: 3,
+      title: 'Database Indexing, Query Optimization & Schema Design',
+      description: 'Analyze query execution plans in MongoDB & PostgreSQL, optimize complex aggregation pipelines, and design relational indices.',
+      skills: ['MongoDB Aggregations', 'PostgreSQL Explain Analyze', 'Database Indexing'],
+      resources: [
+        { title: 'MongoDB Indexing & Aggregation Index Guide', url: 'https://www.mongodb.com/docs/manual/core/data-modeling-introduction/', type: 'Documentation' },
+        { title: 'SQL Query Tuning & Execution Plans', url: 'https://use-the-index-luke.com', type: 'Documentation' },
+        { title: 'PostgreSQL Aggregation & Query Practice', url: 'https://pgexercises.com', type: 'Practice' },
+      ],
+      miniProject: 'Optimize slow MongoDB queries and build a multi-stage aggregation pipeline for analytics',
+      estimatedHours: 14,
+      completed: false,
+    },
+    {
+      week: 4,
+      title: 'System Design Principles, Caching & Redis Integration',
+      description: 'Learn high-level system architecture patterns: load balancing, horizontal scaling, database sharding, and cache invalidation strategies.',
+      skills: ['System Design', 'Redis Caching', 'Rate Limiting'],
+      resources: [
+        { title: 'System Design Primer Repository', url: 'https://github.com/donnemartin/system-design-primer', type: 'Documentation' },
+        { title: 'Designing Data-Intensive Applications Core Concepts', url: 'https://youtube.com', type: 'Video' },
+        { title: 'System Design Mock Questions', url: 'https://exponent.com', type: 'Practice' },
+      ],
+      miniProject: 'Implement a distributed sliding-window rate limiter using Redis and Express middleware',
+      estimatedHours: 15,
+      completed: false,
+    },
+    {
+      week: 5,
+      title: 'Microservices Communication, Message Queues & WebSockets',
+      description: 'Implement event-driven architecture using RabbitMQ/Kafka/BullMQ and real-time bi-directional sockets.',
+      skills: ['BullMQ', 'WebSockets', 'Event-Driven Architecture'],
+      resources: [
+        { title: 'Socket.IO & WebSockets Protocol Spec', url: 'https://socket.io/docs/v4/', type: 'Documentation' },
+        { title: 'Building Event-Driven Services in Node.js', url: 'https://youtube.com', type: 'Video' },
+      ],
+      miniProject: 'Build a background job queue worker system with real-time progress notifications',
+      estimatedHours: 14,
+      completed: false,
+    },
+    {
+      week: 6,
+      title: 'Docker Containerization & CI/CD Pipeline Automation',
+      description: 'Containerize multi-container MERN applications with docker-compose and automate testing via GitHub Actions.',
+      skills: ['Docker & Docker Compose', 'GitHub Actions', 'Container Security'],
+      resources: [
+        { title: 'Docker Official Getting Started Guide', url: 'https://docs.docker.com/get-started/', type: 'Documentation' },
+        { title: 'CI/CD Pipelines with GitHub Actions', url: 'https://youtube.com', type: 'Video' },
+      ],
+      miniProject: 'Create a full Docker Compose setup with automated GitHub Actions CI testing',
+      estimatedHours: 12,
+      completed: false,
+    },
+    {
+      week: 7,
+      title: 'Security, Authentication & Production Hardening',
+      description: 'Implement JWT refresh token rotation, CORS policy hardening, XSS/CSRF mitigation, and API vulnerability audits.',
+      skills: ['OAuth 2.0 / JWT', 'Helmet Security', 'OWASP Top 10'],
+      resources: [
+        { title: 'OWASP Top 10 Web Application Security', url: 'https://owasp.org/www-project-top-ten/', type: 'Documentation' },
+        { title: 'Node.js Security Best Practices', url: 'https://github.com/goldbergyoni/nodebestpractices', type: 'Documentation' },
+      ],
+      miniProject: 'Perform security hardening and automated audit on an Express REST API backend',
+      estimatedHours: 11,
+      completed: false,
+    },
+    {
+      week: 8,
+      title: 'Final FAANG Mock Interviews & Capstone Portfolio Delivery',
+      description: 'Conduct final high-intensity mock interviews, finalize repository documentation, and showcase completed projects.',
+      skills: ['Mock Technical Interviews', 'System Design Presentation', 'Portfolio Optimization'],
+      resources: [
+        { title: 'FAANG Technical Interview Strategy', url: 'https://careerforge.dev', type: 'Practice' },
+      ],
+      miniProject: 'Deploy complete capstone portfolio application and complete full AI Mock Interview session',
+      estimatedHours: 16,
+      completed: false,
+    },
+  ];
+
+  return {
+    careerGoal: goal,
+    currentLevel: level,
+    careerReadiness: readiness,
+    estimatedDuration: '8 Weeks',
+    summary: `Based on your profile telemetry, resume analysis, and interview evaluations, your candidate readiness stands at ${readiness}%. This 8-week strategic roadmap addresses identified gaps in system design, distributed caching, and test automation to position you competitively for ${goal} roles.`,
+    prioritySkills,
+    recommendedProjects,
+    recommendedCertifications,
+    weeklyPlan,
+  };
+}
+
+/**
+ * Generate AI Roadmap with Gemini API.
+ *
+ * @param {Object} context Aggregated telemetry data
+ * @returns {Promise<Object>} Structured Roadmap JSON object
+ */
+const generateRoadmapWithGemini = async (context) => {
+  const apiKey = process.env.GEMINI_API_KEY;
+
+  if (!apiKey || apiKey === 'your_gemini_api_key_here') {
+    logger.warn('[Gemini AI] GEMINI_API_KEY unconfigured. Using Roadmap Fallback Engine.');
+    return generateSmartFallbackRoadmap(context);
+  }
+
+  const { buildRoadmapPrompt } = require('../ai/roadmapPromptBuilder');
+  const genAI = new GoogleGenerativeAI(apiKey);
+  const promptText = buildRoadmapPrompt(context);
+
+  let rawText = '';
+  let lastError = null;
+
+  for (const modelName of SUPPORTED_GEMINI_MODELS) {
+    try {
+      const model = genAI.getGenerativeModel({
+        model: modelName,
+        generationConfig: {
+          responseMimeType: 'application/json',
+          temperature: 0.3,
+        },
+      });
+
+      const result = await Promise.race([
+        model.generateContent(promptText),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Gemini Roadmap request timed out after 30 seconds')), 30000)
+        ),
+      ]);
+
+      const response = await result.response;
+      rawText = response.text();
+      if (rawText && rawText.trim()) {
+        break;
+      }
+    } catch (err) {
+      logger.error(`[Gemini AI Roadmap Error] Model ${modelName} failed:`, {
+        message: err.message,
+      });
+      lastError = err;
+      if (
+        err.message?.includes('API_KEY_INVALID') ||
+        err.message?.includes('API key not valid') ||
+        err.message?.includes('400')
+      ) {
+        break;
+      }
+    }
+  }
+
+  if (!rawText || !rawText.trim()) {
+    logger.error('[Gemini AI Roadmap] All models failed or empty response. Smart Fallback Engine applied.');
+    return generateSmartFallbackRoadmap(context);
+  }
+
+  try {
+    let cleanJson = rawText.trim();
+    if (cleanJson.startsWith('```')) {
+      cleanJson = cleanJson.replace(/^```(json)?\n?/, '').replace(/\n?```$/, '');
+    }
+    const parsed = JSON.parse(cleanJson);
+
+    return {
+      careerGoal: parsed.careerGoal || context.careerGoal || 'Software Engineer',
+      currentLevel: parsed.currentLevel || context.currentLevel || 'Intermediate',
+      careerReadiness: typeof parsed.careerReadiness === 'number' ? parsed.careerReadiness : context.careerReadiness || 70,
+      estimatedDuration: parsed.estimatedDuration || '8 Weeks',
+      summary: parsed.summary || `Personalized 8-week strategic growth plan for ${context.careerGoal || 'Software Engineer'}.`,
+      prioritySkills: Array.isArray(parsed.prioritySkills) ? parsed.prioritySkills : [],
+      recommendedProjects: Array.isArray(parsed.recommendedProjects) ? parsed.recommendedProjects : [],
+      recommendedCertifications: Array.isArray(parsed.recommendedCertifications) ? parsed.recommendedCertifications : [],
+      weeklyPlan: Array.isArray(parsed.weeklyPlan)
+        ? parsed.weeklyPlan.map((w, idx) => ({
+            week: w.week || idx + 1,
+            title: w.title || `Week ${idx + 1} Focus Area`,
+            description: w.description || '',
+            skills: Array.isArray(w.skills) ? w.skills : [],
+            resources: Array.isArray(w.resources)
+              ? w.resources.map((r) => ({
+                  title: r.title || 'Resource Guide',
+                  url: r.url || 'https://developer.mozilla.org',
+                  type: r.type || 'Documentation',
+                }))
+              : [],
+            miniProject: w.miniProject || '',
+            estimatedHours: typeof w.estimatedHours === 'number' ? w.estimatedHours : 10,
+            completed: false,
+          }))
+        : [],
+    };
+  } catch (parseErr) {
+    logger.error('[Gemini AI Roadmap] JSON Parse failed:', parseErr);
+    return generateSmartFallbackRoadmap(context);
+  }
+};
+
 module.exports = {
   buildEvaluationPrompt,
   evaluateInterviewWithGemini,
+  generateSmartFallbackRoadmap,
+  generateRoadmapWithGemini,
 };
+
