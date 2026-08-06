@@ -1,5 +1,8 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const ApiError = require('../utils/ApiError');
+const logger = require('../utils/logger');
+
+const SUPPORTED_GEMINI_MODELS = ['gemini-1.5-flash', 'gemini-1.5-pro'];
 
 /**
  * Build reusable Gemini evaluation prompt for whole interview evaluation.
@@ -68,8 +71,9 @@ Strict JSON Object Structure:
 
 /**
  * Generate intelligent heuristic evaluation as a fallback if Gemini key is invalid or quota limited.
+ * Strictly returns clean user-facing content without raw error messages.
  */
-function generateSmartFallbackEvaluation(payload, errorReason) {
+function generateSmartFallbackEvaluation(payload) {
   const { questions, role, difficulty, interviewType } = payload;
 
   let totalScore = 0;
@@ -135,9 +139,7 @@ function generateSmartFallbackEvaluation(payload, errorReason) {
       `Could provide deeper real-world project examples in complex technical scenarios`,
       `Further detail on system design trade-offs and error handling best practices`,
     ],
-    overallFeedback: `Candidate completed the session for a ${difficulty} level ${role} position. ${
-      errorReason ? `(Note: ${errorReason})` : ''
-    }`,
+    overallFeedback: `Candidate completed the session for a ${difficulty} level ${role} position demonstrating fundamental problem-solving approach.`,
     recommendations: [
       `Review core architectural patterns and edge case handling`,
       `Practice explaining complex algorithms with structured step-by-step breakdowns`,
@@ -159,23 +161,17 @@ const evaluateInterviewWithGemini = async (payload) => {
   const apiKey = process.env.GEMINI_API_KEY;
 
   if (!apiKey || apiKey === 'your_gemini_api_key_here') {
-    console.warn(
-      '⚠️ GEMINI_API_KEY is not set or is set to placeholder in server/.env. Using CareerForge Smart Evaluation Engine fallback.'
-    );
-    return generateSmartFallbackEvaluation(
-      payload,
-      'Gemini API key is unconfigured. Set a valid GEMINI_API_KEY in server/.env for live Gemini AI responses.'
-    );
+    logger.warn('[Gemini AI] GEMINI_API_KEY unconfigured in server/.env. Using evaluation fallback.');
+    return generateSmartFallbackEvaluation(payload);
   }
 
   const genAI = new GoogleGenerativeAI(apiKey);
   const promptText = buildEvaluationPrompt(payload);
 
-  const modelNames = ['gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-1.0-pro'];
   let rawText = '';
   let lastError = null;
 
-  for (const modelName of modelNames) {
+  for (const modelName of SUPPORTED_GEMINI_MODELS) {
     try {
       const model = genAI.getGenerativeModel({
         model: modelName,
@@ -195,13 +191,15 @@ const evaluateInterviewWithGemini = async (payload) => {
       const response = await result.response;
       rawText = response.text();
       if (rawText && rawText.trim()) {
-        break; // Successfully got response
+        break;
       }
     } catch (err) {
-      console.warn(`Gemini API call failed with model ${modelName}:`, err.message);
+      logger.error(`[Gemini AI Error] Execution failed on model ${modelName}:`, {
+        message: err.message,
+        stack: err.stack,
+      });
       lastError = err;
 
-      // If API key is invalid, break loop to trigger fallback immediately
       if (
         err.message?.includes('API_KEY_INVALID') ||
         err.message?.includes('API key not valid') ||
@@ -213,14 +211,10 @@ const evaluateInterviewWithGemini = async (payload) => {
   }
 
   if (!rawText || !rawText.trim()) {
-    console.warn(
-      '⚠️ Gemini API error or invalid key detected. Returning Smart Evaluation Fallback result:',
-      lastError?.message
-    );
-    return generateSmartFallbackEvaluation(
-      payload,
-      `Gemini API key error: ${lastError ? lastError.message : 'Invalid API key'}`
-    );
+    logger.error('[Gemini AI] All models failed or returned empty text. Fallback applied.', {
+      lastErrorMessage: lastError?.message,
+    });
+    return generateSmartFallbackEvaluation(payload);
   }
 
   // Parse JSON output from Gemini
@@ -232,8 +226,8 @@ const evaluateInterviewWithGemini = async (payload) => {
     }
     parsed = JSON.parse(cleanJson);
   } catch (parseErr) {
-    console.error('Failed to parse Gemini response as JSON. Falling back:', rawText);
-    return generateSmartFallbackEvaluation(payload, 'Invalid JSON returned by Gemini AI model');
+    logger.error('[Gemini AI] Failed to parse Gemini response as JSON:', rawText);
+    return generateSmartFallbackEvaluation(payload);
   }
 
   return {

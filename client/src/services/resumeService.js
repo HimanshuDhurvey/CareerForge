@@ -80,11 +80,35 @@ export const resumeService = {
 
   /**
    * Trigger Gemini AI analysis on the uploaded resume.
-   * Returns the updated resume doc with analysisResult populated.
+   * Returns the created ResumeAnalysis doc.
    */
   analyzeResume: async () => {
     try {
       const res = await apiClient.post('/resume/analyze');
+      return res.data.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  /**
+   * Fetch the latest AI resume analysis report for the current user.
+   */
+  getLatestAnalysis: async () => {
+    try {
+      const res = await apiClient.get('/resume/analysis');
+      return res.data.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  /**
+   * Fetch previous resume analysis history for the current user (newest first).
+   */
+  getAnalysisHistory: async () => {
+    try {
+      const res = await apiClient.get('/resume/analysis/history');
       return res.data.data;
     } catch (error) {
       throw handleApiError(error);

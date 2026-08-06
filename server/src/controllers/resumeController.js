@@ -82,13 +82,11 @@ const deleteResume = async (req, res, next) => {
 /**
  * GET /api/resume/file/:filename
  * Serve the PDF file for preview.
- * The filename acts as a natural access token (only known to the file owner).
  */
 const serveResumeFile = (req, res, next) => {
   try {
     const { filename } = req.params;
 
-    // Basic security: prevent path traversal
     const safeName = path.basename(filename);
     const filePath = path.join(__dirname, '../../uploads/resumes', safeName);
 
@@ -112,9 +110,39 @@ const serveResumeFile = (req, res, next) => {
  */
 const analyzeResume = async (req, res, next) => {
   try {
-    const resume = await analysisService.runResumeAnalysis(req.user._id);
+    const analysis = await analysisService.runResumeAnalysis(req.user._id);
     res.status(200).json(
-      new ApiResponse(200, formatResume(resume), 'Resume analysis complete')
+      new ApiResponse(200, analysis, 'Resume analysis completed successfully')
+    );
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * GET /api/resume/analysis
+ * Get current user's latest resume analysis.
+ */
+const getLatestAnalysis = async (req, res, next) => {
+  try {
+    const analysis = await analysisService.getLatestAnalysis(req.user._id);
+    res.status(200).json(
+      new ApiResponse(200, analysis, 'Latest resume analysis retrieved successfully')
+    );
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * GET /api/resume/analysis/history
+ * Get history of all previous resume analyses.
+ */
+const getAnalysisHistory = async (req, res, next) => {
+  try {
+    const history = await analysisService.getAnalysisHistory(req.user._id);
+    res.status(200).json(
+      new ApiResponse(200, history, 'Resume analysis history retrieved successfully')
     );
   } catch (err) {
     next(err);
@@ -127,4 +155,6 @@ module.exports = {
   deleteResume,
   serveResumeFile,
   analyzeResume,
+  getLatestAnalysis,
+  getAnalysisHistory,
 };
