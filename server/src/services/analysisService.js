@@ -84,6 +84,7 @@ const runResumeAnalysis = async (userId) => {
     const newAnalysis = await ResumeAnalysis.create({
       user: userId,
       resume: resume._id,
+      originalName: resume.originalName,
       overallScore: analysis.overallScore,
       atsScore: analysis.atsScore,
       formattingScore: analysis.formattingScore,
@@ -126,6 +127,7 @@ const runResumeAnalysis = async (userId) => {
  */
 const getLatestAnalysis = async (userId) => {
   const analysis = await ResumeAnalysis.findOne({ user: userId })
+    .populate('resume', 'originalName filename')
     .sort({ createdAt: -1 })
     .lean();
 
@@ -139,15 +141,53 @@ const getLatestAnalysis = async (userId) => {
  * @returns {Promise<Array>} List of analysis objects
  */
 const getAnalysisHistory = async (userId) => {
+  // Ensure Resume schema model is registered for populate
+  require('../models/resumeModel');
   const history = await ResumeAnalysis.find({ user: userId })
+    .populate('resume', 'originalName filename')
     .sort({ createdAt: -1 })
     .lean();
 
-  return history;
+  const total = history.length;
+  return history.map((item, idx) => {
+    const versionNum = total - idx;
+    return {
+      ...item,
+      originalName: item.originalName || item.resume?.originalName || `Resume_v${versionNum}.pdf`,
+    };
+  });
+};
+
+/**
+ * Delete a specific ResumeAnalysis document by ID for a user.
+ *
+ * @param {string} userId
+ * @param {string} analysisId
+ * @returns {Promise<Object>} Deleted analysis document
+ */
+const deleteAnalysisById = async (userId, analysisId) => {
+  const deleted = await ResumeAnalysis.findOneAndDelete({ _id: analysisId, user: userId });
+  if (!deleted) {
+    throw new ApiError(404, 'Analysis record not found');
+  }
+  return deleted;
+};
+
+/**
+ * Delete all historical ResumeAnalysis documents for a user.
+ *
+ * @param {string} userId
+ * @returns {Promise<Object>} Delete result
+ */
+const deleteAllAnalyses = async (userId) => {
+  const result = await ResumeAnalysis.deleteMany({ user: userId });
+  return result;
 };
 
 module.exports = {
   runResumeAnalysis,
   getLatestAnalysis,
   getAnalysisHistory,
+  deleteAnalysisById,
+  deleteAllAnalyses,
 };

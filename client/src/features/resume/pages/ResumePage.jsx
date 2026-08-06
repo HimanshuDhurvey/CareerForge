@@ -1,47 +1,73 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import {
   FileText, Upload, Trash2, Eye, X, Sparkles, CheckCircle2,
   AlertCircle, Loader2, Target, Zap, Lightbulb, Tag, Shield,
   CloudUpload, Download, Clock, Award, Lock, ExternalLink,
   ChevronRight, AlertTriangle, Check, BookOpen, Layers, BarChart3,
-  History, ArrowUpRight, CheckCircle, Code2
+  History, ArrowUpRight, CheckCircle, Code2, ArrowUp, ArrowDown, Minus, Sliders,
+  Search, Filter, Calendar, TrendingUp, Trophy, RefreshCw, ChevronLeft
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Sidebar from '../../dashboard/components/Sidebar';
 import TopNavbar from '../../dashboard/components/TopNavbar';
 import { resumeService } from '../../../services/resumeService';
 
-// ─── Score Color Helpers (Green: 80+, Yellow: 60-79, Red: <60) ───────────────
+// ─── Score Color Helpers (5 Color Tiers) ──────────────────────────────────────
 function getScoreColor(score) {
-  if (score >= 80) {
+  if (score >= 90) {
     return {
       text: 'text-emerald-500',
       bg: 'bg-emerald-50 dark:bg-emerald-950/30',
-      border: 'border-emerald-200 dark:border-emerald-800',
+      border: 'border-emerald-500 dark:border-emerald-600',
       stroke: '#10B981',
       badge: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300',
       barBg: 'bg-emerald-500',
-      label: 'Strong',
+      dot: '🟢',
+      label: 'Excellent',
     };
-  } else if (score >= 60) {
+  } else if (score >= 80) {
+    return {
+      text: 'text-blue-500',
+      bg: 'bg-blue-50 dark:bg-blue-950/30',
+      border: 'border-blue-500 dark:border-blue-600',
+      stroke: '#3B82F6',
+      badge: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
+      barBg: 'bg-blue-500',
+      dot: '🔵',
+      label: 'Good',
+    };
+  } else if (score >= 70) {
     return {
       text: 'text-amber-500',
       bg: 'bg-amber-50 dark:bg-amber-950/30',
-      border: 'border-amber-200 dark:border-amber-800',
+      border: 'border-amber-500 dark:border-amber-600',
       stroke: '#F59E0B',
       badge: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
       barBg: 'bg-amber-500',
-      label: 'Moderate',
+      dot: '🟡',
+      label: 'Average',
+    };
+  } else if (score >= 50) {
+    return {
+      text: 'text-orange-500',
+      bg: 'bg-orange-50 dark:bg-orange-950/30',
+      border: 'border-orange-500 dark:border-orange-600',
+      stroke: '#F97316',
+      badge: 'bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300',
+      barBg: 'bg-orange-500',
+      dot: '🟠',
+      label: 'Weak',
     };
   } else {
     return {
       text: 'text-red-500',
       bg: 'bg-red-50 dark:bg-red-950/30',
-      border: 'border-red-200 dark:border-red-800',
+      border: 'border-red-500 dark:border-red-600',
       stroke: '#EF4444',
       badge: 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300',
       barBg: 'bg-red-500',
-      label: 'Needs Work',
+      dot: '🔴',
+      label: 'Poor',
     };
   }
 }
@@ -220,9 +246,19 @@ export default function ResumePage() {
   const [isAnalysing, setIsAnalysing] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [previewOpen, setPreviewOpen] = useState(false);
+  const [compareModalOpen, setCompareModalOpen] = useState(false);
+  const [compareItem, setCompareItem] = useState(null);
+
+  // Search & Filters state for History Tracker
+  const [searchQuery, setSearchQuery] = useState('');
+  const [gradeFilter, setGradeFilter] = useState('all');
+  const [sortOrder, setSortOrder] = useState('latest');
+  const [currentPage, setCurrentPage] = useState(1);
+  const CARDS_PER_PAGE = 6;
+
   const replaceInputRef = useRef(null);
 
-  // ── Fetch user resume & latest analysis ────────────────────────────────────
+  // ── Fetch user resume & analysis history ────────────────────────────────────
   const loadData = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -274,8 +310,8 @@ export default function ResumePage() {
     }
   };
 
-  // ── Delete handler ────────────────────────────────────────────────────────
-  const handleDelete = async () => {
+  // ── Delete overall resume handler ─────────────────────────────────────────
+  const handleDeleteResume = async () => {
     if (!window.confirm('Are you sure you want to delete your resume? This action cannot be undone.')) {
       return;
     }
@@ -293,11 +329,46 @@ export default function ResumePage() {
     }
   };
 
+  // ── Delete single analysis record handler ────────────────────────────────
+  const handleDeleteAnalysisRecord = async (analysisId, e) => {
+    e.stopPropagation();
+    if (!window.confirm('Are you sure you want to delete this historical analysis report?')) {
+      return;
+    }
+    try {
+      await resumeService.deleteAnalysisRecord(analysisId);
+      toast.success('Analysis report deleted.');
+      const updatedHistory = analysisHistory.filter((item) => item._id !== analysisId);
+      setAnalysisHistory(updatedHistory);
+
+      if (activeAnalysis?._id === analysisId) {
+        setActiveAnalysis(updatedHistory[0] || null);
+      }
+    } catch (err) {
+      toast.error(err.message || 'Failed to delete analysis report.');
+    }
+  };
+
+  // ── Delete ALL analysis records handler ───────────────────────────────────
+  const handleDeleteAllAnalysisRecords = async () => {
+    if (!window.confirm('Are you sure you want to delete ALL historical resume analysis reports? This action cannot be undone.')) {
+      return;
+    }
+    try {
+      await resumeService.deleteAllAnalysisRecords();
+      setAnalysisHistory([]);
+      setActiveAnalysis(null);
+      toast.success('All historical resume analysis reports deleted.');
+    } catch (err) {
+      toast.error(err.message || 'Failed to delete all analysis reports.');
+    }
+  };
+
   // ── Gemini AI Analysis trigger ──────────────────────────────────────────
   const handleAnalyze = async () => {
     setIsAnalysing(true);
     try {
-      toast.loading('Extracting PDF text and analyzing with Gemini AI...', { id: 'resume-toast' });
+      toast.loading('Analyzing resume with Gemini AI...', { id: 'resume-toast' });
       const newAnalysis = await resumeService.analyzeResume();
       setActiveAnalysis(newAnalysis);
       toast.success('AI Resume analysis complete!', { id: 'resume-toast' });
@@ -314,9 +385,72 @@ export default function ResumePage() {
     }
   };
 
+  // ── Comparison trigger ───────────────────────────────────────────────────
+  const handleCompare = (item, e) => {
+    if (e) e.stopPropagation();
+    setCompareItem(item);
+    setCompareModalOpen(true);
+  };
+
+  // ── Resume Analytics Aggregation ──────────────────────────────────────────
+  const analytics = useMemo(() => {
+    if (!analysisHistory || analysisHistory.length === 0) {
+      return { total: 0, bestScore: 0, avgScore: 0, latestDate: null };
+    }
+
+    const scores = analysisHistory.map((item) => item.overallScore || 0);
+    const bestScore = Math.max(...scores);
+    const avgScore = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+    const latestDate = analysisHistory[0]?.createdAt
+      ? new Date(analysisHistory[0].createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+      : null;
+
+    return { total: analysisHistory.length, bestScore, avgScore, latestDate };
+  }, [analysisHistory]);
+
+  // ── Filter & Search Logic for History ────────────────────────────────────
+  const filteredHistory = useMemo(() => {
+    return analysisHistory
+      .filter((item) => {
+        // Grade filter
+        const score = item.overallScore || 0;
+        if (gradeFilter === 'excellent' && score < 90) return false;
+        if (gradeFilter === 'good' && (score < 80 || score >= 90)) return false;
+        if (gradeFilter === 'average' && (score < 70 || score >= 80)) return false;
+        if (gradeFilter === 'poor' && score >= 70) return false;
+
+        // Search query filter (matches filename, date, or score)
+        if (searchQuery.trim()) {
+          const q = searchQuery.toLowerCase();
+          const nameMatch = (resume?.originalName || '').toLowerCase().includes(q);
+          const scoreMatch = (item.overallScore || '').toString().includes(q);
+          const dateMatch = item.createdAt
+            ? new Date(item.createdAt).toLocaleDateString().toLowerCase().includes(q)
+            : false;
+          return nameMatch || scoreMatch || dateMatch;
+        }
+
+        return true;
+      })
+      .sort((a, b) => {
+        if (sortOrder === 'latest') return new Date(b.createdAt) - new Date(a.createdAt);
+        if (sortOrder === 'oldest') return new Date(a.createdAt) - new Date(b.createdAt);
+        if (sortOrder === 'highest') return (b.overallScore || 0) - (a.overallScore || 0);
+        if (sortOrder === 'lowest') return (a.overallScore || 0) - (b.overallScore || 0);
+        return 0;
+      });
+  }, [analysisHistory, gradeFilter, sortOrder, searchQuery, resume]);
+
+  // Paginated History Cards
+  const totalPages = Math.ceil(filteredHistory.length / CARDS_PER_PAGE) || 1;
+  const paginatedHistory = useMemo(() => {
+    const start = (currentPage - 1) * CARDS_PER_PAGE;
+    return filteredHistory.slice(start, start + CARDS_PER_PAGE);
+  }, [filteredHistory, currentPage]);
+
   const fileUrl = resume ? resumeService.getFileUrl(resume.filename) : '';
 
-  // Extract analysis fields cleanly
+  // Extract active analysis fields cleanly
   const report = activeAnalysis || {};
   const overallScore = report.overallScore ?? 0;
   const atsScore = report.atsScore ?? 0;
@@ -358,7 +492,7 @@ export default function ResumePage() {
                   </span>
                 </div>
                 <h1 className="text-xl sm:text-2xl font-extrabold text-[#111111] dark:text-white tracking-tight">
-                  AI Resume Analyzer
+                  AI Resume Progress Tracker
                 </h1>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-semibold">
                   Get instant ATS compatibility ratings, keyword optimization, and recruiter feedback.
@@ -418,7 +552,7 @@ export default function ResumePage() {
                   </a>
 
                   <button
-                    onClick={handleDelete}
+                    onClick={handleDeleteResume}
                     disabled={isDeleting}
                     className="flex items-center gap-1.5 px-4 py-2 bg-red-50 hover:bg-red-100 dark:bg-red-950/30 dark:hover:bg-red-900/40 text-red-500 rounded-xl text-xs font-bold transition-colors cursor-pointer disabled:opacity-70"
                   >
@@ -513,7 +647,13 @@ export default function ResumePage() {
                     ) : (
                       <Sparkles className="h-4 w-4" />
                     )}
-                    <span>{isAnalysing ? 'Analyzing with Gemini...' : activeAnalysis ? 'Re-Run AI Analysis' : 'Analyze Resume'}</span>
+                    <span>
+                      {isAnalysing
+                        ? 'Analyzing with Gemini...'
+                        : activeAnalysis
+                        ? 'Re-Run AI Analysis'
+                        : 'Analyze Resume'}
+                    </span>
                   </button>
                 </div>
               </div>
@@ -705,57 +845,456 @@ export default function ResumePage() {
                 </>
               )}
 
-              {/* ── ANALYSIS HISTORY SECTION ────────────────────────────────── */}
-              {analysisHistory.length > 0 && (
-                <div className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-6 shadow-xs space-y-4">
-                  <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 pb-3">
+              {/* ── RESUME PROGRESS TRACKER & HISTORY SECTION ──────────────────────── */}
+              <div className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-6 shadow-xs space-y-6">
+                {/* 1. TOP RESUME ANALYTICS METRICS BAR */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 dark:border-gray-800 pb-5">
+                  <div className="space-y-1">
                     <div className="flex items-center gap-2 text-blue-500">
-                      <History className="h-4.5 w-4.5" />
-                      <h3 className="text-xs font-extrabold text-[#111111] dark:text-white uppercase tracking-wider">
-                        Previous Analysis History
-                      </h3>
+                      <TrendingUp className="h-5 w-5" />
+                      <h2 className="text-sm font-extrabold text-[#111111] dark:text-white uppercase tracking-wider">
+                        Resume Analytics & Progress Tracker
+                      </h2>
                     </div>
-                    <span className="text-xs font-bold text-gray-400">
-                      {analysisHistory.length} Reports Saved
-                    </span>
+                    <p className="text-xs text-gray-400 font-semibold">
+                      Track score gains, ATS progression, and recruiter recommendations across versions.
+                    </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {analysisHistory.map((item, idx) => {
-                      const colors = getScoreColor(item.overallScore || 0);
-                      const isCurrent = activeAnalysis?._id === item._id || activeAnalysis?.id === item.id;
+                  {/* 4 Metrics Summary Grid + Clear All History Button */}
+                  <div className="flex flex-wrap items-center gap-3 shrink-0">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      <div className="p-3 bg-gray-50 dark:bg-gray-800/40 rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                        <span className="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest block">Total Analyses</span>
+                        <span className="text-lg font-extrabold text-blue-500 tabular-nums">{analytics.total}</span>
+                      </div>
+                      <div className="p-3 bg-gray-50 dark:bg-gray-800/40 rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                        <span className="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest block">Best Score</span>
+                        <span className="text-lg font-extrabold text-emerald-500 tabular-nums">{analytics.bestScore}%</span>
+                      </div>
+                      <div className="p-3 bg-gray-50 dark:bg-gray-800/40 rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                        <span className="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest block">Average Score</span>
+                        <span className="text-lg font-extrabold text-purple-500 tabular-nums">{analytics.avgScore}%</span>
+                      </div>
+                      <div className="p-3 bg-gray-50 dark:bg-gray-800/40 rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                        <span className="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest block">Latest Date</span>
+                        <span className="text-xs font-extrabold text-gray-700 dark:text-gray-200 mt-1 block truncate max-w-[90px] mx-auto">
+                          {analytics.latestDate || 'N/A'}
+                        </span>
+                      </div>
+                    </div>
 
-                      return (
-                        <div
-                          key={item._id || idx}
-                          onClick={() => setActiveAnalysis(item)}
-                          className={`p-4 rounded-xl border transition-all cursor-pointer ${
-                            isCurrent
-                              ? 'bg-blue-50/50 dark:bg-blue-950/20 border-blue-400 dark:border-blue-700 shadow-xs'
-                              : 'bg-gray-50/50 dark:bg-gray-800/40 border-gray-100 dark:border-gray-800 hover:border-blue-300'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
-                              {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'Previous'}
-                            </span>
-                            <span className={`text-[10px] font-extrabold tabular-nums px-2 py-0.5 rounded-full ${colors.badge}`}>
-                              Score: {item.overallScore}%
-                            </span>
-                          </div>
-                          <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 line-clamp-2">
-                            {item.summary || 'AI Resume Evaluation Report'}
-                          </p>
-                        </div>
-                      );
-                    })}
+                    {analysisHistory.length > 0 && (
+                      <button
+                        onClick={handleDeleteAllAnalysisRecords}
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-red-50 hover:bg-red-100 dark:bg-red-950/30 dark:hover:bg-red-900/40 text-red-500 rounded-xl text-xs font-extrabold transition-colors cursor-pointer border border-red-200 dark:border-red-900/50"
+                        title="Delete all historical analysis reports at once"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                        <span>Delete All Reports</span>
+                      </button>
+                    )}
                   </div>
                 </div>
-              )}
+
+                {/* 2. SEARCH & FILTER CONTROLS */}
+                {analysisHistory.length > 0 && (
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-gray-50/50 dark:bg-gray-800/30 p-3 rounded-xl border border-gray-100 dark:border-gray-800">
+                    {/* Search bar */}
+                    <div className="relative flex-1 min-w-[200px]">
+                      <Search className="h-4 w-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="text"
+                        placeholder="Search by resume name, score, or date..."
+                        value={searchQuery}
+                        onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
+                        className="w-full pl-9 pr-3 py-1.5 bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-800 rounded-lg text-xs font-semibold text-gray-800 dark:text-gray-200 focus:outline-none focus:border-blue-500"
+                      />
+                    </div>
+
+                    {/* Filter Pills */}
+                    <div className="flex items-center gap-2 overflow-x-auto shrink-0 pt-2 sm:pt-0">
+                      <div className="flex items-center gap-1">
+                        <Filter className="h-3.5 w-3.5 text-gray-400" />
+                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Grade:</span>
+                      </div>
+                      {[
+                        { id: 'all', label: 'All' },
+                        { id: 'excellent', label: '90+ Excellent' },
+                        { id: 'good', label: '80-89 Good' },
+                        { id: 'average', label: '70-79 Average' },
+                        { id: 'poor', label: '<70 Poor' },
+                      ].map((tab) => (
+                        <button
+                          key={tab.id}
+                          onClick={() => { setGradeFilter(tab.id); setCurrentPage(1); }}
+                          className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-colors cursor-pointer ${
+                            gradeFilter === tab.id
+                              ? 'bg-blue-600 text-white shadow-xs'
+                              : 'bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                          }`}
+                        >
+                          {tab.label}
+                        </button>
+                      ))}
+
+                      {/* Sort dropdown */}
+                      <select
+                        value={sortOrder}
+                        onChange={(e) => { setSortOrder(e.target.value); setCurrentPage(1); }}
+                        className="px-2.5 py-1 bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 text-[11px] font-bold rounded-lg focus:outline-none cursor-pointer"
+                      >
+                        <option value="latest">Sort: Latest</option>
+                        <option value="oldest">Sort: Oldest</option>
+                        <option value="highest">Sort: Highest Score</option>
+                        <option value="lowest">Sort: Lowest Score</option>
+                      </select>
+                    </div>
+                  </div>
+                )}
+
+                {/* 3. EMPTY STATE IF NO HISTORY / MATCHES */}
+                {filteredHistory.length === 0 ? (
+                  <div className="p-10 border-2 border-dashed border-gray-200 dark:border-gray-800 rounded-2xl flex flex-col items-center justify-center gap-3 text-center">
+                    <History className="h-10 w-10 text-gray-300 dark:text-gray-600" />
+                    <h4 className="text-sm font-extrabold text-gray-700 dark:text-gray-300">
+                      No previous resume analyses available.
+                    </h4>
+                    <p className="text-xs text-gray-400 max-w-sm">
+                      Upload your PDF resume above and click Analyze Resume to generate your first ATS evaluation report.
+                    </p>
+                    {resume && (
+                      <button
+                        onClick={handleAnalyze}
+                        disabled={isAnalysing}
+                        className="inline-flex items-center gap-2 h-9 px-4 bg-purple-600 hover:bg-purple-700 text-white font-extrabold text-xs rounded-xl shadow-xs cursor-pointer mt-1"
+                      >
+                        <Sparkles className="h-4 w-4" />
+                        <span>Analyze Resume Now</span>
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  /* 4. HISTORY CARDS GRID */
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                      {paginatedHistory.map((item) => {
+                        const colors = getScoreColor(item.overallScore || 0);
+                        const isCurrent = activeAnalysis?._id === item._id || activeAnalysis?.id === item.id;
+                        
+                        // Original index in full history list for version numbering
+                        const origIndex = analysisHistory.findIndex((h) => h._id === item._id);
+                        const versionNum = origIndex !== -1 ? analysisHistory.length - origIndex : 1;
+                        const formattedDate = item.createdAt
+                          ? new Date(item.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+                          : 'Recent Analysis';
+
+                        // Compare score with previous analysis (older report at origIndex + 1)
+                        const prevItem = origIndex !== -1 ? analysisHistory[origIndex + 1] : null;
+                        const overallDiff = prevItem ? (item.overallScore || 0) - (prevItem.overallScore || 0) : null;
+                        const atsDiff = prevItem ? (item.atsScore || 0) - (prevItem.atsScore || 0) : null;
+                        const projectsDiff = prevItem ? (item.projectsScore || 0) - (prevItem.projectsScore || 0) : null;
+                        const skillsDiff = prevItem ? (item.skillsScore || 0) - (prevItem.skillsScore || 0) : null;
+
+                        return (
+                          <div
+                            key={item._id}
+                            className={`p-5 rounded-2xl border-2 transition-all space-y-3.5 flex flex-col justify-between ${colors.border} ${
+                              isCurrent
+                                ? 'bg-blue-50/40 dark:bg-blue-950/20 shadow-md ring-2 ring-blue-500/50'
+                                : 'bg-white dark:bg-[#111827] hover:shadow-xs'
+                            }`}
+                          >
+                            <div className="space-y-3">
+                              {/* Header: File Name + Date + Version */}
+                              <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-800/80 pb-2.5">
+                                <div className="flex items-center gap-2 min-w-0">
+                                  <FileText className="h-4 w-4 text-blue-500 shrink-0" />
+                                  <span className="text-xs font-extrabold text-[#111111] dark:text-white truncate max-w-[140px]" title={item.originalName || item.resume?.originalName || `Resume_v${versionNum}.pdf`}>
+                                    {item.originalName || item.resume?.originalName || `Resume_v${versionNum}.pdf`}
+                                  </span>
+                                </div>
+                                <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 shrink-0">
+                                  {formattedDate} • <span className="font-extrabold text-blue-500">Version {versionNum}</span>
+                                </span>
+                              </div>
+
+                              {/* Overall Score Badge */}
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-1.5">
+                                  <span className="text-base">{colors.dot}</span>
+                                  <span className={`text-base font-extrabold tabular-nums ${colors.text}`}>
+                                    Overall {item.overallScore}%
+                                  </span>
+                                </div>
+                                <span className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase ${colors.badge}`}>
+                                  {colors.label}
+                                </span>
+                              </div>
+
+                              {/* Sub-Scores Row */}
+                              <div className="text-[11px] font-bold text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/40 px-3 py-2 rounded-xl border border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                                <span>ATS {item.atsScore}%</span>
+                                <span className="text-gray-300 dark:text-gray-600">|</span>
+                                <span>Skills {item.skillsScore}%</span>
+                                <span className="text-gray-300 dark:text-gray-600">|</span>
+                                <span>Projects {item.projectsScore}%</span>
+                              </div>
+
+                              {/* Small Unique AI Summary (2-3 lines) */}
+                              <p className="text-[11px] font-semibold text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-2 italic bg-gray-50/50 dark:bg-gray-800/20 p-2.5 rounded-lg border border-gray-100 dark:border-gray-800">
+                                "{item.summary || 'Custom recruiter evaluation report.'}"
+                              </p>
+
+                              {/* Progress Comparison Indicators (Per Metric) */}
+                              {prevItem ? (
+                                <div className="grid grid-cols-2 gap-1.5 pt-1 text-[10px] font-extrabold">
+                                  {/* Overall Deltas */}
+                                  <div className="flex items-center justify-between px-2 py-1 rounded-md bg-gray-50 dark:bg-gray-800/40">
+                                    <span className="text-gray-400">Overall:</span>
+                                    <span className={overallDiff >= 0 ? 'text-emerald-500' : 'text-red-500'}>
+                                      {overallDiff >= 0 ? `▲ +${overallDiff}` : `▼ ${overallDiff}`}
+                                    </span>
+                                  </div>
+                                  {/* ATS Deltas */}
+                                  <div className="flex items-center justify-between px-2 py-1 rounded-md bg-gray-50 dark:bg-gray-800/40">
+                                    <span className="text-gray-400">ATS:</span>
+                                    <span className={atsDiff >= 0 ? 'text-emerald-500' : 'text-red-500'}>
+                                      {atsDiff >= 0 ? `▲ +${atsDiff}` : `▼ ${atsDiff}`}
+                                    </span>
+                                  </div>
+                                  {/* Projects Deltas */}
+                                  <div className="flex items-center justify-between px-2 py-1 rounded-md bg-gray-50 dark:bg-gray-800/40">
+                                    <span className="text-gray-400">Projects:</span>
+                                    <span className={projectsDiff >= 0 ? 'text-emerald-500' : 'text-red-500'}>
+                                      {projectsDiff >= 0 ? `▲ +${projectsDiff}` : `▼ ${projectsDiff}`}
+                                    </span>
+                                  </div>
+                                  {/* Skills Deltas */}
+                                  <div className="flex items-center justify-between px-2 py-1 rounded-md bg-gray-50 dark:bg-gray-800/40">
+                                    <span className="text-gray-400">Skills:</span>
+                                    <span className={skillsDiff >= 0 ? 'text-emerald-500' : 'text-red-500'}>
+                                      {skillsDiff >= 0 ? `▲ +${skillsDiff}` : `▼ ${skillsDiff}`}
+                                    </span>
+                                  </div>
+                                </div>
+                              ) : (
+                                <div className="text-[10px] font-bold text-gray-400 italic pt-1">
+                                  Initial Baseline Report (Version 1)
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Card Actions: View Report, Compare, Delete */}
+                            <div className="flex items-center gap-1.5 pt-3 border-t border-gray-100 dark:border-gray-800">
+                              <button
+                                onClick={() => setActiveAnalysis(item)}
+                                className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-extrabold transition-colors cursor-pointer ${
+                                  isCurrent
+                                    ? 'bg-blue-600 text-white shadow-xs'
+                                    : 'bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
+                                }`}
+                              >
+                                <Eye className="h-3.5 w-3.5" />
+                                <span>{isCurrent ? 'Viewing' : 'View Report'}</span>
+                              </button>
+
+                              {prevItem && (
+                                <button
+                                  onClick={(e) => handleCompare(item, e)}
+                                  className="flex items-center justify-center gap-1.5 py-2 px-3 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl text-xs font-bold text-gray-700 dark:text-gray-300 transition-colors cursor-pointer"
+                                >
+                                  <Sliders className="h-3.5 w-3.5 text-blue-500" />
+                                  <span>Compare</span>
+                                </button>
+                              )}
+
+                              <button
+                                onClick={(e) => handleDeleteAnalysisRecord(item._id, e)}
+                                className="p-2 border border-red-100 dark:border-red-950/40 hover:bg-red-50 dark:hover:bg-red-950/30 text-red-500 rounded-xl transition-colors cursor-pointer"
+                                title="Delete report"
+                              >
+                                <Trash2 className="h-3.5 w-3.5" />
+                              </button>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Pagination Controls */}
+                    {totalPages > 1 && (
+                      <div className="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-4 text-xs font-bold">
+                        <span className="text-gray-400">
+                          Page {currentPage} of {totalPages} ({filteredHistory.length} reports total)
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <button
+                            disabled={currentPage === 1}
+                            onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-40 cursor-pointer"
+                          >
+                            <ChevronLeft className="h-3.5 w-3.5" /> Previous
+                          </button>
+                          <button
+                            disabled={currentPage === totalPages}
+                            onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-40 cursor-pointer"
+                          >
+                            Next <ChevronRight className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </main>
       </div>
+
+      {/* ── ADVANCED SIDE-BY-SIDE COMPARISON MODAL ───────────────────────── */}
+      {compareModalOpen && compareItem && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+          <div className="bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-800 rounded-2xl shadow-2xl w-full max-w-4xl flex flex-col overflow-hidden max-h-[92vh]">
+            <div className="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-800 shrink-0">
+              <div className="flex items-center gap-2 text-purple-500">
+                <Sliders className="h-5 w-5" />
+                <h3 className="text-sm font-extrabold text-[#111111] dark:text-white uppercase tracking-wider">
+                  Side-by-Side Resume Report Comparison
+                </h3>
+              </div>
+              <button
+                onClick={() => setCompareModalOpen(false)}
+                className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 cursor-pointer"
+              >
+                <X className="h-4.5 w-4.5" />
+              </button>
+            </div>
+
+            <div className="p-6 overflow-y-auto space-y-6">
+              {/* Score Deltas Header Bar */}
+              {(() => {
+                const origIndex = analysisHistory.findIndex((h) => h._id === compareItem._id);
+                const prevItem = origIndex !== -1 ? analysisHistory[origIndex + 1] : activeAnalysis;
+                const oDiff = (compareItem.overallScore || 0) - (prevItem?.overallScore || 0);
+                const atsDiff = (compareItem.atsScore || 0) - (prevItem?.atsScore || 0);
+                const projDiff = (compareItem.projectsScore || 0) - (prevItem?.projectsScore || 0);
+                const skillDiff = (compareItem.skillsScore || 0) - (prevItem?.skillsScore || 0);
+
+                return (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-purple-50/50 dark:bg-purple-950/20 p-4 rounded-xl border border-purple-100 dark:border-purple-900/40 text-center text-xs font-extrabold">
+                    <div>
+                      <span className="text-[10px] text-gray-400 uppercase block">Overall Progress</span>
+                      <span className={oDiff >= 0 ? 'text-emerald-500' : 'text-red-500'}>
+                        {oDiff >= 0 ? `▲ +${oDiff}%` : `▼ ${oDiff}%`}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-gray-400 uppercase block">ATS Progress</span>
+                      <span className={atsDiff >= 0 ? 'text-emerald-500' : 'text-red-500'}>
+                        {atsDiff >= 0 ? `▲ +${atsDiff}%` : `▼ ${atsDiff}%`}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-gray-400 uppercase block">Projects Delta</span>
+                      <span className={projDiff >= 0 ? 'text-emerald-500' : 'text-red-500'}>
+                        {projDiff >= 0 ? `▲ +${projDiff}%` : `▼ ${projDiff}%`}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-gray-400 uppercase block">Skills Delta</span>
+                      <span className={skillDiff >= 0 ? 'text-emerald-500' : 'text-red-500'}>
+                        {skillDiff >= 0 ? `▲ +${skillDiff}%` : `▼ ${skillDiff}%`}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })()}
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Column 1: Selected Report */}
+                <div className="p-5 bg-purple-50/30 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-900/50 rounded-2xl space-y-4">
+                  <div className="flex items-center justify-between border-b border-purple-100 dark:border-purple-900/40 pb-2">
+                    <span className="text-xs font-extrabold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
+                      Selected Report ({compareItem.createdAt ? new Date(compareItem.createdAt).toLocaleDateString() : 'Current'})
+                    </span>
+                    <span className="text-lg font-extrabold text-purple-600 tabular-nums">
+                      {compareItem.overallScore}%
+                    </span>
+                  </div>
+
+                  <div className="space-y-2 text-xs font-semibold">
+                    <div className="flex justify-between py-1 border-b border-gray-100 dark:border-gray-800">
+                      <span className="text-gray-400">ATS Score:</span>
+                      <span className="font-extrabold text-gray-800 dark:text-gray-200">{compareItem.atsScore}%</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-gray-100 dark:border-gray-800">
+                      <span className="text-gray-400">Skills Score:</span>
+                      <span className="font-extrabold text-gray-800 dark:text-gray-200">{compareItem.skillsScore}%</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-gray-100 dark:border-gray-800">
+                      <span className="text-gray-400">Projects Score:</span>
+                      <span className="font-extrabold text-gray-800 dark:text-gray-200">{compareItem.projectsScore}%</span>
+                    </div>
+                    <div className="flex justify-between py-1 border-b border-gray-100 dark:border-gray-800">
+                      <span className="text-gray-400">Formatting Score:</span>
+                      <span className="font-extrabold text-gray-800 dark:text-gray-200">{compareItem.formattingScore || 80}%</span>
+                    </div>
+                  </div>
+
+                  <p className="text-xs font-medium text-gray-600 dark:text-gray-300 leading-relaxed bg-white dark:bg-[#111827] p-3 rounded-xl border border-purple-100 dark:border-purple-900/30">
+                    "{compareItem.summary || 'Summary unavailable.'}"
+                  </p>
+                </div>
+
+                {/* Column 2: Baseline / Previous Report */}
+                {(() => {
+                  const origIndex = analysisHistory.findIndex((h) => h._id === compareItem._id);
+                  const prevItem = origIndex !== -1 && analysisHistory[origIndex + 1] ? analysisHistory[origIndex + 1] : activeAnalysis;
+
+                  return (
+                    <div className="p-5 bg-blue-50/30 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/50 rounded-2xl space-y-4">
+                      <div className="flex items-center justify-between border-b border-blue-100 dark:border-blue-900/40 pb-2">
+                        <span className="text-xs font-extrabold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                          Comparison Baseline ({prevItem?.createdAt ? new Date(prevItem.createdAt).toLocaleDateString() : 'Baseline'})
+                        </span>
+                        <span className="text-lg font-extrabold text-blue-600 tabular-nums">
+                          {prevItem?.overallScore || 0}%
+                        </span>
+                      </div>
+
+                      <div className="space-y-2 text-xs font-semibold">
+                        <div className="flex justify-between py-1 border-b border-gray-100 dark:border-gray-800">
+                          <span className="text-gray-400">ATS Score:</span>
+                          <span className="font-extrabold text-gray-800 dark:text-gray-200">{prevItem?.atsScore || 0}%</span>
+                        </div>
+                        <div className="flex justify-between py-1 border-b border-gray-100 dark:border-gray-800">
+                          <span className="text-gray-400">Skills Score:</span>
+                          <span className="font-extrabold text-gray-800 dark:text-gray-200">{prevItem?.skillsScore || 0}%</span>
+                        </div>
+                        <div className="flex justify-between py-1 border-b border-gray-100 dark:border-gray-800">
+                          <span className="text-gray-400">Projects Score:</span>
+                          <span className="font-extrabold text-gray-800 dark:text-gray-200">{prevItem?.projectsScore || 0}%</span>
+                        </div>
+                        <div className="flex justify-between py-1 border-b border-gray-100 dark:border-gray-800">
+                          <span className="text-gray-400">Formatting Score:</span>
+                          <span className="font-extrabold text-gray-800 dark:text-gray-200">{prevItem?.formattingScore || 80}%</span>
+                        </div>
+                      </div>
+
+                      <p className="text-xs font-medium text-gray-600 dark:text-gray-300 leading-relaxed bg-white dark:bg-[#111827] p-3 rounded-xl border border-blue-100 dark:border-blue-900/30">
+                        "{prevItem?.summary || 'Summary unavailable.'}"
+                      </p>
+                    </div>
+                  );
+                })()}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── PDF PREVIEW MODAL ────────────────────────────────────────────── */}
       {previewOpen && resume && (

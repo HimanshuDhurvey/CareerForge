@@ -14,6 +14,11 @@ const resumeAnalysisSchema = new mongoose.Schema(
       required: true,
       index: true,
     },
+    originalName: {
+      type: String,
+      trim: true,
+      default: '',
+    },
     overallScore: {
       type: Number,
       min: 0,

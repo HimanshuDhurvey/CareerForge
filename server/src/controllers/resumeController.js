@@ -149,6 +149,37 @@ const getAnalysisHistory = async (req, res, next) => {
   }
 };
 
+/**
+ * DELETE /api/resume/analysis/:id
+ * Delete a specific historical resume analysis record.
+ */
+const deleteAnalysisRecord = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await analysisService.deleteAnalysisById(req.user._id, id);
+    res.status(200).json(
+      new ApiResponse(200, null, 'Analysis record deleted successfully')
+    );
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * DELETE /api/resume/analysis/all
+ * Delete all historical resume analysis records for the user.
+ */
+const deleteAllAnalysisRecords = async (req, res, next) => {
+  try {
+    await analysisService.deleteAllAnalyses(req.user._id);
+    res.status(200).json(
+      new ApiResponse(200, null, 'All historical resume analysis records deleted successfully')
+    );
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   uploadResume,
   getResume,
@@ -157,4 +188,6 @@ module.exports = {
   analyzeResume,
   getLatestAnalysis,
   getAnalysisHistory,
+  deleteAnalysisRecord,
+  deleteAllAnalysisRecords,
 };

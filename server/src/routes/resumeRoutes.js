@@ -34,4 +34,10 @@ router.get('/analysis', protect, resumeController.getLatestAnalysis);
 // GET  /api/resume/analysis/history — fetch resume analysis history list
 router.get('/analysis/history', protect, resumeController.getAnalysisHistory);
 
+// DELETE /api/resume/analysis/all   — delete all historical analysis records
+router.delete('/analysis/all', protect, resumeController.deleteAllAnalysisRecords);
+
+// DELETE /api/resume/analysis/:id   — delete specific historical analysis record
+router.delete('/analysis/:id', protect, resumeController.deleteAnalysisRecord);
+
 module.exports = router;

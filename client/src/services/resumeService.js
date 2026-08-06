@@ -116,6 +116,30 @@ export const resumeService = {
   },
 
   /**
+   * Delete a specific historical analysis record by ID.
+   */
+  deleteAnalysisRecord: async (analysisId) => {
+    try {
+      const res = await apiClient.delete(`/resume/analysis/${analysisId}`);
+      return res.data.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  /**
+   * Delete all historical resume analysis records for the user.
+   */
+  deleteAllAnalysisRecords: async () => {
+    try {
+      const res = await apiClient.delete('/resume/analysis/all');
+      return res.data.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  /**
    * Build the URL to stream/preview the PDF in an iframe.
    * @param {string} filename  The stored filename from the resume doc
    */
