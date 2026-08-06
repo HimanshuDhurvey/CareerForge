@@ -21,6 +21,8 @@ import InterviewDetails from './features/interview/pages/InterviewDetails';
 import ResumePage from './features/resume/pages/ResumePage';
 import RoadmapPage from './features/roadmap/pages/RoadmapPage';
 
+import ErrorBoundary from './components/ErrorBoundary';
+
 // Minimal placeholder page to simulate navigation routes from CTAs
 function PlaceholderPage({ title }) {
   return (
@@ -100,8 +102,11 @@ function App() {
             <Route path="/coding-practice" element={<ProtectedRoute><DashboardPlaceholderPage title="Coding Practice Room" /></ProtectedRoute>} />
             <Route path="/resume-analyzer" element={<ProtectedRoute><ResumePage /></ProtectedRoute>} />
             <Route path="/resume" element={<ProtectedRoute><ResumePage /></ProtectedRoute>} />
-            <Route path="/career-roadmap" element={<ProtectedRoute><RoadmapPage /></ProtectedRoute>} />
-            <Route path="/roadmap" element={<ProtectedRoute><RoadmapPage /></ProtectedRoute>} />
+            <Route path="/career-roadmap" element={<ProtectedRoute><ErrorBoundary><RoadmapPage /></ErrorBoundary></ProtectedRoute>} />
+            <Route path="/career roadmap" element={<ProtectedRoute><ErrorBoundary><RoadmapPage /></ErrorBoundary></ProtectedRoute>} />
+            <Route path="/career%20roadmap" element={<ProtectedRoute><ErrorBoundary><RoadmapPage /></ErrorBoundary></ProtectedRoute>} />
+            <Route path="/career_roadmap" element={<ProtectedRoute><ErrorBoundary><RoadmapPage /></ErrorBoundary></ProtectedRoute>} />
+            <Route path="/roadmap" element={<ProtectedRoute><ErrorBoundary><RoadmapPage /></ErrorBoundary></ProtectedRoute>} />
             <Route path="/ai-mentor" element={<ProtectedRoute><DashboardPlaceholderPage title="AI Career Mentor Coach" /></ProtectedRoute>} />
             <Route path="/progress" element={<ProtectedRoute><DashboardPlaceholderPage title="Detailed Insights & Progress" /></ProtectedRoute>} />
             <Route path="/saved-resources" element={<ProtectedRoute><DashboardPlaceholderPage title="Saved Resources & Notes" /></ProtectedRoute>} />

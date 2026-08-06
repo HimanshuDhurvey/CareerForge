@@ -286,8 +286,12 @@ function generateSmartFallbackRoadmap(context) {
   const weeklyPlan = [
     {
       week: 1,
+      stage: 'Stage 1: Programming Fundamentals',
       title: 'Advanced JavaScript Engine & Node.js Async Internals',
       description: 'Deep dive into event loop phases, microtasks, streams, and memory profiling to eliminate async bottlenecks.',
+      whyItMatters: 'Understanding V8 execution engine and asynchronous I/O is vital to building high-throughput Node.js microservices.',
+      aiTips: 'Be ready to trace microtask vs macrotask execution order step-by-step during technical interview rounds.',
+      difficulty: 'Intermediate',
       skills: ['Node.js Async Hooks', 'Event Loop', 'Memory Leak Analysis'],
       resources: [
         { title: 'Node.js Official Event Loop Documentation', url: 'https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/', type: 'Documentation' },
@@ -300,8 +304,12 @@ function generateSmartFallbackRoadmap(context) {
     },
     {
       week: 2,
+      stage: 'Stage 2: Core Stack & Architecture',
       title: 'React Architecture, Performance & Custom Hooks',
       description: 'Master React reconciliation, memory optimization, custom hooks abstractions, and global state pattern trade-offs.',
+      whyItMatters: 'Optimizing React rendering lifecycles directly improves web app performance and ATS technical evaluations.',
+      aiTips: 'Focus on explainability: clearly articulate when to use useMemo/useCallback versus component restructuring.',
+      difficulty: 'Intermediate',
       skills: ['React 18 Concurrent Rendering', 'Custom Hooks', 'React Performance Profiler'],
       resources: [
         { title: 'React Official Documentation - Re-rendering Guide', url: 'https://react.dev/learn/render-and-commit', type: 'Documentation' },
@@ -488,8 +496,12 @@ const generateRoadmapWithGemini = async (context) => {
       weeklyPlan: Array.isArray(parsed.weeklyPlan)
         ? parsed.weeklyPlan.map((w, idx) => ({
             week: w.week || idx + 1,
+            stage: w.stage || `Stage ${Math.min(7, Math.floor(idx / 1.2) + 1)}: ${w.title || 'Core Skills'}`,
             title: w.title || `Week ${idx + 1} Focus Area`,
             description: w.description || '',
+            whyItMatters: w.whyItMatters || `Mastering ${w.title || 'this module'} is essential for top engineering performance.`,
+            aiTips: w.aiTips || 'Focus on practical code implementation and trade-off analysis during interview rounds.',
+            difficulty: w.difficulty || (idx < 2 ? 'Beginner' : idx < 5 ? 'Intermediate' : 'Advanced'),
             skills: Array.isArray(w.skills) ? w.skills : [],
             resources: Array.isArray(w.resources)
               ? w.resources.map((r) => ({

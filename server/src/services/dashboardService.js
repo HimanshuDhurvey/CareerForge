@@ -13,6 +13,7 @@ const Resume         = require('../models/resumeModel');
 const ResumeAnalysis = require('../models/ResumeAnalysis');
 const Interview      = require('../models/Interview');
 const Evaluation     = require('../models/Evaluation');
+const Roadmap        = require('../models/Roadmap');
 
 /**
  * Get aggregated dashboard analytics data for a specific user.
@@ -30,6 +31,7 @@ const getDashboardData = async (userId) => {
     resumeAnalysesCount,
     interviews,
     evaluations,
+    latestRoadmapDoc,
   ] = await Promise.all([
     User.findById(userId).select('fullName email avatar role createdAt').lean(),
     Profile.findOne({ user: userId }).lean(),
@@ -38,6 +40,7 @@ const getDashboardData = async (userId) => {
     ResumeAnalysis.countDocuments({ user: userId }),
     Interview.find({ user: userId }).sort({ createdAt: -1 }).lean(),
     Evaluation.find({ user: userId }).sort({ createdAt: -1 }).lean(),
+    Roadmap.findOne({ user: userId }).sort({ createdAt: -1 }).lean(),
   ]);
 
   // 1. Profile Summary
@@ -222,10 +225,28 @@ const getDashboardData = async (userId) => {
   activities.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
   const recentActivities = activities.slice(0, 6);
 
+  // 8. Roadmap Progress Summary
+  const totalRoadmapNodes = latestRoadmapDoc?.weeklyPlan ? latestRoadmapDoc.weeklyPlan.length : 0;
+  const completedRoadmapNodes = latestRoadmapDoc?.weeklyPlan ? latestRoadmapDoc.weeklyPlan.filter((n) => n.completed).length : 0;
+  const roadmapProgressPercent = totalRoadmapNodes > 0 ? Math.round((completedRoadmapNodes / totalRoadmapNodes) * 100) : 0;
+  const nextActiveNode = latestRoadmapDoc?.weeklyPlan ? latestRoadmapDoc.weeklyPlan.find((n) => !n.completed) || null : null;
+
+  const roadmapProgress = {
+    hasRoadmap: !!latestRoadmapDoc,
+    careerGoal: latestRoadmapDoc?.careerGoal || profileDoc?.targetRole || 'Full-Stack Software Engineer',
+    currentLevel: latestRoadmapDoc?.currentLevel || 'Intermediate',
+    progressPercent: roadmapProgressPercent,
+    completedNodes: completedRoadmapNodes,
+    totalNodes: totalRoadmapNodes,
+    remainingNodes: totalRoadmapNodes - completedRoadmapNodes,
+    nextActiveNode: nextActiveNode ? { title: nextActiveNode.title, week: nextActiveNode.week, estimatedHours: nextActiveNode.estimatedHours } : null,
+  };
+
   return {
     profileSummary,
     resumeCard,
     interviewCard,
+    roadmapProgress,
     careerReadinessScore,
     aiInsights: {
       topStrengths: uniqueStrengths,

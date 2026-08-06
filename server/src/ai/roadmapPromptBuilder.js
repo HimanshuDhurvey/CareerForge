@@ -57,7 +57,9 @@ ${recommendedProjects.length > 0 ? recommendedProjects.map((rp) => `- ${rp}`).jo
 2. For each week, provide a clear title, objective description, specific skills covered, concrete learning resources (Documentation, Video, Practice links), a practical hands-on mini-project, and realistic estimated hours.
 3. Include recruiter-style high-level career summary text providing executive guidance.
 4. Recommend top industry certifications relevant to ${careerGoal}.
-5. You MUST return raw JSON ONLY matching the EXACT structure below without markdown code blocks, preambles, or extra text.
+5. Group the roadmap into sequential stages (e.g. Stage 1: Programming Fundamentals, Stage 2: Core Stack Architecture, Stage 3: Systems & Data, Stage 4: Cloud & Microservices, Stage 5: Advanced Scaling, Stage 6: Capstone Portfolio, Stage 7: FAANG Interview Prep).
+6. For each week node, include "stage", "difficulty" (Beginner | Intermediate | Advanced), "whyItMatters" (career rationale), and "aiTips" (strategic practice advice).
+7. You MUST return raw JSON ONLY matching the EXACT structure below without markdown code blocks, preambles, or extra text.
 
 ### STRICT JSON OUTPUT FORMAT:
 {
@@ -72,8 +74,12 @@ ${recommendedProjects.length > 0 ? recommendedProjects.map((rp) => `- ${rp}`).jo
   "weeklyPlan": [
     {
       "week": 1,
+      "stage": "Stage 1: Programming Fundamentals",
       "title": "Week 1 Title Focus",
       "description": "Clear weekly objective and focus.",
+      "whyItMatters": "Why mastering this topic is essential for your target role.",
+      "aiTips": "Key interview traps, optimization tips, and practice guidelines.",
+      "difficulty": "Intermediate",
       "skills": ["Skill 1", "Skill 2"],
       "resources": [
         {

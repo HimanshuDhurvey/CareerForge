@@ -26,6 +26,15 @@ router.get('/', roadmapController.getLatestRoadmap);
 // GET /api/roadmap/history - Return history of generated roadmaps
 router.get('/history', roadmapController.getRoadmapHistory);
 
+// GET /api/roadmap/progress - Get progress summary telemetry
+router.get('/progress', roadmapController.getRoadmapProgress);
+
+// PATCH /api/roadmap/node/:id/complete - Mark roadmap node completed
+router.patch('/node/:id/complete', roadmapController.completeNode);
+
+// PATCH /api/roadmap/node/:id/reset - Mark roadmap node incomplete
+router.patch('/node/:id/reset', roadmapController.resetNode);
+
 // GET /api/roadmap/:id - Return details for a specific roadmap
 router.get('/:id', roadmapIdRules, roadmapController.getRoadmapById);
 

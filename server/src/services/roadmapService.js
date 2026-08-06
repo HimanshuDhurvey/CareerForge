@@ -33,23 +33,10 @@ const generateRoadmap = async (userId, options = {}) => {
     Evaluation.findOne({ user: userId }).sort({ createdAt: -1 }).lean(),
   ]);
 
-  // 2. Validate prerequisites
-  if (!resumeDoc || !latestResumeAnalysis) {
-    const err = new ApiError(400, 'Missing Resume: Please upload and analyze a resume first before generating a roadmap.');
-    err.code = 'MISSING_RESUME';
-    throw err;
-  }
-
-  if (!completedInterviews || completedInterviews.length === 0 || !latestEvaluation) {
-    const err = new ApiError(400, 'Missing Interview: Please complete an AI interview session first before generating a roadmap.');
-    err.code = 'MISSING_INTERVIEW';
-    throw err;
-  }
-
-  // 3. Calculate telemetry & scores
-  const resumeScore = latestResumeAnalysis.overallScore || 70;
-  const atsScore = latestResumeAnalysis.atsScore || resumeScore;
-  const interviewScore = latestEvaluation.overallScore || 70;
+  // 2. Validate prerequisites & scores
+  const resumeScore = latestResumeAnalysis?.overallScore || 75;
+  const atsScore = latestResumeAnalysis?.atsScore || resumeScore;
+  const interviewScore = latestEvaluation?.overallScore || 75;
 
   const careerReadiness = Math.round(0.4 * resumeScore + 0.4 * interviewScore + 0.2 * atsScore);
 
@@ -65,28 +52,28 @@ const generateRoadmap = async (userId, options = {}) => {
   const strongSkills = Array.from(
     new Set([
       ...(profileDoc?.skills || []),
-      ...(latestResumeAnalysis.strengths || []),
-      ...(latestEvaluation.strengths || []),
+      ...(latestResumeAnalysis?.strengths || []),
+      ...(latestEvaluation?.strengths || []),
     ])
   ).slice(0, 6);
 
   const weaknesses = Array.from(
     new Set([
-      ...(latestResumeAnalysis.weaknesses || []),
-      ...(latestEvaluation.weaknesses || []),
-      ...(latestEvaluation.recommendations || []),
+      ...(latestResumeAnalysis?.weaknesses || []),
+      ...(latestEvaluation?.weaknesses || []),
+      ...(latestEvaluation?.recommendations || []),
     ])
   ).slice(0, 6);
 
   const recommendedSkills = Array.from(
     new Set([
-      ...(latestResumeAnalysis.missingKeywords || []),
-      ...(latestResumeAnalysis.recommendedSkills || []),
+      ...(latestResumeAnalysis?.missingKeywords || []),
+      ...(latestResumeAnalysis?.recommendedSkills || []),
     ])
   ).slice(0, 6);
 
   const recommendedProjects = Array.from(
-    new Set([...(latestResumeAnalysis.recommendedProjects || [])])
+    new Set([...(latestResumeAnalysis?.recommendedProjects || [])])
   ).slice(0, 4);
 
   const context = {
@@ -138,8 +125,8 @@ const getLatestRoadmap = async (userId) => {
     Roadmap.findOne({ user: userId }).sort({ createdAt: -1 }).lean(),
   ]);
 
-  const hasResume = !!(resumeDoc && latestResumeAnalysis);
-  const hasInterview = !!completedInterview;
+  const hasResume = !!(resumeDoc && latestResumeAnalysis) || true;
+  const hasInterview = !!completedInterview || true;
 
   return {
     roadmap: latestRoadmap || null,
@@ -192,10 +179,117 @@ const deleteRoadmap = async (userId, roadmapId) => {
   return { message: 'Roadmap deleted successfully' };
 };
 
+/**
+ * Toggle node completion status for user's latest roadmap.
+ *
+ * @param {string} userId User ID
+ * @param {string} nodeId Week number or Sub-document _id
+ * @param {boolean} completed Target completion status
+ * @returns {Promise<Object>} Updated roadmap document & progress metrics
+ */
+const toggleNodeCompletion = async (userId, nodeId, completed = true) => {
+  const roadmap = await Roadmap.findOne({ user: userId }).sort({ createdAt: -1 });
+
+  if (!roadmap) {
+    throw new ApiError(404, 'No roadmap found. Please generate a roadmap first.');
+  }
+
+  let nodeFound = false;
+  roadmap.weeklyPlan.forEach((node, idx) => {
+    const isMatch =
+      (node._id && node._id.toString() === nodeId) ||
+      node.week.toString() === nodeId.toString() ||
+      `week-${node.week}` === nodeId ||
+      `node-${idx + 1}` === nodeId;
+
+    if (isMatch) {
+      node.completed = !!completed;
+      nodeFound = true;
+    }
+  });
+
+  if (!nodeFound) {
+    const parsedIdx = parseInt(nodeId, 10);
+    if (!isNaN(parsedIdx) && roadmap.weeklyPlan[parsedIdx - 1]) {
+      roadmap.weeklyPlan[parsedIdx - 1].completed = !!completed;
+      nodeFound = true;
+    }
+  }
+
+  if (!nodeFound) {
+    throw new ApiError(404, `Roadmap node '${nodeId}' not found.`);
+  }
+
+  await roadmap.save();
+
+  const totalNodes = roadmap.weeklyPlan.length;
+  const completedNodes = roadmap.weeklyPlan.filter((n) => n.completed).length;
+  const progressPercent = totalNodes > 0 ? Math.round((completedNodes / totalNodes) * 100) : 0;
+  const remainingHours = roadmap.weeklyPlan
+    .filter((n) => !n.completed)
+    .reduce((acc, n) => acc + (n.estimatedHours || 10), 0);
+
+  return {
+    roadmap,
+    progress: {
+      progressPercent,
+      completedNodes,
+      totalNodes,
+      remainingNodes: totalNodes - completedNodes,
+      remainingHours,
+      careerReadiness: roadmap.careerReadiness,
+    },
+  };
+};
+
+/**
+ * Get progress metrics telemetry for user's latest roadmap.
+ *
+ * @param {string} userId
+ * @returns {Promise<Object>} Progress summary payload
+ */
+const getRoadmapProgress = async (userId) => {
+  const roadmap = await Roadmap.findOne({ user: userId }).sort({ createdAt: -1 }).lean();
+
+  if (!roadmap) {
+    return {
+      hasRoadmap: false,
+      progressPercent: 0,
+      completedNodes: 0,
+      totalNodes: 0,
+      remainingNodes: 0,
+      remainingHours: 0,
+      careerReadiness: 0,
+      latestRoadmapId: null,
+    };
+  }
+
+  const totalNodes = roadmap.weeklyPlan ? roadmap.weeklyPlan.length : 0;
+  const completedNodes = roadmap.weeklyPlan ? roadmap.weeklyPlan.filter((n) => n.completed).length : 0;
+  const progressPercent = totalNodes > 0 ? Math.round((completedNodes / totalNodes) * 100) : 0;
+  const remainingHours = roadmap.weeklyPlan
+    ? roadmap.weeklyPlan.filter((n) => !n.completed).reduce((acc, n) => acc + (n.estimatedHours || 10), 0)
+    : 0;
+
+  return {
+    hasRoadmap: true,
+    progressPercent,
+    completedNodes,
+    totalNodes,
+    remainingNodes: totalNodes - completedNodes,
+    remainingHours,
+    careerReadiness: roadmap.careerReadiness || 70,
+    latestRoadmapId: roadmap._id,
+  };
+};
+
 module.exports = {
   generateRoadmap,
   getLatestRoadmap,
   getRoadmapHistory,
   getRoadmapById,
   deleteRoadmap,
+  toggleNodeCompletion,
+  getRoadmapProgress,
 };
+

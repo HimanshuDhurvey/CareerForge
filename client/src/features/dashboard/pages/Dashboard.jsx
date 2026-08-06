@@ -147,9 +147,10 @@ export default function Dashboard() {
                     />
                   </div>
 
-                  {/* Recent AI Evaluation Reports */}
+                  {/* AI Career Roadmap & Evaluation Reports */}
                   <RoadmapProgress
                     recentReports={dashboardData.recentReports}
+                    roadmapProgress={dashboardData.roadmapProgress}
                   />
                 </div>
 

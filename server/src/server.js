@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * server.js — CareerForge Server Entry Point (Updated with Roadmap Routes)
+ * server.js — CareerForge Server Entry Point (Roadmap & Visual Path Active)
  * ─────────────────────────────────────────────────────────────────────────────
  * Application entry point.
  *

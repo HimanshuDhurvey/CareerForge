@@ -25,6 +25,10 @@ export default function TopNavbar({ onMenuToggle }) {
       case '/resume-analyzer':
         return 'Resume Analyzer';
       case '/career-roadmap':
+      case '/career roadmap':
+      case '/career%20roadmap':
+      case '/career_roadmap':
+      case '/roadmap':
         return 'Career Roadmap';
       case '/ai-mentor':
         return 'AI Mentor';

@@ -97,10 +97,67 @@ const deleteRoadmap = async (req, res, next) => {
   }
 };
 
+/**
+ * PATCH /api/roadmap/node/:id/complete
+ * Mark a specific roadmap node as completed.
+ */
+const completeNode = async (req, res, next) => {
+  try {
+    const userId = req.user._id;
+    const nodeId = req.params.id;
+    const result = await roadmapService.toggleNodeCompletion(userId, nodeId, true);
+
+    res.status(200).json(
+      new ApiResponse(200, result, 'Roadmap node marked as completed')
+    );
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * PATCH /api/roadmap/node/:id/reset
+ * Mark a specific roadmap node as incomplete.
+ */
+const resetNode = async (req, res, next) => {
+  try {
+    const userId = req.user._id;
+    const nodeId = req.params.id;
+    const result = await roadmapService.toggleNodeCompletion(userId, nodeId, false);
+
+    res.status(200).json(
+      new ApiResponse(200, result, 'Roadmap node reset to incomplete')
+    );
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * GET /api/roadmap/progress
+ * Get overall progress telemetry for user's career roadmap.
+ */
+const getRoadmapProgress = async (req, res, next) => {
+  try {
+    const userId = req.user._id;
+    const progress = await roadmapService.getRoadmapProgress(userId);
+
+    res.status(200).json(
+      new ApiResponse(200, progress, 'Roadmap progress retrieved successfully')
+    );
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   generateRoadmap,
   getLatestRoadmap,
   getRoadmapHistory,
   getRoadmapById,
   deleteRoadmap,
+  completeNode,
+  resetNode,
+  getRoadmapProgress,
 };
+

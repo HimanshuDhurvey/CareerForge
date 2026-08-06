@@ -99,4 +99,43 @@ export const roadmapService = {
       throw handleApiError(error);
     }
   },
+
+  /**
+   * Mark a roadmap node as completed.
+   * @param {string} nodeId Node ID or week number
+   */
+  markNodeComplete: async (nodeId) => {
+    try {
+      const response = await apiClient.patch(`/roadmap/node/${nodeId}/complete`);
+      return response.data.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  /**
+   * Mark a roadmap node as incomplete.
+   * @param {string} nodeId Node ID or week number
+   */
+  markNodeReset: async (nodeId) => {
+    try {
+      const response = await apiClient.patch(`/roadmap/node/${nodeId}/reset`);
+      return response.data.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  /**
+   * Get roadmap overall progress telemetry.
+   */
+  getRoadmapProgress: async () => {
+    try {
+      const response = await apiClient.get('/roadmap/progress');
+      return response.data.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
 };
+

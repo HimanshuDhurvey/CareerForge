@@ -36,6 +36,11 @@ const weeklyPlanSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    stage: {
+      type: String,
+      trim: true,
+      default: 'Stage 1: Core Fundamentals',
+    },
     title: {
       type: String,
       trim: true,
@@ -45,6 +50,22 @@ const weeklyPlanSchema = new mongoose.Schema(
       type: String,
       trim: true,
       default: '',
+    },
+    whyItMatters: {
+      type: String,
+      trim: true,
+      default: '',
+    },
+    aiTips: {
+      type: String,
+      trim: true,
+      default: '',
+    },
+    difficulty: {
+      type: String,
+      trim: true,
+      enum: ['Beginner', 'Intermediate', 'Advanced'],
+      default: 'Intermediate',
     },
     skills: [
       {
@@ -67,7 +88,7 @@ const weeklyPlanSchema = new mongoose.Schema(
       default: false,
     },
   },
-  { _id: false }
+  { _id: true }
 );
 
 const roadmapSchema = new mongoose.Schema(
