@@ -1,132 +1,112 @@
-# CareerForge – AI Powered Career Development Platform
+# CareerForge 🚀
+> **AI-Powered Career Development & Technical Interview Platform**
 
-[![React](https://img.shields.io/badge/Frontend-React_19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Bundler-Vite_8-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind_CSS_4-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![React 19](https://img.shields.io/badge/Frontend-React_19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![Node.js](https://img.shields.io/badge/Backend-Node.js_24-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Framework-Express_5-000000?logo=express&logoColor=white)](https://expressjs.com/)
+[![Express.js 5](https://img.shields.io/badge/Framework-Express_5-000000?logo=express&logoColor=white)](https://expressjs.com/)
 [![MongoDB Atlas](https://img.shields.io/badge/Database-MongoDB_Atlas-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/cloud/atlas)
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
-[![Project Status](https://img.shields.io/badge/Status-Active_Development-orange)](#current-development-progress)
+[![Gemini AI](https://img.shields.io/badge/AI-Google_Gemini_1.5_Flash-4285F4?logo=google-gemini&logoColor=white)](https://ai.google.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
 
-## 📌 Project Description
+## 📌 Overview
 
-**CareerForge** is a modern, full-stack MERN (MongoDB, Express.js, React, Node.js) platform designed to empower students, fresh graduates, and software engineering candidates in preparing for technical careers.
+**CareerForge** is an advanced, production-grade MERN (MongoDB, Express.js, React, Node.js) platform designed to empower software engineering candidates, fresh graduates, and experienced developers in preparing for technical careers.
 
-The platform provides a comprehensive suite of career preparation tools, including secure authentication, candidate profile management, interactive resume management with ATS upload capabilities, AI interview preparation, and career roadmaps. CareerForge is being developed incrementally using modular production-grade software engineering patterns.
+### Problem It Solves
+Traditional career preparation is fragmented and overly optimistic. Candidates lack realistic, recruiter-grade resume screening feedback and struggle to find interactive mock interviews that evaluate real-time technical depth, communication, and problem-solving.
 
----
+### Target Users
+- Software Engineering Candidates (Frontend, Backend, Full-Stack, System Design)
+- Fresh Computer Science Graduates & Engineering Students
+- Job Seekers preparing for FAANG and top-tier tech company screening rounds
 
-## ✨ Key Features
-
-- **🔐 Authentication & Access Control**
-  - Email & password registration with client and server input validation.
-  - Secure JWT authentication with localStorage persistence and Bearer header injection.
-  - Protected routes guarding candidate dashboards, profile management, and career modules.
-
-- **📊 Centralized Candidate Dashboard**
-  - Responsive sidebar navigation with dark mode support.
-  - Top navigation bar featuring dynamic candidate initials avatar and real-time profile integration.
-  - Recent candidate activities, quick action cards, and progress metrics.
-
-- **👤 Complete Profile Management**
-  - Candidate profile details including Personal Info, Academic Info, Target Role, and Target Company.
-  - Form validation with inline error messaging and editable fields (Date of Birth, Phone, College, Degree, Branch, Graduation Year, Skills, Bio, Location, Social Links, Avatar URL).
-  - Synchronized user credentials (Full Name and Avatar) between `User` and `Profile` collections.
-  - Read-only email address protection.
-
-- **📄 Interactive Resume Management**
-  - Drag-and-drop and file browser PDF resume upload (PDF format only, maximum size 5 MB).
-  - Real-time upload progress bar and instant metadata refresh.
-  - PDF preview modal with in-app `iframe` viewing and fallback "Open in New Tab" capabilities.
-  - One-click resume replacement and deletion with confirmation dialogs.
-  - Backend streaming endpoint serving uploaded PDFs directly.
-
-- **🤖 AI Integration Ready**
-  - Prepared Gemini AI integration layer for resume ATS scoring and interview feedback.
-  - Structured prompt generators and JSON parsing services.
+### Key AI-Powered Highlights
+- **FAANG-Recruiter Grade Resume Evaluation Engine**: Uses Google Gemini AI to perform strict ATS compatibility checks, structural impact audits, keyword gap analysis, and version progress tracking.
+- **AI Interview Engine & Single-Request Evaluation**: Simulates real technical interview sessions and generates comprehensive multidimensional feedback (Technical Depth, Communication, Problem Solving, and question-by-question scoring).
+- **Unified Central Hub Dashboard**: Single aggregated backend endpoint (`GET /api/dashboard`) calculating a dynamic Career Readiness Score, live metrics, and actionable recommendations.
 
 ---
 
-## 🚀 Current Development Progress
+## ✨ Features
 
-| Module | Status | Description |
-|:---|:---:|:---|
-| **Authentication Module** | ✅ Completed | Register, Login, Logout, JWT middleware, Password hashing, Protected Routes |
-| **Dashboard Core** | ✅ Completed | Responsive layout, Top navbar, Sidebar, Search bar, Candidate dropdown |
-| **User Profile Module** | ✅ Completed | Profile schema, GET/PUT endpoints, form validation, User document sync |
-| **Resume Analyzer Module** | ✅ Completed | PDF upload, Drag & Drop, preview iframe, download, replace, delete, metadata |
-| **AI Interview Module** | 🚧 In Progress | Mock interview session setup, audio recording, and feedback generation |
-| **Coding Practice Room** | 🔮 Planned | Technical problem solving workspace and code executor |
-| **Career Roadmap Generator** | 🔮 Planned | AI-generated learning paths tailored to candidate target roles |
-| **AI Mentor Coach** | 🔮 Planned | Interactive AI career guidance and Q&A chat |
+### 🔐 Authentication Module
+- User Registration & Secure Login with bcrypt password hashing.
+- Standard JSON Web Token (JWT) Bearer authentication & route protection.
+- Auto-initialization of profile state upon registration.
+- Client-side AuthContext state management with token auto-injection.
+
+### 👤 Career Profile Module
+- Comprehensive candidate profile management (Target Role, Target Company, Academic Credentials, Bio, Social Links, Avatar).
+- User document credential synchronization (Name & Avatar updates automatically reflect across User & Profile).
+- Field validation with inline error messaging and read-only email protection.
+
+### 📄 Resume Management & Preview
+- Drag-and-Drop / File Picker PDF upload (PDF format only, max 5 MB).
+- Native PDF streaming endpoint (`GET /api/resume/file/:filename`) for in-app preview iframe & direct downloads.
+- Atomic resume replacement & file deletion cleanup.
+
+### 🤖 AI Resume Analyzer (Gemini AI)
+- **FAANG-Recruiter Persona**: Strict, non-inflated scoring guidelines matching senior recruiter standards.
+- **Detailed Metrics**: Overall Resume Quality, ATS Compatibility, Technical Skills, Projects, Content Impact, Formatting, and Grammar scores.
+- **Structured Feedback**: Executive summary, key strengths, weaknesses, missing keywords (+ missing link penalties), recommended projects, and ATS parser warnings.
+- **Progress Tracking & Versions**: Version history cards with sub-score deltas (`▲ +8 Overall`, `▲ +5 ATS`, `▼ -2 Skills`), grade filters (`All`, `90+`, `80-89`, `70-79`, `<70`), search bar, paginated grid, and side-by-side report comparison modal.
+- **Clear History / Batch Deletion**: Dedicated `DELETE /api/resume/analysis/all` route for bulk history cleanup.
+
+### 🎙️ AI Interview Engine
+- **Flexible Question Bank**: Categorized by role (Full-Stack, Frontend, Backend) and difficulty (Beginner, Intermediate, Advanced).
+- **Session Tracking**: Real-time step-by-step candidate answer collection, progress indicators, timer tracking, and session status (`in_progress` → `completed`).
+- **Post-Interview Guidance**: Interactive "What's Next?" action cards guiding users to feedback reports, new session setups, or resume optimization.
+
+### 📊 AI Interview Evaluation Engine
+- **Single-Request AI Processing**: Evaluates the entire completed interview in a single Gemini AI call for optimal latency and consistency.
+- **Multidimensional Scoring**: Overall Performance Score, Technical Depth, Communication Clarity, and Problem Solving.
+- **Question-by-Question Analysis**: Per-question score ring, strengths, missing technical concepts, and ideal sample answer.
+- **Actionable Growth Steps**: Priority improvement recommendations & performance verdict (`Outstanding`, `Strong Candidate`, `Average Candidate`, `Needs Work`).
+
+### 📊 Central Hub Dashboard
+- Single aggregated endpoint `GET /api/dashboard` executing non-blocking parallel queries (`Promise.all`).
+- **Profile Summary**: Avatar, User Name, Target Role, Email, Profile Completion %.
+- **Resume Card**: Latest Resume Score, ATS Score, Status, Download/View CTA buttons.
+- **Interview Card**: Total Interviews, Completed Count, Avg Score, Best Score, Start Interview CTA button.
+- **Career Readiness Score**: Formula: `Math.round(0.4 * ResumeScore + 0.4 * InterviewScore + 0.2 * ATSScore)`.
+- **Recent Activity Timeline**: Merged chronological event stream (Resume Uploaded, Analyzed, Interview Started, Completed, Evaluation Generated).
+- **AI Insights & Skill Overview**: Top Strengths, Top Weaknesses, and Strong vs Weak Skills progress bars.
+- **Top 5 Action Steps**: Curated priority recommendations for career readiness.
+- **Recent Reports**: Direct quick-access cards to latest Resume Analysis and Interview Evaluation reports.
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- **Library:** [React 19](https://react.dev/)
-- **Build Tool:** [Vite 8](https://vitejs.dev/)
-- **Routing:** [React Router 7](https://reactrouter.com/)
-- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
-- **HTTP Client:** [Axios](https://axios-http.com/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Notifications:** [React Hot Toast](https://react-hot-toast.com/)
-- **Form Management:** [React Hook Form](https://react-hook-form.com/)
-- **Charts:** [Recharts](https://recharts.org/)
-
-### Backend
-- **Runtime:** [Node.js v24](https://nodejs.org/)
-- **Framework:** [Express.js 5](https://expressjs.com/)
-- **Database:** [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-- **ODM:** [Mongoose 9](https://mongoosejs.com/)
-- **Authentication:** [JSON Web Token (jsonwebtoken)](https://github.com/auth0/node-jsonwebtoken) & [bcrypt](https://github.com/kelektiv/node.bcrypt.js)
-- **File Handling:** [Multer](https://github.com/expressjs/multer) & [pdf-parse](https://github.com/nicolas-van/pdf-parse)
-- **Validation:** [Express Validator](https://express-validator.github.io/)
-- **Security:** [Helmet](https://helmetjs.github.io/), [CORS](https://github.com/expressjs/cors), [cookie-parser](https://github.com/expressjs/cookie-parser)
-- **Logging:** [Winston](https://github.com/winstonjs/winston) & [Morgan](https://github.com/expressjs/morgan)
-
-### Planned AI & Cloud Services
-- **AI Service:** [@google/generative-ai (Gemini 1.5 Flash)](https://ai.google.dev/)
-- **Storage:** Cloudinary / Local Disk Storage
+| Category | Technology | Description |
+|:---|:---|:---|
+| **Frontend** | React 19, Vite 8, React Router 7 | High-performance SPA frontend with Vite HMR |
+| **Styling** | Tailwind CSS 4, Lucide React Icons | Modern responsive dark-themed UI components |
+| **Backend** | Node.js v24, Express.js 5 | Layered MVC RESTful API backend server |
+| **Database** | MongoDB Atlas, Mongoose 9 | NoSQL cloud database & ODM schema modeling |
+| **Authentication** | JWT (jsonwebtoken), bcryptjs | Secure Bearer token authentication & hashing |
+| **AI Services** | `@google/generative-ai` (Gemini 1.5 Flash) | Google AI SDK for structured resume & interview grading |
+| **File Handling** | Multer, `pdf-parse` v2 | PDF upload handling, storage guard, and text extraction |
+| **Validation & Security** | Helmet, CORS, `express-validator` | Security headers, request sanitization & schema validation |
+| **Logging** | Winston & Morgan | HTTP request logging and structured system logger |
 
 ---
 
-## 🏗️ Project Architecture
+## 🏗️ System Architecture
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                      Client Layer                       │
-│      React 19 + Vite + Tailwind CSS + Axios Client      │
-└────────────────────────────┬────────────────────────────┘
-                             │ HTTP / REST API (JWT Header)
-                             ▼
-┌─────────────────────────────────────────────────────────┐
-│                    Express.js Router                    │
-│    CORS · Helmet Security · CookieParser · Auth Guard   │
-└────────────────────────────┬────────────────────────────┘
-                             │
-            ┌────────────────┴────────────────┐
-            ▼                                 ▼
-┌───────────────────────┐         ┌───────────────────────┐
-│  Auth / Profile /     │         │   Resume File Router  │
-│  Interview Controllers│         │   (Multer Disk Guard) │
-└───────────┬───────────┘         └───────────┬───────────┘
-            │                                 │
-            ▼                                 ▼
-┌───────────────────────┐         ┌───────────────────────┐
-│ Service Layer Logic   │         │ File Storage System   │
-│ Sync User & Profile   │         │ server/uploads/resumes│
-└───────────┬───────────┘         └───────────────────────┘
-            │
-            ▼
-┌─────────────────────────────────────────────────────────┐
-│                    MongoDB Atlas                        │
-│          Collections: users · profiles · resumes        │
-└─────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    A[Client: React 19 + Vite] -->|REST API Requests / JWT Bearer| B[Express 5 API Gateway]
+    B --> C{Authentication Middleware}
+    C -->|Authorized| D[Controllers Layer]
+    D --> E[Service Layer]
+    E -->|Mongoose ODM| F[(MongoDB Atlas)]
+    E -->|PDF Text Extraction| G[pdf-parse Engine]
+    E -->|Google AI SDK| H[Gemini 1.5 Flash AI API]
+    G --> H
+    H -->|Structured JSON Response| E
 ```
 
 ---
@@ -135,42 +115,101 @@ The platform provides a comprehensive suite of career preparation tools, includi
 
 ```
 AI_Interview_Platform/
-├── client/                      # React Frontend Application
+├── client/                      # React 19 Vite Frontend
 │   ├── src/
-│   │   ├── assets/              # Static media assets and logos
-│   │   ├── components/          # Reusable shared components (ProtectedRoute, ProfileDropdown)
-│   │   ├── context/             # AuthContext provider and global state
-│   │   ├── features/            # Feature-based pages and UI modules
+│   │   ├── assets/              # Logos and static media assets
+│   │   ├── components/          # Shared layout guards (ProtectedRoute, ProfileDropdown)
+│   │   ├── context/             # AuthContext & InterviewContext global state providers
+│   │   ├── features/            # Feature-driven page modules
 │   │   │   ├── auth/            # Login and Register pages
-│   │   │   ├── dashboard/       # Dashboard workspace, Sidebar, TopNavbar
-│   │   │   ├── interview/       # AI Interview setup, session, and feedback pages
-│   │   │   ├── landing/         # Marketing landing page
-│   │   │   ├── profile/         # Candidate profile cards and edit modal
-│   │   │   └── resume/          # Resume Analyzer dashboard page
-│   │   ├── services/            # Axios API integration clients (authService, profileService, resumeService)
-│   │   ├── App.jsx              # Main router switch configuration
+│   │   │   ├── dashboard/       # Central Hub Dashboard, Sidebar, TopNavbar, Widgets
+│   │   │   ├── interview/       # Interview Setup, Instructions, Session, Details, History, Feedback
+│   │   │   ├── landing/         # Marketing Landing Page
+│   │   │   ├── profile/         # Candidate Profile cards and Edit Modal
+│   │   │   └── resume/          # Resume Analyzer, Score Rings, Version Tracker & Compare Modal
+│   │   ├── services/            # Axios API service wrappers (auth, profile, resume, interview, ai, dashboard)
+│   │   ├── App.jsx              # Main Router switch configuration
 │   │   └── main.jsx             # React entry point
 │   ├── package.json
 │   └── vite.config.js
 │
-├── server/                      # Node.js Express Backend Application
+├── server/                      # Node.js 24 Express 5 Backend
 │   ├── src/
-│   │   ├── ai/                  # Gemini AI prompts and service configuration
-│   │   ├── config/              # Environment configs and logger setup
-│   │   ├── controllers/         # HTTP request handler functions
-│   │   ├── middlewares/        # Auth (JWT), Upload (Multer), and Error handlers
-│   │   ├── models/              # Mongoose schemas (userModel, profileModel, resumeModel)
-│   │   ├── routes/              # Express API route modules
-│   │   ├── services/            # Business service layer
-│   │   ├── utils/               # ApiError, ApiResponse wrappers
-│   │   ├── validators/          # Express-validator schema rules
-│   │   ├── app.js               # Express application setup
-│   │   └── server.js            # Server entry point
-│   ├── uploads/                 # Local disk upload storage (PDF resumes)
-│   ├── .env                     # Server environment settings
+│   │   ├── ai/                  # Gemini AI prompts, services & heuristic fallback engines
+│   │   ├── config/              # Environment validator & Winston logger
+│   │   ├── controllers/         # HTTP request handlers (auth, profile, resume, interview, ai, dashboard)
+│   │   ├── middlewares/         # Auth (JWT), Upload (Multer), Error, and 404 handlers
+│   │   ├── models/              # Mongoose schemas (User, Profile, Resume, ResumeAnalysis, Interview, Evaluation, Question)
+│   │   ├── routes/              # Express REST routes (auth, profile, resume, interview, ai, dashboard)
+│   │   ├── services/            # Core business logic layer (analysisService, aiEvaluationService, dashboardService)
+│   │   ├── utils/               # ApiError and ApiResponse wrapper classes
+│   │   ├── validators/          # Express-validator rule sets
+│   │   ├── app.js               # Express application factory
+│   │   └── server.js            # Server listener entry point
+│   ├── uploads/                 # Local disk upload storage (PDF Resumes)
+│   ├── .env                     # Server environment configuration
 │   └── package.json
 │
-└── README.md                    # Project documentation
+└── README.md                    # Root project documentation
+```
+
+---
+
+## 📡 API Modules & Key Endpoints
+
+### 🔐 Authentication (`/api/auth`)
+- `POST /api/auth/register` — Register candidate account
+- `POST /api/auth/login` — Authenticate and issue JWT token
+- `POST /api/auth/logout` — Logout user
+- `GET /api/auth/me` — Get authenticated user details
+
+### 👤 Profile (`/api/profile`)
+- `GET /api/profile` — Fetch candidate profile document
+- `PUT /api/profile` — Update candidate profile & sync user attributes
+
+### 📄 Resume & AI Analysis (`/api/resume`)
+- `GET /api/resume` — Fetch active resume metadata
+- `POST /api/resume/upload` — Upload PDF resume (`multipart/form-data`)
+- `DELETE /api/resume` — Delete active resume and disk PDF file
+- `GET /api/resume/file/:filename` — Stream PDF file for iframe preview
+- `POST /api/resume/analyze` — Trigger strict Gemini AI resume analysis
+- `GET /api/resume/analysis` — Fetch latest analysis report
+- `GET /api/resume/analysis/history` — Fetch historical analysis versions
+- `DELETE /api/resume/analysis/:id` — Delete specific analysis report
+- `DELETE /api/resume/analysis/all` — Clear all analysis history reports
+
+### 🎙️ Interview Engine (`/api/interviews`)
+- `POST /api/interviews` — Initialize new interview session
+- `GET /api/interviews` — Fetch user's interview history
+- `GET /api/interviews/:id` — Fetch interview session details
+- `PATCH /api/interviews/:id` — Save answer & update session progress
+- `DELETE /api/interviews/:id` — Delete interview record
+
+### 📊 AI Evaluation (`/api/ai`)
+- `POST /api/ai/evaluate/:interviewId` — Run single-request Gemini AI evaluation
+- `GET /api/ai/evaluation/:interviewId` — Fetch evaluation report for session
+
+### 📈 Central Dashboard (`/api/dashboard`)
+- `GET /api/dashboard` — Single aggregated endpoint returning profile, resume, interview, readiness score, AI insights, and activities.
+
+---
+
+## 🧠 AI Workflows
+
+### 1. AI Resume Analysis Workflow
+```
+[ PDF Upload ] ──> [ Multer Disk Guard ] ──> [ pdf-parse Text Extraction ]
+                                                       │
+[ Mongoose DB ] <── [ Structured JSON ] <── [ Gemini 1.5 Flash AI Engine ]
+       │
+[ Frontend Dashboard ] <── [ Progress Tracker & Compare Modal ]
+```
+
+### 2. AI Interview Evaluation Workflow
+```
+[ Interview Session ] ──> [ Candidate Answers Collected ] ──> [ Session Completed ]
+                                                                     │
+[ Interview Report ] <── [ Mongoose DB ] <── [ Gemini Single-Request Evaluator ]
 ```
 
 ---
@@ -178,269 +217,153 @@ AI_Interview_Platform/
 ## ⚡ Installation & Setup Guide
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- [npm](https://www.npmjs.com/)
-- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account or local MongoDB instance
+- **Node.js** v18+ (v24 recommended)
+- **npm** v9+
+- **MongoDB Atlas** database URI (or local MongoDB instance)
+- **Google Gemini AI API Key** (Get key from [Google AI Studio](https://aistudio.google.com/))
 
-### 1. Clone the Repository
+### 1. Clone Repository
 ```bash
 git clone https://github.com/HimanshuDhurvey/CareerForge.git
 cd AI_Interview_Platform
 ```
 
-### 2. Backend Setup
+### 2. Backend Setup (`server`)
 ```bash
-# Navigate to server directory
 cd server
-
-# Install dependencies
 npm install
-
-# Configure environment variables (see Environment Variables section)
-# Start the server in development mode
-npm run dev
 ```
-
-### 3. Frontend Setup
-Open a new terminal window:
-```bash
-# Navigate to client directory
-cd client
-
-# Install dependencies
-npm install
-
-# Start the Vite development server
-npm run dev
-```
-
----
-
-## 🔑 Environment Variables
-
-Create a `.env` file inside the `server/` directory with the following variables:
-
+Create a `.env` file inside `server/`:
 ```env
-# Server Environment
-NODE_ENV=development
 PORT=5000
-
-# Database Connection String (MongoDB Atlas or Local)
+NODE_ENV=development
 MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/careerforge?retryWrites=true&w=majority
-
-# Client Origin (CORS Whitelist)
 CLIENT_ORIGIN=http://localhost:5173
-
-# Authentication Secrets
 JWT_ACCESS_SECRET=careerforge_access_secret_s3cur3_k3y_2026
 JWT_REFRESH_SECRET=careerforge_refresh_secret_s3cur3_k3y_2026
-JWT_ACCESS_EXPIRES_IN=15m
-JWT_REFRESH_EXPIRES_IN=7d
-
-# Gemini AI Integration (Future Phase)
-GEMINI_API_KEY=your_gemini_api_key_here
+GEMINI_API_KEY=your_google_gemini_api_key_here
 ```
-
-| Variable | Required | Default | Description |
-|:---|:---:|:---:|:---|
-| `NODE_ENV` | Yes | `development` | Environment mode (`development` or `production`) |
-| `PORT` | Yes | `5000` | HTTP port for the Express backend server |
-| `MONGO_URI` | Yes | — | MongoDB connection string |
-| `CLIENT_ORIGIN` | Yes | `http://localhost:5173` | Allowed frontend origin for CORS requests |
-| `JWT_ACCESS_SECRET` | Yes | — | Secret key used to sign access tokens |
-| `JWT_REFRESH_SECRET` | Yes | — | Secret key used to sign refresh tokens |
-| `GEMINI_API_KEY` | Optional | — | Google Gemini AI API key for resume analysis |
-
----
-
-## 📜 Available Scripts
-
-### Backend (`server/`)
+Run backend server:
 ```bash
-# Run server in development mode with nodemon auto-restart
 npm run dev
-
-# Run server in production mode
-npm start
 ```
 
-### Frontend (`client/`)
+### 3. Frontend Setup (`client`)
+Open a new terminal:
 ```bash
-# Start Vite development server
+cd client
+npm install
 npm run dev
-
-# Build production bundle
-npm run build
-
-# Preview production build locally
-npm run preview
-
-# Run Oxlint linting check
-npm run lint
 ```
+Open `http://localhost:5173` in your browser.
 
 ---
 
-## 📡 API Reference Overview
+## 🔑 Environment Variables Reference
 
-### Authentication Endpoint (`/api/auth`)
-| Method | Endpoint | Access | Description |
-|:---|:---|:---:|:---|
-| `POST` | `/api/auth/register` | Public | Register new candidate account |
-| `POST` | `/api/auth/login` | Public | Authenticate candidate and return JWT access token |
-| `POST` | `/api/auth/logout` | Private | Clear candidate session credentials |
-| `GET` | `/api/auth/me` | Private | Retrieve authenticated candidate profile |
-
-### Profile Endpoints (`/api/profile`)
-| Method | Endpoint | Access | Description |
-|:---|:---|:---:|:---|
-| `GET` | `/api/profile` | Private | Fetch candidate profile (auto-initializes if new) |
-| `PUT` | `/api/profile` | Private | Update editable candidate profile fields |
-
-### Resume Endpoints (`/api/resume`)
-| Method | Endpoint | Access | Description |
-|:---|:---|:---:|:---|
-| `GET` | `/api/resume` | Private | Retrieve active candidate resume metadata |
-| `POST` | `/api/resume/upload` | Private | Upload PDF resume (`multipart/form-data`) |
-| `DELETE` | `/api/resume` | Private | Delete resume metadata and file from disk |
-| `GET` | `/api/resume/file/:filename` | Public | Stream PDF file for in-app preview or download |
-| `POST` | `/api/resume/analyze` | Private | Trigger Gemini AI resume analysis |
-
-> **Note:** AI Interview API endpoints (`/api/interviews`) are currently under active development.
-
----
-
-## 🔄 Core Workflows
-
-### Authentication Flow
-```
-User (Browser)               React (Client)             Express (Backend)             MongoDB
-      │                            │                            │                        │
-      ├─── Enter Credentials ─────►│                            │                        │
-      │    Submit Form             ├─── POST /api/auth/login ──►│                        │
-      │                            │    { email, password }     ├─── Find User ─────────►│
-      │                            │                            │    by Email            │
-      │                            │                            │◄── User Doc ───────────┤
-      │                            │                            │                        │
-      │                            │                            ├─── Verify Password     │
-      │                            │                            │    (bcrypt.compare)    │
-      │                            │                            │                        │
-      │                            │                            ├─── Sign JWT Token ────┐│
-      │                            │                            │◄──────────────────────┘│
-      │                            │◄── 200 OK + JWT + User ────┤                        │
-      │                            │                            │                        │
-      │                            ├─── Store JWT in            │                        │
-      │                            │    localStorage            │                        │
-      │                            ├─── Update AuthContext      │                        │
-      │◄── Redirect to Dashboard ──┤                            │                        │
-```
-
-### Resume Upload & Storage Flow
-```
-User (Browser)               React (Client)             Multer / Server               MongoDB
-      │                            │                            │                        │
-      ├─── Drag & Drop PDF ───────►│                            │                        │
-      │    or Click Upload         ├─── Validate File Type      │                        │
-      │                            │    (PDF & <= 5MB)          │                        │
-      │                            │                            │                        │
-      │                            ├─── POST /api/resume/upload►│                        │
-      │                            │    (multipart/form-data)   ├─── Multer Disk Storage │
-      │                            │    Progress Callback       │    Save to uploads/    │
-      │                            │◄── Progress (0 - 100%) ───│    resumes/            │
-      │                            │                            │                        │
-      │                            │                            ├─── Upsert Resume Doc ─►│
-      │                            │                            │◄── Saved Resume Doc ───┤
-      │                            │                            │                        │
-      │                            │◄── 201 Created + Metadata ──┤                        │
-      │◄── Render Success Toast ───┤                            │                        │
-```
+| Variable | Required | Sample Value | Description |
+|:---|:---:|:---|:---|
+| `PORT` | Yes | `5000` | Backend Express server port |
+| `NODE_ENV` | Yes | `development` | Environment mode (`development` / `production`) |
+| `MONGO_URI` | Yes | `mongodb+srv://user:pass@cluster.mongodb.net/db` | MongoDB Atlas connection string |
+| `CLIENT_ORIGIN` | Yes | `http://localhost:5173` | Allowed CORS frontend origin |
+| `JWT_ACCESS_SECRET` | Yes | `careerforge_access_secret_2026` | Secret key for signing JWT tokens |
+| `JWT_REFRESH_SECRET` | Yes | `careerforge_refresh_secret_2026` | Secret key for signing refresh tokens |
+| `GEMINI_API_KEY` | Yes | `AIzaSyD...` | Google Gemini AI API key for evaluation engines |
 
 ---
 
 ## 🖼️ Application Preview
 
 <details>
-<summary>📸 Click to view Application Screenshot Placeholders</summary>
+<summary>📸 Click to expand Application Screenshot Placeholders</summary>
 
-| View | Preview Placeholder |
+| View | Screenshot Placeholder |
 |:---|:---|
 | **Landing Page** | ![Landing Page](https://via.placeholder.com/800x450?text=CareerForge+Landing+Page) |
-| **Candidate Dashboard** | ![Dashboard](https://via.placeholder.com/800x450?text=CareerForge+Dashboard) |
-| **Career Profile** | ![Profile](https://via.placeholder.com/800x450?text=CareerForge+Candidate+Profile) |
+| **Central Hub Dashboard** | ![Dashboard](https://via.placeholder.com/800x450?text=CareerForge+Central+Dashboard) |
 | **Resume Analyzer** | ![Resume Analyzer](https://via.placeholder.com/800x450?text=CareerForge+Resume+Analyzer) |
-| **AI Interview Setup** | ![AI Interview](https://via.placeholder.com/800x450?text=CareerForge+AI+Interview+Setup) |
+| **AI Resume Evaluation Report** | ![Resume Report](https://via.placeholder.com/800x450?text=CareerForge+AI+Resume+Report) |
+| **Interview Setup** | ![Interview Setup](https://via.placeholder.com/800x450?text=CareerForge+Interview+Setup) |
+| **Interview Session** | ![Interview Session](https://via.placeholder.com/800x450?text=CareerForge+Interview+Session) |
+| **AI Interview Report** | ![Interview Report](https://via.placeholder.com/800x450?text=CareerForge+AI+Interview+Report) |
+| **Candidate Profile** | ![Profile](https://via.placeholder.com/800x450?text=CareerForge+Candidate+Profile) |
 
 </details>
 
 ---
 
-## 🗺️ Product Roadmap
+## 📊 Current Project Status
 
-- [x] **Phase 1: Foundation & Authentication**
-  - [x] Project architecture setup
-  - [x] User registration & login with JWT
-  - [x] Client AuthContext & Protected Route guards
-- [x] **Phase 2: Candidate Dashboard & Navigation**
-  - [x] Responsive layout with dark theme support
-  - [x] Top navigation & sidebar menus
-- [x] **Phase 3: Candidate Profile Module**
-  - [x] Mongoose Profile model & user synchronization
-  - [x] Form validation for academic, career, and personal details
-  - [x] Editable profile features with backend API integration
-- [x] **Phase 4: Resume Analyzer Module**
-  - [x] PDF file upload & local disk storage
-  - [x] File streaming endpoint and PDF preview modal
-  - [x] Full CRUD operations (upload, view, download, replace, delete)
-- [ ] **Phase 5: AI Interview Module (In Progress)**
-  - [ ] Interactive mock interview interface
-  - [ ] Speech & text response capture
-  - [ ] Gemini AI interview evaluation and scoring
-- [ ] **Phase 6: Advanced Career Tools (Planned)**
-  - [ ] Coding Practice room with syntax highlighting
-  - [ ] AI-generated career roadmap paths
-  - [ ] Real-time progress analytics and achievements
+- [x] **Authentication Module**: Register, Login, JWT Middleware, Protected Routes
+- [x] **Career Profile**: Profile Management, Avatar Sync, Personal & Academic Details
+- [x] **Resume Module**: Drag-and-Drop PDF Upload, Streaming Preview Modal, Replace/Delete
+- [x] **AI Resume Analyzer**: Gemini AI FAANG Recruiter Evaluation, ATS Compatibility, Score Rings
+- [x] **Resume Analytics & Version Tracker**: Progress History Cards, Sub-Score Deltas, Compare Reports Modal
+- [x] **Interview Engine**: Question Bank, Session Setup, Dynamic Session Tracking, Next Steps Guidance
+- [x] **AI Interview Evaluation**: Single-Request Gemini AI Evaluation, Question-by-Question Scoring
+- [x] **Central Hub Dashboard**: Aggregated `GET /api/dashboard` endpoint, Career Readiness Score, Activity Stream
+- [ ] **Coding Practice Room** *(Coming Soon)*
+- [ ] **AI Career Roadmap Generator** *(Coming Soon)*
+- [ ] **AI Career Mentor Coach** *(Coming Soon)*
 
 ---
 
-## 🌟 Key Engineering Highlights
+## 🗺️ Product Roadmap
 
-- **🔐 Production-Ready JWT Security:** Authentication utilizes standard HTTP Bearer token headers, persistent state sync, and strict server-side validation using `express-validator`.
-- **📂 Clean Modular Backend Architecture:** Strict layer separation (Routes → Controllers → Services → Models) guarantees high code maintainability.
-- **📄 Native PDF Handling:** Complete local disk file lifecycle management with atomic replacement and cleanup on deletion.
-- **🎨 Modern Responsive UI:** Modern aesthetics powered by React 19, Tailwind CSS v4, Lucide icons, and React Hot Toast.
-- **⚡ Fast Developer Experience:** Vite 8 HMR frontend development combined with Nodemon auto-reloading backend environment.
+### Version 1.0 (Completed)
+- Full MERN Architecture with JWT Bearer Token Security.
+- FAANG Recruiter Grade Resume Evaluation with Version Progress Tracker.
+- Single-Request AI Interview Evaluation Engine with Question-wise Feedback.
+- Central Aggregated Hub Dashboard with Career Readiness Score.
+
+### Version 2.0 (Upcoming)
+- **Coding Practice Room**: Interactive code editor with test case execution.
+- **AI Career Roadmap**: Personalized milestone path generation based on target roles.
+- **AI Mentor Coach**: Real-time Q&A assistant for interview preparation.
+- **Company-wise Question Banks**: Specialized question packages for top tech firms.
+- **Admin Dashboard**: System telemetry and content management.
+
+---
+
+## 🔒 Security & Data Protection
+
+- **JWT Authentication**: Secure Bearer authorization tokens with standard request header injection.
+- **Route Guard Protection**: Server-side `protect` middleware guarding all sensitive profile, resume, interview, and dashboard routes.
+- **Strict Input Validation**: `express-validator` schema validation preventing malformed requests.
+- **File Upload Security**: Multer file filter enforcing PDF format restrictions & 5 MB file size caps.
+
+---
+
+## ⚡ Performance Optimization
+
+- **Single Dashboard Aggregation Endpoint**: `GET /api/dashboard` runs non-blocking `Promise.all` queries across 5 collections, reducing round-trips to 1 request.
+- **Single-Request AI Interview Evaluation**: Evaluates all interview questions in a single AI call to minimize API latency.
+- **Database Query Optimization**: Mongoose indexing on `user` foreign keys and targeted `.select()` projections.
+- **Frontend Optimization**: Vite 8 HMR bundler with paginated history grid and lazy loading.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you'd like to contribute to CareerForge, please follow these steps:
+Contributions are welcome! To contribute:
 
-1. Fork the project repository.
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the branch (`git push origin feature/AmazingFeature`).
+1. Fork the Repository.
+2. Create a feature branch: `git checkout -b feature/AmazingFeature`
+3. Commit your changes: `git commit -m 'Add AmazingFeature'`
+4. Push to branch: `git push origin feature/AmazingFeature`
 5. Open a Pull Request.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the [ISC License](LICENSE).
+Distributed under the **MIT License**. See `LICENSE` for details.
 
 ---
 
 ## 👨‍💻 Author
 
-**Himanshu Dhurvey**  
-- GitHub: [@HimanshuDhurvey](https://github.com/HimanshuDhurvey)  
-- Repository: [CareerForge](https://github.com/HimanshuDhurvey/CareerForge)
-
----
-
-## 🙏 Acknowledgements
-
-- [React Team](https://react.dev/) for React 19.
-- [Vite Team](https://vitejs.dev/) for the ultra-fast build tooling.
-- [Tailwind Labs](https://tailwindcss.com/) for Tailwind CSS.
-- [Lucide](https://lucide.dev/) for icon designs.
+**Himanshu Dhurvey**
+- **GitHub**: [@HimanshuDhurvey](https://github.com/HimanshuDhurvey)
+- **Repository**: [CareerForge](https://github.com/HimanshuDhurvey/CareerForge)
