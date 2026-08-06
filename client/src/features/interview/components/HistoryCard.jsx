@@ -103,11 +103,11 @@ export default function HistoryCard({ interview }) {
 
       {/* ── CTA button ───────────────────────────────────────────────── */}
       <button
-        onClick={() => navigate('/ai-interviews/feedback')}
+        onClick={() => navigate(`/ai-interviews/details/${interview.id}`)}
         className="w-full inline-flex items-center justify-center gap-2 h-10 bg-gray-50 dark:bg-gray-800/40 hover:bg-[#60A5FA] hover:text-white dark:hover:bg-[#60A5FA] text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700 hover:border-[#60A5FA] font-bold text-xs rounded-xl transition-all duration-200 cursor-pointer"
       >
         <TrendingUp className="h-3.5 w-3.5" />
-        View Feedback
+        View Details & Answers
         <ChevronRight className="h-3.5 w-3.5 ml-auto" />
       </button>
     </article>

@@ -421,7 +421,11 @@ const getInterviewById = async (userId, interviewId) => {
     submittedAt: r.createdAt,
   }));
 
-  return {
+  const totalQuestionsCount = interview.totalQuestions || (interview.questions ? interview.questions.length : 0);
+  const answeredQuestionsCount = formattedResponses.length;
+  const completionPercentage = totalQuestionsCount > 0 ? Math.round((answeredQuestionsCount / totalQuestionsCount) * 100) : 0;
+
+  const sessionData = {
     id: interview._id,
     title: interview.title,
     status: interview.status,
@@ -430,12 +434,12 @@ const getInterviewById = async (userId, interviewId) => {
       category: interview.category || 'General',
       difficulty: interview.difficulty,
       interviewType: interview.interviewType,
-      totalQuestions: interview.totalQuestions,
+      totalQuestions: totalQuestionsCount,
       duration: interview.duration,
     },
     progress: {
       currentQuestionIndex: interview.currentQuestionIndex,
-      totalQuestions: interview.totalQuestions,
+      totalQuestions: totalQuestionsCount,
       status: interview.status,
     },
     questions: interview.questions || [],
@@ -447,6 +451,17 @@ const getInterviewById = async (userId, interviewId) => {
     feedback: interview.feedback,
     createdAt: interview.createdAt,
     updatedAt: interview.updatedAt,
+  };
+
+  return {
+    interview: sessionData,
+    totalQuestions: totalQuestionsCount,
+    answeredQuestions: answeredQuestionsCount,
+    duration: interview.duration,
+    completionPercentage,
+    aiEvaluationAvailable: false,
+    aiEvaluationStatus: 'Pending',
+    ...sessionData,
   };
 };
 

@@ -1,5 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import {
   Search,
   SlidersHorizontal,
@@ -7,17 +8,18 @@ import {
   X,
   ClipboardList,
   PlusCircle,
+  Loader2,
 } from 'lucide-react';
-import Sidebar   from '../../dashboard/components/Sidebar';
+import Sidebar from '../../dashboard/components/Sidebar';
 import TopNavbar from '../../dashboard/components/TopNavbar';
 import HistoryCard from '../components/HistoryCard';
-import { INTERVIEW_HISTORY, COMPANY_FILTER_OPTIONS } from '../data/interviewHistory';
+import { interviewService } from '../../../services/interviewService';
+import { COMPANY_FILTER_OPTIONS } from '../data/interviewHistory';
 import {
   TYPE_FILTER_OPTIONS,
   DIFFICULTY_FILTER_OPTIONS,
   SORT_OPTIONS,
 } from '../data/interviewTypes';
-
 
 // ─── Small select component ───────────────────────────────────────────────────
 function FilterSelect({ label, value, onChange, options }) {
@@ -28,12 +30,14 @@ function FilterSelect({ label, value, onChange, options }) {
       </label>
       <select
         value={value}
-        onChange={e => onChange(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         className="h-9 px-3 bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-xl text-xs font-semibold text-[#111111] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#60A5FA] focus:border-transparent cursor-pointer appearance-none transition-colors"
       >
-        {options.map(opt => (
-          <option key={typeof opt === 'string' ? opt : opt.key}
-            value={typeof opt === 'string' ? opt : opt.key}>
+        {options.map((opt) => (
+          <option
+            key={typeof opt === 'string' ? opt : opt.key}
+            value={typeof opt === 'string' ? opt : opt.key}
+          >
             {typeof opt === 'string' ? opt : opt.label}
           </option>
         ))}
@@ -47,7 +51,10 @@ function FilterPill({ label, onRemove }) {
   return (
     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 text-blue-600 dark:text-blue-400 text-[10px] font-bold rounded-full">
       {label}
-      <button onClick={onRemove} className="hover:text-blue-800 dark:hover:text-blue-200 cursor-pointer">
+      <button
+        onClick={onRemove}
+        className="hover:text-blue-800 dark:hover:text-blue-200 cursor-pointer"
+      >
         <X className="h-3 w-3" />
       </button>
     </span>
@@ -65,7 +72,7 @@ function EmptyState({ onReset }) {
         No interviews found
       </h3>
       <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 mb-5 max-w-xs">
-        No interviews match your current filters. Try adjusting the search or filters.
+        No interviews match your current filters or no interview sessions created yet.
       </p>
       <button
         onClick={onReset}
@@ -83,72 +90,125 @@ export default function InterviewHistory() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  const [loading, setLoading] = useState(true);
+  const [interviewsList, setInterviewsList] = useState([]);
+
   // Filters
-  const [search,     setSearch]     = useState('');
-  const [company,    setCompany]    = useState('All');
-  const [type,       setType]       = useState('All');
+  const [search, setSearch] = useState('');
+  const [company, setCompany] = useState('All');
+  const [type, setType] = useState('All');
   const [difficulty, setDifficulty] = useState('All');
-  const [sort,       setSort]       = useState('latest');
+  const [sort, setSort] = useState('latest');
+
+  // Load interviews from backend API
+  useEffect(() => {
+    const fetchHistory = async () => {
+      setLoading(true);
+      try {
+        const data = await interviewService.getUserInterviews({ page: 1, limit: 100 });
+        const items = data.interviews || [];
+
+        // Map backend interview properties to frontend card format
+        const formattedItems = items.map((item) => ({
+          id: item.id,
+          company: item.title?.split('-')[0]?.trim() || 'Target Company',
+          role: item.role || item.title || 'Developer',
+          type: item.interviewType || 'Technical',
+          difficulty: item.difficulty || 'Medium',
+          status: item.status,
+          score: item.score || 0,
+          date: item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'Recent',
+          duration: `${item.duration || 10} mins`,
+          totalQuestions: item.totalQuestions,
+        }));
+
+        setInterviewsList(formattedItems);
+      } catch (err) {
+        toast.error(err.message || 'Failed to load interview history');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHistory();
+  }, []);
 
   // Derived: filtered + sorted data
   const filtered = useMemo(() => {
-    let data = [...INTERVIEW_HISTORY];
+    let data = [...interviewsList];
 
     if (search.trim()) {
       const q = search.trim().toLowerCase();
-      data = data.filter(i =>
-        i.company.toLowerCase().includes(q) ||
-        i.role.toLowerCase().includes(q) ||
-        i.type.toLowerCase().includes(q)
+      data = data.filter(
+        (i) =>
+          i.company.toLowerCase().includes(q) ||
+          i.role.toLowerCase().includes(q) ||
+          i.type.toLowerCase().includes(q)
       );
     }
-    if (company    !== 'All') data = data.filter(i => i.company    === company);
-    if (type       !== 'All') data = data.filter(i => i.type       === type);
-    if (difficulty !== 'All') data = data.filter(i => i.difficulty === difficulty);
+    if (company !== 'All') data = data.filter((i) => i.company === company);
+    if (type !== 'All') data = data.filter((i) => i.type === type);
+    if (difficulty !== 'All') data = data.filter((i) => i.difficulty === difficulty);
 
     switch (sort) {
-      case 'oldest':    data.sort((a, b) => a.id - b.id); break;
-      case 'scoreDesc': data.sort((a, b) => b.score - a.score); break;
-      case 'scoreAsc':  data.sort((a, b) => a.score - b.score); break;
-      default:          data.sort((a, b) => b.id - a.id); break; // latest
+      case 'oldest':
+        data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        break;
+      case 'scoreDesc':
+        data.sort((a, b) => b.score - a.score);
+        break;
+      case 'scoreAsc':
+        data.sort((a, b) => a.score - b.score);
+        break;
+      default:
+        // latest
+        break;
     }
 
     return data;
-  }, [search, company, type, difficulty, sort]);
+  }, [interviewsList, search, company, type, difficulty, sort]);
 
   // Active filter pills
   const activePills = [
-    company    !== 'All' && { label: `Company: ${company}`,       clear: () => setCompany('All') },
-    type       !== 'All' && { label: `Type: ${type}`,             clear: () => setType('All') },
+    company !== 'All' && { label: `Company: ${company}`, clear: () => setCompany('All') },
+    type !== 'All' && { label: `Type: ${type}`, clear: () => setType('All') },
     difficulty !== 'All' && { label: `Difficulty: ${difficulty}`, clear: () => setDifficulty('All') },
-    search.trim()        && { label: `"${search.trim()}"`,        clear: () => setSearch('') },
+    search.trim() && { label: `"${search.trim()}"`, clear: () => setSearch('') },
   ].filter(Boolean);
 
   const resetAll = () => {
-    setSearch(''); setCompany('All'); setType('All'); setDifficulty('All'); setSort('latest');
+    setSearch('');
+    setCompany('All');
+    setType('All');
+    setDifficulty('All');
+    setSort('latest');
   };
 
   // Aggregate stats
-  const totalCount  = INTERVIEW_HISTORY.length;
-  const avgScore    = Math.round(INTERVIEW_HISTORY.reduce((sum, i) => sum + i.score, 0) / totalCount);
-  const bestScore   = Math.max(...INTERVIEW_HISTORY.map(i => i.score));
+  const totalCount = interviewsList.length;
+  const avgScore =
+    totalCount > 0
+      ? Math.round(interviewsList.reduce((sum, i) => sum + i.score, 0) / totalCount)
+      : 0;
+  const bestScore = totalCount > 0 ? Math.max(...interviewsList.map((i) => i.score)) : 0;
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-[#0b0f19] transition-colors">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <div className="flex-1 flex flex-col overflow-hidden">
-        <TopNavbar onMenuToggle={() => setSidebarOpen(p => !p)} />
+        <TopNavbar onMenuToggle={() => setSidebarOpen((p) => !p)} />
 
         <main className="flex-1 overflow-y-auto p-4 sm:p-6">
           <div className="max-w-7xl mx-auto w-full space-y-6">
-
             {/* ── Page Header ─────────────────────────────────────────────── */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2 text-[#60A5FA] mb-1">
                   <ClipboardList className="h-4 w-4" />
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest">AI Mock Interviews</span>
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest">
+                    AI Mock Interviews
+                  </span>
                 </div>
                 <h1 className="text-2xl font-extrabold text-[#111111] dark:text-white tracking-tight">
                   Interview History
@@ -171,19 +231,25 @@ export default function InterviewHistory() {
             <div className="grid grid-cols-3 gap-4">
               {[
                 { label: 'Total Sessions', value: totalCount, color: 'text-[#111111] dark:text-white' },
-                { label: 'Avg Score',      value: `${avgScore}%`, color: 'text-[#60A5FA]' },
-                { label: 'Best Score',     value: `${bestScore}%`, color: 'text-emerald-500' },
+                { label: 'Avg Score', value: `${avgScore}%`, color: 'text-[#60A5FA]' },
+                { label: 'Best Score', value: `${bestScore}%`, color: 'text-emerald-500' },
               ].map(({ label, value, color }) => (
-                <div key={label} className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-4 shadow-xs text-center">
-                  <div className={`text-xl sm:text-2xl font-extrabold tabular-nums ${color}`}>{value}</div>
-                  <div className="text-[9px] font-bold text-gray-400 uppercase tracking-wider mt-0.5">{label}</div>
+                <div
+                  key={label}
+                  className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-4 shadow-xs text-center"
+                >
+                  <div className={`text-xl sm:text-2xl font-extrabold tabular-nums ${color}`}>
+                    {value}
+                  </div>
+                  <div className="text-[9px] font-bold text-gray-400 uppercase tracking-wider mt-0.5">
+                    {label}
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* ── Filter Bar ──────────────────────────────────────────────── */}
             <div className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-4 sm:p-5 shadow-xs space-y-4">
-
               {/* Search + sort row */}
               <div className="flex flex-col sm:flex-row gap-3">
                 {/* Search */}
@@ -192,7 +258,7 @@ export default function InterviewHistory() {
                   <input
                     type="text"
                     value={search}
-                    onChange={e => setSearch(e.target.value)}
+                    onChange={(e) => setSearch(e.target.value)}
                     placeholder="Search by company, role, or type..."
                     className="w-full h-10 pl-9 pr-4 bg-gray-50 dark:bg-gray-800/40 border border-[#E5E7EB] dark:border-gray-800 rounded-xl text-xs font-medium text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#60A5FA] focus:border-transparent transition-colors"
                   />
@@ -221,9 +287,24 @@ export default function InterviewHistory() {
               {/* Filter selects row */}
               <div className="flex flex-wrap gap-3 items-end">
                 <SlidersHorizontal className="h-4 w-4 text-gray-400 self-end mb-2.5" />
-                <FilterSelect label="Company"    value={company}    onChange={setCompany}    options={COMPANY_FILTER_OPTIONS} />
-                <FilterSelect label="Type"       value={type}       onChange={setType}       options={TYPE_FILTER_OPTIONS} />
-                <FilterSelect label="Difficulty" value={difficulty} onChange={setDifficulty} options={DIFFICULTY_FILTER_OPTIONS} />
+                <FilterSelect
+                  label="Company"
+                  value={company}
+                  onChange={setCompany}
+                  options={COMPANY_FILTER_OPTIONS}
+                />
+                <FilterSelect
+                  label="Type"
+                  value={type}
+                  onChange={setType}
+                  options={TYPE_FILTER_OPTIONS}
+                />
+                <FilterSelect
+                  label="Difficulty"
+                  value={difficulty}
+                  onChange={setDifficulty}
+                  options={DIFFICULTY_FILTER_OPTIONS}
+                />
 
                 {activePills.length > 0 && (
                   <button
@@ -245,24 +326,43 @@ export default function InterviewHistory() {
               )}
             </div>
 
-            {/* ── Results count ────────────────────────────────────────────── */}
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-gray-400 dark:text-gray-500">
-                Showing <span className="font-extrabold text-[#111111] dark:text-white">{filtered.length}</span> of{' '}
-                <span className="font-extrabold text-[#111111] dark:text-white">{totalCount}</span> interviews
-              </span>
-            </div>
+            {/* ── Loading state ───────────────────────────────────────────── */}
+            {loading ? (
+              <div className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-12 flex flex-col items-center justify-center text-center">
+                <Loader2 className="h-8 w-8 text-[#60A5FA] animate-spin mb-3" />
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                  Loading Interview History...
+                </p>
+              </div>
+            ) : (
+              <>
+                {/* ── Results count ────────────────────────────────────────────── */}
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-gray-400 dark:text-gray-500">
+                    Showing{' '}
+                    <span className="font-extrabold text-[#111111] dark:text-white">
+                      {filtered.length}
+                    </span>{' '}
+                    of{' '}
+                    <span className="font-extrabold text-[#111111] dark:text-white">
+                      {totalCount}
+                    </span>{' '}
+                    interviews
+                  </span>
+                </div>
 
-            {/* ── Cards Grid ───────────────────────────────────────────────── */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-8">
-              {filtered.length > 0
-                ? filtered.map(interview => (
-                    <HistoryCard key={interview.id} interview={interview} />
-                  ))
-                : <EmptyState onReset={resetAll} />
-              }
-            </div>
-
+                {/* ── Cards Grid ───────────────────────────────────────────────── */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-8">
+                  {filtered.length > 0 ? (
+                    filtered.map((interview) => (
+                      <HistoryCard key={interview.id} interview={interview} />
+                    ))
+                  ) : (
+                    <EmptyState onReset={resetAll} />
+                  )}
+                </div>
+              </>
+            )}
           </div>
         </main>
       </div>

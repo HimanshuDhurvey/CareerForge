@@ -9,6 +9,8 @@ import {
 } from 'lucide-react';
 import Sidebar from '../../dashboard/components/Sidebar';
 import TopNavbar from '../../dashboard/components/TopNavbar';
+import { interviewService } from '../../../services/interviewService';
+import { useInterview } from '../../../context/InterviewContext';
 import { POPULAR_COMPANIES } from '../data/companies';
 import { POPULAR_ROLES } from '../data/roles';
 import {
@@ -76,7 +78,9 @@ export default function InterviewSetup() {
 
   const estimatedDuration = getEstimatedDuration();
 
-  // Validate and advance step
+  const { setCurrentInterviewId, setActiveSession } = useInterview();
+  const [submitting, setSubmitting] = useState(false);
+
   const handleNext = async () => {
     if (step === 1) {
       const isValid = await trigger(['company', 'role']);
@@ -92,28 +96,56 @@ export default function InterviewSetup() {
     setStep(prev => Math.max(prev - 1, 1));
   };
 
-  const onSubmit = (data) => {
-    toast.success('Session configured! Review the instructions before starting.');
+  const onSubmit = async (data) => {
+    setSubmitting(true);
+    try {
+      const difficultyMap = {
+        easy: 'Easy',
+        medium: 'Medium',
+        hard: 'Hard',
+      };
 
-    const difficultyLabel = data.difficulty.charAt(0).toUpperCase() + data.difficulty.slice(1);
-    const durationMins = (() => {
-      let mpp = data.difficulty === 'easy' ? 2 : data.difficulty === 'hard' ? 4.5 : 3;
-      if (data.interviewType === 'system-design') mpp += 1.5;
-      return data.numQuestions * mpp;
-    })();
+      const typeMap = {
+        technical: 'Technical',
+        hr: 'HR',
+        behavioral: 'Behavioral',
+        'system-design': 'Technical',
+        mixed: 'Mixed',
+      };
 
-    navigate('/ai-interviews/instructions', {
-      state: {
-        session: {
-          company: data.company,
-          role: data.role,
-          difficulty: difficultyLabel,
-          numQuestions: data.numQuestions,
-          interviewType: data.interviewType,
-          estimatedTime: `~${durationMins} mins`,
-        },
-      },
-    });
+      const payload = {
+        role: data.role.trim(),
+        difficulty: difficultyMap[data.difficulty] || 'Medium',
+        interviewType: typeMap[data.interviewType] || 'Technical',
+        numberOfQuestions: Number(data.numQuestions) || 10,
+        title: `${data.company ? data.company + ' - ' : ''}${data.role} Interview`,
+      };
+
+      const sessionData = await interviewService.startInterview(payload);
+      
+      const fullSession = {
+        id: sessionData.id,
+        company: data.company || 'Target Company',
+        role: sessionData.role,
+        difficulty: sessionData.difficulty,
+        numQuestions: sessionData.totalQuestions,
+        interviewType: sessionData.interviewType,
+        estimatedTime: `~${sessionData.duration} mins`,
+      };
+
+      setCurrentInterviewId(sessionData.id);
+      setActiveSession(fullSession);
+
+      toast.success('Interview session started! Review instructions before beginning.');
+
+      navigate('/ai-interviews/instructions', {
+        state: { session: fullSession },
+      });
+    } catch (err) {
+      toast.error(err.message || 'Failed to start interview session');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
 
@@ -451,9 +483,10 @@ export default function InterviewSetup() {
                       type="button"
                       key="btn-submit"
                       onClick={handleNext}
-                      className="inline-flex items-center gap-2 h-11 px-6 bg-[#60A5FA] hover:bg-blue-500 text-white font-bold text-xs rounded-xl transition-colors cursor-pointer shadow-xs"
+                      disabled={submitting}
+                      className="inline-flex items-center gap-2 h-11 px-6 bg-[#60A5FA] hover:bg-blue-500 text-white font-bold text-xs rounded-xl transition-colors cursor-pointer shadow-xs disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Start Interview
+                      {submitting ? 'Starting Session...' : 'Start Interview'}
                     </button>
                   )}
                 </div>

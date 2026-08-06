@@ -19,7 +19,7 @@ export default function SessionSidebar({
   estimatedMins,
   onJump,
 }) {
-  const answered = questions.filter(q => answers[q.id]?.trim()).length;
+  const answered = questions.filter(q => q.isAnswered || !!answers[q.id]?.trim()).length;
   const remaining = questions.length - answered;
 
   return (
@@ -59,15 +59,21 @@ export default function SessionSidebar({
 
         <div className="grid grid-cols-5 gap-2">
           {questions.map((q, idx) => {
-            const isAnswered = !!answers[q.id]?.trim();
+            const isAnswered = q.isAnswered || !!answers[q.id]?.trim();
             const isCurrent = idx === currentIndex;
 
             return (
               <button
                 key={q.id}
-                onClick={() => onJump(idx)}
-                title={`Question ${idx + 1}`}
-                className={`h-9 w-9 rounded-xl text-xs font-extrabold transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#60A5FA] focus:ring-offset-2 dark:focus:ring-offset-[#111827] ${
+                onClick={() => {
+                  if (idx < currentIndex) return;
+                  onJump(idx);
+                }}
+                disabled={idx < currentIndex}
+                title={idx < currentIndex ? 'Cannot revisit previously submitted questions' : `Question ${idx + 1}`}
+                className={`h-9 w-9 rounded-xl text-xs font-extrabold transition-colors focus:outline-none focus:ring-2 focus:ring-[#60A5FA] focus:ring-offset-2 dark:focus:ring-offset-[#111827] ${
+                  idx < currentIndex ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'
+                } ${
                   isCurrent
                     ? 'bg-[#60A5FA] text-white shadow-sm'
                     : isAnswered

@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import Sidebar from '../../dashboard/components/Sidebar';
 import TopNavbar from '../../dashboard/components/TopNavbar';
+import { useInterview } from '../../../context/InterviewContext';
 import { DEFAULT_SESSION } from '../data/questions';
 import { INSTRUCTIONS } from '../data/interviewTypes';
 
@@ -65,9 +66,11 @@ export default function InterviewInstructions() {
   const navigate = useNavigate();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { currentInterviewId, activeSession } = useInterview();
 
   // Allow real data to flow in via router state; fall back to DEFAULT_SESSION.
-  const session = location.state?.session ?? DEFAULT_SESSION;
+  const session = location.state?.session || activeSession || DEFAULT_SESSION;
+  const sessionId = session?.id || currentInterviewId;
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-[#0b0f19] transition-colors">
@@ -193,8 +196,9 @@ export default function InterviewInstructions() {
               <button
                 id="begin-interview-btn"
                 onClick={() => {
-                  navigate('/ai-interviews/session', {
-                    state: { session },
+                  const targetPath = sessionId ? `/ai-interviews/session/${sessionId}` : '/ai-interviews/session';
+                  navigate(targetPath, {
+                    state: { session, interviewId: sessionId },
                   });
                 }}
                 className="inline-flex items-center gap-2.5 h-12 px-8 bg-[#60A5FA] hover:bg-blue-500 text-white font-extrabold text-sm rounded-xl transition-colors cursor-pointer shadow-sm"
