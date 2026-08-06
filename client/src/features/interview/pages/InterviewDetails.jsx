@@ -26,12 +26,14 @@ import {
 import Sidebar from '../../dashboard/components/Sidebar';
 import TopNavbar from '../../dashboard/components/TopNavbar';
 import { interviewService } from '../../../services/interviewService';
+import { aiEvaluationService } from '../../../services/aiEvaluationService';
 
 export default function InterviewDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [evaluating, setEvaluating] = useState(false);
   const [sessionData, setSessionData] = useState(null);
 
   useEffect(() => {
@@ -64,8 +66,23 @@ export default function InterviewDetails() {
   const totalQ = sessionData?.totalQuestions ?? config.totalQuestions ?? 0;
   const answeredQ = sessionData?.answeredQuestions ?? interview?.userAnswers?.length ?? 0;
   const durationMins = sessionData?.duration ?? interview?.duration ?? 0;
-  const aiAvailable = sessionData?.aiEvaluationAvailable ?? false;
+  const aiAvailable = interview?.status === 'completed' || sessionData?.aiEvaluationAvailable || true;
   const aiStatus = sessionData?.aiEvaluationStatus || 'Pending';
+
+  const handleGenerateAiEvaluation = async () => {
+    if (!id) return;
+    setEvaluating(true);
+    try {
+      toast.loading('Analyzing interview answers with Gemini AI...', { id: 'eval-toast' });
+      await aiEvaluationService.evaluateInterview(id);
+      toast.success('AI Evaluation report generated successfully!', { id: 'eval-toast' });
+      navigate(`/ai-interviews/feedback/${id}`);
+    } catch (err) {
+      toast.error(err.message || 'Failed to generate AI evaluation', { id: 'eval-toast' });
+    } finally {
+      setEvaluating(false);
+    }
+  };
 
   const getDifficultyBadge = (level) => {
     switch (level?.toLowerCase()) {
@@ -437,39 +454,35 @@ export default function InterviewDetails() {
                       </button>
                     </div>
 
-                    {/* 2. AI Evaluation (Coming in Next Phase) */}
+                    {/* 2. AI Evaluation */}
                     <div className="bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-gray-800 rounded-2xl p-5 shadow-xs flex flex-col justify-between space-y-4 relative overflow-hidden">
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
                           <div className="p-2.5 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-500">
                             <Sparkles className="h-5 w-5" />
                           </div>
-                          <span className="text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-900 rounded-full">
-                            Coming Soon
+                          <span className="text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900 rounded-full">
+                            Gemini Powered
                           </span>
                         </div>
                         <h3 className="text-sm font-extrabold text-[#111111] dark:text-white">
-                          AI Evaluation
+                          AI Evaluation Engine
                         </h3>
                         <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 leading-relaxed">
-                          Generate comprehensive AI feedback, overall score, and improvement report.
+                          Generate comprehensive AI feedback, score breakdown, and strengths/weaknesses report.
                         </p>
                       </div>
                       <button
-                        disabled={!aiAvailable}
-                        onClick={() => {
-                          if (aiAvailable) {
-                            navigate(`/ai-interviews/feedback/${id}`);
-                          }
-                        }}
-                        className={`w-full inline-flex items-center justify-center gap-2 h-10 font-bold text-xs rounded-xl transition-colors ${
-                          aiAvailable
-                            ? 'bg-purple-600 hover:bg-purple-700 text-white cursor-pointer shadow-xs'
-                            : 'bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 cursor-not-allowed border border-gray-200 dark:border-gray-700'
-                        }`}
+                        disabled={evaluating}
+                        onClick={handleGenerateAiEvaluation}
+                        className="w-full inline-flex items-center justify-center gap-2 h-10 font-bold text-xs rounded-xl transition-colors bg-purple-600 hover:bg-purple-700 text-white cursor-pointer shadow-xs disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        <Sparkles className="h-3.5 w-3.5" />
-                        {aiAvailable ? 'View AI Feedback' : 'Coming Soon'}
+                        {evaluating ? (
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                        ) : (
+                          <Sparkles className="h-3.5 w-3.5" />
+                        )}
+                        {evaluating ? 'Evaluating with Gemini...' : 'Generate AI Evaluation'}
                       </button>
                     </div>
 

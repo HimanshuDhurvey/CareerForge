@@ -31,6 +31,7 @@ const authRoutes         = require('./routes/authRoutes');
 const profileRoutes      = require('./routes/profileRoutes');
 const resumeRoutes       = require('./routes/resumeRoutes');
 const interviewRoutes    = require('./routes/interviewRoutes');
+const aiEvaluationRoutes = require('./routes/aiEvaluationRoutes');
 const notFoundMiddleware = require('./middlewares/notFoundMiddleware');
 const errorMiddleware    = require('./middlewares/errorMiddleware');
 
@@ -115,6 +116,9 @@ app.use('/api/resume', resumeRoutes);
 
 /** Interviews — POST /api/interviews | GET /api/interviews, /:id | PATCH /api/interviews/:id | DELETE /api/interviews/:id */
 app.use('/api/interviews', interviewRoutes);
+
+/** AI Evaluation — POST /api/ai/evaluate/:interviewId | GET /api/ai/evaluation/:interviewId */
+app.use('/api/ai', aiEvaluationRoutes);
 
 // ─── 404 catch-all ───────────────────────────────────────────────────────────
 
