@@ -3,13 +3,11 @@
 /**
  * interviewValidator.js
  * ─────────────────────────────────────────────────────────────────────────────
- * express-validator rule sets for Interview endpoints.
+ * express-validator rule sets for Interview Engine endpoints.
  */
 
 const { body, param, validationResult } = require('express-validator');
 const ApiError                           = require('../utils/ApiError');
-
-// ─── Shared error collector ───────────────────────────────────────────────────
 
 /**
  * Collects validation errors and passes them to the global error handler as 422 ApiError.
@@ -28,18 +26,13 @@ const handleValidationErrors = (req, res, next) => {
   next();
 };
 
-// ─── Create Interview Rules ───────────────────────────────────────────────────
+// ─── Start Interview Rules ───────────────────────────────────────────────────
 
-const createInterviewRules = [
+const startInterviewRules = [
   body('role')
     .trim()
     .notEmpty()
     .withMessage('Role is required'),
-
-  body('category')
-    .trim()
-    .notEmpty()
-    .withMessage('Category is required'),
 
   body('difficulty')
     .trim()
@@ -55,18 +48,10 @@ const createInterviewRules = [
     .isIn(['Technical', 'HR', 'Behavioral', 'Mixed'])
     .withMessage('Interview type must be one of: Technical, HR, Behavioral, Mixed'),
 
-  body('totalQuestions')
-    .notEmpty()
-    .withMessage('Total questions is required')
-    .isInt({ min: 1, max: 100 })
-    .withMessage('Total questions must be an integer between 1 and 100'),
-
-  body('duration')
-    .notEmpty()
-    .withMessage('Duration is required')
-    .isNumeric()
-    .custom((val) => Number(val) >= 1)
-    .withMessage('Duration must be at least 1 minute'),
+  body('numberOfQuestions')
+    .optional()
+    .isInt({ min: 1, max: 50 })
+    .withMessage('Number of questions must be an integer between 1 and 50'),
 
   body('title')
     .optional()
@@ -77,7 +62,34 @@ const createInterviewRules = [
   handleValidationErrors,
 ];
 
-// ─── Update Interview Rules ───────────────────────────────────────────────────
+// ─── Save Answer Rules ───────────────────────────────────────────────────────
+
+const saveAnswerRules = [
+  param('id')
+    .isMongoId()
+    .withMessage('Invalid interview ID format'),
+
+  body('questionId')
+    .notEmpty()
+    .withMessage('Question ID is required')
+    .isMongoId()
+    .withMessage('Invalid question ID format'),
+
+  body('answer')
+    .trim()
+    .notEmpty()
+    .withMessage('Answer text is required'),
+
+  body('timeTaken')
+    .optional()
+    .isNumeric()
+    .custom((val) => Number(val) >= 0)
+    .withMessage('Time taken must be a non-negative number'),
+
+  handleValidationErrors,
+];
+
+// ─── Update Interview Rules (Legacy/Admin) ───────────────────────────────────
 
 const updateInterviewRules = [
   param('id')
@@ -130,7 +142,8 @@ const interviewIdParamRules = [
 ];
 
 module.exports = {
-  createInterviewRules,
+  startInterviewRules,
+  saveAnswerRules,
   updateInterviewRules,
   interviewIdParamRules,
 };

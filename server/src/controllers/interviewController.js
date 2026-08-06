@@ -3,23 +3,100 @@
 /**
  * interviewController.js
  * ─────────────────────────────────────────────────────────────────────────────
- * Controller layer for Interview management endpoints.
- * Interacts with interviewService and formats standard HTTP responses.
+ * Controller layer for Interview Engine endpoints.
+ * Interacts with interviewService and formats standardized HTTP responses.
  */
 
 const interviewService = require('../services/interviewService');
 const ApiResponse      = require('../utils/ApiResponse');
 
 /**
- * POST /api/interviews
- * Create a new interview session.
+ * POST /api/interviews/start
+ * Create and start a new intelligent interview session.
  */
-const createInterview = async (req, res, next) => {
+const startInterview = async (req, res, next) => {
   try {
-    const interview = await interviewService.createInterview(req.user._id, req.body);
+    const session = await interviewService.startInterview(req.user._id, req.body);
 
     res.status(201).json(
-      new ApiResponse(201, interview, 'Interview session created successfully')
+      new ApiResponse(201, session, 'Interview session created successfully')
+    );
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * GET /api/interviews/:id/question
+ * Retrieve current question and delivery state for an active interview session.
+ */
+const getCurrentQuestion = async (req, res, next) => {
+  try {
+    const questionData = await interviewService.getCurrentQuestion(
+      req.user._id,
+      req.params.id
+    );
+
+    res.status(200).json(
+      new ApiResponse(200, questionData, 'Current question fetched successfully')
+    );
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * POST /api/interviews/:id/answer
+ * Save candidate answer for a specific question with duplicate prevention.
+ */
+const saveAnswer = async (req, res, next) => {
+  try {
+    const response = await interviewService.saveAnswer(
+      req.user._id,
+      req.params.id,
+      req.body
+    );
+
+    res.status(200).json(
+      new ApiResponse(200, response, 'Answer saved successfully')
+    );
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * POST /api/interviews/:id/next
+ * Move to next question or notify interview completion.
+ */
+const nextQuestion = async (req, res, next) => {
+  try {
+    const result = await interviewService.nextQuestion(
+      req.user._id,
+      req.params.id
+    );
+
+    res.status(200).json(
+      new ApiResponse(200, result, 'Advanced to next question state successfully')
+    );
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * POST /api/interviews/:id/finish
+ * Mark interview completed and prepare data for AI evaluation.
+ */
+const finishInterview = async (req, res, next) => {
+  try {
+    const result = await interviewService.finishInterview(
+      req.user._id,
+      req.params.id
+    );
+
+    res.status(200).json(
+      new ApiResponse(200, result, 'Interview session finished successfully')
     );
   } catch (error) {
     next(error);
@@ -28,14 +105,17 @@ const createInterview = async (req, res, next) => {
 
 /**
  * GET /api/interviews
- * Fetch all interviews belonging to the authenticated user.
+ * List paginated interview history for the authenticated user (latest first).
  */
 const getUserInterviews = async (req, res, next) => {
   try {
-    const interviews = await interviewService.getUserInterviews(req.user._id);
+    const history = await interviewService.getUserInterviews(
+      req.user._id,
+      req.query
+    );
 
     res.status(200).json(
-      new ApiResponse(200, interviews, 'Interviews retrieved successfully')
+      new ApiResponse(200, history, 'Interview history retrieved successfully')
     );
   } catch (error) {
     next(error);
@@ -44,14 +124,17 @@ const getUserInterviews = async (req, res, next) => {
 
 /**
  * GET /api/interviews/:id
- * Fetch detailed information for a specific interview.
+ * Retrieve full details for a specific interview session (config, questions, answers).
  */
 const getInterviewById = async (req, res, next) => {
   try {
-    const interview = await interviewService.getInterviewById(req.user._id, req.params.id);
+    const details = await interviewService.getInterviewById(
+      req.user._id,
+      req.params.id
+    );
 
     res.status(200).json(
-      new ApiResponse(200, interview, 'Interview details retrieved successfully')
+      new ApiResponse(200, details, 'Interview details retrieved successfully')
     );
   } catch (error) {
     next(error);
@@ -64,14 +147,14 @@ const getInterviewById = async (req, res, next) => {
  */
 const updateInterview = async (req, res, next) => {
   try {
-    const updatedInterview = await interviewService.updateInterview(
+    const updated = await interviewService.updateInterview(
       req.user._id,
       req.params.id,
       req.body
     );
 
     res.status(200).json(
-      new ApiResponse(200, updatedInterview, 'Interview updated successfully')
+      new ApiResponse(200, updated, 'Interview session updated successfully')
     );
   } catch (error) {
     next(error);
@@ -84,7 +167,10 @@ const updateInterview = async (req, res, next) => {
  */
 const deleteInterview = async (req, res, next) => {
   try {
-    const result = await interviewService.deleteInterview(req.user._id, req.params.id);
+    const result = await interviewService.deleteInterview(
+      req.user._id,
+      req.params.id
+    );
 
     res.status(200).json(
       new ApiResponse(200, result, 'Interview session deleted successfully')
@@ -95,7 +181,12 @@ const deleteInterview = async (req, res, next) => {
 };
 
 module.exports = {
-  createInterview,
+  startInterview,
+  createInterview: startInterview, // Backward compatibility alias
+  getCurrentQuestion,
+  saveAnswer,
+  nextQuestion,
+  finishInterview,
   getUserInterviews,
   getInterviewById,
   updateInterview,

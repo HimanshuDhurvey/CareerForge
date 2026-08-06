@@ -29,9 +29,15 @@ const interviewSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      required: [true, 'Category is required'],
+      default: 'General',
       trim: true,
     },
+    questions: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question',
+      },
+    ],
     interviewType: {
       type: String,
       required: [true, 'Interview type is required'],
