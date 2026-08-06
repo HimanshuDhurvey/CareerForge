@@ -32,6 +32,7 @@ const profileRoutes      = require('./routes/profileRoutes');
 const resumeRoutes       = require('./routes/resumeRoutes');
 const interviewRoutes    = require('./routes/interviewRoutes');
 const aiEvaluationRoutes = require('./routes/aiEvaluationRoutes');
+const dashboardRoutes    = require('./routes/dashboardRoutes');
 const notFoundMiddleware = require('./middlewares/notFoundMiddleware');
 const errorMiddleware    = require('./middlewares/errorMiddleware');
 
@@ -119,6 +120,9 @@ app.use('/api/interviews', interviewRoutes);
 
 /** AI Evaluation — POST /api/ai/evaluate/:interviewId | GET /api/ai/evaluation/:interviewId */
 app.use('/api/ai', aiEvaluationRoutes);
+
+/** Dashboard — GET /api/dashboard */
+app.use('/api/dashboard', dashboardRoutes);
 
 // ─── 404 catch-all ───────────────────────────────────────────────────────────
 

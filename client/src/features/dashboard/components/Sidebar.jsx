@@ -14,8 +14,8 @@ export default function Sidebar({ isOpen, onClose }) {
     { name: 'Dashboard',      icon: LayoutDashboard, path: '/dashboard' },
     { name: 'Career Profile', icon: User,            path: '/profile' },
     { name: 'AI Interviews',  icon: Video,           path: '/ai-interviews' },
+    { name: 'Resume Analyzer',icon: FileText,        path: '/resume' },
     { name: 'Coding Practice',icon: Code2,           path: '/coding-practice' },
-    { name: 'Resume Analyzer',icon: FileText,        path: '/resume-analyzer' },
     { name: 'Career Roadmap', icon: Map,             path: '/career-roadmap' },
     { name: 'AI Mentor',      icon: Bot,             path: '/ai-mentor' },
   ];
